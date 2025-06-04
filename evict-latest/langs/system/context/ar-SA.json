@@ -1,0 +1,18 @@
+{
+    "language": "العربية",
+    "language_code": "ar",
+    "language_local": "ar-SA",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "ما تمّت الموافقة على الطلب!",
+            "FAILED_SEND_PROMPT": "فشل في إرسال الرسالة!",
+            "ONLY_USER_RESPOND": "بس **{user}** يقدر يرد على هذا!",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "موافق",
+                    "decline": "رافض"
+                }
+            }
+        }
+    }
+}

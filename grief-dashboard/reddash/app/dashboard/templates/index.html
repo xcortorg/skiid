@@ -1,0 +1,82 @@
+{% extends "base-site.html" %}
+
+{% block title %} {{ _('Home') }} {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+
+  <div class="col-12">
+    <div class="card card-chart">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-3">
+            <br />
+            <img src="{{ botavatar }}"
+              style="height: 200px; width: 200px; border-radius: 50%; margin: auto; display: block;"
+            >
+            <br />
+          </div>
+          <div class="col-lg-8">
+            <h4>{{ botname }}</h4>
+            <br />
+            <h4> 
+grief is one of the most advanced bots on Discord. with over 500 commands and over 20 message-based events, grief is a bot that enhances the Discord experience like no other. whether it's integration with other services and platforms or its advanced moderation commands, servers that use Melanie are the best servers on Discord. </h4>
+            <br />
+            {% if redirect %}
+            <a href="{{ invite }}" target="_blank">Invite</a>
+            {% endif %}
+            {% if support %}
+            • <a href="{{ support }}" target="_blank">{{ _('Join support server') }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% if redirect %}
+<div class="row">
+  <div class="col-lg-4">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-category">{{ _('Total Servers') }}</h5>
+        <h3 class="card-title"><i class="tim-icons icon-bank text-primary"></i><span id="servers">{{ servers }}</span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-category">{{ _('Total Users') }}</h5>
+        <h3 class="card-title"><i class="tim-icons icon-single-02 text-info"></i><span id="users">{{ users }}</span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-category">{{ _('Been up for') }}</h5>
+        <h3 class="card-title"><i class="tim-icons icon-badge text-success"></i><span
+            id="onlineusers">{{ uptime }}</span></h3>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script>
+</script>
+
+{% endblock javascripts %}

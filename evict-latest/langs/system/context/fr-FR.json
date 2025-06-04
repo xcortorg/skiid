@@ -1,0 +1,18 @@
+{
+    "language_code": "fr-FR",
+    "language": "fr-FR",
+    "language_local": "fr-FR",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "La demande de confirmation n'a pas été approuvée !",
+            "FAILED_SEND_PROMPT": "Échec de l'envoi du message d'invite !",
+            "ONLY_USER_RESPOND": "Seul **{user}** peut répondre à cette question !",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "Approuver",
+                    "decline": "Déclin"
+                }
+            }
+        }
+    }
+}

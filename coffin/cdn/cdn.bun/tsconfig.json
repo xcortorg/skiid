@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "target": "es5", // or any other target you prefer
+      "noEmit": true,
+      "lib": ["es2015", "dom"], // Add "es2015" or later
+    }
+  }

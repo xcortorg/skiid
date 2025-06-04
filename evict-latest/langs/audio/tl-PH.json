@@ -1,0 +1,20 @@
+{
+    "language_code": "tl-PH",
+    "language": "tl-PH",
+    "language_local": "tl-PH",
+    "errors": {
+        "PLAYER": {
+            "NOT_IN_VOICE": "Wala ka sa voice channel!",
+            "NOT_SHARING_VOICE": "Wala ka sa voice channel ko!",
+            "CLIENT_NOT_IN_VOICE": "Wala ako sa voice channel!",
+            "CLIENT_MISSING_PERMS": "Wala akong pahintulot kumonekta sa iyong voice channel!",
+            "CLIENT_NOT_PLAYING": "Walang nagpl-play!",
+            "NO_QUEUE": "Walang laman ang queue!",
+            "INVALID_QUEUE_POSITION": "Maling posisyon - dapat nasa gitna ng `1` at `{len(queue)}`!",
+            "FAILED_TO_CONNECT": "Hindi makakonekta sa voice channel",
+            "FAILED_TO_GET_TRACK_SP": "Hindi makakuha ng track info sa Spotify!",
+            "FAILED_TO_GET_TRACK_SC": "Hindi makahanap ng tumutugmang tracks sa SoundCloud!",
+            "NO_RESULTS": "Walang nakitang resulta!"
+        }
+    }
+}

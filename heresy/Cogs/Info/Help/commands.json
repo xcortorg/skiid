@@ -1,0 +1,1142 @@
+{
+  "commands": {
+    "Antinuke": {
+      "antinuke": {
+        "description": "AMERICA.",
+        "syntax": ",antinuke <action> <status> [flags]",
+        "example": ",antinuke ban yes --threshold 3 --duration 10 --punishment ban",
+        "permissions": "Antinuke Admin",
+        "flags": "--threshold, --duration, --punishment"
+      },
+      "antrust": {
+        "description": "Entrusts a user with the Antinuke System.",
+        "syntax": ",antrust <user.mention>",
+        "example": ",antrust @playfairs",
+        "permissions": "Guild Owner"
+      },
+      "panel": {
+        "description": "Shows the Antinuke Settings for the Server.",
+        "syntax": ",panel",
+        "example": ",panel",
+        "permissions": "None"
+      },
+      "whitelist": {
+        "description": "Whitelists a member from triggering the Antinuke.",
+        "syntax": ",whitelist <user.mention>",
+        "example": ",whitelist @playfairs",
+        "permissions": "Antinuke Admin"
+      }
+    },
+    "Automod": {
+      "filter": {
+        "description": "Adds/Removes a word from the Automod Filter",
+        "syntax": ",filter <arg> <word>",
+        "example": ",filter add Skibidi",
+        "permisions": "Administrator",
+        "note": "This shitty command doesnt work right now 💀",
+        "args": "Add, Remove"
+      }
+    },
+    "Alias": {
+      "alias-add": {
+        "description": "Adds an alias for an existing command",
+        "syntax": ",alias-add <alias> <command>",
+        "example": ",alias-add brb afk",
+        "permissions": "Administrator",
+        "note": "Aliases have been deprecated, they now function as global aliases but need to be added by the developer"
+      },
+      "alias-remove": {
+        "description": "Removes an alias from a command",
+        "syntax": ",alias-remove <alias>",
+        "example": ",alias-remove brb",
+        "permissions": "Administrator",
+        "note": "Aliases have been deprecated, they now function as global aliases but need to be added by the developer"
+      },
+      "alist": {
+        "description": "Shows the list of aliases for a server",
+        "syntax": ",alist",
+        "example": ",alist",
+        "permisions": "none",
+        "note": "Aliases have been deprecated, they now function as global aliases but need to be added by the developer"
+      }
+    },
+    "Developer": {
+      "blacklist": {
+        "description": "Blacklists the bot from a specific Guild, preventing it from joining",
+        "syntax": ",blacklist <guild_id>",
+        "example": ",blacklist 123456789012345678",
+        "permisions": "Developer"
+      },
+      "botnick": {
+        "description": "Changes the bots Username",
+        "syntax": ",botnick <name>",
+        "example": ",botnick Heresy",
+        "permisions": "Developer",
+        "aliaes": ["rebrand"]
+      },
+      "changeav": {
+        "description": "Changes the bots Avatar",
+        "syntax": ",changeav <image.url>",
+        "example": ",changeav https://example.png",
+        "permssions": "Developer"
+      },
+      "changebanner": {
+        "description": "Changes the bots Banner",
+        "syntax": ",changebanner <image.url>",
+        "example": ",changebanner https://example.png",
+        "permissions": "Developer"
+      },
+      "clearstatus": {
+        "description": "Clears the custom status and resumes the status rotator",
+        "syntax": ",clearstatus",
+        "example": ",clearstatus",
+        "permissions": "Developer"
+      },
+      "dev": {
+        "description": "Forces the bot into Developer Mode and disables commands from all users",
+        "syntax": ",dev",
+        "example": ",dev",
+        "permissions": "Developer",
+        "note": "This is not a quick process, as it enables in every server."
+      },
+      "fix": {
+        "description": "Disabled dev mode",
+        "syntax": ",fix",
+        "example": ",fix",
+        "permissions": "Developer",
+        "note": "This is not a quick process, as it fixes in every server."
+      },
+      "getinvite": {
+        "description": "Gets a server invite link for a server based on the Guild ID",
+        "syntax": ",getinvite <guild_id>",
+        "example": ",getinvite 961097369817071626",
+        "permisions": "Developer"
+      },
+      "reload-all": {
+        "description": "Reloads all cogs and new commands (in previously existing cogs)",
+        "syntax": ",fix",
+        "example": ",fix",
+        "permissions": "Developer",
+        "note": "This DOES work and is really time saving, HOWEVER, this does not load new cogs, Restart the bot to do that."
+      },
+      "reload-cog": {
+        "description": "Reloads the specified cog",
+        "syntax": ",reload-cog <cog_name>",
+        "example": ",reload-cog help",
+        "permissions": "Developer",
+        "note": "This is a legacy command, and does not work with the new file management system at the moment."
+      },
+      "restart": {
+        "description": "This doesn't do what i want it to.",
+        "syntax": ",restart",
+        "example": ",restart",
+        "permissions": "Client Side",
+        "note": "This command does not actually work the way it should, therefor it it useless and just exists."
+      },
+      "revoke": {
+        "description": "Revokes the bot from a server",
+        "syntax": ",revoke",
+        "example": ",revoke [guild_id]",
+        "permissions": "Developer",
+        "note": "This should only be used when the bot is being misused in a server"
+      },
+      "scope": {
+        "description": "Creates a Invite Link for Heresy.",
+        "syntax": ",scope <secret>",
+        "example": ",scope",
+        "permissions": "Developer",
+        "note": "This command can be ran by anyone, however you need the secret to actually get the Invite Link, otherwise your unauthorized."
+      },
+      "servers": {
+        "description": "Shows all the servers the bot is in",
+        "syntax": ",servers",
+        "example": ",servers",
+        "permissions": "Developer",
+        "note": "This command should only ever be used when the bot get's added to an unauthorized server."
+      },
+      "status": {
+        "description": "Sets the bots Custom Status",
+        "syntax": ",status <status>",
+        "example": ",status /Heresy",
+        "permissions": "Developer"
+      },
+      "taskkill": {
+        "description": "Kills the Terminal Process running the bot",
+        "syntax": ",taskkill",
+        "example": ",taskkill",
+        "permissions": "Client Side",
+        "aliases": ["kill", "terminate", "taskkill/windows-terminal.exe"],
+        "note": "When this command runs, the bot shouldn't respond; any response is likely due to TASKKILL latency."
+      },
+      "unload-cog": {
+        "description": "Unloads the specified cog",
+        "syntax": ",unload-cog <cog_name>",
+        "example": ",unload-cog help",
+        "permissions": "Developer",
+        "note": "This is a legacy command, and does not work with the new file management system at the moment."
+      }
+    },
+    "Fun": {
+      "add-outcome": {
+        "description": "Adds an outcome for Diplodoculus",
+        "syntax": ",add-outcome <outcome>",
+        "example": ",add-outcpme This is an example of an outcome",
+        "permissions": "Administrator (i think)"
+      },
+      "battle": {
+        "description": "Fights a Diploduculus..",
+        "syntax": ",battle",
+        "example": ",battle",
+        "permissions": "none"
+      },
+      "diplodraw": {
+        "description": "Draws a Diplodoculus ASCII Art",
+        "syntax": ",diplodraw",
+        "exmaple": ",diplodraw",
+        "permissions": "none"
+      },
+      "diplometer": {
+        "description": "Shows how much of a Diplodoculus you are",
+        "syntax": ",diplometer",
+        "example": ",diplometer",
+        "permissions": "none"
+      },
+      "inferno": {
+        "description": "Displays info about the 9 Circles of Hell.",
+        "syntax": ",inferno [args]",
+        "example": ",inferno Heresy",
+        "permisions": "none",
+        "args": "Limbo, Lust, Gluttony, Greed, Wrath, Heresy, Violence, Fraud, Treachery",
+        "note": "I made this solely because the bot is called Heresy, which is the 6th Circle of Hell"
+      },
+      "lore": {
+        "description": "Loads a users lorebook",
+        "syntax": ",lore <user.mention>",
+        "example": ",lore @playfairs",
+        "permisions": "none",
+        "note": "Fuck you Lina and Nova"
+      },
+      "loreadd": {
+        "description": "Adds a message to a lorebook",
+        "syntax": ",loreadd",
+        "example": ",loreadd",
+        "permisions": "none",
+        "note": "You have to reply to a message to add it",
+        "aliaes": ["addlore"]
+      },
+      "name": {
+        "description": "Name your diplocdoculus",
+        "syntax": ",name <name>",
+        "exmaple": ",name Example",
+        "permissions": "none"
+      },
+      "pets": {
+        "description": "Shows all the pets you own",
+        "syntax": ",pets",
+        "exmple": ",pets",
+        "permssions": "none"
+      },
+      "summon": {
+        "description": "Summons a Diplodoculus",
+        "syntax": ",summon",
+        "example": ",summon",
+        "permissions": "none"
+      },
+      "tame": {
+        "description": "Tames a Diplodoculus",
+        "syntax": ",tame",
+        "example": ",tame",
+        "permissions": "none"
+      },
+      "xp": {
+        "description": "Views a users xp and level",
+        "syntax": ",xp [user.mention]",
+        "example": ",xp",
+        "permissions": "none"
+      },
+      "1v1": {
+        "description": "Fight another users Diplodoculus",
+        "syntax": ",1v1 <user.mention>",
+        "exmaple": ",1v1 @playfairs",
+        "permissions": "none"
+      }
+    },
+    "Info": {
+      "about": {
+        "description": "Shows the about me for the bot and developer",
+        "syntax": "/about <flags>",
+        "example": "/about Heresy",
+        "permissions": "Use Application Commands",
+        "flags": "Playfair, Heresy"
+      },
+      "cmdcount": {
+        "description": "Shows how many commands there are in total",
+        "syntax": ",cmdcount",
+        "example": ",cmdcount",
+        "permisions": "none"
+      },
+      "commands": {
+        "description": "Shows this message or shows info about another command",
+        "syntax": ",commands [command]",
+        "example": ",commands",
+        "permissions": "none",
+        "aliases": ["cmd"]
+      },
+      "id": {
+        "description": "Gets a mentioned user's User ID",
+        "syntax": ",id <user.mention>",
+        "example": ",id @playfairs",
+        "permisions": "none",
+        "note": "For some reason, this does not ID the user if no one is mentioned.. it should"
+      },
+      "ishelp": {
+        "description": "Shows if a specific command is documented in help or not",
+        "syntax": ",ishelp",
+        "example": ",ishelp",
+        "permisions": "none"
+      },
+      "mc": {
+        "description": "Shows the member count",
+        "syntax": ",mc",
+        "example": ",mc",
+        "permissions": "none"
+      },
+      "notinhelp": {
+        "description": "Shows which commands are un-documented in Help",
+        "syntax": ",notinhelp",
+        "example": ",notinhelp",
+        "permisions": "none",
+        "aliaes": ["doc?, notdoc"]
+      },
+      "si": {
+        "description": "Shows the basic info about the server",
+        "syntax": ",si",
+        "example": ",si",
+        "permissions": "none"
+      },
+      "version": {
+        "description": "Gets the version info for the bot, python, and discord.py",
+        "syntax": "--version",
+        "example": "--version",
+        "permissions": "none"
+      },
+      "whois": {
+        "description": "Shows the info about a mentioned user, or self if none mentioned",
+        "syntax": ",whois [user.mention]",
+        "example": ",whois @playfairs",
+        "permissions": "none",
+        "aliases": ["ui, userinfo"],
+        "note": "Some users have custom whois profiles.. Message @playfairs to find out if you can get one"
+      },
+      "whoid": {
+        "description": "Shows basic info about a user via User ID",
+        "syntax": ",whoid <user.id>",
+        "example": ",whoid 785042666475225109",
+        "permissions": "none",
+        "note": "This command is different from WhoIs, whois can only get server members, this can do any, with the exception of limited info"
+      },
+      "whereis": {
+        "description": "Locates the file of which a command is located",
+        "syntax": ",whereis <command>",
+        "example": ",whereis help",
+        "permisions": "none",
+        "note": "This is typically just incase I (playfairs), lose a command"
+      }
+    },
+    "Lockdown": {
+      "abt": {
+        "description": "Alternative to /about",
+        "syntax": ",abt",
+        "example": ",abt",
+        "permisions": "none"
+      },
+      "access": {
+        "description": "Grants access to a specific channel",
+        "syntax": ",access <channel>",
+        "example": ",access #channel",
+        "permissions": "Administrator"
+      },
+      "access-role": {
+        "description": "Sets the access role in the config",
+        "syntax": ",access-role <role>",
+        "example": ",access-role @access",
+        "permissions": "Administrator"
+      },
+      "create-backup": {
+        "description": "Creates a server backup",
+        "syntax": ",create-backup",
+        "example": ",create-backup",
+        "permisions": "Administrator",
+        "note": "This command is pretty much useless since lockdown is broken"
+      },
+      "exempt-user": {
+        "description": "Exempts a user from lockdown",
+        "syntax": ",exempt-user <user.mention>",
+        "example": ",exempt-user @playfairs",
+        "permisions": "Manage Channels"
+      },
+      "hide": {
+        "description": "Hides a channel",
+        "syntax": ",hide [channel]",
+        "example": ",hide",
+        "permissions": "Manage Channels"
+      },
+      "hide-all": {
+        "description": "Hides all channels",
+        "syntax": ",hide-all",
+        "example": ",hide-all",
+        "permissions": "Administrator"
+      },
+      "ignore": {
+        "description": "Exempts a channel from lockdown",
+        "syntax": ",ignore <channel>",
+        "example": ",ignore #typeshit",
+        "permisions": "Manage Channels"
+      },
+      "lock": {
+        "description": "Locks a channel",
+        "syntax": ",lock [channel]",
+        "example": ",lock",
+        "permissions": "Manage Channels"
+      },
+      "lock-all": {
+        "description": "Locks all channels",
+        "syntax": ",lock-all",
+        "example": ",lock-all",
+        "permissions": "Administrator"
+      },
+      "restore": {
+        "description": "Restores the server from lockdown",
+        "syntax": ",restore",
+        "example": ",restore",
+        "permisions": "Manage Guild",
+        "note": "This command does not currently work, neither does ,lockdown."
+      },
+      "lockdown": {
+        "description": "Locks and hides all channels, typically for revamping",
+        "syntax": ",lockdown",
+        "example": ",lockdown",
+        "permissions": "Administrator",
+        "note": "This command does not currently work, mainly because Restore is broken."
+      },
+      "mem-role": {
+        "description": "Sets the default member role in the config",
+        "syntax": ",mem-rolt <role>",
+        ",example": ",mem-role @member",
+        "permissions": "Administrator"
+      },
+      "unlock": {
+        "description": "Unlocked a channel",
+        "syntax": ",unlock [channe;]",
+        "example": ",unlock",
+        "permissions": "Manage Channels"
+      },
+      "unlock-all": {
+        "description": "Unlocks all channels",
+        "syntax": ",unlock-all",
+        "example": ",unlock-all",
+        "permissions": "Administrator"
+      },
+      "unhide": {
+        "description": "Unides a channel",
+        "syntax": ",unhide [channel]",
+        "example": ",unhide",
+        "permissions": "Manage Channels"
+      },
+      "unhide-all": {
+        "description": "Unides all channels",
+        "syntax": ",unhide-all",
+        "example": ",unhide-all",
+        "permissions": "Administrator"
+      }
+    },
+    "Last.FM (Needs Work)": {
+      "auth": {
+        "description": "Authorizes your Last.fm Account with Heresy",
+        "syntax": ",auth",
+        "example": ",auth",
+        "permisions": "none",
+        "note": "None of the Last.FM Commands work at the moment, please wait until these have been changed"
+      },
+      "fm": {
+        "description": "Shows you or someone else's current track",
+        "syntax": ",fm [user.mention]",
+        "example": ",fm",
+        "permisions": "none",
+        "aliaes": ["np"],
+        "note": "None of the Last.FM Commands work at the moment, please wait until these have been changed"
+      },
+      "login": {
+        "description": "Logins to Last.fm with Heresy",
+        "syntax": ",login",
+        "example": ",login",
+        "permisions": "none",
+        "note": "None of the Last.FM Commands work at the moment, please wait until these have been changed"
+      },
+      "logout": {
+        "description": "Logs out of Last.fm with Heresy",
+        "syntax": ",logout",
+        "example": ",logout",
+        "permisions": "none",
+        "note": "None of the Last.FM Commands work at the moment, please wait until these have been changed"
+      },
+      "topartists": {
+        "description": "Shows your top artists",
+        "syntax": ",topartists",
+        "example": ",topartists",
+        "permisions": "none",
+        "aliases": ["ta, top"],
+        "note": "None of the Last.FM Commands work at the moment, please wait until these have been changed"
+      }
+    },
+    "Mirror": {
+      "mirror": {
+        "description": "Mirror mirror on the wall.. (Mirrors a user)",
+        "syntax": ",mirror <user.mention>",
+        "example": ",mirror @playfairs",
+        "permissions": "none"
+      },
+      "stopmirror": {
+        "description": "Stops mirroring the current user.",
+        "syntax": ",stopmirror",
+        "example": ",stopmirror",
+        "permissions": "none"
+      }
+    },
+    "Misc": {
+      "ad": {
+        "description": "Displays Heresy's Server Ad",
+        "syntax": ",ad",
+        "example": ",ad",
+        "permisions": "none"
+      },
+      "default-lang": {
+        "description": "Sets the default Language for Translate",
+        "syntax": ",default-lang <language>",
+        "example": ",default-lang English",
+        "permisions": "none"
+      },
+      "define": {
+        "description": "Really? You really need a description for the word Define?",
+        "syntax": ",define <word>",
+        "example": ",define Heresy",
+        "permisions": "none"
+      },
+      "enslave": {
+        "description": "Creates the Heresy's Victims role if none found, and gives it to the mentioned user",
+        "syntax": ",enslave <user.mention>",
+        "example": ",enslave @playfairs",
+        "permisions": "Manage Roles",
+        "note": "Do you really need a note to tell you how useless this commmand is?"
+      },
+      "issues": {
+        "description": "Views all reported issues",
+        "syntax": ",issues",
+        "example": ",issues",
+        "permisions": "none",
+        "note": "Only issues that have not been fixed will show"
+      },
+      "patched": {
+        "description": "Marks an issue as fixed",
+        "syntax": ",patched <case>",
+        "example": ",patched #1",
+        "permisions": "Developer"
+      },
+      "p4p-setup": {
+        "description": "Sets up the p4p category and channels",
+        "syntax": ",p4p-setup",
+        "example": ",p4p-setup",
+        "permisions": "Administrator"
+      },
+      "report": {
+        "description": "Reports an issue with the bot",
+        "syntax": ",report <issue>",
+        "example": ",report AFK command not working",
+        "permisions": "none",
+        "note": "When you report an issue, please be specific with the report as it makes it easier to patch and fix"
+      },
+      "THE_EVIL_THAT_MEN_DO": {
+        "description": "WHO THE FUCK SAID RUBY DONE LOST HIS TOUCH?",
+        "syntax": ",THE_EVIL_THAT_MEN_DO",
+        "example": ",THE_EVIL_THAT_MEN_DO",
+        "permisions": "none",
+        "note": "They saying you lost touch"
+      },
+      "sb": {
+        "description": "Logs a user as a selfbot",
+        "syntax": ",sb <user.mention>",
+        "example": ",sb @playfairs",
+        "permisions": "Administrator",
+        "note": "This command is specifically for Anti-SelfBot, which is still in testing and may be deprecated at any time without notice."
+      },
+      "translate": {
+        "description": "Translates a message",
+        "syntax": ",translate <message>",
+        "example": ",translate негр",
+        "permisions": "none"
+      },
+      "urban": {
+        "description": "Searches the urban dictionary",
+        "syntax": ",urban <word>",
+        "example": ",urban Heresy",
+        "permisions": "none"
+      }
+    },
+    "Moderation": {
+      "armory": {
+        "description": "Shows the armory help menu",
+        "syntax": ",armory",
+        "example": ",armory",
+        "permissions": "none",
+        "note": "Armory is the Security System for Heresy, nothing more"
+      },
+      "ban": {
+        "description": "Bans a member from the server.",
+        "syntax": ",ban <user> [reason]",
+        "example": ",ban @playfairs Ignoring server rules",
+        "permissions": "Ban Members"
+      },
+      "banlist": {
+        "description": "Shows the full list of banned users",
+        "syntax": ",banlist",
+        "example": ",banlist",
+        "permisions": "Administrator",
+        "note": "This command is part of Armory."
+      },
+      "hardban": {
+        "description": "Hardbans a user from a server",
+        "syntax": ",hardban <user.mention>",
+        "example": ",hardban @playfairs",
+        "permissions": "Administrator"
+      },
+      "jail": {
+        "description": "Jails a user",
+        "syntax": ",jail <user.mention> [reason]",
+        "example": ",jail @playfairs",
+        "permissions": "Moderate Members"
+      },
+      "jail-setup": {
+        "description": "Setups the Jail Category and role",
+        "syntax": "jail-setup",
+        "example": ",jail-setup",
+        "permissions": "Administrator"
+      },
+      "kick": {
+        "description": "Kicks a member from the server.",
+        "syntax": ",kick <user> [Reason]",
+        "example": ",kick @playfairs Ignoring server rules",
+        "permissions": "Kick Members"
+      },
+      "mnuke": {
+        "description": "Nukes all messages sent by a specific user",
+        "syntax": ",mnuke",
+        "example": ",mnuke",
+        "permissions": "Client Side",
+        "note": "This command uses .txt files to run, therefor it is Client Sided.."
+      },
+      "modlogs": {
+        "description": "Sets the modlogs channel",
+        "syntax": ",modlogs <channel>",
+        "example": ",modlogs #modlogs",
+        "permisions": "Administrator"
+      },
+      "nick": {
+        "description": "Changes a users server nickname",
+        "syntax": ",nick <user.mention> <new_nick>",
+        "example": ",nick @playfairs Playfair",
+        "permissions": "Manage Nickname",
+        "aliases": ["fn, forcenick"]
+      },
+      "timeout": {
+        "description": "Your grounded, go in timeout.",
+        "syntax": ",timeout <user>",
+        "example": ",timeout @playfairs",
+        "permissions": "Manage Server",
+        "aliases": ["to"]
+      },
+      "untimeout": {
+        "description": "Removes a user from timeout corner.",
+        "syntax": ",untimeout <user>",
+        "example": ",untimeout @playfairs",
+        "permissions": "Manage Server",
+        "aliases": ["uto"]
+      },
+      "unban": {
+        "description": "Unbans a user.",
+        "syntax": ",unban <user_id>",
+        "example": ",unban 123456789012345678",
+        "permissions": "Ban Members"
+      },
+      "unbanall": {
+        "description": "Unbans all banned users in a server",
+        "syntax": ",unbanall",
+        "example": ",unbanall",
+        "permissions": "Administrator",
+        "aliases": ["uba, massunban"],
+        "note": "This unbans ALL banned users, use with caution"
+      },
+      "uid": {
+        "description": "Logs a user's UID in a .txt file.",
+        "syntax": ",uid <user.mention>",
+        "example": ",uid @playfairs",
+        "permissions": "Client Side"
+      },
+      "unjail": {
+        "description": "Removes a user from jail",
+        "syntax": ",unjail <user.mention>",
+        "example": ",unjail @playfairs",
+        "permissions": "Moderate Members"
+      },
+      "uidban": {
+        "description": "Massbans users from the UIDs.txt file",
+        "syntax": ",uidban",
+        "example": ",uidban",
+        "permisions": "Client Side",
+        "note": "This is a legacy command, and may not work with the new file management system."
+      },
+      "warn": {
+        "description": "Warns a user.",
+        "syntax": ",warn <user> [reason]",
+        "example": ",warn @playfairs Spamming messages",
+        "permissions": "Manage Messages"
+      },
+      "warnreset": {
+        "description": "Resets a user's warnings.",
+        "syntax": ",warnreset <user>",
+        "example": ",warnreset @playfairs",
+        "permissions": "Manage Messages"
+      }
+    },
+    "pip": {
+      "cache": {
+        "description": "Inspect and manage pip's wheel cache.",
+        "syntax": ",pip cache <package>",
+        "example": ",pip cache discord.py",
+        "permissions": "Developer"
+      },
+      "check": {
+        "description": "Verify installed packages have compatible dependencies.",
+        "syntax": ",pip check <package>",
+        "example": ",pip check discord.py",
+        "permisions": "Developer"
+      },
+      "completion": {
+        "description": "A helper command used for command completion",
+        "syntax": ",pip completion <package>",
+        "example": ",pip completion discord.py",
+        "permisions": "Developer"
+      },
+      "config": {
+        "description": "Manage local anbd global configuration",
+        "syntax": ",pip config <package>",
+        "example": ",pip config discord.py",
+        "permisions": "Developer"
+      },
+      "download": {
+        "description": "Downloads packages",
+        "syntax": ",pip download <package>",
+        "example": ",pip download discord.py",
+        "permisions": "Developer"
+      },
+      "debug": {
+        "description": "Show information useful for debugging.",
+        "syntax": ".pip debug",
+        "example": ",pip debug",
+        "permisions": "Developer"
+      }
+    },
+    "Purge": {
+      "bc": {
+        "description": "Purges bot messages",
+        "syntax": ",bc",
+        "example": ",bc",
+        "permissions": "Manage Messages",
+        "aliases": ["cleanup"]
+      },
+      "ce": {
+        "description": "Clears the snipe for edited messages",
+        "syntax": ",ce",
+        "example": ",ce",
+        "permissions": "Manage Messages"
+      },
+      "cs": {
+        "description": "Clears chat messages.",
+        "syntax": ",cs <amount>",
+        "example": ",cs 100",
+        "permissions": "Manage Messages"
+      },
+      "es": {
+        "description": "Snipes the last edited message",
+        "syntax": ",es",
+        "example": ",es",
+        "permissions": "none"
+      },
+      "mnuke": {
+        "description": "Nukes messages contained in a .txt file.",
+        "syntax": ",mnuke",
+        "example": ",mnuke",
+        "permissions": "Client Side"
+      },
+      "nuke": {
+        "description": "Nukes all messages in a channel.",
+        "syntax": ",nuke",
+        "example": ",nuke",
+        "permissions": "Manage Messages"
+      },
+      "purge": {
+        "description": "Purges messages in a channel.",
+        "syntax": ",purge <agrs>",
+        "example": ",purge 100",
+        "permissions": "Manage Messages",
+        "args": "After, Before, From",
+        "note": "If you do just ,purge <number>, it will just purge that many messages, so it still works like normal, was only updated to support args"
+      },
+      "purge after": {
+        "description": "Argument for Purge, purges messages after a specified message using message id",
+        "syntax": ",purge after <messsage_id>",
+        "example": ",purge after 123456789012345678",
+        "permisions": "Manage Messages"
+      },
+      "purge before": {
+        "description": "Argument for Purge, purges messages before a specified message using message id",
+        "syntax": ",purge before <message_id>",
+        "example": ",purge before 123456789012345678",
+        "permisions": "Manage Messages"
+      },
+      "purge from": {
+        "description": "Argument for Purge, purges messages from a mentioned user",
+        "syntax": ",purge from <user.mention>",
+        "example": ",purge from @playfairs",
+        "permisions": "Manage Messages"
+      },
+      "rs": {
+        "description": "Snipes reactions",
+        "syntax": ",rs",
+        "example": ",rs",
+        "permisions": "none"
+      },
+      "s": {
+        "description": "Snipes recently deleted messages",
+        "syntax": ",s [number]",
+        "example": ",s",
+        "permisions": "none",
+        "note": "I DON'T WANNA BE A RAPPER... I WANT TO BE A.. SNIPER"
+      }
+    },
+    "Reactions": {
+      "ar": {
+        "description": "Auto reacts to a user with a set of emojis.",
+        "syntax": ",ar <user.mention> <emoji>",
+        "example": ",ar 💀 😭",
+        "permissions": "Manage Messages",
+        "aliases": ["autoreactor, autoreaction, reactions"]
+      },
+      "arreset": {
+        "description": "Resets the auto reaction setting.",
+        "syntax": ",arreset",
+        "example": ",arreset",
+        "permissions": "Manage Messages",
+        "aliases": ["reactionsreset, removereactions, reactionsremove"]
+      },
+      "reaction": {
+        "description": "Creates/Deletes an Autoreactor.",
+        "syntax": ",reaction <add/remove> <keyword> <emoji>",
+        "example": ",reaction add Skull 💀",
+        "permissions": "none"
+      },
+      "skull": {
+        "description": "Adds a skull emoji reaction.",
+        "syntax": ",skull",
+        "example": ",skull",
+        "permissions": "none"
+      },
+      "skullreset": {
+        "description": "Resets the skull reaction setting.",
+        "syntax": ",skullreset",
+        "example": ",skullreset",
+        "permissions": "none"
+      }
+    },
+    "Role": {
+      "autorole": {
+        "description": "Sets up autorole for Humans",
+        "syntax": ",autorole <role>",
+        "example": ",autorole Member",
+        "permissions": "Manage Roles"
+      },
+      "autorolebots": {
+        "description": "Sets up autorole for Bots",
+        "syntax": ",autrolebots <role>",
+        "exmaple": ",autorolebots Bots",
+        "permissions": "Manage Roles"
+      },
+      "r": {
+        "description": "Base command for assigning roles",
+        "syntax": ",r {user.mention} {role}",
+        "example": ",r @playfairs Member",
+        "permissions": "Manage Roles",
+        "aliases": ["r give"]
+      },
+      ",r bot": {
+        "description": "Gives all bots in a server a role",
+        "syntax": ",r bot",
+        "example": ",r bot @Bots",
+        "permissions": "Manage Roles",
+        "aliases": ["r bots"]
+      },
+      "r create": {
+        "description": "Creates a role",
+        "syntax": ",r create {role.name}",
+        "exmaple": ",r create Example",
+        "permissions": "Manage Roles"
+      },
+      "r delete": {
+        "description": "Deletes a role",
+        "syntax": ",r delete {role.name}",
+        "example": ",r delete exmaple",
+        "permissions": "Manage Roles"
+      },
+      "roles": {
+        "description": "Shows all roles in a server",
+        "syntax": ",roles",
+        "example": ",roles",
+        "permisions": "none"
+      }
+    },
+    "Server": {
+      "createinvite": {
+        "description": "Creates a temporary invite for the server",
+        "syntax": ",createinvite",
+        "example": ",createinvite",
+        "permissions": "none"
+      },
+      "joinlogs": {
+        "description": "Sets the join logs channel for the server",
+        "syntax": ",joinlogs <channel>",
+        "example": ",joinlogs #joins",
+        "permissions": "Administrator"
+      },
+      "joinmsg": {
+        "description": "Sets the welcome message for the server",
+        "syntax": ",joinmsg <message>",
+        "example": ",joinmsg Welcome",
+        "permissions": "Administrator",
+        "aliases": ["welcmsg, joinmessage, welcomemessage, welcmessage"]
+      },
+      "leavemsg": {
+        "description": "Sets the leave message for the server",
+        "syntax": ",leavemsg <message>",
+        "example": ",leavemsg Goodbye",
+        "permissions": "Administrator"
+      },
+      "testmsg": {
+        "description": "Test the Join or Leave message for the server",
+        "syntax": "/testmsg <flags>",
+        "example": "/testmsg Join",
+        "permissions": "Administrator",
+        "flags": "Join, Leave"
+      }
+    },
+    "Utility": {
+      "av": {
+        "description": "Shows your avatar, or a mentioned users",
+        "syntax": ",av [user.mention]",
+        "example": ",av",
+        "permissions": "none",
+        "aliases": ["pfp, avatar"]
+      },
+      "afk": {
+        "description": "Sets your AFK status.",
+        "syntax": ",afk [reason]",
+        "example": ",afk Busy",
+        "permissions": "none",
+        "aliases": ["kms, despawn, idle"]
+      },
+      "afkr": {
+        "description": "Sets your Raw AFK Status, in JSON",
+        "syntax": ",afkr [reasom]",
+        "example": ",afkr Busy",
+        "permisions": "none",
+        "aliases": ["afkraw, rawafk, jsonafk"],
+        "note": "This is an experimental command, it may be deprecated at any time"
+      },
+      "autoresponder": {
+        "description": "Adds/Removes autoresponses",
+        "syntax": ",autoresponder <args>",
+        "example": ",autoresponder",
+        "permisions": "Administrator",
+        "args": "Add, Remove"
+      },
+      "banner": {
+        "description": "Displays a user's Banner (As of right now, this command does not work properly).",
+        "syntax": ",banner [user.mention]",
+        "example": ",banner @playfairs",
+        "permissions": "none"
+      },
+      "find": {
+        "description": "Finds a message based on the Message ID",
+        "syntax": ",find <message_id>",
+        "example": ",find 123456789012345678",
+        "permisions": "none",
+        "note": "wait.. to get a Message ID.. you need to find that message first.. OH IM AN IDIOT!"
+      },
+      "hotfix": {
+        "description": "Hotfix for the bot",
+        "syntax": ",hotfix",
+        "example": ",horfix",
+        "permisions": "Manage Guild"
+      },
+      "patch": {
+        "description": "Patch notes for the bot",
+        "syntax": ",patch",
+        "example": ",patch",
+        "permisions": "Manage Guild"
+      },
+      "ping": {
+        "description": "Checks the bot's latency.",
+        "syntax": ",ping",
+        "example": ",ping",
+        "permissions": "none"
+      },
+      "print": {
+        "description": "Prints a message.",
+        "syntax": ",print <message>",
+        "example": ",print Hello World!",
+        "permissions": "none"
+      },
+      "sav": {
+        "description": "Shows your Server Avatar, or a mentioned users",
+        "syntax": ",sav [user.mention]",
+        "example": ",sav",
+        "permissions": "none",
+        "note": "If you don't have nitro, don't bother trying this command 💀"
+      },
+      "sicon": {
+        "description": "Shows the server icon",
+        "syntax": ",sicon",
+        "example": ",sicon",
+        "permissions": "none"
+      },
+      "serverbanner": {
+        "description": "Shows the server banner",
+        "syntax": ",serverbanner",
+        "example": ",serverbanner",
+        "permissions": "none"
+      },
+      "splash": {
+        "description": "Shows the server splash (Invite Banner)",
+        "syntax": ",splash",
+        "example": ",splash",
+        "permissions": "none"
+      },
+      "timezone": {
+        "description": "Sets your current timezone",
+        "syntax": ",timezone <timezone>",
+        "example": ",timezone CST",
+        "permissions": "none",
+        "aliases": ["tz"]
+      },
+      "time": {
+        "description": "Fetches the current time for a user",
+        "syntax": ",time [user.mention]",
+        "example": ",time",
+        "permissions": "none"
+      }
+    },
+    "VoiceMaster": {
+      "join": {
+        "description": "Makes the bot join a voice channel.",
+        "syntax": ",join <channel_name>",
+        "example": ",join General",
+        "permissions": "Connect"
+      },
+      "leave": {
+        "description": "Makes the bot leave the current voice channel.",
+        "syntax": ",leave",
+        "example": ",leave",
+        "permissions": "none"
+      },
+      "play": {
+        "description": "Plays music via YouTube URL",
+        "syntax": ",play <url>",
+        "example": ",play https://youtu.be/dQw4w9WgXcQ?si=HGIE2GtaewF35Wjf",
+        "permisions": "none",
+        "note": "This command is part of VoiceMaster, which currently does not work."
+      },
+      "sdeafen": {
+        "description": "Server deafens a mentioned user",
+        "syntax": ",sdeafen [user.mention]",
+        "example": ",sdeafen @playfairs",
+        "permisions": "Moderate Members",
+        "note": "This works on self as well if none mentioned",
+        "aliaes": ["sd"]
+      },
+      "search": {
+        "description": "Searches for a song",
+        "syntax": ",search <title>",
+        "example": ",search Heresy",
+        "permisions": "none",
+        "note": "This command is part of VoiceMaster, which currently does not work."
+      },
+      "smute": {
+        "description": "Server mutes a mentioned user",
+        "syntax": ",smute [user.mention]",
+        "example": ",smute @playfairs",
+        "permisions": "Moderate Members",
+        "note": "This works on self as well if none mentioned",
+        "aliaes": ["sm"]
+      },
+      "stop": {
+        "description": "Stops the currently playing track",
+        "syntax": ",stop",
+        "example": ",stop",
+        "permisions": "none",
+        "note": "This command is part of VoiceMaster, which currently does not work."
+      },
+      "sundeafen": {
+        "description": "Server undeafens a mentioned user",
+        "syntax": ",sundeafen [user.mention]",
+        "example": ",sundeafen @playfairs",
+        "permisions": "Moderate Members",
+        "note": "This works on self as well if none mentioned",
+        "aliaes": ["sund"]
+      },
+      "sunmute": {
+        "description": "Server unmutes a mentioned user",
+        "syntax": ",sunmute [user.mention]",
+        "example": ",sunmute @playfairs",
+        "permisions": "Moderate Members",
+        "note": "This works on self as well if none mentioned",
+        "aliaes": ["sum"]
+      },
+      "vc-hide": {
+        "description": "Hides the current VoiceMaster Channel",
+        "syntax": ",vc-hide",
+        "example": ",vc-hide",
+        "permisions": "VoiceMaster",
+        "note": "VoiceMaster does not currently work."
+      },
+      "vc-setup": {
+        "description": "Enable VoiceMaster for the guild.",
+        "syntax": ",vcsetup",
+        "example": ",vcsetup",
+        "permissions": "Administrator",
+        "note": "VoiceMaster does not currently work."
+      },
+      "vc-reset": {
+        "description": "Resets VoiceMaster for the guild.",
+        "syntax": ",vcreset",
+        "example": ",vcreset",
+        "permissions": "Administrator",
+        "note": "VoiceMaster does not currently work."
+      },
+      "vc-lock": {
+        "description": "Locks the current VC.",
+        "syntax": ",vclock",
+        "example": ",vclock",
+        "permissions": "none",
+        "note": "VoiceMaster does not currently work."
+      }
+    }
+  }
+}

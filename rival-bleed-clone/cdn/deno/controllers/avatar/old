@@ -1,0 +1,108 @@
+// controllers/avatarController.ts
+import { Router, Context } from "../../deps.ts";
+import { v4 as uuid } from "npm:uuid";
+import { ensureDir, walk } from "https://deno.land/std/fs/mod.ts";
+import { join } from "https://deno.land/std/path/mod.ts";
+
+const router = new Router();
+const baseAvatarPath = "/root/images/pfps"; // Base directory for avatars
+const LAST_POSTED: Record<string, string> = {};
+
+function randomChoice<T>(array: T[]): T | null {
+  if (array.length === 0) return null; // Return null if the array is empty
+  const randomIndex = Math.floor(Math.random() * array.length); // Get a random index
+  return array[randomIndex]; // Return the random element
+}
+
+// Helper function to get a random file from a directory
+async function getRandomFile(dir: string): Promise<string | null> {
+  const files: string[] = [];
+  for await (const entry of walk(dir)) {
+    if (entry.isFile) {
+      files.push(entry.path);
+    }
+  }
+  if (files.length === 0) return null;
+  const randomFile = files[Math.floor(Math.random() * files.length)];
+  return randomFile;
+}
+
+// Helper function to get the index of a specific file in a directory
+async function getAssetId(dir: string, filename: string): Promise<number | null> {
+  try {
+    const files: string[] = [];
+    for await (const entry of walk(dir)) {
+      if (entry.isFile) {
+        files.push(entry.name); // Only get the file names
+      }
+    }
+    files.sort(); // Sort the file names alphabetically
+    const index = files.indexOf(filename);
+    return index !== -1 ? index : null; // Return index or null if not found
+  } catch (error) {
+    console.error("Error reading directory:", error);
+    return null;
+  }
+}
+
+// Get random avatar
+router.get("/autopfp", async (ctx: Context) => {
+  const category = ctx.request.url.searchParams.get("category") || "Random";
+  let cat: string;
+  let avatarDir: string;
+  const baseAvatarPath = "pfps"; // Base path for avatars in BunnyCDN
+
+  // Determine the category and set the appropriate directory
+  if (category.toLowerCase() === "male") {
+    let c = randomChoice(["malephoto", "malegif"]);
+    if (c) {
+      cat = c;
+    }
+    avatarDir = join(baseAvatarPath, cat);
+  } else if (category.toLowerCase() === "female") {
+    let c = randomChoice(["femalephoto", "femalegif"]);
+    if (c) {
+      cat = c;
+    }
+    avatarDir = join(baseAvatarPath, cat);
+  } else {
+    cat = category.toLowerCase();
+    avatarDir = join(baseAvatarPath, cat);
+  }
+
+  const categoryData = assetData.pfps[cat];
+
+  if (!categoryData) {
+    ctx.response.status = 404;
+    ctx.response.body = { message: "Category not found." };
+    return;
+  }
+
+  // Randomly select a file from the category
+  const randomFile = randomChoice(categoryData);
+
+  if (!randomFile) {
+    ctx.response.status = 404;
+    ctx.response.body = { message: "No avatars found in this category." };
+    return;
+  }
+
+  const filename = randomFile; // Assuming the filename is directly stored in the JSON
+  const storagePath = `${avatarDir}/${filename}`; // Construct the storage path
+
+  try {
+    // Fetch the file content from BunnyCDN using the Storage class
+    const fileContent = await storage.get(storagePath);
+
+    // Set the response headers and body
+    ctx.response.headers.set("Content-Type", storage.getContentType(filename));
+    ctx.response.headers.set("Content-Length", fileContent.byteLength.toString());
+    ctx.response.body = fileContent; // Send the file content as the response
+  } catch (error) {
+    console.error("Error fetching file from BunnyCDN:", error);
+    ctx.response.status = 500;
+    ctx.response.body = { message: "Error fetching file from BunnyCDN." };
+  }
+});
+
+export default router;

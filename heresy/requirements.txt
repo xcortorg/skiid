@@ -1,0 +1,17 @@
+asyncio
+attrs
+blinker
+click
+deep-translator
+discord.py
+Flask
+frozenlist
+fuzzywuzzy
+PyNaCl
+pytz
+requests
+sprite
+typing_extensions
+urllib3
+yarl
+zipp

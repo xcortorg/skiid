@@ -1,0 +1,35 @@
+{
+    "language_code": "fr-FR",
+    "language": "fr-FR",
+    "language_local": "fr-FR",
+    "system": {
+        "help": {
+            "INFORMATION_DESC": "**information**\n> [ ] = facultatif, < > = obligatoire",
+            "SELECT_CATEGORY": "Sélectionnez une catégorie dans le menu déroulant ci-dessous",
+            "DROPDOWN_PLACEHOLDER": "Choisissez une catégorie...",
+            "NO_COMMANDS": "Aucune commande disponible dans ce groupe.",
+            "CANNOT_INTERACT": "Vous ne pouvez pas interagir avec ce menu !",
+            "COMMAND": {
+                "title": {
+                    "NORMAL": "Commande : {command_name} • module {module_name}",
+                    "GROUP": "Groupe : {command_name} • module {module_name}"
+                },
+                "SYNTAX": "```Rubis\nSyntaxe : {syntax}\nExemple : {prefix}{command_name} {example}",
+                "PERMISSIONS": "Autorisations",
+                "ALIASES": "Alias : {aliases}",
+                "FLAGS": {
+                    "REQUIRED": "Indicateurs requis",
+                    "OPTIONAL": "Drapeaux facultatifs"
+                }
+            },
+            "CATEGORY": {
+                "TITLE": "Catégorie : {category_name}",
+                "FOOTER": "{count} commande{plural}"
+            },
+            "ERRORS": {
+                "COMMAND_NOT_FOUND": "> {emoji} {user} : La commande `{command}` n'existe pas",
+                "SUBCOMMAND_NOT_FOUND": "> {emoji} {user} : La commande {command} {subcommand} n'existe pas"
+            }
+        }
+    }
+}

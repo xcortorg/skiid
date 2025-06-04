@@ -1,0 +1,69 @@
+{
+    "language_code": "fr-FR",
+    "language": "fr-FR",
+    "language_local": "fr-FR",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "Obtenez un lien d'invitation pour le bot."
+        },
+        "discord": {
+            "DESCRIPTION": "Obtenez un lien d'invitation pour le serveur d'assistance du bot."
+        },
+        "about": {
+            "DESCRIPTION": "Afficher des informations sur le bot.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Développé et maintenu par [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+                "DESCRIPTION_LINE_TWO": "Utilisation des commandes `{cached_commands}` sur les rouages ​​`{total_cogs}` (`{extended_cogs}` modules au total)",
+                "FOOTER": "evict/v{version} • Dernière validation : {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "Affichez la latence du bot.",
+            "INITAL_EMBED": {
+                "description": "pinger..."
+            },
+            "UPDATED_EMBED": {
+                "description": "`{ping}ms` (modifier : `{edit_ping}ms`)"
+            }
+        },
+        "poll": {
+            "DESCRIPTION": "Poll management commands",
+            "create": {
+                "DESCRIPTION": "Create a new poll using flags",
+                "CANCELLED": "Création du sondage annulée.",
+                "INVALID_DURATION": "<Format de durée invalide. Utilisez 1h, 1j, etc."
+            },
+            "quick": {
+                "DESCRIPTION": "Créez un sondage rapide avec des options simples oui/non ou personnalisées"
+            },
+            "list": {
+                "DESCRIPTION": "Répertorier tous les sondages actifs sur le serveur",
+                "NO_POLLS": {
+                    "DEFAULT": "Aucun sondage actif trouvé !",
+                    "FILTERED": "Aucun sondage actif trouvé pour {creator} !"
+                },
+                "ENTRY": {
+                    "TITLE": "**{title}**",
+                    "CREATOR": "Créé par : {creator}",
+                    "VOTES": "Votes : {count}",
+                    "ID": "ID : `{id}",
+                    "CREATED": "Créé : {time}",
+                    "ENDS": "Fin : {time}"
+                },
+                "EMBED_TITLE": "Sondages actifs dans {guild}"
+            },
+            "end": {
+                "DESCRIPTION": "Mettre fin à un sondage plus tôt",
+                "INVALID_ID": "ID de sondage invalide !",
+                "NOT_FOUND": "Sondage introuvable ou déjà terminé !",
+                "NO_PERMISSION": "Vous ne pouvez pas mettre fin à ce sondage !",
+                "SUCCESS": "Le sondage s'est terminé avec succès !"
+            },
+            "results": {
+                "DESCRIPTION": "Afficher les résultats détaillés d'un sondage",
+                "INVALID_ID": "ID de sondage invalide !",
+                "NOT_FOUND": "Sondage introuvable !"
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+    @vape.command(name="flavors")
+    async def vape_flavors(self, ctx, flavor: str):
+        flavor_options = [
+            "Strawberry", "Mango", "Blueberry", "Watermelon", "Grape",
+            "Pineapple", "Vanilla", "Chocolate", "Caramel", "Mint",
+            "Coffee", "Cinnamon", "Bubblegum", "Peach", "Apple",
+            "Lemon", "Cherry", "Raspberry"
+        ]
+
+        if flavor.lower() not in [f.lower() for f in flavor_options]:
+            return await ctx.send(f"{ctx.author.mention}, that flavor isn't available. "
+                                  f"Please choose from: {', '.join(flavor_options)}")
+
+        user_id = ctx.author.id
+        guild_id = ctx.guild.id
+        await self.bot.db.execute("""
+            INSERT INTO vape_hits (user_id, guild_id, flavor)
+            VALUES ($1, $2, $3)
+            ON CONFLICT (user_id, guild_id) DO UPDATE
+            SET flavor = $3;
+        """, user_id, guild_id, flavor)
+        await ctx.send(f"{ctx.author.mention} changed vape flavor to {flavor}.")

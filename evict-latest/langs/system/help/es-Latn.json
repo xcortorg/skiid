@@ -1,0 +1,35 @@
+{
+    "language_code": "es-Latn",
+    "language": "es-Latn",
+    "language_local": "es-Latn",
+    "system": {
+        "help": {
+            "INFORMATION_DESC": "**información**\n> [ ] = opcional, < > = requerido",
+            "SELECT_CATEGORY": "Selecciona una categoría del menú desplegable a continuación",
+            "DROPDOWN_PLACEHOLDER": "Elige una categoría...",
+            "NO_COMMANDS": "No hay comandos disponibles en este grupo.",
+            "CANNOT_INTERACT": "¡No puedes interactuar con este menú!",
+            "COMMAND": {
+                "title": {
+                    "NORMAL": "Comando: {command_name} • Módulo {module_name}",
+                    "GROUP": "Grupo: {command_name} • Módulo {module_name}"
+                },
+                "SYNTAX": "```ruby\nSintaxis: {syntax}\nEjemplo: {prefix}{command_name} {example}```",
+                "PERMISSIONS": "Permisos",
+                "ALIASES": "Alias: {aliases}",
+                "FLAGS": {
+                    "REQUIRED": "Banderas requeridas",
+                    "OPTIONAL": "Banderas opcionales"
+                }
+            },
+            "CATEGORY": {
+                "TITLE": "Categoría: {category_name}",
+                "FOOTER": "{count} comando{plural}"
+            },
+            "ERRORS": {
+                "COMMAND_NOT_FOUND": "> {emoji} {user}: El comando `{command}` no existe",
+                "SUBCOMMAND_NOT_FOUND": "> {emoji} {user}: El comando `{command} {subcommand}` no existe"
+            }
+        }
+    }
+}

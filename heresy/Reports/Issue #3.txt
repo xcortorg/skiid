@@ -1,0 +1,5 @@
+Issue #3
+Reported by: playfairs (ID: 785042666475225109)
+
+Description:
+Automod: Automod has no setup function, and no properly working Commands, needs work.

@@ -1,0 +1,656 @@
+from __future__ import annotations
+
+import re
+import shlex
+from typing import Dict, List, NamedTuple, Optional, Tuple, Union
+
+import discord
+from discord.ext.commands import BadArgument, Converter
+from rapidfuzz import process
+from red_commons.logging import getLogger
+from roletools.components import ButtonRole, SelectRole, SelectRoleOption
+from roletools.utils import (NoExitParser, is_allowed_by_hierarchy,
+                             is_allowed_by_role_hierarchy)
+from unidecode import unidecode
+
+from grief.core import commands
+from grief.core.i18n import Translator
+from grief.core.utils.chat_formatting import humanize_list
+
+log = getLogger("grief.converters")
+_ = Translator("Converters", __file__)
+
+
+_id_regex = re.compile(r"([0-9]{15,21})$")
+_mention_regex = re.compile(r"<@!?([0-9]{15,21})>$")
+
+
+class RawUserIds(Converter):
+    async def convert(self, ctx: commands.Context, argument: str) -> int:
+        # This is for the hackban and unban commands, where we receive IDs that
+        # are most likely not in the guild.
+        # Mentions are supported, but most likely won't ever be in cache.
+
+        if match := _id_regex.match(argument) or _mention_regex.match(argument):
+            return int(match.group(1))
+
+        raise BadArgument(_("{} doesn't look like a valid user ID.").format(argument))
+
+
+class RoleHierarchyConverter(commands.RoleConverter):
+    """Similar to d.py's RoleConverter but only returns if we have already
+    passed our hierarchy checks.
+    """
+
+    async def convert(self, ctx: commands.Context, argument: str) -> discord.Role:
+        if not ctx.guild.me.guild_permissions.manage_roles:
+            raise BadArgument(
+                _("I require manage roles permission to use this command.")
+            )
+        if isinstance(ctx, discord.Interaction):
+            author = ctx.user
+        else:
+            author = ctx.author
+        try:
+            role = await commands.RoleConverter().convert(ctx, argument)
+        except commands.BadArgument:
+            raise
+        else:
+            if getattr(role, "is_bot_managed", None) and role.is_bot_managed():
+                raise BadArgument(
+                    _(
+                        "The {role} role is a bot integration role "
+                        "and cannot be assigned or removed."
+                    ).format(role=role.mention)
+                )
+            if getattr(role, "is_integration", None) and role.is_integration():
+                raise BadArgument(
+                    _(
+                        "The {role} role is an integration role and cannot be assigned or removed."
+                    ).fromat(role=role.mention)
+                )
+            if (
+                getattr(role, "is_premium_subscriber", None)
+                and role.is_premium_subscriber()
+            ):
+                raise BadArgument(
+                    _(
+                        "The {role} role is a premium subscriber role and can only "
+                        "be assigned or removed by Nitro boosting the server."
+                    ).format(role=role.mention)
+                )
+            if role >= ctx.guild.me.top_role:
+                raise BadArgument(
+                    _(
+                        "The {role} role is higher than my highest role in the discord hierarchy."
+                    ).format(role=role.mention)
+                )
+            if role >= author.top_role and author.id != ctx.guild.owner_id:
+                raise BadArgument(
+                    _(
+                        "The {role} role is higher than your "
+                        "highest role in the discord hierarchy."
+                    ).format(role=role.mention)
+                )
+        return role
+
+
+class RawUserIds(Converter):
+    # https://github.com/Cog-Creators/Red-DiscordBot/blob/V3/develop/redbot/cogs/mod/converters.py
+    async def convert(self, ctx: commands.Context, argument: str) -> int:
+        # This is for the hackban and unban commands, where we receive IDs that
+        # are most likely not in the guild.
+        # Mentions are supported, but most likely won't ever be in cache.
+
+        if match := _id_regex.match(argument) or _mention_regex.match(argument):
+            return int(match.group(1))
+
+        raise BadArgument(_("{} doesn't look like a valid user ID.").format(argument))
+
+
+class RoleHierarchyConverter(commands.RoleConverter):
+    """Similar to d.py's RoleConverter but only returns if we have already
+    passed our hierarchy checks.
+    """
+
+    async def convert(self, ctx: commands.Context, argument: str) -> discord.Role:
+        if not ctx.guild.me.guild_permissions.manage_roles:
+            raise BadArgument(
+                _("I require manage roles permission to use this command.")
+            )
+        if isinstance(ctx, discord.Interaction):
+            author = ctx.user
+        else:
+            author = ctx.author
+        try:
+            role = await commands.RoleConverter().convert(ctx, argument)
+        except commands.BadArgument:
+            raise
+        else:
+            if getattr(role, "is_bot_managed", None) and role.is_bot_managed():
+                raise BadArgument(
+                    _(
+                        "The {role} role is a bot integration role "
+                        "and cannot be assigned or removed."
+                    ).format(role=role.mention)
+                )
+            if getattr(role, "is_integration", None) and role.is_integration():
+                raise BadArgument(
+                    _(
+                        "The {role} role is an integration role and cannot be assigned or removed."
+                    ).fromat(role=role.mention)
+                )
+            if (
+                getattr(role, "is_premium_subscriber", None)
+                and role.is_premium_subscriber()
+            ):
+                raise BadArgument(
+                    _(
+                        "The {role} role is a premium subscriber role and can only "
+                        "be assigned or removed by Nitro boosting the server."
+                    ).format(role=role.mention)
+                )
+            if role >= ctx.guild.me.top_role:
+                raise BadArgument(
+                    _(
+                        "The {role} role is higher than my highest role in the discord hierarchy."
+                    ).format(role=role.mention)
+                )
+            if role >= author.top_role and author.id != ctx.guild.owner_id:
+                raise BadArgument(
+                    _(
+                        "The {role} role is higher than your "
+                        "highest role in the discord hierarchy."
+                    ).format(role=role.mention)
+                )
+        return role
+
+
+class SelfRoleConverter(commands.RoleConverter):
+    """Converts a partial role name into a role object that can actually be applied."""
+
+    async def convert(self, ctx: commands.Context, argument: str) -> discord.Role:
+        if not ctx.guild.me.guild_permissions.manage_roles:
+            raise BadArgument(
+                _("I require manage roles permission to use this command.")
+            )
+        if isinstance(ctx, discord.Interaction):
+            author = ctx.user
+        else:
+            author = ctx.author
+        role = None
+        try:
+            role = await commands.RoleConverter().convert(ctx, argument)
+        except commands.BadArgument:
+            for roles in ctx.guild.roles:
+                if roles.name.lower() == argument.lower():
+                    role = roles
+        if role is None:
+            raise commands.RoleNotFound(argument)
+        else:
+            if role.is_bot_managed():
+                raise BadArgument(
+                    _(
+                        "The {role} role is a bot integration role "
+                        "and cannot be assigned or removed."
+                    ).format(role=role.mention)
+                )
+            if role.is_integration():
+                raise BadArgument(
+                    _(
+                        "The {role} role is an integration role and cannot be assigned or removed."
+                    ).fromat(role=role.mention)
+                )
+            if role.is_premium_subscriber():
+                raise BadArgument(
+                    _(
+                        "The {role} role is a premium subscriber role and can only "
+                        "be assigned or removed by Nitro boosting the server."
+                    ).format(role=role.mention)
+                )
+            if role >= ctx.guild.me.top_role:
+                raise BadArgument(
+                    _(
+                        "The {role} role is higher than my highest role in the discord hierarchy."
+                    ).format(role=role.mention)
+                )
+        return role
+
+
+class RoleEmojiConverter(Converter):
+    async def convert(
+        self, ctx: commands.Context, argument: str
+    ) -> Tuple[discord.Role, str]:
+        arg_split = re.split(r";|,|\||-", argument)
+        try:
+            role, emoji = arg_split
+        except Exception:
+            raise BadArgument(
+                _(
+                    "Role Emoji must be a role followed by an "
+                    "emoji separated by either `;`, `,`, `|`, or `-`."
+                )
+            )
+        custom_emoji = None
+        try:
+            custom_emoji = await commands.PartialEmojiConverter().convert(
+                ctx, emoji.strip()
+            )
+        except commands.BadArgument:
+            pass
+        if not custom_emoji:
+            try:
+                await ctx.message.add_reaction(str(emoji.strip()))
+                custom_emoji = emoji
+            except discord.errors.HTTPException:
+                raise BadArgument(_("That does not look like a valid emoji."))
+        try:
+            role = await RoleHierarchyConverter().convert(ctx, role.strip())
+        except commands.BadArgument:
+            raise
+        return role, custom_emoji
+
+
+class ButtonStyleConverter(Converter):
+    async def convert(
+        self, ctx: commands.Context, argument: str
+    ) -> discord.ButtonStyle:
+        available_styles = [
+            i
+            for i in dir(discord.ButtonStyle)
+            if not i.startswith("_") and i != "try_value"
+        ]
+        if argument.lower() in available_styles:
+            return getattr(discord.ButtonStyle, argument.lower())
+        else:
+            raise BadArgument(
+                _(
+                    "`{argument}` is not an available Style. Choose one from {styles}"
+                ).format(argument=argument, styles=humanize_list(available_styles))
+            )
+
+
+class ButtonRoleConverter(discord.app_commands.Transformer):
+    @classmethod
+    async def convert(cls, ctx: commands.Context, argument: str) -> ButtonRole:
+        cog = ctx.bot.get_cog("RoleTools")
+        async with cog.config.guild(ctx.guild).buttons() as buttons:
+            if argument.lower() in buttons:
+                # log.debug("%s Button exists", argument.lower())
+                button_data = buttons[argument.lower()]
+                role_id = button_data["role_id"]
+                emoji = button_data["emoji"]
+                if emoji is not None:
+                    emoji = discord.PartialEmoji.from_str(emoji)
+                button = ButtonRole(
+                    style=button_data["style"],
+                    label=button_data["label"],
+                    emoji=emoji,
+                    custom_id=f"{argument.lower()}-{role_id}",
+                    role_id=role_id,
+                    name=argument.lower(),
+                )
+                button.replace_label(ctx.guild)
+                return button
+            else:
+                raise commands.BadArgument(
+                    _("Button with name `{name}` does not seem to exist.").format(
+                        name=argument.lower()
+                    )
+                )
+
+    async def autocomplete(
+        self, interaction: discord.Interaction, current: str
+    ) -> List[discord.app_commands.Choice]:
+        guild = interaction.guild
+        cog = interaction.client.get_cog("RoleTools")
+        select_options = await cog.config.guild(guild).buttons()
+        supplied_options = ""
+        new_option = ""
+        for sup in current.split(" "):
+            if sup in list(select_options.keys()):
+                supplied_options += f"{sup} "
+            else:
+                new_option = sup
+
+        ret = [
+            discord.app_commands.Choice(
+                name=f"{supplied_options} {g}", value=f"{supplied_options} {g}"
+            )
+            for g in list(select_options.keys())
+            if new_option in g
+        ]
+        if supplied_options:
+            ret.insert(
+                0,
+                discord.app_commands.Choice(
+                    name=supplied_options, value=supplied_options
+                ),
+            )
+        return ret
+
+
+class SelectOptionRoleConverter(discord.app_commands.Transformer):
+    @classmethod
+    async def convert(cls, ctx: commands.Context, argument: str) -> SelectRoleOption:
+        cog = ctx.bot.get_cog("RoleTools")
+        async with cog.config.guild(ctx.guild).select_options() as select_options:
+            if argument.lower() in select_options:
+                select_data = select_options[argument.lower()]
+                role_id = select_data["role_id"]
+                emoji = select_data["emoji"]
+                if emoji and len(emoji) > 20:
+                    emoji = discord.PartialEmoji.from_str(emoji)
+                label = select_data["label"]
+                description = select_data["description"]
+                select_role = SelectRoleOption(
+                    name=argument.lower(),
+                    label=label,
+                    value=f"RTSelect-{argument.lower()}-{role_id}",
+                    role_id=role_id,
+                    description=description,
+                    emoji=emoji,
+                )
+                return select_role
+            else:
+                raise commands.BadArgument(
+                    _(
+                        "Select Option with name `{name}` does not seem to exist."
+                    ).format(name=argument.lower())
+                )
+
+    async def autocomplete(
+        self, interaction: discord.Interaction, current: str
+    ) -> List[discord.app_commands.Choice]:
+        guild = interaction.guild
+        select_options = await self.config.guild(guild).select_options()
+        supplied_options = ""
+        new_option = ""
+        for sup in current.split(" "):
+            if sup in list(select_options.keys()):
+                supplied_options += f"{sup} "
+            else:
+                new_option = sup
+
+        ret = [
+            discord.app_commands.Choice(
+                name=f"{supplied_options} {g}", value=f"{supplied_options} {g}"
+            )
+            for g in list(select_options.keys())
+            if new_option in g
+        ]
+        if supplied_options:
+            ret.insert(
+                0,
+                discord.app_commands.Choice(
+                    name=supplied_options, value=supplied_options
+                ),
+            )
+        return ret
+
+
+class SelectRoleConverter(discord.app_commands.Transformer):
+    @classmethod
+    async def convert(cls, ctx: commands.Context, argument: str) -> SelectRole:
+        cog = ctx.bot.get_cog("RoleTools")
+        async with cog.config.guild(ctx.guild).select_menus() as select_menus:
+            # log.debug(argument)
+            if argument.lower() in select_menus:
+                select_data = select_menus[argument.lower()]
+                options = []
+                all_option_data = await cog.config.guild(ctx.guild).select_options()
+                for option_name in select_data["options"]:
+                    try:
+                        option_data = all_option_data[option_name]
+                        role_id = option_data["role_id"]
+                        description = option_data["description"]
+                        emoji = option_data["emoji"]
+                        if emoji is not None:
+                            emoji = discord.PartialEmoji.from_str(emoji)
+                        label = option_data["label"]
+                        option = SelectRoleOption(
+                            name=option_name,
+                            label=label,
+                            value=f"RTSelect-{option_name}-{role_id}",
+                            role_id=role_id,
+                            description=description,
+                            emoji=emoji,
+                        )
+                        options.append(option)
+                    except KeyError:
+                        log.exception("Somehow this errored")
+                        continue
+                sr = SelectRole(
+                    name=argument.lower(),
+                    custom_id=f"RTSelect-{argument.lower()}-{ctx.guild.id}",
+                    min_values=select_data["min_values"],
+                    max_values=select_data["max_values"],
+                    placeholder=select_data["placeholder"],
+                    options=options,
+                )
+                sr.update_options(ctx.guild)
+                return sr
+            else:
+                raise commands.BadArgument(
+                    _(
+                        "Select Option with name `{name}` does not seem to exist."
+                    ).format(name=argument.lower())
+                )
+
+    async def autocomplete(
+        self, interaction: discord.Interaction, current: str
+    ) -> List[discord.app_commands.Choice]:
+        guild = interaction.guild
+        cog = interaction.client.get_cog("RoleTools")
+        select_options = await cog.config.guild(guild).select_menus()
+        supplied_options = ""
+        new_option = ""
+        for sup in current.split(" "):
+            if sup in list(select_options.keys()):
+                supplied_options += f"{sup} "
+            else:
+                new_option = sup
+
+        ret = [
+            discord.app_commands.Choice(
+                name=f"{supplied_options} {g}", value=f"{supplied_options} {g}"
+            )
+            for g in list(select_options.keys())
+            if new_option in g
+        ]
+        if supplied_options:
+            ret.insert(
+                0,
+                discord.app_commands.Choice(
+                    name=supplied_options, value=supplied_options
+                ),
+            )
+        return ret
+
+
+class SelectMenuFlags(commands.FlagConverter, case_insensitive=True):
+    min_values: Optional[commands.Range[int, 0, 25]] = commands.flag(
+        name="min", aliases=["min_values"], default=None
+    )
+    max_values: Optional[commands.Range[int, 0, 25]] = commands.flag(
+        name="max", aliases=["max_values"], default=None
+    )
+    placeholder: Optional[str] = commands.flag(name="placeholder", default=None)
+
+
+class SelectOptionFlags(commands.FlagConverter, case_insensitive=True):
+    label: commands.Range[str, 1, 100] = commands.flag(name="label", default=None)
+    description: Optional[commands.Range[str, 0, 100]] = commands.flag(
+        name="description", aliases=["desc"], default=None
+    )
+    emoji: Optional[Union[discord.PartialEmoji, str]] = commands.flag(
+        name="emoji", default=None
+    )
+
+
+class ButtonFlags(commands.FlagConverter, case_insensitive=True):
+    label: Optional[commands.Range[str, 0, 80]] = commands.flag(
+        name="label", default=None
+    )
+    emoji: Optional[Union[discord.PartialEmoji, str]] = commands.flag(
+        name="emoji", default=None
+    )
+    style: discord.ButtonStyle = commands.flag(
+        name="style",
+        default=discord.ButtonStyle.primary,
+        converter=ButtonStyleConverter,
+    )
+
+
+class RoleArgumentConverter(NamedTuple):
+    parsed: Dict[str, List[discord.Role]]
+
+    @classmethod
+    async def convert(
+        cls, ctx: commands.Context, argument: str
+    ) -> "RoleArgumentConverter":
+        parser = NoExitParser(
+            description="Role utils syntax help", add_help=False, allow_abbrev=True
+        )
+        parser.add_argument("--add", nargs="*", dest="add", default=[])
+        parser.add_argument("--remove", nargs="*", dest="remove", default=[])
+        try:
+            vals = vars(parser.parse_args(shlex.split(argument)))
+        except Exception as e:
+            raise commands.BadArgument(str(e))
+        if not vals["add"] and not vals["remove"]:
+            raise commands.BadArgument("Must provide at least one or more actions.")
+        for attr in ("add", "remove"):
+            vals[attr] = [
+                await commands.RoleConverter().convert(ctx, r) for r in vals[attr]
+            ]
+        return cls(vals)
+
+
+# original converter from https://github.com/TrustyJAID/Trusty-cogs/blob/master/serverstats/converters.py#L19
+class FuzzyRole(commands.RoleConverter):
+    """
+    This will accept role ID's, mentions, and perform a fuzzy search for
+    roles within the guild and return a list of role objects
+    matching partial names
+
+    Guidance code on how to do this from:
+    https://github.com/Rapptz/discord.py/blob/rewrite/discord/ext/commands/converter.py#L85
+    https://github.com/Cog-Creators/Red-DiscordBot/blob/V3/develop/redbot/cogs/mod/mod.py#L24
+    """
+
+    def __init__(self, response: bool = True) -> None:
+        self.response: bool = response
+        super().__init__()
+
+    async def convert(self, ctx: commands.Context, argument: str) -> discord.Role:
+        try:
+            basic_role = await super().convert(ctx, argument)
+        except commands.BadArgument:
+            pass
+        else:
+            return basic_role
+        guild = ctx.guild
+        result = [
+            (r[2], r[1])
+            for r in process.extract(
+                argument,
+                {r: unidecode(r.name) for r in guild.roles},
+                limit=None,
+                score_cutoff=75,
+            )
+        ]
+        if not result:
+            raise commands.BadArgument(
+                f'Role "{argument}" not found.' if self.response else None
+            )
+
+        sorted_result = sorted(result, key=lambda r: r[1], reverse=True)
+        return sorted_result[0][0]
+
+
+class StrictRole(FuzzyRole):
+    def __init__(self, response: bool = True, *, check_integrated: bool = True) -> None:
+        self.response: bool = response
+        self.check_integrated: bool = check_integrated
+        super().__init__(response)
+
+    async def convert(self, ctx: commands.Context, argument: str) -> discord.Role:
+        role = await super().convert(ctx, argument)
+        if self.check_integrated and role.managed:
+            raise commands.BadArgument(
+                f"`{role}` is an integrated role and cannot be assigned."
+                if self.response
+                else None
+            )
+        allowed, message = await is_allowed_by_role_hierarchy(
+            ctx.bot, ctx.me, ctx.author, role
+        )
+        if not allowed:
+            raise commands.BadArgument(message if self.response else None)
+        return role
+
+
+class TouchableMember(commands.MemberConverter):
+    def __init__(self, response: bool = True) -> None:
+        self.response: bool = response
+        super().__init__()
+
+    async def convert(self, ctx: commands.Context, argument: str) -> discord.Member:
+        member = await super().convert(ctx, argument)
+        if not await is_allowed_by_hierarchy(ctx.bot, ctx.author, member):
+            raise commands.BadArgument(
+                f"You cannot do that since you aren't higher than {member} in hierarchy."
+                if self.response
+                else None
+            )
+        else:
+            return member
+
+
+class RealEmojiConverter(commands.EmojiConverter):
+    async def convert(
+        self, ctx: commands.Context, argument: str
+    ) -> Union[discord.Emoji, str]:
+        try:
+            emoji = await super().convert(ctx, argument)
+        except commands.BadArgument:
+            try:
+                await ctx.message.add_reaction(argument)
+            except discord.HTTPException:
+                raise commands.EmojiNotFound(argument)
+            else:
+                emoji = argument
+        return emoji
+
+
+class EmojiRole(StrictRole, RealEmojiConverter):
+    async def convert(
+        self, ctx: commands.Context, argument: str
+    ) -> Tuple[Union[discord.Emoji, str], discord.Role]:
+        split = argument.split(";")
+        if len(split) < 2:
+            raise commands.BadArgument
+        emoji = await RealEmojiConverter.convert(self, ctx, split[0])
+        role = await StrictRole.convert(self, ctx, split[1])
+        return emoji, role
+
+
+class ObjectConverter(commands.IDConverter[discord.Object]):
+    async def convert(self, ctx: commands.Context, argument: str) -> discord.Object:
+        match = self._get_id_match(argument)
+        if not match:
+            raise commands.BadArgument
+        return discord.Object(int(match.group(0)))
+
+
+class TargeterArgs(commands.Converter[List[discord.Member]]):
+    async def convert(
+        self, ctx: commands.Context, argument: str
+    ) -> List[discord.Member]:
+        members = await ctx.bot.get_cog("Targeter").args_to_list(ctx, argument)
+        if not members:
+            raise commands.BadArgument(
+                f"No one was found with the given args.\nCheck out `{ctx.clean_prefix}target help` for an explanation."
+            )
+        return members

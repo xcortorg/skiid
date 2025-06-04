@@ -1,0 +1,459 @@
+import random
+import asyncio
+import discord
+import datetime
+import humanize
+from discord import (
+ Role, 
+ ButtonStyle, 
+ Message,
+ Embed,
+ StickerItem,
+ Interaction,
+ User,
+ Member,
+ Attachment,
+ WebhookMessage,
+ TextChannel,
+ Guild,
+ utils,
+ Thread
+)
+from collections import defaultdict
+from discord.ext.commands import (
+    Cog,
+    hybrid_command,
+    command,
+    Author,
+    cooldown,
+    BucketType,
+    CommandError,
+    CommandOnCooldown,
+)
+
+from discord.ui import Button, View
+from get.views import Transfer
+from get.context import PretendContext
+from get.converters import CashAmount, CardAmount, EligibleEconomyMember
+from get.predicates import create_account, daily_taken, dice_cooldown
+from decimal import Decimal
+
+async def confirmation_send(self, embed_msg: str, yes_func, no_func) -> Message: 
+   """Send an embed with confirmation buttons"""
+   embed = discord.Embed(color=self.bot.color, description=embed_msg)
+   view = view(self.author.id, yes_func, no_func) 
+   return await self.send(embed=embed, view=view)
+
+
+class Economy(Cog):
+    def __init__(self, bot):
+        self.bot = bot
+        self.emoji = "🏦"
+        self.description = "Economy commands"
+        self.cash = "💵"
+        self.card = "💳"
+        self.color = 0xD3D3D3
+        self.locks = defaultdict(asyncio.Lock)
+        self.jobs = self.load_jobs()
+
+    def load_jobs(self):
+        """
+        Load the job options
+        """
+
+        with open("db/jobs.txt") as f:
+            return f.read().splitlines()
+
+    def humanize_number(self, number: float):
+        """
+        Convert big float
+        """
+
+        if number < 9999999999:
+            return f"{number:,}"
+
+        digits = len(str(int(number))) - 10
+        return f"{str(int(number))[:10]}... (+ {digits} more)"
+
+    @hybrid_command(help="economy", description="Transfer cash to a member", usage="(money) (@user)")
+    @create_account()
+    async def transfer(
+        self, ctx: PretendContext, amount: CashAmount, *, member: EligibleEconomyMember
+    ):
+        """
+        Transfer cash to a member
+        """
+
+        async with self.locks[ctx.author.id]:
+            # Fetch the sender's cash balance and convert it to Decimal
+            sender_check = await self.bot.db.fetchrow(
+                "SELECT * FROM economy WHERE user_id = $1", ctx.author.id
+            )
+        sender_cash = Decimal(sender_check["cash"])
+
+        # Convert the transfer amount to Decimal
+        amount = Decimal(amount)
+
+        if sender_cash < amount:
+            return await ctx.send_error("You do not have enough money to transfer")
+
+        # Fetch the recipient's cash balance and convert it to Decimal
+        recipient_check = await self.bot.db.fetchrow(
+            "SELECT * FROM economy WHERE user_id = $1", member.id
+        )
+        recipient_cash = Decimal(recipient_check["cash"])
+
+        # Confirm the transfer with the user
+        embed = discord.Embed(
+            color=self.color,
+            description=f"{self.emoji} {ctx.author.mention}, are you sure you want to transfer **{amount}** {self.cash} to {member.mention}?",
+        )
+        view = Transfer(ctx, member, amount)
+        view.message = await ctx.send(embed=embed, view=view)
+
+
+
+    @command(help="economy", description="dice the money", usage="(money)", aliases=["gamble"])
+    @create_account()
+    @dice_cooldown()
+    async def dice(self, ctx: PretendContext, amount: CashAmount):
+        """
+        Play a dice game
+        """
+
+        async with self.locks[ctx.author.id]:
+            # Fetch the user's cash balance and convert it to Decimal
+            check = await self.bot.db.fetchrow(
+                "SELECT * FROM economy WHERE user_id = $1", ctx.author.id
+            )
+        cash = Decimal(check["cash"])
+
+        # Convert the amount to Decimal for consistent arithmetic operations
+        amount = Decimal(amount)
+
+        if cash < amount:
+            return await ctx.send_error("You do not have enough money to dice")
+
+        if amount < Decimal(20):
+            return await ctx.send_error(
+                f"You cannot bet less than **20** {self.card}"
+            )
+
+        # Roll the dice for both user and bot
+        user_dice = random.randint(1, 6) + random.randint(1, 6)
+        bot_dice = random.randint(1, 6) + random.randint(1, 6)
+
+        if user_dice > bot_dice:
+            await ctx.send(f"You won **{self.humanize_number(amount)}** {self.cash}")
+            new_cash = cash + amount  # Use Decimal addition
+        elif bot_dice > user_dice:
+            await ctx.send(f"You lost **{self.humanize_number(amount)}** {self.cash}")
+            new_cash = cash - amount  # Use Decimal subtraction
+        else:
+            await ctx.send("It's a tie")
+            new_cash = cash  # No change in cash
+
+        # Update the user's cash balance in the database
+        await self.bot.db.execute(
+            """
+            UPDATE economy
+            SET cash = $1,
+            dice = $2
+            WHERE user_id = $3
+            """,
+            round(new_cash, 2),  # Round to 2 decimal places
+            int(
+                (
+                    datetime.datetime.now() + datetime.timedelta(seconds=10)
+                ).timestamp()
+            ),
+            ctx.author.id,
+        )
+
+
+    @hybrid_command(help="economy", description="get your daily money ")
+    @create_account()
+    @daily_taken()
+    async def daily(self, ctx: PretendContext):
+        """
+        Claim your daily cash
+        """
+
+        async with self.locks[ctx.author.id]:
+            check = await self.bot.db.fetchrow(
+                "SELECT * FROM economy WHERE user_id = $1", ctx.author.id
+            )
+            donor = await self.bot.db.fetchrow(
+                "SELECT * FROM donor WHERE user_id = $1", ctx.author.id
+            )
+            newcash = Decimal(round(random.uniform(1000, 2000), 2))
+
+            if donor:
+                newcash += Decimal(round((20 / 100) * float(newcash), 2))
+
+            newclaim = int(
+                (datetime.datetime.now() + datetime.timedelta(days=1)).timestamp()
+            )
+
+            # Add the Decimal values
+            updated_cash = Decimal(check["cash"]) + newcash
+
+            await self.bot.db.execute(
+                """
+                UPDATE economy
+                SET cash = $1,
+                daily = $2
+                WHERE user_id = $3
+                """,
+                round(updated_cash, 2),  # Ensure the value is rounded properly
+                newclaim,
+                ctx.author.id,
+            )
+            return await ctx.economy_send(
+                f"You have claimed **{round(newcash, 2)}** {self.cash} {'+20%' if donor else ''}\nCome back **tomorrow** to claim again"
+            )
+
+    @command(help="economy", description="withdraw money from bank", usage="(money)")
+    async def withdraw(self, ctx, amount: float):
+        """
+        Withdraw card money to cash
+        """
+        async with self.locks.get(ctx.author.id, asyncio.Lock()):
+            check = await self.bot.db.fetchrow(
+                "SELECT * FROM economy WHERE user_id = $1", ctx.author.id
+            )
+        card = Decimal(check["card"])
+
+        if card < Decimal(amount):
+            return await ctx.send_error("You do not have enough money to withdraw")
+
+        new_cash = Decimal(check["cash"]) + Decimal(amount)
+        new_card = card - Decimal(amount)
+
+        await self.bot.db.execute(
+            """
+            UPDATE economy 
+            SET cash = $1, 
+            card = $2 
+            WHERE user_id = $3
+            """,
+            round(new_cash, 2),
+            round(new_card, 2),
+            ctx.author.id,
+        )
+        return await ctx.send(
+            f"Withdrew **{self.humanize_number(round(Decimal(amount), 2))}** {self.card}"
+        )
+
+
+    @command(help="economy", description="Transfer cash to bank", usage="(money)", aliases=["dep"])
+    async def deposit(self, ctx, amount: float):
+        """
+        Deposit cash to card
+        """
+        async with self.locks.get(ctx.author.id, asyncio.Lock()):
+            check = await self.bot.db.fetchrow(
+            "SELECT * FROM economy WHERE user_id = $1", ctx.author.id
+            )
+        cash = Decimal(check["cash"])
+
+        if cash < Decimal(amount):
+            return await ctx.send_error("You do not have enough money to deposit")
+
+        new_cash = cash - Decimal(amount)
+        new_card = Decimal(check["card"]) + Decimal(amount)
+
+        await self.bot.db.execute(
+            """
+            UPDATE economy 
+            SET cash = $1, 
+            card = $2 
+            WHERE user_id = $3
+            """,
+            round(new_cash, 2),
+            round(new_card, 2),
+            ctx.author.id,
+        )
+        return await ctx.send(
+            f"Deposited **{self.humanize_number(round(Decimal(amount), 2))}** {self.cash}"
+        )
+
+
+    @hybrid_command(help="economy", description="flip a coin and bet", usage="(money) (heads/tails)")
+    @create_account()
+    async def coinflip(self, ctx: PretendContext, amount: CashAmount, bet: str):
+        """
+        Play a coinflip game
+        """
+
+        async with self.locks[ctx.author.id]:
+            # Fetch the user's cash balance and convert it to Decimal
+            cash = Decimal(await self.bot.db.fetchval(
+                "SELECT cash FROM economy WHERE user_id = $1", ctx.author.id
+            ))
+
+            # Convert the amount to Decimal for consistent arithmetic operations
+            amount = Decimal(amount)
+
+            if amount < Decimal(20):
+                return await ctx.send_error(
+                    f"You cannot bet less than **20** {self.cash}"
+                )
+
+            if cash < amount:
+                return await ctx.send_error("Not enough money to gamble")
+
+            if bet.lower() not in ["heads", "tails"]:
+                return await ctx.send_warning(
+                    "You can only bet on **heads** or **tails**"
+                )
+
+        embed = discord.Embed(
+            color=self.bot.color,
+            description=f":coin: {ctx.author.mention} Flipping the coin....",
+        )
+
+        mes = await ctx.reply(embed=embed)
+        response = random.choice(["heads", "tails"])
+
+        if response == bet.lower():
+            e = discord.Embed(
+                color=self.bot.yes_color,
+                description=f"It's **{response}**\nYou won **{self.humanize_number(amount)}** {self.cash}",
+            )
+
+            await mes.edit(embed=e)
+            new_cash = cash + amount  # Use Decimal addition
+        else:
+            e = discord.Embed(
+                color=self.bot.no_color,
+                description=f"You chose **{bet.lower()}**, but it's **{response}**\nYou lost **{self.humanize_number(amount)}** {self.cash}",
+            )
+
+            await mes.edit(embed=e)
+            new_cash = cash - amount  # Use Decimal subtraction
+
+        # Update the user's cash balance in the database
+        await self.bot.db.execute(
+            """
+            UPDATE economy
+            SET cash = $1
+            WHERE user_id = $2
+            """,
+            round(new_cash, 2),  # Round to 2 decimal places
+            ctx.author.id,
+        )
+
+
+    @hybrid_command(help="economy", description="work to gain money")
+    @create_account()
+    async def work(self, ctx: PretendContext):
+        """
+        Work a job and earn money
+        """
+
+        async with self.locks[ctx.author.id]:
+            # Fetch the user's cash balance and convert it to Decimal
+            cash = Decimal(await self.bot.db.fetchval(
+                "SELECT cash FROM economy WHERE user_id = $1", ctx.author.id
+            ))
+
+        # Calculate the amount earned and convert it to Decimal
+        received = Decimal(round(random.uniform(50, 300), 2))
+        new_cash = cash + received  # Use Decimal addition
+
+        # Update the user's cash balance in the database
+        await self.bot.db.execute(
+            "UPDATE economy SET cash = $1 WHERE user_id = $2",
+            new_cash.quantize(Decimal('0.01')),  # Round to 2 decimal places
+            ctx.author.id,
+        )
+        
+        # Format the received amount and new cash balance for display
+        formatted_received = f"{received:.2f}"
+        formatted_new_cash = f"{new_cash:.2f}"
+
+        await ctx.economy_send(
+            f"You were working as **a {random.choice(self.jobs)}** and got **{formatted_received}** {self.cash}. Your new balance is **{formatted_new_cash}** {self.cash}."
+        )
+
+
+
+    @work.error
+    async def on_command_error(self, ctx: PretendContext, error: CommandError):
+        if isinstance(error, CommandOnCooldown):
+            return await ctx.economy_send(
+                f"You have to wait **{humanize.precisedelta(datetime.timedelta(seconds=error.retry_after), format='%0.0f')}** to work again"
+            )
+
+    @hybrid_command(help="economy", description="get the leaderboard economy", aliases=["lb"])
+    async def leaderboard(self, ctx: PretendContext):
+        """
+        Global leaderboard for economy
+        """
+
+        results = await self.bot.db.fetch("SELECT * FROM economy")
+
+        if not results:
+            return await ctx.send("everybody's poor 🤣")
+
+        sorted_results = sorted(
+            results, key=lambda c: c["cash"] + c["card"], reverse=True
+        )
+
+        to_show = [
+            f"{self.bot.get_user(check['user_id'])} - {self.humanize_number(round(check['cash']+check['card'], 2))} {self.cash}"
+            for check in sorted_results
+            if self.bot.get_user(check["user_id"])
+        ][:50]
+
+        await ctx.paginate(
+            to_show,
+            f"Economy leaderboard",
+            {"name": ctx.author, "icon_url": ctx.author.display_avatar},
+        )
+
+
+    @hybrid_command(help="economy", description="check your balance", aliases=["bal"])
+    @create_account()
+    async def balance(self, ctx: PretendContext, *, member: discord.Member = Author):
+        """
+        Check someone's balance
+        """
+
+        check = await self.bot.db.fetchrow(
+            "SELECT * FROM economy WHERE user_id = $1", member.id
+        )
+
+        if not check:
+            return await ctx.send_error(
+                f"Member doesn't have any **credits** {self.cash}"
+            )
+
+        daily = "Available"
+        if check["daily"]:
+            if datetime.datetime.now().timestamp() < check["daily"]:
+                daily = self.bot.humanize_date(
+                    datetime.datetime.fromtimestamp(check["daily"])
+                )
+
+        embed = discord.Embed(color=self.color)
+        embed.set_author(
+            name=f"{member.name}'s balance", icon_url=member.display_avatar.url
+        )
+        embed.add_field(
+            name=f"{self.cash} Cash",
+            value=self.humanize_number(check["cash"]),
+            inline=False,
+        )
+        embed.add_field(
+            name=f"{self.emoji} Card",
+            value=self.humanize_number(check["card"]),
+            inline=False,
+        )
+        embed.add_field(name="💰 Daily", value=daily, inline=False)
+        await ctx.send(embed=embed)
+
+
+async def setup(bot) -> None: 
+  return await bot.add_cog(Economy(bot))   

@@ -1,0 +1,104 @@
+Accountant
+Actor
+Archaeologist
+Architect
+Artist
+Astronomer
+Author
+Baker
+Barber
+Bartender
+Biologist
+Blacksmith
+Bricklayer
+Bus Driver
+Butcher
+Carpenter
+Chef
+Chemist
+Cleaner
+Clerk
+Construction Worker
+Consultant
+Content Creator
+Copywriter
+Data Analyst
+Delivery Driver
+Dentist
+Designer
+Doctor
+Electrician
+Engineer
+Farmer
+Fashion Designer
+Firefighter
+Fisherman
+Florist
+Game Developer
+Gardener
+Graphic Designer
+Hairdresser
+Historian
+Hotel Manager
+Interior Designer
+IT Technician
+Journalist
+Judge
+Lawyer
+Librarian
+Lifeguard
+Machine Operator
+Marketing Manager
+Mechanic
+Meteorologist
+Miner
+Model
+Musician
+Nurse
+Painter
+Paramedic
+Pharmacist
+Photographer
+Pilot
+Plumber
+Police Officer
+Politician
+Professor
+Programmer
+Psychologist
+Real Estate Agent
+Receptionist
+Reporter
+Researcher
+Scientist
+Security Guard
+Shopkeeper
+Social Media Manager
+Software Developer
+Soldier
+Statistician
+Stockbroker
+Surgeon
+Tailor
+Taxi Driver
+Teacher
+Technician
+Tour Guide
+Translator
+Truck Driver
+Veterinarian
+Video Editor
+Web Developer
+Welder
+Writer
+Zookeeper
+Animal Trainer
+Auto Mechanic
+Drone Operator
+Epidemiologist
+Game Tester
+Robotics Engineer
+Sound Engineer
+UX Designer
+Virtual Assistant
+Wedding Planner

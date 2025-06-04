@@ -1,0 +1,17 @@
+{
+    "author": [
+        "flare(flare#0001)"
+    ],
+    "install_msg": "This cog ports the Jishaku module to Grief. No support is given for this cog, nor am I responsibile for anything that can go wrong as from you misuing the tools. Note that some of these may be useless on Grief. [p]help Jishaku or [p]help jsk",
+    "name": "Jsk",
+    "hidden": false,
+    "short": "Jishaku ported to Grief.",
+    "description": "Jishaku ported to Grief.",
+    "tags": [
+        "jsk"
+    ],
+    "requirements": [
+        "git+https://github.com/griefbotdiscord/jishaku"
+    ],
+    "min_bot_version": "3.5.0"
+}

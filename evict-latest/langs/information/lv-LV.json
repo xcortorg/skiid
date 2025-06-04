@@ -1,0 +1,78 @@
+{
+    "language_code": "lv-LV",
+    "language": "lv-LV",
+    "language_local": "lv-LV",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "Dabū ieluguma linku priekš bota."
+        },
+        "discord": {
+            "DESCRIPTION": "Dabū ieluguma linku priekš bota palīdzības serverim."
+        },
+        "about": {
+            "DESCRIPTION": "Apskati informaciju par botu.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Uztaisija un uzturēja [x](https://discord.com/users/598125772754124823), [adams](https://discord.com/users/930383131863842816), [harijs](https://discordapp.com/users/187747524646404105)",
+                "DESCRIPTION_LINE_TWO": "Izmantojot `{cached_commands}` komandas `{total_cogs}` moduļos (kopā `{extended_cogs}` moduļi)",
+                "FOOTER": "evict/v{version} • Pēdejais Komits: {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "Apskati bota latentumu.",
+            "INITAL_EMBED": {
+                "description": "pingo..."
+            },
+            "UPDATED_EMBED": {
+                "description": "`{ping}ms` (labots: `{edit_ping}ms`)"
+            }
+        },
+        "poll": {
+            "DESCRIPTION": "Aptaujas pārvaldības komandas",
+            "create": {
+                "DESCRIPTION": "Uzstaisiet jaunu aptauju lietojot karogus",
+                "CANCELLED": "Aptaujas taisišana atcelta.",
+                "INVALID_DURATION": "Nepareiza laika formāts. Lietojiet 1h, 1d, utt."
+            },
+            "quick": {
+                "DESCRIPTION": "Uztaisiet ātro aptauju ar viegliem ja/ne vai pielāgotām opcijām."
+            },
+            "list": {
+                "DESCRIPTION": "Izrakstiet visas aktīvās aptaujas šaja serveri",
+                "NO_POLLS": {
+                    "DEFAULT": "Aktīvas aptaujas netika atrastas!",
+                    "FILTERED": "Netika atrastas aktīvas aptaujas priekš {creator}!"
+                },
+                "ENTRY": {
+                    "TITLE": "**{title}**",
+                    "CREATOR": "Izveidoja: {creator}",
+                    "VOTES": "Balsojumi: {count}",
+                    "ID": "ID: `{id}`",
+                    "CREATED": "Izveidots: {time}",
+                    "ENDS": "Beidzās: {time}"
+                },
+                "EMBED_TITLE": "Aktīvas aptaujas {guild}"
+            },
+            "end": {
+                "DESCRIPTION": "Beigt aptauju atrāk",
+                "INVALID_ID": "Nepareizs aptaujas ID!",
+                "NOT_FOUND": "Aptauja netika atrasta vai jau beidzās!",
+                "NO_PERMISSION": "Jūs nevarat beigt šo aptauju!",
+                "SUCCESS": "Aptauja beidzās!"
+            },
+            "results": {
+                "DESCRIPTION": "Apskataties detalizētus rezultātus no aptaujas",
+                "INVALID_ID": "Nepareizs aptaujas ID!",
+                "NOT_FOUND": "Aptauja netika atrasta!"
+            },
+            "UI": {
+                "VOTE": {
+                    "ENDED": "Ši aptauja ir beigusies.",
+                    "ROLE_REQUIRED": "Jums vajag {role} lomu lai balsotu!",
+                    "SUCCESS": "Jūsu balsojums tika ierakstīts!",
+                    "ERROR": "Nesanāca ierakstīt jūsu balsojumu. Ludzu mēģiniet velreiz.",
+                    "BUTTON": "Balsojat"
+                }
+            }
+        }
+    }
+}

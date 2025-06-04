@@ -1,0 +1,89 @@
+#plugins:
+#  youtube:
+#    clients:
+#      - MUSIC
+#      - ANDROID_TESTSUITE
+#      - WEB
+#      - TVHTML5EMBEDDED
+#    enabled: true
+#    allowSearch: true
+#    allowDirectVideoIds: true
+#    oauth:
+#      enabled: true
+#      # refreshToken: ""
+#  lavasrc:
+#    sources:
+#      youtube: false
+#      spotify: true
+#      applemusic: true
+#    spotify:
+#      clientId: "ee35169abcf4484688044ea3d189449a"
+#      clientSecret: "bb21039bde9b494daab8e61b11c3a0d5"
+#      countryCode: "US"
+#      playlistLoadLimit: 6
+#      albumLoadLimit: 6
+#    applemusic:
+#      countryCode: "US"
+#      mediaAPIToken: "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNzE4OTkyNDkyLCJleHAiOjE3MjYyNTAwOTIsInJvb3RfaHR0cHNfb3JpZ2luIjpbImFwcGxlLmNvbSJdfQ.LYAcESe_-3SOTv96-R3fDipK39vB0UnH72JauaanH0xFzjC968GRyumc7E6sVgHNBe7woprgtw042lOmRR0QjQ"
+#      playlistLoadLimit: 6
+#      albumLoadLimit: 6
+
+server: # REST and WS server
+  port: 2333
+  address: 0.0.0.0
+lavalink:
+  plugins:
+    - dependency: "com.github.topi314.lavasrc:lavasrc-plugin:4.1.1"
+  server:
+    password: "3o8RHRo0or0aMyCLf0HBHTpfgjcQ1S8zpOgnMMhhF7FACSNJpMU"
+    sources:
+      youtube: false
+      bandcamp: false
+      soundcloud: true
+      twitch: false
+      vimeo: false
+      mixer: false
+      http: false
+      local: true
+    bufferDurationMs: 400
+    frameBufferDurationMs: 5000
+    opusEncodingQuality: 5
+    resamplingQuality: HIGH
+    trackStuckThresholdMs: 10000
+    useSeekGhosting: true
+    youtubePlaylistLoadLimit: 6
+    playerUpdateInterval: 5
+    youtubeSearchEnabled: false
+    soundcloudSearchEnabled: true
+    appleMusicSearchEnabled: true
+    gc-warnings: true
+    # ratelimit:
+    #   strategy: "LoadBalance"
+    #   searchTriggersFail: true
+
+metrics:
+  prometheus:
+    enabled: false
+    endpoint: /metrics
+
+sentry:
+  dsn: ""
+  environment: ""
+
+logging:
+  file:
+    max-history: 30
+    max-size: 1GB
+  path: ./logs/
+
+  level:
+    root: INFO
+    lavalink: INFO
+
+  request:
+    enabled: true
+    includeClientInfo: true
+    includeHeaders: false
+    includeQueryString: true
+    includePayload: true
+    maxPayloadLength: 10000

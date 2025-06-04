@@ -1,0 +1,51 @@
+{
+    "language_code": "lv-LV",
+    "language": "lv-LV",
+    "language_local": "lv-LV",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": "Komanda `{command}` izraizīja izņemumu. Lūdzu mēģiniet vēlreiz vēlak.",
+                "SCRIPT_ERROR": "Kaut kas ir nepareiz ar jūsu **skriptu**!",
+                "FLAG": {
+                    "DUPLICATE": "Jūs norādijāt **{flag_name}** karogu vairākas reizes!",
+                    "CAST_ERROR": "Nesanāca pārvērst **{flag_name}** par `{annotation}`!",
+                    "STATUS_HINT": "Pārliecinaties, ka norādijat **on** vai **off** priekš `Statussa` karogiem!",
+                    "MISSING_VALUE": "Jums vajag norādit vērtibu priekš **{flag_name}** karoga!",
+                    "MISSING_REQUIRED": "Jums vajag norādit **{flag_name}** karogu!"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "Ši komanda var tikai būt izmantota **{number} {time}** reizes uz **{per}** vienlaikus!",
+                "COOLDOWN": {
+                    "MESSAGE": "Ši komanda ir šobrīd atdzišanas laikā!",
+                    "RETRY": "Mēģini velreiz pec **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "Netika atrasts **{param}**, kas atbilst **{argument}**!",
+                "USER_ID_HINT": "Ja lietotājs nav šajā serverī, mēģini lietot to **ID** tā vietā",
+                "SERVER": "Netika atrasts serveris, kas atbilst **{argument}**!",
+                "CASTING": "Pārvērst {param} uz {converters} neizdevās!",
+                "NOT_FOUND": {
+                    "MEMBER": "Netika atrasts **dalībnieks**, kas atbilst **{argument}**!",
+                    "USER": "Netika atrasts **lietotājs**, kas atbilst `{argument}`",
+                    "ROLE": "Netika atrasta **loma**, kas atbilst **{argument}**!",
+                    "CHANNEL": "Netika atrasts **kanāls**, kas atbilst **{argument}**!",
+                    "INVITE": "Nederīgs **ieluguma kods** tika iesniegts!",
+                    "MESSAGE": "Norāditā **īziņa** netika atrasta!\nMēģiniet norādit **īziņas URL** tā vietā"
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "Ievadei jābūt {label}!",
+                "RANGE_CHARS": "Ievadei jābūt {label} rakstzīmem!"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "Jums pietūkst {permissions} atļauja{plural}!",
+                "BOT_MISSING": "Man pietrūkst šis atļaujas: {permissions}",
+                "BOT_MISSING_GENERIC": "Man pietrūkst vajadzīgas atļaujas. Lūdzu apskatiet manas lomas atļaujas un pozīciju.",
+                "NSFW_REQUIRED": "Ši komanda var tikai būt lietota NSFW kanālos!"
+            }
+        }
+    }
+}

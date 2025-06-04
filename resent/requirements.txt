@@ -1,0 +1,15 @@
+discord
+jishaku 
+yt-dlp
+timezonefinder
+humanfriendly
+arrow
+git+https://github.com/resentbot/uwuipy
+git+https://github.com/cop-discord/rivalapi.git
+git+https://github.com/resentbot/resent.api
+python-dateutil
+twscrape
+requests
+aiogtts
+aiohttp
+geopy

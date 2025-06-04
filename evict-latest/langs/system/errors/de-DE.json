@@ -1,0 +1,51 @@
+{
+    "language_code": "de-DE",
+    "language": "de-DE",
+    "language_local": "de-DE",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": ";translate set Command {command} Fehler. Bitte spater erneut versuchen.",
+                "SCRIPT_ERROR": "Dein Skript ist falsch **script**!",
+                "FLAG": {
+                    "DUPLICATE": "Flag **{flag_name}** wird nur einmal verwendet.",
+                    "CAST_ERROR": "Fehler für Cast **{flag_name}** ka {annotation}`!",
+                    "STATUS_HINT": "Musst du angeben **on**/**off** fur `Status` flag!",
+                    "MISSING_VALUE": "Wert ist erforderlich fur **{flag_name}** flag!",
+                    "MISSING_REQUIRED": "Flag ist erforderlich fur **{flag_name}**!"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "Der Befehl kann einmal verwendet werden **{number} {time}** per **{per}** gleichzeitig!",
+                "COOLDOWN": {
+                    "MESSAGE": "Command in der Abklingzeit.",
+                    "RETRY": "Versuchen Sie es noch einmal **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "Kein **{param}** fur **{argument}**!",
+                "USER_ID_HINT": "Kein user in Server? Verwenden Sie seinen **ID**",
+                "SERVER": "Kein Server fur **{argument}**!",
+                "CASTING": "Casting **{param}** zur {converters} fehlgeschlagen!",
+                "NOT_FOUND": {
+                    "MEMBER": "Kein **member** fur **{argument}**!",
+                    "USER": "Kein **user** fur `{argument}`!",
+                    "ROLE": "Kein **role** fur **{argument}**!",
+                    "CHANNEL": "Kein **channel** fur **{argument}**!",
+                    "INVITE": "Ungültig **invite code**!",
+                    "MESSAGE": "**message** nicht gefunden. Verwenden **message URL**."
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "Eingabe muss sein {label}!",
+                "RANGE_CHARS": "Eingabe muss sein {label} Charaktere!"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "kein {permissions} perms {plural}!",
+                "BOT_MISSING": "Ich habe keine perms: {permissions}",
+                "BOT_MISSING_GENERIC": "Ich habe keine perms. Uberprüfen role perms und meine Position.",
+                "NSFW_REQUIRED": "Nur im NSFW Kanal/Channel!"
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "language": "English",
+    "language_code": "en",
+    "language_local": "en-US",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "Confirmation prompt wasn't approved!",
+            "FAILED_SEND_PROMPT": "Failed to send prompt message!",
+            "ONLY_USER_RESPOND": "Only **{user}** can respond to this!",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "Approve",
+                    "decline": "Decline"
+                }
+            }
+        }
+    }
+}

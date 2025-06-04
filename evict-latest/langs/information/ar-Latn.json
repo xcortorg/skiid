@@ -1,0 +1,58 @@
+{
+    "language": "Franco Arabic",
+    "language_code": "ar-latn",
+    "language_local": "ar-Latn",
+    "commands": {
+      "invite": {
+        "DESCRIPTION": "Khod link da3wa lel bot."
+      },
+      "discord": {
+        "DESCRIPTION": "Khod link da3wa lel server ta3 el support."
+      },
+      "about": {
+        "DESCRIPTION": "Chouf ma3lomat 3an el bot.",
+        "EMBED": {
+          "DESCRIPTION_LINE_ONE": "Tatawwar w yet7afaz 3aleh mn [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+          "DESCRIPTION_LINE_TWO": "Yesta5dem `{cached_commands}` command fe `{total_cogs}` modules (`{extended_cogs}` total modules)",
+          "FIELDS": [
+            {
+              "name": "**El Bot**",
+              "values": [
+                "**El Users:** `{cached_users}`",
+                "**El Servers:** `{cached_guilds}`",
+                "**Et3mal fe:** `{created_at}`"
+              ]
+            },
+            {
+              "name": "**El System**",
+              "values": [
+                "**CPU:** `{cpu_usage}%`",
+                "**Memory:** `{memory_usage}%`",
+                "**Sh8al mn:** `{uptime}`"
+              ]
+            },
+            {
+              "name": "**El Code**",
+              "values": [
+                "**Lines:** `{lines_of_code}`",
+                "**Files:** `{total_files}`",
+                "**Imports:** `{total_imports}`",
+                "**Functions:** `{total_functions}`"
+              ]
+            }
+          ],
+          "FOOTER": "evict/v{version} • Akher Commit: {latest_commit}"
+        }
+      },
+      "ping": {
+        "DESCRIPTION": "Chouf ping el bot.",
+        "INITAL_EMBED": {
+          "description": "pinging..."
+        },
+        "UPDATED_EMBED": {
+          "description": "`{ping}ms` (edit: `{edit_ping}ms`)"
+        }
+      }
+    }
+  }
+  

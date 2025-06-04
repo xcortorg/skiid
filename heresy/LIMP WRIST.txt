@@ -1,0 +1,5 @@
+#       Kybalion | An all-in-one Discord Bot.
+              discord.gg/Kybalion
+                Version: v2.0.10
+                  Developer: @playfairs
+                     Lang: Python

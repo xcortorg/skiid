@@ -1,0 +1,51 @@
+{
+    "language": "Serbian",
+    "language_code": "sr-Latn",
+    "language_local": "sr-Latn",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": "Komanda `{command}` ima grešku/izuzetak. Pokušajte.",
+                "SCRIPT_ERROR": "Nesto nije u redu sa **script**!",
+                "FLAG": {
+                    "DUPLICATE": "Ti si naglasio**{flag_name}** flag više od jednog puta!",
+                    "CAST_ERROR": "Neuspešno castovanje **{flag_name}** ka `{annotation}`!",
+                    "STATUS_HINT": "Budi siguran da si naveo status **on** or **off** ya `Status` flag!",
+                    "MISSING_VALUE": "Moras navesti vrednost za **{flag_name}** flag!",
+                    "MISSING_REQUIRED": "Moras precizirati **{flag_name}** flag!"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "Ova komanda može biti korišćena samo **{number} {time}** puta **{per}** istovremeno!",
+                "COOLDOWN": {
+                    "MESSAGE": "Ova komanda je na cooldown-u/hladjenju",
+                    "RETRY": "Pokušajte opet za **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "Nema **{param}** koji se matchuje sa **{argument}**!",
+                "USER_ID_HINT": "Ako korisnik nije na serveru, koristite njevog **ID**",
+                "SERVER": "Ni jedan server ne matchuje **{argument}**!",
+                "CASTING": "Castovanje **{param}** u {converters} neuspešno!",
+                "NOT_FOUND": {
+                    "MEMBER": "Korsnik **member** se ne matchuje sa **{argument}**!",
+                    "USER": "User **user** se ne matchuje sa `{argument}`!",
+                    "ROLE": "Role **role** se ne matchuje sa **{argument}**!",
+                    "CHANNEL": "Kanal **channel** se ne matchuje sa **{argument}**!",
+                    "INVITE": "Ne važeći **invite code** kod!",
+                    "MESSAGE": "Data poruka**message** nije nadjena!\nPokušaj koristiti **message URL**"
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "Unos mora biti {label}!",
+                "RANGE_CHARS": "Unos mora biti {label} karakteri!"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "Ne dostaje {permissions} permisija{plural}!",
+                "BOT_MISSING": "Nemam odredjene permisije: {permissions}",
+                "BOT_MISSING_GENERIC": "Nemam odredjene permisije. Molim te proveri moj role i poziciju role-a.",
+                "NSFW_REQUIRED": "Ova komanda može biti korišćena samo u NSFW kanalu!"
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "language_code": "lv-LV",
+    "language": "lv-LV",
+    "language_local": "lv-LV",
+    "system": {
+        "help": {
+            "INFORMATION_DESC": "**informācija**\n> [ ] = opcionāls, < > = vajadzīgs",
+            "SELECT_CATEGORY": "Izvēlaties kategoriju no saraksta apakšā",
+            "DROPDOWN_PLACEHOLDER": "Izvēlaties kategoriju...",
+            "NO_COMMANDS": "Šaja grupā nav pieejamas komandas.",
+            "CANNOT_INTERACT": "Jūs nevarat interaktēt ar šo sarakstu!",
+            "COMMAND": {
+                "title": {
+                    "NORMAL": "Komanda: {command_name} • {module_name} modulis",
+                    "GROUP": "Grupa: {command_name} • {module_name} modulis"
+                },
+                "SYNTAX": "```Ruby\nSintakse: {syntax}\nPiemērs: {prefix}{command_name} {example}\n```",
+                "PERMISSIONS": "Atļaujas",
+                "ALIASES": "Aizvietotājvardi: {aliases}",
+                "FLAGS": {
+                    "REQUIRED": "Vajadzīgie Karogi",
+                    "OPTIONAL": "Opcionālie Karogi"
+                }
+            },
+            "CATEGORY": {
+                "TITLE": "Kategorija: {category_name}",
+                "FOOTER": "{count} komanda{plural}"
+            },
+            "ERRORS": {
+                "COMMAND_NOT_FOUND": "> {emoji} {user}: Komanda `{command}` neeksistē",
+                "SUBCOMMAND_NOT_FOUND": "> {emoji} {user}: Komanda `{command} {subcommand} neeksistē"
+            }
+        }
+    }
+}

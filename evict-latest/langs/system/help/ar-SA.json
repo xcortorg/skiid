@@ -1,0 +1,35 @@
+{
+    "language": "العربية",
+    "language_code": "ar",
+    "language_local": "ar-SA",
+    "system": {
+        "help": {
+            "INFORMATION_DESC": "**المعلومات**\n> [ ] = اختياري, < > = مطلوب\n",
+            "SELECT_CATEGORY": "اختار فئة من القائمة تحت",
+            "DROPDOWN_PLACEHOLDER": "اختار فئة...",
+            "NO_COMMANDS": "ما في أوامر بهذي المجموعة.",
+            "CANNOT_INTERACT": "ما تقدر تتفاعل مع هذي القائمة!",
+            "COMMAND": {
+                "title": {
+                    "NORMAL": "الأمر: {command_name} • وحدة {module_name}",
+                    "GROUP": "المجموعة: {command_name} • وحدة {module_name}"
+                },
+                "SYNTAX": "```Ruby\nالصياغة: {syntax}\nمثال: {prefix}{command_name} {example}```",
+                "PERMISSIONS": "الصلاحيات",
+                "ALIASES": "الأسماء البديلة: {aliases}",
+                "FLAGS": {
+                    "REQUIRED": "الخيارات المطلوبة",
+                    "OPTIONAL": "الخيارات الاختيارية"
+                }
+            },
+            "CATEGORY": {
+                "TITLE": "الفئة: {category_name}",
+                "FOOTER": "{count} أمر{plural}"
+            },
+            "ERRORS": {
+                "COMMAND_NOT_FOUND": "> {emoji} {user}: الأمر `{command}` مو موجود",
+                "SUBCOMMAND_NOT_FOUND": "> {emoji} {user}: الأمر `{command} {subcommand}` مو موجود"
+            }
+        }
+    }
+}

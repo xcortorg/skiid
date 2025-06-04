@@ -1,0 +1,364 @@
+{
+    "language_code": "ko-KR",
+    "language": "ko-KR",
+    "language_local": "ko-KR",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "봇 초대 링크를 보냅니다."
+        },
+        "discord": {
+            "DESCRIPTION": "봇 지원 서버 초대 링크를 보냅니다."
+        },
+        "about": {
+            "DESCRIPTION": "봇에 관한 정보를 표시합니다.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "개발 및 운영 : [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+                "DESCRIPTION_LINE_TWO": "`{cached_commands}` 개의 명령어를 `{total_cogs}` 개의 카테고리에서 사용합니다. (총 `{extended_cogs}` 개의 커맨드 모듈들이 있습니다)",
+                "FOOTER": "evict/v{version} • 최종 수정: {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "봇의 지연 시간을 표시합니다.",
+            "INITAL_EMBED": {
+                "description": "측정중..."
+            },
+            "UPDATED_EMBED": {
+                "description": "`{ping}ms` (수정: `{edit_ping}ms`)"
+            }
+        },
+        "poll": {
+            "DESCRIPTION": "투표 기능 관련 명령어",
+            "create": {
+                "DESCRIPTION": "입력된 세부사항들로 구성된 투표를 시작합니다.",
+                "CANCELLED": "투표 생성 취소됨.",
+                "INVALID_DURATION": "시간 형식 잘못됨. 1h, 1d 와 같은 형식을 사용하십시오."
+            },
+            "quick": {
+                "DESCRIPTION": "yes/no 또는 커스텀 이모지를 이용해 빠르게 투표를 시작합니다."
+            },
+            "list": {
+                "DESCRIPTION": "현재 서버에서 진행중인 투표들을 모두 표시합니다.",
+                "NO_POLLS": {
+                    "DEFAULT": "진행중인 투표가 없습니다!",
+                    "FILTERED": "{creator} 에 의한 투표가 없습니다!"
+                },
+                "ENTRY": {
+                    "TITLE": "**{title}**",
+                    "CREATOR": "{creator} 에 의해 생성됨",
+                    "VOTES": "투표 : {count}",
+                    "ID": "ID: `{id}`",
+                    "CREATED": "{time} 에 생성됨",
+                    "ENDS": "{time} 에 종료됨"
+                },
+                "EMBED_TITLE": "{guild} 에서 진행중인 투표"
+            },
+            "end": {
+                "DESCRIPTION": "투표를 지전 시간보다 일찍 끝냅니다.",
+                "INVALID_ID": "존재하지 않는 투표 ID 입니다!",
+                "NOT_FOUND": "투표가 이미 종료되었거나 존재하지 않습니다!",
+                "NO_PERMISSION": "해당 투표를 종료시킬 수 없습니다!",
+                "SUCCESS": "투표가 성공적으로 종료되었습니다!"
+            },
+            "results": {
+                "DESCRIPTION": "투표의 상세 결과를 표시합니다.",
+                "INVALID_ID": "잘못된 투표 ID 입니다!",
+                "NOT_FOUND": "투표를 찾을수 없습니다!"
+            },
+            "UI": {
+                "VOTE": {
+                    "ENDED": "해당 투표는 종료되었습니다.",
+                    "ROLE_REQUIRED": "투표하기 위해서는 {role} 역할이 필요합니다!",
+                    "SUCCESS": "당신의 투표가 기록되었습니다!",
+                    "ERROR": "당신의 투표를 기록하지 못했습니다. 다시 시도해 주십시오.",
+                    "BUTTON": "투표",
+                    "SELECT_PROMPT": "선택하십시오 :"
+                },
+                "RESULTS": {
+                    "BUTTON": "결과",
+                    "BACK_BUTTON": "투표로 돌아가기"
+                },
+                "MODAL": {
+                    "TITLE": "선택지",
+                    "CHOICE_LABEL": "선택지 {number}",
+                    "CHOICE_PLACEHOLDER": "선택지 입력 {number}"
+                }
+            }
+        },
+        "status": {
+            "DESCRIPTION": "shard 상태를 확인합니다.",
+            "MESSAGE": "봇에 문제가 있습니까? shard 상태를 확인하십시오 [here]({url}).\n당신의 서버는 shard {shard_id} 에 있습니다"
+        }
+    },
+    "inviteinfo": {
+        "DESCRIPTION": "초대 링크에 대한 정보를 표시합니다.",
+        "EMBED": {
+            "AUTHOR": "{guild_name} ({guild_id})",
+            "FIELDS": {
+                "INFORMATION": {
+                    "NAME": "**정보**",
+                    "VALUE": "**초대자:** {inviter}\n**채널:** {channel}\n**생성 시간:** {created_at}"
+                },
+                "GUILD": {
+                    "NAME": "**서버**",
+                    "VALUE": "**멤버 수:** {member_count:,}\n**온라인 멤버 수:** {online_count:,}\n**인증 레벨:** {verification_level}"
+                }
+            }
+        }
+    },
+    "serverbanner": {
+        "DESCRIPTION": "서버에 배너가 있을 시 해당 배너를 표시합니다.",
+        "BANNER_MISSING": "**{guild}** 에는 배너가 없습니다!",
+        "BANNER_TITLE": "{guild} 의 배너"
+    },
+    "servericon": {
+        "DESCRIPTION": "서버 아이콘이 있을 시 해당 아이콘을 표시합니다.",
+        "ICON_MISSING": "**{guild}** 에는 아이콘이 없습니다!",
+        "BANNER_TITLE": "{guild}의 배너",
+        "ICON_TITLE": "{guild}의 아이콘"
+    },
+    "avatar": {
+        "DESCRIPTION": "사용자의 프로필 사진을 표시합니다.",
+        "TITLE": {
+            "SELF": "당신의 프로필 사진",
+            "OTHER": "{user_name}의 프로필 사진"
+        }
+    },
+    "serveravatar": {
+        "DESCRIPTION": "사용자의 서버 프로필 사진을 표시합니다.",
+        "MISSING": {
+            "SELF": "서버 프로필 사진이 없습니다!",
+            "OTHER": "**{member}** 의 서버 프로필 사진을 찾을 수 없습니다!"
+        },
+        "TITLE": {
+            "SELF": "당신의 서버 프로필 사진",
+            "OTHER": "{member_name}의 서버 프로필 사진"
+        }
+    },
+    "memberbanner": {
+        "DESCRIPTION": "사용자의 서버 배너를 표시합니다.",
+        "MISSING": {
+            "SELF": "서버 배너가 없습니다!",
+            "OTHER": "**{member}** 의 서버 배너를 찾을 수 없습니다!"
+        },
+        "TITLE": {
+            "SELF": "당신의 서버 배너",
+            "OTHER": "{member_name}의 서버 배너"
+        }
+    },
+    "banner": {
+        "DESCRIPTION": "사용자의 배너가 있을 시 해당 배너를 표시합니다.",
+        "MISSING": {
+            "SELF": "배너가 없습니다!",
+            "OTHER": "**{user}** 의 배너를 찾을 수 없습니다!"
+        },
+        "TITLE": {
+            "SELF": "당신의 배너",
+            "OTHER": "{user_name}의 배너"
+        }
+    },
+    "membercount": {
+        "DESCRIPTION": "서버의 멤버 수를 표시합니다.",
+        "FIELDS": {
+            "MEMBERS": "**멤버들**",
+            "HUMANS": "**사용자들**",
+            "BOTS": "**봇들**"
+        }
+    },
+    "serverinfo": {
+        "DESCRIPTION": "서버에 관한 정보를 표시합니다.",
+        "ERRORS": {
+            "NOT_FOUND": "서버를 찾을 수 없습니다!"
+        },
+        "EMBED": {
+            "AUTHOR": "{guild_name} ({guild_id})",
+            "FIELDS": {
+                "INFORMATION": {
+                    "NAME": "**정보**",
+                    "VALUE": "**소유자:** {owner}\n**인증:** {verification}\n**서버 부스트:** {boost_count:,} (`Level {boost_level}`)"
+                },
+                "STATISTICS": {
+                    "NAME": "**통계**",
+                    "VALUE": "**멤버:** {member_count:,}\n**텍스트 채널:** {text_channels:,}\n**음성 채널:** {voice_channels:,}"
+                },
+                "ROLES": {
+                    "NAME": "**역할들 ({role_count})**"
+                }
+            }
+        }
+    },
+    "bots": {
+        "DESCRIPTION": "서버의 모든 봇들을 표시합니다.",
+        "NO_BOTS": "**{guild}** 에 봇이 없습니다!",
+        "TITLE": "{guild}의 봇들"
+    },
+    "banlist": {
+        "DESCRIPTION": "차단된 사용자들을 모두 표시합니다.",
+        "NO_BANS": "차단된 사용자가 없습니다!",
+        "TITLE": "차단된 사용자들 [{count}]"
+    },
+    "guildinvites": {
+        "DESCRIPTION": "서버의 초대 링크들을 모두 표시합니다.",
+        "NO_INVITES": "현재 초대 링크가 없습니다!",
+        "TITLE": "{guild}의 초대 링크들"
+    },
+    "emojis": {
+        "DESCRIPTION": "서버의 이모지들을 모두 표시합니다.",
+        "NO_EMOJIS": "**{guild}** 에 이모지가 없습니다!",
+        "TITLE": "{guild}의 이모지들"
+    },
+    "stickers": {
+        "DESCRIPTION": "서버의 스티커들을 모두 표시합니다.",
+        "NO_STICKERS": "**{guild}** 에 스티커가 없습니다!",
+        "TITLE": "{guild}의 스티커들"
+    },
+    "weather": {
+        "DESCRIPTION": "특정 도시/국가의 현재 날씨를 표시합니다.",
+        "ERROR": {
+            "NOT_FOUND": "`{location}` 의 날씨 정보를 찾을 수 없습니다.",
+            "GENERIC": "날씨 데이터를 불러오는 중 오류가 발생했습니다: {error}"
+        },
+        "EMBED": {
+            "TITLE": "{location}의 날씨",
+            "FIELDS": {
+                "TEMPERATURE": {
+                    "NAME": "기온",
+                    "VALUE": "🌡️ **{temp_c}°C** ({temp_f}°F)\n체감온도: {feels_c}°C ({feels_f}°F)"
+                },
+                "HUMIDITY": {
+                    "NAME": "습도",
+                    "VALUE": "💧 {humidity}%"
+                },
+                "WIND": {
+                    "NAME": "바람",
+                    "VALUE": "💨 {speed} km/h"
+                },
+                "CLOUD_COVER": {
+                    "NAME": "구름 범위",
+                    "VALUE": "☁️ {cover}%"
+                },
+                "VISIBILITY": {
+                    "NAME": "가시성",
+                    "VALUE": "👁️ {distance} km"
+                },
+                "PRECIPITATION": {
+                    "NAME": "강수량",
+                    "VALUE": "🌧️ {amount} mm"
+                }
+            }
+        }
+    },
+    "shards": {
+        "DESCRIPTION": "봇 shard 지연 시간을 표시합니다."
+    },
+    "userinfo": {
+        "DESCRIPTION": "사용자에 관한 정보를 표시합니다.",
+        "TITLE": "{user} {bot_tag}",
+        "FIELDS": {
+            "CREATED": "**생성일**",
+            "JOINED": "**({position})번째로 참가함**",
+            "BOOSTED": "**부스트**",
+            "ROLES": "**역할들**"
+        },
+        "VOICE": {
+            "STREAMING": "🎙 {channel} 에서 스트리밍 중 {with_others}",
+            "NORMAL": "🎙{channel} 에 있음 {with_others}",
+            "WITH_OTHERS": "with {count:other}",
+            "ALONE": "혼자"
+        },
+        "ACTIVITIES": {
+            "SPOTIFY": "🎵 [**{title}**]({url}) by **{artist}** 청취 중",
+            "STREAMING": "🎥{activities} 스트리밍 중",
+            "PLAYING": "🎮 {activities} 하는 중",
+            "WATCHING": "📺 {activities} 시청 중",
+            "COMPETING": "🏆 {activities} 에서 경쟁 중"
+        },
+        "FOOTER": "{count} 개의 같이 있는 서버"
+    },
+    "namehistory": {
+        "DESCRIPTION": "사용자의 이름 기록을 표시합니다.",
+        "NO_HISTORY": "**{user}** 에게서 이름 변경 기록을 찾지 못했습니다!",
+        "TITLE": "이름 변경 기록",
+        "clear": {
+            "DESCRIPTION": "이름 변경 기록을 모두 삭제합니다.",
+            "SUCCESS": "성공적으로 당신의 이름 기록들을 삭제했습니다."
+        }
+    },
+    "devices": {
+        "DESCRIPTION": "사용자의 플랫폼을 확인합니다.",
+        "OFFLINE": {
+            "SELF": "현재 오프라인입니다!",
+            "OTHER": "**{member}** 은/는 현재 오프라인입니다!"
+        },
+        "TITLE": {
+            "SELF": "당신의 기기들",
+            "OTHER": "{member_name}의 기기들"
+        },
+        "ACTIVITIES": {
+            "SPOTIFY": "🎵 [**{title}**]({url}) by **{artist}** 청취 중",
+            "STREAMING": "🎥 {activities} 스트리밍 중",
+            "PLAYING": "🎮 {activities} 하는 중",
+            "WATCHING": "📺 {activities} 시청 중",
+            "COMPETING": "🏆  {activities} 에서 경쟁 중"
+        }
+    },
+    "roles": {
+        "DESCRIPTION": "서버의 역할들을 표시합니다.",
+        "NO_ROLES": "**{guild}** 에 역할이 없습니다!",
+        "TITLE": "{guild}의 역할들"
+    },
+    "inrole": {
+        "DESCRIPTION": "해당 역할을 부여받은 사용자를 표시합니다.",
+        "NO_MEMBERS": "{role} 해당 역할을 가진 사용자가 없습니다!",
+        "TITLE": "{role} 역할이 있는 사용자들"
+    },
+    "boosters": {
+        "DESCRIPTION": "서버의 부스터들을 표시합니다.",
+        "NO_BOOSTERS": "현재 부스팅 중인 사용자가 없습니다!",
+        "TITLE": "부스터",
+        "lost": {
+            "DESCRIPTION": "부스팅을 취소한 모든 사용자들을 표시합니다.",
+            "NO_LOST": "부스팅을 취소한 사용자가 없습니다!",
+            "TITLE": "부스트 취소자들"
+        }
+    },
+    "firstmessage": {
+        "DESCRIPTION": "해당 채널에 처음으로 보내진 메시지를 표시합니다.",
+        "RESPONSE": "**{author}** 에 의해 보내진 [`first message`]({url}) 로 가기"
+    },
+    "position": {
+        "DESCRIPTION": "사용자의 서버 참가 순서를 확인합니다.",
+        "RESPONSE": "{member} 은  `{pos}` 번째로 참가했습니다."
+    },
+    "roleinfo": {
+        "DESCRIPTION": "해당 역할에 대한 정보를 표시합니다.",
+        "FIELDS": {
+            "ID": "역할 ID",
+            "COLOR": "색",
+            "PERMISSIONS": {
+                "NAME": "권한",
+                "NONE": "위험할 수 있는 권한이 부여되지 않았습니다."
+            },
+            "MEMBERS": {
+                "NAME": "{count} 사용자(들)",
+                "NONE": "이 역할을 가진 사용자가 없습니다."
+            }
+        },
+        "FOOTER": {
+            "DANGEROUS": "위험할 수 있는 권한입니다!"
+        }
+    },
+    "getbotinvite": {
+        "DESCRIPTION": "봇의 ID 를 통해 해당 봇의 초대 링크를 표시합니다.",
+        "NOT_BOT": "제공된 ID 는 봇이 아닙니다!",
+        "BUTTON": "{name} 초대하기"
+    },
+    "gnames": {
+        "DESCRIPTION": "서버의 이름 변경 기록을 확인합니다.",
+        "NO_HISTORY": "**{guild}** 의 이름 변경 기록을 찾을 수 없었습니다!",
+        "TITLE": "{guild_name} 의 이름 변경 기록"
+    },
+    "cleargnames": {
+        "DESCRIPTION": "서버의 이름 변경 기록을 삭제합니다.",
+        "SUCCESS": "서버의 이름 변경 기록을 삭제했습니다!"
+    }
+}

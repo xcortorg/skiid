@@ -1,0 +1,51 @@
+{
+    "language_code": "Romanian",
+    "language": "Romanian",
+    "language_local": "ro-RO",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": "Comanda  `{command}` a întâmpinat o eroare. Te rog încearcă mai târziu.",
+                "SCRIPT_ERROR": "Ceva este în neregula cu **script-ul tău**",
+                "FLAG": {
+                    "DUPLICATE": "Ai specificat steag-ul **{flag_name}** mai mult decât o singură dată!",
+                    "CAST_ERROR": "Nu s-a putut converti **{flag_name}** la `{annotation}`!",
+                    "STATUS_HINT": "Fii sigur că argument-ul pentru `Status` este **on** sau **off**",
+                    "MISSING_VALUE": "Trebuie să specifici o valoare pentru argument-ul **{flag_name}**!",
+                    "MISSING_REQUIRED": "Trebuie sa specifici argument-ul **{flag_name}**!"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "Această comandă poate fi folosită doar de **{number} {time}** ori per **{per}** concomitent!",
+                "COOLDOWN": {
+                    "MESSAGE": "Această comandă nu poate fi folosită acum. Mai asteaptă un moment!",
+                    "RETRY": "Încearcă din nou în **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "Niciun **{param}** nu se potrivește cu **{argument}**",
+                "USER_ID_HINT": "Dacă utilizatorul nu se află în acest server, încearcă să folosești **ID-UL** acestuia",
+                "SERVER": "Niciun server nu a fost găsit folosind **{argument}**!",
+                "CASTING": "Convertirea **{param}** la {converters} a eșuat!",
+                "NOT_FOUND": {
+                    "MEMBER": "Niciun membru nu a fost găsit folosind identificator-ul **{argument}**!",
+                    "USER": "Niciun **utilizator** nu a fost  găsit folosind identificator-ul `{argument}`!",
+                    "ROLE": "Niciun **rol** nu a fost  găsit folosind identificator-ul `{argument}`!",
+                    "CHANNEL": "Niciun **canal** nu a fost  găsit folosind identificator-ul `{argument}`!",
+                    "INVITE": "Acest cod de invitație este invalid!",
+                    "MESSAGE": "**Mesaj-ul** dat nu a fost găsit! Încearcă să folosești link-ul catre acel mesaj"
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "Această valoare trebuie să fie {label}!",
+                "RANGE_CHARS": "Această valoare trebuie să aibă {label} caractere!"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "Îți lipseste permisiunea{plural} {permissions}!",
+                "BOT_MISSING": "Îmi lipsesc urmǎtoarele permisiuni: {permissions}",
+                "BOT_MISSING_GENERIC": "Îmi lipsesc permisiunile necesare. Te rog verifica permisiunile rolului meu şi poziția acestuia.",
+                "NSFW_REQUIRED": "Această comandă poate fi folosită doar în canale NSFW!"
+            }
+        }
+    }
+}

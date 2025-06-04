@@ -1,0 +1,51 @@
+{
+    "language_code": "es-Latn",
+    "language": "es-Latn",
+    "language_local": "es-Latn",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": "El comando `{command}` generó una expectativa. Por favor, inténtalo de nuevo más tarde.",
+                "SCRIPT_ERROR": "Algo está mal con tu **script!**",
+                "FLAG": {
+                    "DUPLICATE": "Especificaste la bandera {flag_name} más de una vez!",
+                    "CAST_ERROR": "No se pudo convertir **{flag_name}** a `{annotation}`!",
+                    "STATUS_HINT": "Asegúrate de proporcionar **activado** o ***desactivado** para las banderas de `Status`!",
+                    "MISSING_VALUE": "Debes especificar un valor para la bandera **{flag_name}**!",
+                    "MISSING_REQUIRED": "¡Debes especificar la bandera **{flag_name}**!"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "¡Este comando solo se puede usar **{number} {time}** por **{per}** simultáneamente!",
+                "COOLDOWN": {
+                    "MESSAGE": "¡Este comando está actualmente en enfriamiento!",
+                    "RETRY": "Inténtalo de nuevo en **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "¡No se encontró ningún **{param}** que coincida con **{argument}**!",
+                "USER_ID_HINT": "Si el usuario no está en este servidor, intenta usar su **ID** en su lugar.",
+                "SERVER": "¡No se encontró ningún servidor que coincida con **{argument}**!",
+                "CASTING": "¡No se pudo convertir **{param}** a {converters}!",
+                "NOT_FOUND": {
+                    "MEMBER": "¡No se encontró ningún **miembro** que coincida con **{argument}**!",
+                    "USER": "¡No se encontró ningún **usuario** que coincida con `{argument}`!",
+                    "ROLE": "¡No se encontró ningún **rol** que coincida con **{argument}**!",
+                    "CHANNEL": "¡No se encontró ningún **canal** que coincida con **{argument}**!",
+                    "INVITE": "¡Código de invitación inválido proporcionado!",
+                    "MESSAGE": "¡El **mensaje **proporcionado no fue encontrado!\nIntenta usar la **URL **del mensaje en su lugar."
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "¡La entrada debe ser {label}!",
+                "RANGE_CHARS": "¡La entrada debe tener **{label}** caracteres!"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "Te falta el permiso {permissions}{plural}!",
+                "BOT_MISSING": "Me faltan los siguientes permisos: {permissions}",
+                "BOT_MISSING_GENERIC": "Me faltan permisos requeridos. Por favor, verifica los permisos y la posición de mi rol.",
+                "NSFW_REQUIRED": "¡Este comando solo se puede usar en canales NSFW!"
+            }
+        }
+    }
+}

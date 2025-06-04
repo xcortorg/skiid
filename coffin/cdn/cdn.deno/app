@@ -1,0 +1,27 @@
+from sanic import Sanic, raw, json
+from sanic.request import Request
+from sanic_cors import CORS
+from aiohttp import ClientSession
+
+
+app = Sanic(name = "Coffin-CDN")
+cors = CORS(app)
+
+async def attachment(request: Request, channel_id: int, message_id: int, attachment_id: str):
+    response = None
+    async with ClientSession() as session:
+        url = str(request.url).replace("http://127.0.0.1:9000","https://cdn.coffin.bot").replace("cdn.coffin.bot", "cdn.discordapp.com")
+        async with session.get(url) as response:
+            if response.headers["content-type"] in ("text/plain;charset=UTF-8", "text/plain"):
+                response = json(body = {"message": "Asset expired or not found"})
+            else:
+                response = raw(body = await response.read(), status = 200, content_type = response.headers["Content-Type"])
+    return response
+
+app.add_route(attachment, "/attachments/<channel_id>/<message_id>/<attachment_id>", methods = ["GET", "OPTIONS"])
+
+
+if __name__ == "__main__":
+    app.run(port = 9000, workers = 10)
+
+# THIS IS JUST INCASE YOU WANT TO GO BACK TO PYTHON (IT SUX)

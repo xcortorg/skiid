@@ -1,0 +1,1452 @@
+{
+    "1302631459143553092": [
+        "<cogs.mentions.Mentioning object at 0x7f8399aa5f10>"
+    ],
+    "1089784869514661898": [
+        "<cogs.mentions.Mentioning object at 0x7f8399aa5d30>",
+        "<cogs.mentions.Mentioning object at 0x7f83adbbcc70>",
+        "<cogs.mentions.Mentioning object at 0x7f83c5509a30>",
+        "<cogs.mentions.Mentioning object at 0x7f843ee49be0>",
+        "<cogs.mentions.Mentioning object at 0x7f83972869a0>",
+        "<cogs.mentions.Mentioning object at 0x7f8395d7b640>",
+        "<cogs.mentions.Mentioning object at 0x7f8459108b50>",
+        "<cogs.mentions.Mentioning object at 0x7f8398840a00>",
+        "<cogs.mentions.Mentioning object at 0x7f844eb15250>",
+        "<cogs.mentions.Mentioning object at 0x7f84586478e0>",
+        "<cogs.mentions.Mentioning object at 0x7f83edc37730>",
+        "<cogs.mentions.Mentioning object at 0x7f845b827b20>",
+        "<cogs.mentions.Mentioning object at 0x7f8456eb4d30>",
+        "<cogs.mentions.Mentioning object at 0x7f83c7e11a60>",
+        "<cogs.mentions.Mentioning object at 0x7f83af4cd2b0>",
+        "<cogs.mentions.Mentioning object at 0x7f8396011970>",
+        "<cogs.mentions.Mentioning object at 0x7f8399dce640>",
+        "<cogs.mentions.Mentioning object at 0x7f83b0c9bac0>",
+        "<cogs.mentions.Mentioning object at 0x7f839b346400>",
+        "<cogs.mentions.Mentioning object at 0x7f83abb120d0>",
+        "<cogs.mentions.Mentioning object at 0x7f83a6ec02b0>",
+        "<cogs.mentions.Mentioning object at 0x7f847afda160>",
+        "<cogs.mentions.Mentioning object at 0x7f83ae0d5eb0>",
+        "<cogs.mentions.Mentioning object at 0x7f8395fcabe0>",
+        "<cogs.mentions.Mentioning object at 0x7f83981567f0>",
+        "<cogs.mentions.Mentioning object at 0x7f83adddb3a0>",
+        "<cogs.mentions.Mentioning object at 0x7f8396024ca0>",
+        "<cogs.mentions.Mentioning object at 0x7f8399d3c430>",
+        "<cogs.mentions.Mentioning object at 0x7f83994239d0>",
+        "<cogs.mentions.Mentioning object at 0x7f83ad9dc490>",
+        "<cogs.mentions.Mentioning object at 0x7f83b02cda00>",
+        "<cogs.mentions.Mentioning object at 0x7f839980bf40>",
+        "<cogs.mentions.Mentioning object at 0x7f83ad668a30>",
+        "<cogs.mentions.Mentioning object at 0x7f8461722f70>",
+        "<cogs.mentions.Mentioning object at 0x7f83aa689280>",
+        "<cogs.mentions.Mentioning object at 0x7f83ebe15040>",
+        "<cogs.mentions.Mentioning object at 0x7f83cd0f1730>",
+        "<cogs.mentions.Mentioning object at 0x7f83e9fdc4f0>",
+        "<cogs.mentions.Mentioning object at 0x7f847b88b8e0>",
+        "<cogs.mentions.Mentioning object at 0x7f8458741dc0>"
+    ],
+    "909777360583290901": [
+        "<cogs.mentions.Mentioning object at 0x7f84877b3040>"
+    ],
+    "1323088203359453344": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d55340>",
+        "<cogs.mentions.Mentioning object at 0x7f8458f91790>",
+        "<cogs.mentions.Mentioning object at 0x7f84596fc9d0>"
+    ],
+    "1320185680382660651": [
+        "<cogs.mentions.Mentioning object at 0x7f83e9e55e80>",
+        "<cogs.mentions.Mentioning object at 0x7f83b2de5b20>",
+        "<cogs.mentions.Mentioning object at 0x7f8397e8df10>",
+        "<cogs.mentions.Mentioning object at 0x7f8457d7d310>",
+        "<cogs.mentions.Mentioning object at 0x7f83adf1c6d0>",
+        "<cogs.mentions.Mentioning object at 0x7f83c5eb3550>"
+    ],
+    "1145827559578275870": [
+        "<cogs.mentions.Mentioning object at 0x7f83b029baf0>",
+        "<cogs.mentions.Mentioning object at 0x7f83c7e67d30>"
+    ],
+    "1249380503820177528": [
+        "<cogs.mentions.Mentioning object at 0x7f83adbbc070>",
+        "<cogs.mentions.Mentioning object at 0x7f83978947f0>",
+        "<cogs.mentions.Mentioning object at 0x7f845bd9fe20>",
+        "<cogs.mentions.Mentioning object at 0x7f8397820340>",
+        "<cogs.mentions.Mentioning object at 0x7f84487f9310>",
+        "<cogs.mentions.Mentioning object at 0x7f83973c1670>"
+    ],
+    "1247713821586493452": [
+        "<cogs.mentions.Mentioning object at 0x7f8399df9eb0>",
+        "<cogs.mentions.Mentioning object at 0x7f8399d3ca60>",
+        "<cogs.mentions.Mentioning object at 0x7f83ec0c9730>",
+        "<cogs.mentions.Mentioning object at 0x7f83c2c4a040>",
+        "<cogs.mentions.Mentioning object at 0x7f83ea0aef10>",
+        "<cogs.mentions.Mentioning object at 0x7f83994df400>",
+        "<cogs.mentions.Mentioning object at 0x7f8396da5880>",
+        "<cogs.mentions.Mentioning object at 0x7f83adba3670>",
+        "<cogs.mentions.Mentioning object at 0x7f83b04f3490>"
+    ],
+    "1335760689129721985": [
+        "<cogs.mentions.Mentioning object at 0x7f83b346d7f0>",
+        "<cogs.mentions.Mentioning object at 0x7f83b179bfd0>",
+        "<cogs.mentions.Mentioning object at 0x7f8399df9b80>",
+        "<cogs.mentions.Mentioning object at 0x7f83979d69d0>",
+        "<cogs.mentions.Mentioning object at 0x7f83afd5b6a0>"
+    ],
+    "1249945398177435652": [
+        "<cogs.mentions.Mentioning object at 0x7f83e328bb20>",
+        "<cogs.mentions.Mentioning object at 0x7f839a415970>",
+        "<cogs.mentions.Mentioning object at 0x7f839587efa0>",
+        "<cogs.mentions.Mentioning object at 0x7f8399bfb700>",
+        "<cogs.mentions.Mentioning object at 0x7f839850a400>"
+    ],
+    "1334325958299226183": [
+        "<cogs.mentions.Mentioning object at 0x7f83adbbcee0>",
+        "<cogs.mentions.Mentioning object at 0x7f839782e3d0>",
+        "<cogs.mentions.Mentioning object at 0x7f84624539a0>",
+        "<cogs.mentions.Mentioning object at 0x7f84599385e0>",
+        "<cogs.mentions.Mentioning object at 0x7f8398edb5e0>",
+        "<cogs.mentions.Mentioning object at 0x7f84570ce340>"
+    ],
+    "1313552829809557544": [
+        "<cogs.mentions.Mentioning object at 0x7f83a66d1820>",
+        "<cogs.mentions.Mentioning object at 0x7f846e554070>",
+        "<cogs.mentions.Mentioning object at 0x7f8396199640>",
+        "<cogs.mentions.Mentioning object at 0x7f8396f2f7c0>",
+        "<cogs.mentions.Mentioning object at 0x7f83e34b9b20>",
+        "<cogs.mentions.Mentioning object at 0x7f839b659730>"
+    ],
+    "925967449441054751": [
+        "<cogs.mentions.Mentioning object at 0x7f8399aa5520>"
+    ],
+    "1123013421751881799": [
+        "<cogs.mentions.Mentioning object at 0x7f8399aa5670>",
+        "<cogs.mentions.Mentioning object at 0x7f8398934850>"
+    ],
+    "1213998812171870299": [
+        "<cogs.mentions.Mentioning object at 0x7f8399df9d90>",
+        "<cogs.mentions.Mentioning object at 0x7f83e9baca60>",
+        "<cogs.mentions.Mentioning object at 0x7f83e2a513a0>"
+    ],
+    "829469233951145985": [
+        "<cogs.mentions.Mentioning object at 0x7f83eee7a2e0>"
+    ],
+    "1272891100885028972": [
+        "<cogs.mentions.Mentioning object at 0x7f839a415cd0>",
+        "<cogs.mentions.Mentioning object at 0x7f8399d1e130>",
+        "<cogs.mentions.Mentioning object at 0x7f83c7f0e670>",
+        "<cogs.mentions.Mentioning object at 0x7f839857ab20>",
+        "<cogs.mentions.Mentioning object at 0x7f844ed04850>",
+        "<cogs.mentions.Mentioning object at 0x7f83adf1c190>"
+    ],
+    "1178774875557597248": [
+        "<cogs.mentions.Mentioning object at 0x7f8397948b20>",
+        "<cogs.mentions.Mentioning object at 0x7f83c3847460>"
+    ],
+    "1274841817480695923": [
+        "<cogs.mentions.Mentioning object at 0x7f84564dba60>",
+        "<cogs.mentions.Mentioning object at 0x7f8398780cd0>",
+        "<cogs.mentions.Mentioning object at 0x7f83ac1e9160>"
+    ],
+    "1103781403226804264": [
+        "<cogs.mentions.Mentioning object at 0x7f83ed4d3a30>",
+        "<cogs.mentions.Mentioning object at 0x7f83a63a6310>",
+        "<cogs.mentions.Mentioning object at 0x7f83f34a9940>",
+        "<cogs.mentions.Mentioning object at 0x7f8426e7bdf0>",
+        "<cogs.mentions.Mentioning object at 0x7f84599f8f70>",
+        "<cogs.mentions.Mentioning object at 0x7f83b3003dc0>"
+    ],
+    "1193293046071177237": [
+        "<cogs.mentions.Mentioning object at 0x7f844dfbe9a0>",
+        "<cogs.mentions.Mentioning object at 0x7f8456b8f970>",
+        "<cogs.mentions.Mentioning object at 0x7f84648a0610>",
+        "<cogs.mentions.Mentioning object at 0x7f83ad62ad90>",
+        "<cogs.mentions.Mentioning object at 0x7f83abbd0ca0>",
+        "<cogs.mentions.Mentioning object at 0x7f83e353e5b0>",
+        "<cogs.mentions.Mentioning object at 0x7f845bfbf5b0>",
+        "<cogs.mentions.Mentioning object at 0x7f83c5feb160>",
+        "<cogs.mentions.Mentioning object at 0x7f8399bfb760>",
+        "<cogs.mentions.Mentioning object at 0x7f8396478370>",
+        "<cogs.mentions.Mentioning object at 0x7f839b6596a0>"
+    ],
+    "845594197909176340": [
+        "<cogs.mentions.Mentioning object at 0x7f83eb0b5b20>",
+        "<cogs.mentions.Mentioning object at 0x7f846028b640>",
+        "<cogs.mentions.Mentioning object at 0x7f83aeaf4850>"
+    ],
+    "894820379816759306": [
+        "<cogs.mentions.Mentioning object at 0x7f83969b0490>",
+        "<cogs.mentions.Mentioning object at 0x7f8399d55c10>",
+        "<cogs.mentions.Mentioning object at 0x7f8459ed8a00>",
+        "<cogs.mentions.Mentioning object at 0x7f83c3e18cd0>"
+    ],
+    "1154218480590139403": [
+        "<cogs.mentions.Mentioning object at 0x7f83ccbafb50>"
+    ],
+    "1215439177970356274": [
+        "<cogs.mentions.Mentioning object at 0x7f83c3e181f0>"
+    ],
+    "1336079999584833597": [
+        "<cogs.mentions.Mentioning object at 0x7f8442b3e5e0>",
+        "<cogs.mentions.Mentioning object at 0x7f8399dce5b0>"
+    ],
+    "772539958828990514": [
+        "<cogs.mentions.Mentioning object at 0x7f84565e26a0>"
+    ],
+    "960288993063354399": [
+        "<cogs.mentions.Mentioning object at 0x7f84617a7ac0>"
+    ],
+    "1194435558643077164": [
+        "<cogs.mentions.Mentioning object at 0x7f84618024c0>",
+        "<cogs.mentions.Mentioning object at 0x7f845ae59d30>"
+    ],
+    "792213771099045900": [
+        "<cogs.mentions.Mentioning object at 0x7f83ebbb0280>",
+        "<cogs.mentions.Mentioning object at 0x7f8399804160>",
+        "<cogs.mentions.Mentioning object at 0x7f8399626250>",
+        "<cogs.mentions.Mentioning object at 0x7f84246fb220>",
+        "<cogs.mentions.Mentioning object at 0x7f84624d8ee0>",
+        "<cogs.mentions.Mentioning object at 0x7f8397ec4760>"
+    ],
+    "1061065234212724796": [
+        "<cogs.mentions.Mentioning object at 0x7f83f3ad0760>"
+    ],
+    "1258063054575370330": [
+        "<cogs.mentions.Mentioning object at 0x7f83b2170490>"
+    ],
+    "1162123465176924323": [
+        "<cogs.mentions.Mentioning object at 0x7f83f0230490>"
+    ],
+    "597110800519528448": [
+        "<cogs.mentions.Mentioning object at 0x7f843a6cb130>",
+        "<cogs.mentions.Mentioning object at 0x7f83afc41280>"
+    ],
+    "1257794340714188935": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b3ea00>",
+        "<cogs.mentions.Mentioning object at 0x7f8481dadb20>",
+        "<cogs.mentions.Mentioning object at 0x7f8396e45df0>"
+    ],
+    "768283719517339699": [
+        "<cogs.mentions.Mentioning object at 0x7f83adbbc4c0>"
+    ],
+    "1256100800414089276": [
+        "<cogs.mentions.Mentioning object at 0x7f83a62c6cd0>",
+        "<cogs.mentions.Mentioning object at 0x7f83adbbc760>"
+    ],
+    "1261634331928039489": [
+        "<cogs.mentions.Mentioning object at 0x7f83e91fa730>"
+    ],
+    "1283272772839018569": [
+        "<cogs.mentions.Mentioning object at 0x7f83ec3e1820>",
+        "<cogs.mentions.Mentioning object at 0x7f83972e0b50>",
+        "<cogs.mentions.Mentioning object at 0x7f8395f29280>"
+    ],
+    "827276528449617950": [
+        "<cogs.mentions.Mentioning object at 0x7f8396d67790>"
+    ],
+    "652706881651081227": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d1e3a0>",
+        "<cogs.mentions.Mentioning object at 0x7f8396311850>"
+    ],
+    "1272417325664047125": [
+        "<cogs.mentions.Mentioning object at 0x7f83ad70cbe0>",
+        "<cogs.mentions.Mentioning object at 0x7f83ab56de50>"
+    ],
+    "1303154985529249905": [
+        "<cogs.mentions.Mentioning object at 0x7f848f705eb0>",
+        "<cogs.mentions.Mentioning object at 0x7f8457e89400>"
+    ],
+    "1335186798313345046": [
+        "<cogs.mentions.Mentioning object at 0x7f83b197f760>",
+        "<cogs.mentions.Mentioning object at 0x7f8459705c40>",
+        "<cogs.mentions.Mentioning object at 0x7f844809c100>",
+        "<cogs.mentions.Mentioning object at 0x7f83973d8eb0>"
+    ],
+    "1314126325111328840": [
+        "<cogs.mentions.Mentioning object at 0x7f8395d7bac0>",
+        "<cogs.mentions.Mentioning object at 0x7f8399c14a30>",
+        "<cogs.mentions.Mentioning object at 0x7f83997f2640>",
+        "<cogs.mentions.Mentioning object at 0x7f83c693f430>",
+        "<cogs.mentions.Mentioning object at 0x7f84614d79d0>"
+    ],
+    "1148697645288804522": [
+        "<cogs.mentions.Mentioning object at 0x7f83972e00d0>",
+        "<cogs.mentions.Mentioning object at 0x7f844b95a250>",
+        "<cogs.mentions.Mentioning object at 0x7f83f054ab80>",
+        "<cogs.mentions.Mentioning object at 0x7f8399d094f0>"
+    ],
+    "1329591236427911331": [
+        "<cogs.mentions.Mentioning object at 0x7f8396ac3b50>",
+        "<cogs.mentions.Mentioning object at 0x7f839636bf70>",
+        "<cogs.mentions.Mentioning object at 0x7f8439be3190>",
+        "<cogs.mentions.Mentioning object at 0x7f83981bc640>"
+    ],
+    "1257147029931688017": [
+        "<cogs.mentions.Mentioning object at 0x7f83cc4f8ee0>",
+        "<cogs.mentions.Mentioning object at 0x7f84599eca30>",
+        "<cogs.mentions.Mentioning object at 0x7f83eadb0d60>",
+        "<cogs.mentions.Mentioning object at 0x7f83984ac250>",
+        "<cogs.mentions.Mentioning object at 0x7f8458518580>"
+    ],
+    "1234895322162008108": [
+        "<cogs.mentions.Mentioning object at 0x7f83ec75ea30>"
+    ],
+    "995486191682060388": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d1ea60>"
+    ],
+    "923123777355784202": [
+        "<cogs.mentions.Mentioning object at 0x7f83988326a0>",
+        "<cogs.mentions.Mentioning object at 0x7f83c2b052e0>",
+        "<cogs.mentions.Mentioning object at 0x7f83959545e0>",
+        "<cogs.mentions.Mentioning object at 0x7f83c1e77a00>"
+    ],
+    "977338832779354172": [
+        "<cogs.mentions.Mentioning object at 0x7f8396c2a0d0>"
+    ],
+    "1138622367820677132": [
+        "<cogs.mentions.Mentioning object at 0x7f83989a2d00>"
+    ],
+    "1242736367968981046": [
+        "<cogs.mentions.Mentioning object at 0x7f845b655a60>",
+        "<cogs.mentions.Mentioning object at 0x7f83ac1e9a60>",
+        "<cogs.mentions.Mentioning object at 0x7f83af4a2af0>",
+        "<cogs.mentions.Mentioning object at 0x7f839768f190>"
+    ],
+    "517536180301070336": [
+        "<cogs.mentions.Mentioning object at 0x7f846f6ea250>"
+    ],
+    "1069679661082230846": [
+        "<cogs.mentions.Mentioning object at 0x7f8456d95370>",
+        "<cogs.mentions.Mentioning object at 0x7f83ef984970>",
+        "<cogs.mentions.Mentioning object at 0x7f8457b7a6d0>"
+    ],
+    "1335455323779108977": [
+        "<cogs.mentions.Mentioning object at 0x7f8397f9e070>"
+    ],
+    "1094469475677507685": [
+        "<cogs.mentions.Mentioning object at 0x7f83adaa6400>",
+        "<cogs.mentions.Mentioning object at 0x7f83ea7cec10>"
+    ],
+    "1293733975239692340": [
+        "<cogs.mentions.Mentioning object at 0x7f8457f7e640>"
+    ],
+    "1021110578397335623": [
+        "<cogs.mentions.Mentioning object at 0x7f8399804820>",
+        "<cogs.mentions.Mentioning object at 0x7f8399a1c070>"
+    ],
+    "1304695416616652833": [
+        "<cogs.mentions.Mentioning object at 0x7f8396b71040>"
+    ],
+    "1066746186444308571": [
+        "<cogs.mentions.Mentioning object at 0x7f83adcbc100>"
+    ],
+    "935349908758728745": [
+        "<cogs.mentions.Mentioning object at 0x7f844aa6e970>",
+        "<cogs.mentions.Mentioning object at 0x7f83c6e60160>"
+    ],
+    "607610981652234241": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d3cc10>",
+        "<cogs.mentions.Mentioning object at 0x7f83ccd2f790>"
+    ],
+    "1256309498117750848": [
+        "<cogs.mentions.Mentioning object at 0x7f839915ba60>",
+        "<cogs.mentions.Mentioning object at 0x7f83b11cba90>",
+        "<cogs.mentions.Mentioning object at 0x7f8399ce7fa0>"
+    ],
+    "1336247540848267336": [
+        "<cogs.mentions.Mentioning object at 0x7f83ed016250>"
+    ],
+    "1311765107830951990": [
+        "<cogs.mentions.Mentioning object at 0x7f845727c190>"
+    ],
+    "1335393730290520105": [
+        "<cogs.mentions.Mentioning object at 0x7f844809f250>"
+    ],
+    "1316967500264636548": [
+        "<cogs.mentions.Mentioning object at 0x7f839725adf0>"
+    ],
+    "1288683620747313203": [
+        "<cogs.mentions.Mentioning object at 0x7f84591085b0>"
+    ],
+    "1318520378477379666": [
+        "<cogs.mentions.Mentioning object at 0x7f83990c8f70>"
+    ],
+    "979716293219459122": [
+        "<cogs.mentions.Mentioning object at 0x7f83990c86d0>"
+    ],
+    "1299868192419876951": [
+        "<cogs.mentions.Mentioning object at 0x7f83ed016340>"
+    ],
+    "1335399431981498398": [
+        "<cogs.mentions.Mentioning object at 0x7f8462489400>"
+    ],
+    "1319213367776378973": [
+        "<cogs.mentions.Mentioning object at 0x7f83c74002b0>"
+    ],
+    "929133699839176764": [
+        "<cogs.mentions.Mentioning object at 0x7f83ec705790>"
+    ],
+    "1288730449987768403": [
+        "<cogs.mentions.Mentioning object at 0x7f844b24c370>"
+    ],
+    "758143677511368704": [
+        "<cogs.mentions.Mentioning object at 0x7f845ac73f70>"
+    ],
+    "1326224426274127906": [
+        "<cogs.mentions.Mentioning object at 0x7f83c1ef4a60>"
+    ],
+    "997499691321282610": [
+        "<cogs.mentions.Mentioning object at 0x7f8458fd78b0>"
+    ],
+    "1275617420957974589": [
+        "<cogs.mentions.Mentioning object at 0x7f83ead60610>"
+    ],
+    "1335044443358887946": [
+        "<cogs.mentions.Mentioning object at 0x7f83f1bdf220>"
+    ],
+    "1335389282000572438": [
+        "<cogs.mentions.Mentioning object at 0x7f83972b6dc0>"
+    ],
+    "1297579569825452145": [
+        "<cogs.mentions.Mentioning object at 0x7f83c51251f0>"
+    ],
+    "1007198111397060620": [
+        "<cogs.mentions.Mentioning object at 0x7f83c51258b0>"
+    ],
+    "1319553792081133609": [
+        "<cogs.mentions.Mentioning object at 0x7f83afa7ea90>"
+    ],
+    "1150991511421460511": [
+        "<cogs.mentions.Mentioning object at 0x7f83c1e6d220>"
+    ],
+    "1331125310476914760": [
+        "<cogs.mentions.Mentioning object at 0x7f83e2ad97f0>"
+    ],
+    "1334955242340749435": [
+        "<cogs.mentions.Mentioning object at 0x7f83c1ef4850>"
+    ],
+    "1196963799866036247": [
+        "<cogs.mentions.Mentioning object at 0x7f845ac733a0>"
+    ],
+    "1334965608277610508": [
+        "<cogs.mentions.Mentioning object at 0x7f844b24c0a0>"
+    ],
+    "1262996142682013709": [
+        "<cogs.mentions.Mentioning object at 0x7f84ede67fa0>"
+    ],
+    "1335503807987056743": [
+        "<cogs.mentions.Mentioning object at 0x7f8395cbdeb0>"
+    ],
+    "1271705362512482326": [
+        "<cogs.mentions.Mentioning object at 0x7f84495c69d0>"
+    ],
+    "1193637492201619456": [
+        "<cogs.mentions.Mentioning object at 0x7f83c4fc83d0>"
+    ],
+    "1307808941928874038": [
+        "<cogs.mentions.Mentioning object at 0x7f83990c8d60>"
+    ],
+    "774362721449672764": [
+        "<cogs.mentions.Mentioning object at 0x7f8459108a00>"
+    ],
+    "960030923557048340": [
+        "<cogs.mentions.Mentioning object at 0x7f83b3ed87c0>"
+    ],
+    "768585042892292138": [
+        "<cogs.mentions.Mentioning object at 0x7f8458b4cac0>"
+    ],
+    "1335397732600516609": [
+        "<cogs.mentions.Mentioning object at 0x7f83960bb9d0>"
+    ],
+    "916906557160173668": [
+        "<cogs.mentions.Mentioning object at 0x7f83960bb7f0>"
+    ],
+    "1253614457863671910": [
+        "<cogs.mentions.Mentioning object at 0x7f83962a2c10>"
+    ],
+    "1335399458665660436": [
+        "<cogs.mentions.Mentioning object at 0x7f839b233c70>"
+    ],
+    "1332858846472966226": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51100>"
+    ],
+    "1312359665971101779": [
+        "<cogs.mentions.Mentioning object at 0x7f852feb62e0>"
+    ],
+    "831137168197943317": [
+        "<cogs.mentions.Mentioning object at 0x7f83afece8e0>",
+        "<cogs.mentions.Mentioning object at 0x7f839b2333a0>",
+        "<cogs.mentions.Mentioning object at 0x7f8458730280>",
+        "<cogs.mentions.Mentioning object at 0x7f83c6f09760>",
+        "<cogs.mentions.Mentioning object at 0x7f83a66848e0>"
+    ],
+    "1324749024858996778": [
+        "<cogs.mentions.Mentioning object at 0x7f83c7170bb0>"
+    ],
+    "1323866286895267922": [
+        "<cogs.mentions.Mentioning object at 0x7f8396eb10a0>"
+    ],
+    "780165832775827496": [
+        "<cogs.mentions.Mentioning object at 0x7f83e9e536d0>"
+    ],
+    "1043747995088334938": [
+        "<cogs.mentions.Mentioning object at 0x7f8395bc5e20>"
+    ],
+    "1251228819973607457": [
+        "<cogs.mentions.Mentioning object at 0x7f8448087a90>"
+    ],
+    "811409024851509261": [
+        "<cogs.mentions.Mentioning object at 0x7f839b233640>"
+    ],
+    "1026184879634923621": [
+        "<cogs.mentions.Mentioning object at 0x7f83ec7050a0>"
+    ],
+    "1256955725234700339": [
+        "<cogs.mentions.Mentioning object at 0x7f83ae5e17f0>"
+    ],
+    "936972284353208331": [
+        "<cogs.mentions.Mentioning object at 0x7f83ee523940>"
+    ],
+    "1299944684273139803": [
+        "<cogs.mentions.Mentioning object at 0x7f83c6768550>"
+    ],
+    "1271968742699433994": [
+        "<cogs.mentions.Mentioning object at 0x7f8457255c40>"
+    ],
+    "1328150118997954563": [
+        "<cogs.mentions.Mentioning object at 0x7f8458b4c490>"
+    ],
+    "517870539662950415": [
+        "<cogs.mentions.Mentioning object at 0x7f8458fd7160>"
+    ],
+    "1322290836653998192": [
+        "<cogs.mentions.Mentioning object at 0x7f8397c4a070>"
+    ],
+    "1302712254076293282": [
+        "<cogs.mentions.Mentioning object at 0x7f839730d670>"
+    ],
+    "1325901540589965434": [
+        "<cogs.mentions.Mentioning object at 0x7f83990c8490>"
+    ],
+    "1271254878563340300": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51550>"
+    ],
+    "1223017405203222670": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51f40>"
+    ],
+    "1131335323914350612": [
+        "<cogs.mentions.Mentioning object at 0x7f845ac73850>"
+    ],
+    "1324970385447321692": [
+        "<cogs.mentions.Mentioning object at 0x7f83c1f5aaf0>"
+    ],
+    "1273811492432646210": [
+        "<cogs.mentions.Mentioning object at 0x7f83a90e3190>"
+    ],
+    "1278847816185413674": [
+        "<cogs.mentions.Mentioning object at 0x7f83960bbb20>"
+    ],
+    "1277037957790044231": [
+        "<cogs.mentions.Mentioning object at 0x7f83c1f5abe0>"
+    ],
+    "1251266702327550002": [
+        "<cogs.mentions.Mentioning object at 0x7f8397578610>"
+    ],
+    "1272524275747913799": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51fd0>"
+    ],
+    "1334310141972975617": [
+        "<cogs.mentions.Mentioning object at 0x7f83990c88e0>"
+    ],
+    "1331060823162097748": [
+        "<cogs.mentions.Mentioning object at 0x7f83990c8340>"
+    ],
+    "1303515387568066683": [
+        "<cogs.mentions.Mentioning object at 0x7f839852dd30>"
+    ],
+    "1289438926469070869": [
+        "<cogs.mentions.Mentioning object at 0x7f83c5c1eee0>"
+    ],
+    "1210749795551940659": [
+        "<cogs.mentions.Mentioning object at 0x7f8397d2fc70>"
+    ],
+    "1234704533310148700": [
+        "<cogs.mentions.Mentioning object at 0x7f8395cbdb50>"
+    ],
+    "1321532522038956164": [
+        "<cogs.mentions.Mentioning object at 0x7f839765b400>"
+    ],
+    "1320966069548089395": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b8aa90>"
+    ],
+    "1266906617572622430": [
+        "<cogs.mentions.Mentioning object at 0x7f83e8c222b0>"
+    ],
+    "908025030141702184": [
+        "<cogs.mentions.Mentioning object at 0x7f8396aa8340>"
+    ],
+    "1285377886798483480": [
+        "<cogs.mentions.Mentioning object at 0x7f839b233c40>"
+    ],
+    "1116600629327048795": [
+        "<cogs.mentions.Mentioning object at 0x7f83c1ef4cd0>"
+    ],
+    "1093010201499668483": [
+        "<cogs.mentions.Mentioning object at 0x7f83b30a8df0>"
+    ],
+    "1331726715063636090": [
+        "<cogs.mentions.Mentioning object at 0x7f8398898cd0>"
+    ],
+    "1145865129922138122": [
+        "<cogs.mentions.Mentioning object at 0x7f8397075a60>"
+    ],
+    "1315168426431352832": [
+        "<cogs.mentions.Mentioning object at 0x7f83993305b0>"
+    ],
+    "1138101824071663676": [
+        "<cogs.mentions.Mentioning object at 0x7f83c6848fa0>"
+    ],
+    "1300573051683078278": [
+        "<cogs.mentions.Mentioning object at 0x7f84246fb6d0>"
+    ],
+    "1284889321475805348": [
+        "<cogs.mentions.Mentioning object at 0x7f84246fbdc0>"
+    ],
+    "1294562994449289237": [
+        "<cogs.mentions.Mentioning object at 0x7f84246fb820>"
+    ],
+    "1051400369432969276": [
+        "<cogs.mentions.Mentioning object at 0x7f8397bf6730>"
+    ],
+    "1333952500403011625": [
+        "<cogs.mentions.Mentioning object at 0x7f83b3004f40>"
+    ],
+    "1126420243313594418": [
+        "<cogs.mentions.Mentioning object at 0x7f8395ede1c0>"
+    ],
+    "1284594809281187861": [
+        "<cogs.mentions.Mentioning object at 0x7f83c5125490>"
+    ],
+    "1097315141919449198": [
+        "<cogs.mentions.Mentioning object at 0x7f83972b62b0>"
+    ],
+    "1213965364908531762": [
+        "<cogs.mentions.Mentioning object at 0x7f845b755a30>"
+    ],
+    "1247613639813496832": [
+        "<cogs.mentions.Mentioning object at 0x7f839b233340>"
+    ],
+    "1333307445795094610": [
+        "<cogs.mentions.Mentioning object at 0x7f8398fba6a0>"
+    ],
+    "1177327627497918487": [
+        "<cogs.mentions.Mentioning object at 0x7f83e8c22be0>"
+    ],
+    "1320178405194600480": [
+        "<cogs.mentions.Mentioning object at 0x7f83c6768310>"
+    ],
+    "1117379569289265204": [
+        "<cogs.mentions.Mentioning object at 0x7f846f7fdac0>"
+    ],
+    "1232084427656659075": [
+        "<cogs.mentions.Mentioning object at 0x7f8395fab1f0>"
+    ],
+    "1311086526410522634": [
+        "<cogs.mentions.Mentioning object at 0x7f83b0b289d0>"
+    ],
+    "1330448629831307275": [
+        "<cogs.mentions.Mentioning object at 0x7f839852deb0>"
+    ],
+    "1277109714500718614": [
+        "<cogs.mentions.Mentioning object at 0x7f83990c8610>"
+    ],
+    "1261434207062986782": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51520>"
+    ],
+    "1323880849711562776": [
+        "<cogs.mentions.Mentioning object at 0x7f8397578c40>"
+    ],
+    "1269078026948444300": [
+        "<cogs.mentions.Mentioning object at 0x7f83c5f2cf70>"
+    ],
+    "993315676821409883": [
+        "<cogs.mentions.Mentioning object at 0x7f8399c14460>"
+    ],
+    "642567391657852928": [
+        "<cogs.mentions.Mentioning object at 0x7f8398807370>"
+    ],
+    "1059485925136158782": [
+        "<cogs.mentions.Mentioning object at 0x7f853d6d82b0>"
+    ],
+    "1267993631596347484": [
+        "<cogs.mentions.Mentioning object at 0x7f8398394a60>"
+    ],
+    "1219974318839304192": [
+        "<cogs.mentions.Mentioning object at 0x7f8395f349d0>"
+    ],
+    "826275712189071373": [
+        "<cogs.mentions.Mentioning object at 0x7f8397cdda60>"
+    ],
+    "1292953587164647444": [
+        "<cogs.mentions.Mentioning object at 0x7f8399c14190>"
+    ],
+    "1124330001551073300": [
+        "<cogs.mentions.Mentioning object at 0x7f83a9f3a190>"
+    ],
+    "1322508640246173766": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51490>"
+    ],
+    "820077692325724212": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51460>"
+    ],
+    "1189281917988786320": [
+        "<cogs.mentions.Mentioning object at 0x7f83990c84c0>"
+    ],
+    "1294528891167445022": [
+        "<cogs.mentions.Mentioning object at 0x7f839730d7f0>"
+    ],
+    "575521771357208587": [
+        "<cogs.mentions.Mentioning object at 0x7f844b24caf0>"
+    ],
+    "1190152830082875434": [
+        "<cogs.mentions.Mentioning object at 0x7f8458b4c9d0>"
+    ],
+    "1322126289519382528": [
+        "<cogs.mentions.Mentioning object at 0x7f83ae2ddf10>"
+    ],
+    "1314795613594058854": [
+        "<cogs.mentions.Mentioning object at 0x7f83967b5070>"
+    ],
+    "833108215750197248": [
+        "<cogs.mentions.Mentioning object at 0x7f8398d29e20>"
+    ],
+    "1263559184603943027": [
+        "<cogs.mentions.Mentioning object at 0x7f83c1f5a1f0>"
+    ],
+    "1163147195562860659": [
+        "<cogs.mentions.Mentioning object at 0x7f8462fcb970>"
+    ],
+    "1200571158660124682": [
+        "<cogs.mentions.Mentioning object at 0x7f844eb04eb0>",
+        "<cogs.mentions.Mentioning object at 0x7f83c7f62ee0>",
+        "<cogs.mentions.Mentioning object at 0x7f83990c8bb0>"
+    ],
+    "1330347782694895637": [
+        "<cogs.mentions.Mentioning object at 0x7f83970eba30>",
+        "<cogs.mentions.Mentioning object at 0x7f83975b3d90>",
+        "<cogs.mentions.Mentioning object at 0x7f8398ac66a0>",
+        "<cogs.mentions.Mentioning object at 0x7f83e91929d0>"
+    ],
+    "962721636593848330": [
+        "<cogs.mentions.Mentioning object at 0x7f8397086af0>",
+        "<cogs.mentions.Mentioning object at 0x7f8457ffbca0>"
+    ],
+    "1298851518644097078": [
+        "<cogs.mentions.Mentioning object at 0x7f83a5ffc280>",
+        "<cogs.mentions.Mentioning object at 0x7f83eadb0160>"
+    ],
+    "872746033044680754": [
+        "<cogs.mentions.Mentioning object at 0x7f8397cf6280>"
+    ],
+    "1281422168542150718": [
+        "<cogs.mentions.Mentioning object at 0x7f8395e94d90>"
+    ],
+    "1275543951188688949": [
+        "<cogs.mentions.Mentioning object at 0x7f8398892c70>"
+    ],
+    "991069010625986721": [
+        "<cogs.mentions.Mentioning object at 0x7f846e70b400>",
+        "<cogs.mentions.Mentioning object at 0x7f83994233d0>"
+    ],
+    "990822321898024980": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51340>"
+    ],
+    "401045485466681351": [
+        "<cogs.mentions.Mentioning object at 0x7f83973baa00>",
+        "<cogs.mentions.Mentioning object at 0x7f83a6e98cd0>",
+        "<cogs.mentions.Mentioning object at 0x7f8396cfd070>",
+        "<cogs.mentions.Mentioning object at 0x7f83c46d7e20>",
+        "<cogs.mentions.Mentioning object at 0x7f8398892970>"
+    ],
+    "1188587102632415366": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b51dc0>"
+    ],
+    "1190396084611203124": [
+        "<cogs.mentions.Mentioning object at 0x7f84ec5bfe80>"
+    ],
+    "1021547949391630388": [
+        "<cogs.mentions.Mentioning object at 0x7f848e205820>",
+        "<cogs.mentions.Mentioning object at 0x7f8398f180d0>"
+    ],
+    "1192708161531035730": [
+        "<cogs.mentions.Mentioning object at 0x7f83f033d640>"
+    ],
+    "1002200403565363200": [
+        "<cogs.mentions.Mentioning object at 0x7f8398f8af40>"
+    ],
+    "1087355144733200384": [
+        "<cogs.mentions.Mentioning object at 0x7f83f3353b20>"
+    ],
+    "975995656537796641": [
+        "<cogs.mentions.Mentioning object at 0x7f83ad62a190>",
+        "<cogs.mentions.Mentioning object at 0x7f84627e9070>",
+        "<cogs.mentions.Mentioning object at 0x7f8399d09520>",
+        "<cogs.mentions.Mentioning object at 0x7f839768f250>"
+    ],
+    "1309828434205081610": [
+        "<cogs.mentions.Mentioning object at 0x7f8399aa5730>",
+        "<cogs.mentions.Mentioning object at 0x7f8397c69c10>",
+        "<cogs.mentions.Mentioning object at 0x7f83b2f28040>"
+    ],
+    "1324790216682111138": [
+        "<cogs.mentions.Mentioning object at 0x7f8399714610>",
+        "<cogs.mentions.Mentioning object at 0x7f8399410850>"
+    ],
+    "816518012492447744": [
+        "<cogs.mentions.Mentioning object at 0x7f8396ca3b50>",
+        "<cogs.mentions.Mentioning object at 0x7f846e710d60>"
+    ],
+    "692236924748038206": [
+        "<cogs.mentions.Mentioning object at 0x7f8397643a30>"
+    ],
+    "1218908494892367944": [
+        "<cogs.mentions.Mentioning object at 0x7f83968a9790>"
+    ],
+    "1255227351906910339": [
+        "<cogs.mentions.Mentioning object at 0x7f8398ac6550>"
+    ],
+    "1296452481282216039": [
+        "<cogs.mentions.Mentioning object at 0x7f839628b5e0>"
+    ],
+    "1010478483140530216": [
+        "<cogs.mentions.Mentioning object at 0x7f83965a56a0>"
+    ],
+    "737101676980469830": [
+        "<cogs.mentions.Mentioning object at 0x7f8398801940>",
+        "<cogs.mentions.Mentioning object at 0x7f83997f2af0>",
+        "<cogs.mentions.Mentioning object at 0x7f83abd55af0>"
+    ],
+    "1324187239265079326": [
+        "<cogs.mentions.Mentioning object at 0x7f844f2301c0>"
+    ],
+    "1314315137116799117": [
+        "<cogs.mentions.Mentioning object at 0x7f83999867f0>"
+    ],
+    "925672394574680105": [
+        "<cogs.mentions.Mentioning object at 0x7f83cca020d0>",
+        "<cogs.mentions.Mentioning object at 0x7f843d5ec4c0>"
+    ],
+    "882740140806647818": [
+        "<cogs.mentions.Mentioning object at 0x7f839cf006a0>"
+    ],
+    "1153721541247385600": [
+        "<cogs.mentions.Mentioning object at 0x7f83970a8cd0>"
+    ],
+    "797249064222720040": [
+        "<cogs.mentions.Mentioning object at 0x7f8438de0c10>",
+        "<cogs.mentions.Mentioning object at 0x7f83c2456e20>"
+    ],
+    "475423029653012482": [
+        "<cogs.mentions.Mentioning object at 0x7f8449f443d0>"
+    ],
+    "1198548783684927558": [
+        "<cogs.mentions.Mentioning object at 0x7f84650d2040>"
+    ],
+    "1324217798225956894": [
+        "<cogs.mentions.Mentioning object at 0x7f83970a8250>",
+        "<cogs.mentions.Mentioning object at 0x7f8424718610>"
+    ],
+    "689905109022408749": [
+        "<cogs.mentions.Mentioning object at 0x7f8396df6490>",
+        "<cogs.mentions.Mentioning object at 0x7f8399cc0d00>",
+        "<cogs.mentions.Mentioning object at 0x7f8397d3ea90>"
+    ],
+    "1273839614905286729": [
+        "<cogs.mentions.Mentioning object at 0x7f85383851c0>",
+        "<cogs.mentions.Mentioning object at 0x7f83adb92100>"
+    ],
+    "845388446344282133": [
+        "<cogs.mentions.Mentioning object at 0x7f8438cb45b0>",
+        "<cogs.mentions.Mentioning object at 0x7f84864aa6a0>"
+    ],
+    "1054046502256906250": [
+        "<cogs.mentions.Mentioning object at 0x7f83c7f5a670>"
+    ],
+    "1335398500653076632": [
+        "<cogs.mentions.Mentioning object at 0x7f84496a3940>"
+    ],
+    "1008973091306733618": [
+        "<cogs.mentions.Mentioning object at 0x7f8397db43a0>"
+    ],
+    "622370308124442644": [
+        "<cogs.mentions.Mentioning object at 0x7f83aa7c93a0>",
+        "<cogs.mentions.Mentioning object at 0x7f848586e5b0>",
+        "<cogs.mentions.Mentioning object at 0x7f8397894d30>"
+    ],
+    "1301979812302164038": [
+        "<cogs.mentions.Mentioning object at 0x7f8397f10580>",
+        "<cogs.mentions.Mentioning object at 0x7f8459e792b0>",
+        "<cogs.mentions.Mentioning object at 0x7f8398dd99a0>"
+    ],
+    "1299087762124967988": [
+        "<cogs.mentions.Mentioning object at 0x7f83ae93b160>",
+        "<cogs.mentions.Mentioning object at 0x7f8459cb0a30>"
+    ],
+    "1161427645574168686": [
+        "<cogs.mentions.Mentioning object at 0x7f845bbd0580>"
+    ],
+    "1168571130844553300": [
+        "<cogs.mentions.Mentioning object at 0x7f8397948730>",
+        "<cogs.mentions.Mentioning object at 0x7f8399793e20>",
+        "<cogs.mentions.Mentioning object at 0x7f839b659c70>"
+    ],
+    "766464993054162948": [
+        "<cogs.mentions.Mentioning object at 0x7f843e345cd0>",
+        "<cogs.mentions.Mentioning object at 0x7f8396ef42e0>"
+    ],
+    "1211062221136728134": [
+        "<cogs.mentions.Mentioning object at 0x7f839973eee0>"
+    ],
+    "1056056176497922089": [
+        "<cogs.mentions.Mentioning object at 0x7f839973e490>",
+        "<cogs.mentions.Mentioning object at 0x7f84248047c0>"
+    ],
+    "780619234416918548": [
+        "<cogs.mentions.Mentioning object at 0x7f8399dcea60>",
+        "<cogs.mentions.Mentioning object at 0x7f8482b2db80>"
+    ],
+    "893869666110439514": [
+        "<cogs.mentions.Mentioning object at 0x7f839973ebb0>"
+    ],
+    "1166280639717330975": [
+        "<cogs.mentions.Mentioning object at 0x7f83994dfb20>",
+        "<cogs.mentions.Mentioning object at 0x7f83c61eeb80>",
+        "<cogs.mentions.Mentioning object at 0x7f83ae8defd0>",
+        "<cogs.mentions.Mentioning object at 0x7f83b2edf130>"
+    ],
+    "1115398865064034446": [
+        "<cogs.mentions.Mentioning object at 0x7f839973ef40>"
+    ],
+    "1230070016116785183": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d6eee0>"
+    ],
+    "1123002403747283046": [
+        "<cogs.mentions.Mentioning object at 0x7f83e9b1d880>"
+    ],
+    "1330270749285552238": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d6e1f0>",
+        "<cogs.mentions.Mentioning object at 0x7f83cd6bed00>"
+    ],
+    "998751136704102520": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d09d00>"
+    ],
+    "333806160207544320": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d09a00>"
+    ],
+    "814115842060189716": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d098b0>"
+    ],
+    "966808596308451439": [
+        "<cogs.mentions.Mentioning object at 0x7f8396b08df0>"
+    ],
+    "1321981109072039968": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d095e0>"
+    ],
+    "741848477025435759": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d09610>"
+    ],
+    "1309685389195481139": [
+        "<cogs.mentions.Mentioning object at 0x7f83f3de74c0>"
+    ],
+    "1315180891118764034": [
+        "<cogs.mentions.Mentioning object at 0x7f83c2d0ef70>"
+    ],
+    "1253576637065330693": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ce7a90>"
+    ],
+    "1063727757290393641": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ce7400>"
+    ],
+    "841792084147044393": [
+        "<cogs.mentions.Mentioning object at 0x7f84564b4340>"
+    ],
+    "1049816269647515678": [
+        "<cogs.mentions.Mentioning object at 0x7f8457eaf9d0>"
+    ],
+    "1330301946828947546": [
+        "<cogs.mentions.Mentioning object at 0x7f83ecb61a00>",
+        "<cogs.mentions.Mentioning object at 0x7f83ab6c1d30>",
+        "<cogs.mentions.Mentioning object at 0x7f839b659880>"
+    ],
+    "1253936722333536350": [
+        "<cogs.mentions.Mentioning object at 0x7f83ad45fa30>"
+    ],
+    "689609576919597107": [
+        "<cogs.mentions.Mentioning object at 0x7f83ad45fb20>"
+    ],
+    "1312285119008083968": [
+        "<cogs.mentions.Mentioning object at 0x7f8399987970>"
+    ],
+    "996466921304244334": [
+        "<cogs.mentions.Mentioning object at 0x7f8399987f40>"
+    ],
+    "1279891139952115712": [
+        "<cogs.mentions.Mentioning object at 0x7f83999873d0>"
+    ],
+    "1327348029468180493": [
+        "<cogs.mentions.Mentioning object at 0x7f8399cc7310>"
+    ],
+    "1331462963563069527": [
+        "<cogs.mentions.Mentioning object at 0x7f8399cc7160>"
+    ],
+    "976872025924706324": [
+        "<cogs.mentions.Mentioning object at 0x7f83c4126100>"
+    ],
+    "1043359993350598657": [
+        "<cogs.mentions.Mentioning object at 0x7f845bd3f310>"
+    ],
+    "845471582273142825": [
+        "<cogs.mentions.Mentioning object at 0x7f84377ae8b0>"
+    ],
+    "1080168219568001105": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ae6a00>"
+    ],
+    "1044303045279891589": [
+        "<cogs.mentions.Mentioning object at 0x7f83b2be8340>"
+    ],
+    "1310696388920606874": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ad4eb0>"
+    ],
+    "996592619062820874": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ad42e0>"
+    ],
+    "1036148331589664860": [
+        "<cogs.mentions.Mentioning object at 0x7f844fc08d30>"
+    ],
+    "982708370127613962": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ad4310>"
+    ],
+    "1302014607971586108": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ad4dc0>"
+    ],
+    "838426627540254731": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ad4b80>"
+    ],
+    "1227108832698826868": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ae67f0>"
+    ],
+    "1101477072918020136": [
+        "<cogs.mentions.Mentioning object at 0x7f83c5beda60>"
+    ],
+    "1245010164088836137": [
+        "<cogs.mentions.Mentioning object at 0x7f845bd3f0a0>"
+    ],
+    "893827142343852084": [
+        "<cogs.mentions.Mentioning object at 0x7f83c41268e0>"
+    ],
+    "1260388620414746637": [
+        "<cogs.mentions.Mentioning object at 0x7f8399cc7130>"
+    ],
+    "1078913223383851048": [
+        "<cogs.mentions.Mentioning object at 0x7f8399cc7ee0>"
+    ],
+    "1266872647862583297": [
+        "<cogs.mentions.Mentioning object at 0x7f8399ad4be0>"
+    ],
+    "930436613790642207": [
+        "<cogs.mentions.Mentioning object at 0x7f83ac1e9430>"
+    ],
+    "1063636652980961360": [
+        "<cogs.mentions.Mentioning object at 0x7f83ed7acf40>"
+    ],
+    "808132565206040607": [
+        "<cogs.mentions.Mentioning object at 0x7f83ac1e99d0>",
+        "<cogs.mentions.Mentioning object at 0x7f83eb8e0f70>"
+    ],
+    "1295423767572643884": [
+        "<cogs.mentions.Mentioning object at 0x7f83a91353a0>",
+        "<cogs.mentions.Mentioning object at 0x7f8397e81a30>",
+        "<cogs.mentions.Mentioning object at 0x7f83968a9e50>",
+        "<cogs.mentions.Mentioning object at 0x7f8399b1ed60>",
+        "<cogs.mentions.Mentioning object at 0x7f839915aa00>"
+    ],
+    "1273789853250621504": [
+        "<cogs.mentions.Mentioning object at 0x7f83b2d47d30>",
+        "<cogs.mentions.Mentioning object at 0x7f8462809100>",
+        "<cogs.mentions.Mentioning object at 0x7f843a464700>"
+    ],
+    "1162166426728149054": [
+        "<cogs.mentions.Mentioning object at 0x7f839b346c70>",
+        "<cogs.mentions.Mentioning object at 0x7f8397059370>",
+        "<cogs.mentions.Mentioning object at 0x7f83b1673fa0>",
+        "<cogs.mentions.Mentioning object at 0x7f83995dccd0>"
+    ],
+    "1063261766664061018": [
+        "<cogs.mentions.Mentioning object at 0x7f83994dfc40>",
+        "<cogs.mentions.Mentioning object at 0x7f845a9f63a0>",
+        "<cogs.mentions.Mentioning object at 0x7f83a8b5a8b0>"
+    ],
+    "974758696162852974": [
+        "<cogs.mentions.Mentioning object at 0x7f83c305f640>"
+    ],
+    "1308225810842390644": [
+        "<cogs.mentions.Mentioning object at 0x7f853b19dbb0>"
+    ],
+    "1156039398547263528": [
+        "<cogs.mentions.Mentioning object at 0x7f83b35e2f10>"
+    ],
+    "704467709286678548": [
+        "<cogs.mentions.Mentioning object at 0x7f8395f9b070>"
+    ],
+    "1273821497990840444": [
+        "<cogs.mentions.Mentioning object at 0x7f83eee7ee50>",
+        "<cogs.mentions.Mentioning object at 0x7f839785d790>"
+    ],
+    "1008195858912792687": [
+        "<cogs.mentions.Mentioning object at 0x7f8396afe790>",
+        "<cogs.mentions.Mentioning object at 0x7f83cd01a0a0>",
+        "<cogs.mentions.Mentioning object at 0x7f8396417610>",
+        "<cogs.mentions.Mentioning object at 0x7f83adba3d30>",
+        "<cogs.mentions.Mentioning object at 0x7f839b42d0a0>"
+    ],
+    "1322667866259984435": [
+        "<cogs.mentions.Mentioning object at 0x7f83ebba2070>"
+    ],
+    "857675609819709460": [
+        "<cogs.mentions.Mentioning object at 0x7f83b1785df0>",
+        "<cogs.mentions.Mentioning object at 0x7f83adf1c610>"
+    ],
+    "1311822372860465185": [
+        "<cogs.mentions.Mentioning object at 0x7f8470331700>",
+        "<cogs.mentions.Mentioning object at 0x7f8399a729d0>"
+    ],
+    "1176982499746910330": [
+        "<cogs.mentions.Mentioning object at 0x7f839871a8b0>"
+    ],
+    "1152748690356834335": [
+        "<cogs.mentions.Mentioning object at 0x7f8397d2ff40>"
+    ],
+    "1298688649189134529": [
+        "<cogs.mentions.Mentioning object at 0x7f83af666070>"
+    ],
+    "1197531176890544129": [
+        "<cogs.mentions.Mentioning object at 0x7f845b0526d0>"
+    ],
+    "1318465018744012840": [
+        "<cogs.mentions.Mentioning object at 0x7f83973c1940>"
+    ],
+    "764194848231391232": [
+        "<cogs.mentions.Mentioning object at 0x7f83adbbcfd0>",
+        "<cogs.mentions.Mentioning object at 0x7f83addfbdf0>"
+    ],
+    "784189717096562688": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b27b20>"
+    ],
+    "1051657437268164630": [
+        "<cogs.mentions.Mentioning object at 0x7f84246fbf70>",
+        "<cogs.mentions.Mentioning object at 0x7f8399c15820>"
+    ],
+    "680795339602526259": [
+        "<cogs.mentions.Mentioning object at 0x7f839673ee80>"
+    ],
+    "1142569523833217115": [
+        "<cogs.mentions.Mentioning object at 0x7f83c47fcdf0>"
+    ],
+    "963536196649226291": [
+        "<cogs.mentions.Mentioning object at 0x7f8395cbd610>",
+        "<cogs.mentions.Mentioning object at 0x7f848f249730>"
+    ],
+    "1242251177475837964": [
+        "<cogs.mentions.Mentioning object at 0x7f843968f250>",
+        "<cogs.mentions.Mentioning object at 0x7f839914dca0>"
+    ],
+    "1106310827654516817": [
+        "<cogs.mentions.Mentioning object at 0x7f83977b5d30>"
+    ],
+    "786964003398090764": [
+        "<cogs.mentions.Mentioning object at 0x7f8458797d90>"
+    ],
+    "1336022858991669312": [
+        "<cogs.mentions.Mentioning object at 0x7f845bf7ee50>"
+    ],
+    "668971487637667870": [
+        "<cogs.mentions.Mentioning object at 0x7f83c01d11c0>",
+        "<cogs.mentions.Mentioning object at 0x7f83af830e20>"
+    ],
+    "1259614538907648132": [
+        "<cogs.mentions.Mentioning object at 0x7f83a62cf3a0>"
+    ],
+    "1077056340565966918": [
+        "<cogs.mentions.Mentioning object at 0x7f8455a71ee0>"
+    ],
+    "1251636938553688177": [
+        "<cogs.mentions.Mentioning object at 0x7f83b3dc23a0>"
+    ],
+    "923584536602873897": [
+        "<cogs.mentions.Mentioning object at 0x7f83aed792e0>"
+    ],
+    "874033123745222696": [
+        "<cogs.mentions.Mentioning object at 0x7f8399804220>"
+    ],
+    "1233565354958000170": [
+        "<cogs.mentions.Mentioning object at 0x7f83aff83ac0>",
+        "<cogs.mentions.Mentioning object at 0x7f839865f760>"
+    ],
+    "1241968170298904586": [
+        "<cogs.mentions.Mentioning object at 0x7f8449697ac0>",
+        "<cogs.mentions.Mentioning object at 0x7f83999cf3d0>"
+    ],
+    "658099004445294653": [
+        "<cogs.mentions.Mentioning object at 0x7f83e8c39a90>",
+        "<cogs.mentions.Mentioning object at 0x7f83adab7a00>"
+    ],
+    "1084380592562520104": [
+        "<cogs.mentions.Mentioning object at 0x7f8398bf15b0>"
+    ],
+    "1249632147103551488": [
+        "<cogs.mentions.Mentioning object at 0x7f83997f2460>",
+        "<cogs.mentions.Mentioning object at 0x7f84402f64f0>",
+        "<cogs.mentions.Mentioning object at 0x7f8456c60190>"
+    ],
+    "548616386486730803": [
+        "<cogs.mentions.Mentioning object at 0x7f83ccc64790>"
+    ],
+    "981679806087307264": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d1e1c0>"
+    ],
+    "1332098371749416971": [
+        "<cogs.mentions.Mentioning object at 0x7f839678eb50>"
+    ],
+    "822824121313787924": [
+        "<cogs.mentions.Mentioning object at 0x7f83964b6220>",
+        "<cogs.mentions.Mentioning object at 0x7f839850afa0>"
+    ],
+    "1007484131803938826": [
+        "<cogs.mentions.Mentioning object at 0x7f83efb357c0>"
+    ],
+    "1186882488321200201": [
+        "<cogs.mentions.Mentioning object at 0x7f847b212d60>"
+    ],
+    "1298785390345453591": [
+        "<cogs.mentions.Mentioning object at 0x7f83a80dd730>",
+        "<cogs.mentions.Mentioning object at 0x7f843a7316a0>"
+    ],
+    "1305952647194611714": [
+        "<cogs.mentions.Mentioning object at 0x7f83992bc370>"
+    ],
+    "987540215201665024": [
+        "<cogs.mentions.Mentioning object at 0x7f83cd42a670>"
+    ],
+    "990362315918540821": [
+        "<cogs.mentions.Mentioning object at 0x7f8399793ca0>"
+    ],
+    "695041436210561024": [
+        "<cogs.mentions.Mentioning object at 0x7f8399c15850>"
+    ],
+    "278292912272572447": [
+        "<cogs.mentions.Mentioning object at 0x7f839638afa0>",
+        "<cogs.mentions.Mentioning object at 0x7f8397a5f310>"
+    ],
+    "1289660311183429738": [
+        "<cogs.mentions.Mentioning object at 0x7f8399da9a90>"
+    ],
+    "932028102786293792": [
+        "<cogs.mentions.Mentioning object at 0x7f8396219190>"
+    ],
+    "1327468249088135300": [
+        "<cogs.mentions.Mentioning object at 0x7f8399793910>"
+    ],
+    "1297765265391489084": [
+        "<cogs.mentions.Mentioning object at 0x7f83addfba30>"
+    ],
+    "1316410435062206526": [
+        "<cogs.mentions.Mentioning object at 0x7f83a62153d0>"
+    ],
+    "789174302288117761": [
+        "<cogs.mentions.Mentioning object at 0x7f846088a6a0>"
+    ],
+    "1168280485915545720": [
+        "<cogs.mentions.Mentioning object at 0x7f839980b130>"
+    ],
+    "367399441830903810": [
+        "<cogs.mentions.Mentioning object at 0x7f839a430b20>"
+    ],
+    "950899614184247346": [
+        "<cogs.mentions.Mentioning object at 0x7f8470ab12e0>"
+    ],
+    "461719464027881472": [
+        "<cogs.mentions.Mentioning object at 0x7f83977ae6a0>"
+    ],
+    "1014665079209336896": [
+        "<cogs.mentions.Mentioning object at 0x7f839a430be0>"
+    ],
+    "885626911441686538": [
+        "<cogs.mentions.Mentioning object at 0x7f83adf1cb50>"
+    ],
+    "1191427398009372682": [
+        "<cogs.mentions.Mentioning object at 0x7f83c564d5b0>"
+    ],
+    "1070061503509704734": [
+        "<cogs.mentions.Mentioning object at 0x7f846e59f8e0>"
+    ],
+    "1003595223294816308": [
+        "<cogs.mentions.Mentioning object at 0x7f843d829730>",
+        "<cogs.mentions.Mentioning object at 0x7f845ae7ed60>"
+    ],
+    "961080424627580978": [
+        "<cogs.mentions.Mentioning object at 0x7f8456b94a60>"
+    ],
+    "1263723568261234752": [
+        "<cogs.mentions.Mentioning object at 0x7f8398aee400>"
+    ],
+    "1209603661164978186": [
+        "<cogs.mentions.Mentioning object at 0x7f83e32820a0>",
+        "<cogs.mentions.Mentioning object at 0x7f83965fca60>",
+        "<cogs.mentions.Mentioning object at 0x7f843da026d0>"
+    ],
+    "1310366834528354316": [
+        "<cogs.mentions.Mentioning object at 0x7f839742d790>"
+    ],
+    "1314362617002856509": [
+        "<cogs.mentions.Mentioning object at 0x7f8395971880>"
+    ],
+    "1266061519850836111": [
+        "<cogs.mentions.Mentioning object at 0x7f846c4aa5b0>"
+    ],
+    "1331479921381605399": [
+        "<cogs.mentions.Mentioning object at 0x7f845b9fb610>"
+    ],
+    "1250451912319434795": [
+        "<cogs.mentions.Mentioning object at 0x7f83958b2ee0>"
+    ],
+    "861818808019845122": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d92430>"
+    ],
+    "1132456868632084562": [
+        "<cogs.mentions.Mentioning object at 0x7f84415c8dc0>",
+        "<cogs.mentions.Mentioning object at 0x7f83eef7adc0>"
+    ],
+    "1004168462219890688": [
+        "<cogs.mentions.Mentioning object at 0x7f839604f550>"
+    ],
+    "984508978744684645": [
+        "<cogs.mentions.Mentioning object at 0x7f8424718550>"
+    ],
+    "1307940615190872179": [
+        "<cogs.mentions.Mentioning object at 0x7f8398aa86d0>",
+        "<cogs.mentions.Mentioning object at 0x7f83b3003340>",
+        "<cogs.mentions.Mentioning object at 0x7f83ab9a6c70>"
+    ],
+    "1325286840378462259": [
+        "<cogs.mentions.Mentioning object at 0x7f83eab258b0>"
+    ],
+    "708439351931174993": [
+        "<cogs.mentions.Mentioning object at 0x7f83b33e29a0>"
+    ],
+    "1220441690813501593": [
+        "<cogs.mentions.Mentioning object at 0x7f83974fa2b0>"
+    ],
+    "1285767712139771914": [
+        "<cogs.mentions.Mentioning object at 0x7f8399dbb820>"
+    ],
+    "1269862930976084009": [
+        "<cogs.mentions.Mentioning object at 0x7f8397e5f910>"
+    ],
+    "811322288867508275": [
+        "<cogs.mentions.Mentioning object at 0x7f8399dbbb80>"
+    ],
+    "733064948275478599": [
+        "<cogs.mentions.Mentioning object at 0x7f83ae50ed00>"
+    ],
+    "1210819692118147093": [
+        "<cogs.mentions.Mentioning object at 0x7f846586fc10>"
+    ],
+    "1121972946659967097": [
+        "<cogs.mentions.Mentioning object at 0x7f848f39b520>"
+    ],
+    "1333246821769810004": [
+        "<cogs.mentions.Mentioning object at 0x7f83af6584c0>"
+    ],
+    "1303414530617118823": [
+        "<cogs.mentions.Mentioning object at 0x7f83cd8581c0>"
+    ],
+    "145701850954334208": [
+        "<cogs.mentions.Mentioning object at 0x7f8398245c10>",
+        "<cogs.mentions.Mentioning object at 0x7f839649f0a0>"
+    ],
+    "1112771895075553301": [
+        "<cogs.mentions.Mentioning object at 0x7f84597edfd0>"
+    ],
+    "1256484739305705549": [
+        "<cogs.mentions.Mentioning object at 0x7f83ae50eaf0>"
+    ],
+    "770474380135890944": [
+        "<cogs.mentions.Mentioning object at 0x7f8399a8ec70>"
+    ],
+    "1181441287015116801": [
+        "<cogs.mentions.Mentioning object at 0x7f83ebe87850>"
+    ],
+    "1253833104875851846": [
+        "<cogs.mentions.Mentioning object at 0x7f8399a8ebb0>"
+    ],
+    "1328583796915961887": [
+        "<cogs.mentions.Mentioning object at 0x7f83b2e76b50>"
+    ],
+    "599533547996315678": [
+        "<cogs.mentions.Mentioning object at 0x7f8399d5eca0>"
+    ],
+    "1208184438744416266": [
+        "<cogs.mentions.Mentioning object at 0x7f83999cf820>"
+    ],
+    "1124485953466159215": [
+        "<cogs.mentions.Mentioning object at 0x7f83f453ebe0>"
+    ],
+    "712138278618529823": [
+        "<cogs.mentions.Mentioning object at 0x7f84599cfe80>"
+    ],
+    "699701582794850425": [
+        "<cogs.mentions.Mentioning object at 0x7f839915a2b0>"
+    ],
+    "1180299752848490567": [
+        "<cogs.mentions.Mentioning object at 0x7f83ea5406d0>"
+    ],
+    "1299424525808566294": [
+        "<cogs.mentions.Mentioning object at 0x7f8399de92b0>"
+    ],
+    "1015083709831057518": [
+        "<cogs.mentions.Mentioning object at 0x7f83969dd400>"
+    ],
+    "1336510796921835551": [
+        "<cogs.mentions.Mentioning object at 0x7f83afd95820>"
+    ],
+    "1178420497797611540": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b123d0>"
+    ],
+    "1260606356239548548": [
+        "<cogs.mentions.Mentioning object at 0x7f84655693d0>"
+    ],
+    "1254555528256950387": [
+        "<cogs.mentions.Mentioning object at 0x7f83a74390a0>"
+    ],
+    "1243393687501672563": [
+        "<cogs.mentions.Mentioning object at 0x7f83cc46d9a0>"
+    ],
+    "1019638427303542874": [
+        "<cogs.mentions.Mentioning object at 0x7f8399b12af0>"
+    ],
+    "1089679006544175105": [
+        "<cogs.mentions.Mentioning object at 0x7f8399dcb4f0>"
+    ],
+    "1237975751572197408": [
+        "<cogs.mentions.Mentioning object at 0x7f892350aeb0>"
+    ],
+    "1173736618499264534": [
+        "<cogs.mentions.Mentioning object at 0x7f8acba72f70>"
+    ],
+    "814986033740513370": [
+        "<cogs.mentions.Mentioning object at 0x7f89232db7c0>"
+    ],
+    "794046094685241414": [
+        "<cogs.mentions.Mentioning object at 0x7f89232a73d0>"
+    ],
+    "1259087939959525401": [
+        "<cogs.mentions.Mentioning object at 0x7f892c25ae50>"
+    ]
+}

@@ -1,0 +1,78 @@
+[tool.poetry]
+authors     = ["Damon Brown <damon@slit.sh>"]
+description = "a premium discord bot "
+license     = "MIT"
+name        = "grief"
+readme      = "README.md"
+version     = "1.1.1"
+
+[tool.black]
+line-length    = 160
+target-version = ["py311"]
+
+[tool.poetry.scripts]
+grief          = "grief.__main__:main"
+grief-launcher = "grief.launcher:main"
+grief-setup    = "grief.setup:run_cli"
+
+[tool.setuptools]
+include-package-data = true
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires      = ["poetry-core"]
+
+[tool.ruff]
+fix-only                   = true
+ignore                     = ["D211", "D212", "E501", "TID"]
+ignore-init-module-imports = true
+line-length                = 160
+target-version             = "py311"
+unfixable                  = ["B", "D203", "RET", "RUF", "SIM", "TCH", "TRY", "UP"]
+
+[tool.poetry.dependencies]
+aiodns                    = "3.0.0"
+aiohttp                   = "3.9.0"
+aiohttp-json-rpc          = "0.13.3"
+aiosignal                 = "1.3.1"
+apsw                      = "3.42.0.1"
+async-timeout             = "4.0.3"
+attrs                     = "23.1.0"
+babel                     = "2.12.1"
+brotli                    = "1.0.9"
+cffi                      = "1.15.1"
+charset-normalizer        = "3.2.0"
+click                     = "8.1.6"
+contextlib2               = "21.6.0"
+discord-py                = { git = "https://github.com/griefbotdiscord/discord.py" }
+discord-ios               = { git = "https://github.com/griefbotdiscord/Discord-iOS" }
+frozenlist                = "1.4.0"
+idna                      = "3.4"
+importlib-metadata        = "6.8.0"
+jishaku                   = { git = "https://github.com/griefbotdiscord/jishaku" }
+markdown                  = "3.4.4"
+markdown-it-py            = "3.0.0"
+mdurl                     = "0.1.2"
+multidict                 = "6.0.4"
+orjson                    = "3.9.4"
+packaging                 = "23.1"
+platformdirs              = "3.10.0"
+psutil                    = "5.9.5"
+pycares                   = "4.3.0"
+pycparser                 = "2.21"
+pygments                  = "2.16.1"
+python-dateutil           = "2.8.2"
+pytz                      = "2023.3"
+pyyaml                    = "6.0.1"
+rapidfuzz                 = "3.2.0"
+red-commons               = "1.0.0"
+red-lavalink              = { git = "https://github.com/griefbotdiscord/Red-Lavalink" }
+rich                      = "13.5.2"
+schema                    = "0.7.5"
+six                       = "1.16.0"
+typing-extensions         = "4.7.1"
+yarl                      = "1.9.2"
+zipp                      = "3.16.2"
+colorama                  = "0.4.6"
+distro                    = "1.8.0"
+uvloop                    = "0.17.0"

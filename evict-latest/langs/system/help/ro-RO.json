@@ -1,0 +1,35 @@
+{
+    "language_code": "Romanian",
+    "language": "Romanian",
+    "language_local": "ro-RO",
+    "system": {
+        "help": {
+            "INFORMATION_DESC": "**informații**\n> [ ] = opțional, < > = necesar",
+            "SELECT_CATEGORY": "Selectează o categorie din meniul de mai jos",
+            "DROPDOWN_PLACEHOLDER": "Alege o categorie...",
+            "NO_COMMANDS": "Nicio comandǎ disponibilǎ în acest grup.",
+            "CANNOT_INTERACT": "Nu poți imteracționa cu acest meniu!",
+            "COMMAND": {
+                "title": {
+                    "NORMAL": "Commandă: {command_name} • modul {module_name}",
+                    "GROUP": "Grup: {command_name} • modul {module_name}"
+                },
+                "SYNTAX": "```Ruby\nSintaxă: {syntax}\nExemplu: {prefix}{command_name} {example}\n```",
+                "PERMISSIONS": "Permisiuni",
+                "ALIASES": "Alias-uri: {aliases}",
+                "FLAGS": {
+                    "REQUIRED": "Argumente Necesare",
+                    "OPTIONAL": "Argumente Optionale"
+                }
+            },
+            "CATEGORY": {
+                "TITLE": "Categorie: {category_name}",
+                "FOOTER": "{count} comenzi{plural}"
+            },
+            "ERRORS": {
+                "COMMAND_NOT_FOUND": "> {emoji} {user}: Commanda  `{command}` nu există",
+                "SUBCOMMAND_NOT_FOUND": "> {emoji} {user}: Comanda  `{command} {subcommand}` nu există"
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+ @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+.discord-messages {
+	color: #fff;
+	background-color: 0C0D0D;
+	font-size: 16px;
+	line-height: 170%;
+}
+
+.discord-messages.discord-light-theme {
+	color: #747f8d;
+	background-color: #f7f7f7;
+	border-color: #dedede;
+}

@@ -1,0 +1,40 @@
+# web server
+# You need to install cloudflared for it to actually communicate..
+# dev   -   http://0.0.0.0:59076
+
+git+https://github.com/parelite/discord.py
+jishaku
+xxhash
+munch
+asyncpg
+humanize
+python-dateutil
+beautifulsoup4
+dateparser
+psutil
+pillow
+aiofiles
+pydantic
+asyncspotify
+async_timeout
+requests
+pydub
+orjson
+pynacl
+cashews[redis]
+redis
+python-dotenv
+playwright
+loguru
+anyio
+lxml
+aiohttp
+tornado
+sanic
+colorthief
+dask[complete]
+shazamio
+tuuid
+wand
+pomice
+gTTs

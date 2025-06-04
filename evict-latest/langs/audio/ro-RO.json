@@ -1,0 +1,45 @@
+{
+    "language_code": "ro-RO",
+    "language": "ro-RO",
+    "language_local": "ro-RO",
+    "errors": {
+        "PLAYER": {
+            "NOT_IN_VOICE": "Nu ești într-un canal voice!",
+            "NOT_SHARING_VOICE": "Nu ești în canalul meu voice!",
+            "CLIENT_NOT_IN_VOICE": "Nu sunt într-un canal voice!",
+            "CLIENT_MISSING_PERMS": "Nu am permisiunile necesare pentru a mă conecta la canalul tău voice!",
+            "CLIENT_NOT_PLAYING": "Nimic nu este redat!",
+            "NO_QUEUE": "Coada este goală!",
+            "INVALID_QUEUE_POSITION": "Poziție invalidă - trebuie să fie între `1` și `{len(queue)}`!",
+            "FAILED_TO_CONNECT": "Nu m-am putut conecta la canalul voice",
+            "FAILED_TO_GET_TRACK_SP": "Nu am putut lua informații despre melodie de pe Spotify!",
+            "FAILED_TO_GET_TRACK_SC": "Nu am putut găsi melodia pe SoundCloud!",
+            "NO_RESULTS": "Nu a fost găsit niciun rezultat!",
+            "ACTIVITY_FAILED": "Nu a fost posibilă conectarea la activitatea de muzică",
+            "EXCEPTION": "A fost întâmpinată o eroare: {e}",
+            "RECOMMENDATIONS_FAILED": "Nu am putut căuta recomandări",
+            "TRACK_ALREADY_PAUSED": "Melodia este deja pe pauză!",
+            "TRACK_NOT_PAUSED": "Melodia nu este pe pauză!"
+        }
+    },
+    "commands": {
+        "queue": {
+            "DESCRIPTION": "Comenzi pentru organizarea cozii",
+            "view": {
+                "DESCRIPTION": "Obține melodiile din coadă.",
+                "EMBED": {
+                    "NAME": "Coadă pentru {ctx.guild}",
+                    "DESCRIPTION_LINE_ONE": "Ascultând [**{shorten(track.title)}**]({track.uri}) [`{duration(ctx.voice.position)}/{duration(track.length)}`]",
+                    "DESCRIPTION_LINE_TWO": "Cerut de {track.requester.mention}"
+                },
+                "__COMMENT__": "Trebuie să adăugați un câmp pentru următorul"
+            },
+            "remove": {
+                "DESCRIPTION": "Scoate o melodie din coadă.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "A fost scoasă melodia [**{shorten(track.title)}**]({track.uri}) din coadă"
+                }
+            }
+        }
+    }
+}

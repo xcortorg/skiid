@@ -1,0 +1,1370 @@
+from discord import User, Asset, Member, Embed, File, Message  # type: ignore
+from discord.ext.commands import (  # type: ignore
+	Cog,
+	Context,
+	check,
+	hybrid_group,
+)
+import orjson
+from tool.important.services import get_bing_results
+from bs4 import BeautifulSoup
+from aiomisc.backoff import asyncretry
+from itertools import chain
+from lxml import html
+from DataProcessing import ServiceManager
+import lxml
+from httpx import AsyncClient
+from tools import timeit
+from aiofiles import open as async_open
+from discord.ext import commands  # ftype: ignore
+from typing import Any
+from tools import thread, lock, ratelimit  # type: ignore
+from tool.worker import offloaded
+from tool.pinterest import Pinterest  # type: ignore
+from tool.pinpostmodels import Model  # type: ignore
+from PIL import Image  # type: ignore
+import imagehash as ih  # type: ignore
+from io import BytesIO
+from logging import getLogger
+from tool.worker import offloaded
+from tool.rival import GoogleSearchResponse
+from voice import Whisper
+from typing import Union, Optional  # type: ignore
+from asyncio.subprocess import PIPE  # type: ignore
+from aiohttp import ClientSession  # type: ignore
+from contextlib import suppress  # type: ignore
+import os  # type: ignore
+import string  # type: ignore
+import random  # type: ignore
+from aiomisc.backoff import asyncretry  # type: ignore
+import datetime  # type: ignore
+import asyncio  # type: ignore
+import aiohttp  # type: ignore
+import discord  # type: ignore
+from tool.important.services.TikTok.client import tiktok_video1, tiktok_video2  # type: ignore
+from discord.utils import chunk_list  # type: ignore
+from rust_chart_generator import create_chart  # type: ignore
+from tool.expressions import YOUTUBE_WILDCARD  # type: ignore
+from tool.important.services.Twitter import Tweet, from_id
+import humanize  # type: ignore
+from cogs.information import get_instagram_user  # type: ignore
+from tuuid import tuuid  # type: ignore
+import io  # type: ignore
+from tool.important.services.Eros import PostResponse  # type: ignore
+from tool.processing.media import MediaHandler  # type: ignore
+from cashews import cache  # type: ignore
+from aiohttp import ClientSession as Session  # type: ignore
+import re
+from loguru import logger
+from voice import save_file
+
+cache.setup("mem://")
+
+def format_factsheet(data: list):
+	_ = {}
+	data.pop(0)
+	data = [d for d in data if d != ' ']
+	_["subject"] = data[0]
+	data.pop(-1)
+	data.pop(0)
+	formatted_dict = {str(data[i]): data[i + 1] for i in range(0, len(data), 2)}
+	_.update(formatted_dict)
+	return _
+
+async def do_transcribe(filepath: str):
+	return await do_whisper(filepath)
+
+@offloaded
+def do_whisper(filepath: str):
+	from voice import Whisper
+	whisper = Whisper()
+	import faster_whisper, ctranslate2
+	import os
+	text = ""
+	segments, _ = whisper.model.transcribe(filepath, vad_filter=True)
+	result = "".join(r.text for r in [m for m in segments])
+	try:
+		os.remove(filepath)
+	except Exception:
+		pass
+	whisper.model.model.unload_model()
+	return result
+
+def get_filetype(url: str) -> str:
+	return url.split('/')[-1].split('.')[1].split('?')[0]
+
+async def download_file(url: str) -> str:
+	file_type = get_filetype(url)
+	async with aiohttp.ClientSession() as session:
+		async with session.get(url) as response:
+			data = await response.read()
+	return await save_file(f"{tuuid()}.{file_type}", data)
+
+
+from typing import List, Optional
+
+from pydantic import BaseModel
+
+
+class AvatarDecorationData(BaseModel):
+	asset: Optional[str] = None
+	sku_id: Optional[str] = None
+
+
+class RawUser(BaseModel):
+	id: Optional[str] = None
+	username: Optional[str] = None
+	global_name: Optional[str] = None
+	avatar: Optional[str] = None
+	avatar_decoration_data: Optional[AvatarDecorationData] = None
+	discriminator: Optional[str] = None
+	public_flags: Optional[int] = None
+	clan: Optional[Any] = None
+	flags: Optional[int] = None
+	banner: Optional[str] = None
+	banner_color: Optional[Any] = None
+	accent_color: Optional[Any] = None
+	bio: Optional[str] = None
+
+
+class UserProfile1(BaseModel):
+	bio: Optional[str] = None
+	accent_color: Optional[Any] = None
+	pronouns: Optional[str] = None
+	profile_effect: Optional[Any] = None
+	banner: Optional[Any] = None
+	theme_colors: Optional[List[int]] = None
+	popout_animation_particle_type: None = None
+	emoji: Optional[Any] = None
+
+
+class Badge(BaseModel):
+	id: Optional[str] = None
+	description: Optional[str] = None
+	icon: Optional[str] = None
+	link: Optional[str] = None
+
+
+class MutualGuild(BaseModel):
+	id: Optional[str] = None
+	nick: Optional[Any] = None
+
+
+class UserProfile(BaseModel):
+	user: Optional[RawUser] = None
+	connected_accounts: Optional[List] = None
+	premium_since: Optional[str] = None
+	premium_type: Optional[int] = None
+	premium_guild_since: Optional[str] = None
+	profile_themes_experiment_bucket: Optional[int] = None
+	user_profile: Optional[UserProfile1] = None
+	badges: Optional[List[Badge]] = None
+	guild_badges: Optional[List] = None
+	mutual_guilds: Optional[List[MutualGuild]] = None
+	legacy_username: Optional[str] = None
+
+
+def format_int(n: int) -> str:
+	m = humanize.intword(n)
+	m = (
+		m.replace(" million", "m")
+		.replace(" billion", "b")
+		.replace(" trillion", "t")
+		.replace(" thousand", "k")
+		.replace(" hundred", "")
+	)
+	return m
+
+
+async def donator_check(ctx: Context, member: Optional[Union[Member, User]] = None):
+	if member is None:
+		member = ctx.author
+	if member.id in ctx.bot.owner_ids:
+		return True
+	if (
+		member
+		in ctx.bot.get_guild(1262921792440242286).get_role(1262957377427341383).members
+	):
+		return True
+	data = await ctx.bot.db.fetchrow(
+		"""SELECT * FROM donators WHERE user_id = $1""", member.id
+	)
+	if not data:
+		if await ctx.bot.glory_cache.ratelimited(
+			f"rl:donator_message:{member.id}", 2, 10
+		):
+			return
+		if member:
+			m = f"{member.mention} doesn't have [**greed Premium**](https://discord.gg/greedbot)"
+		else:
+			m = "[**greed Premium**](https://discord.gg/greedbot) is **required for this command**"
+		await ctx.fail(m)
+		return False
+	return True
+
+
+def is_donator():
+	async def predicate(ctx: Context):
+		# if ctx.author.id in ctx.bot.owner_ids:
+		#     return True
+		# if (
+		#     ctx.author
+		#     in ctx.bot.get_guild(1262921792440242286)
+		#     .get_role(1262957377427341383)
+		#     .members
+		# ):
+		#     return True
+		# data = await ctx.bot.db.fetchrow(
+		#     """SELECT * FROM donators WHERE user_id = $1""", ctx.author.id
+		# )
+		# if not data:
+		#     if (
+		#         await ctx.bot.glory_cache.ratelimited(
+		#             f"rl:donator_message:{ctx.author.id}", 2, 10
+		#         )
+		#         != 0
+		#     ):
+		#         return
+		#     await ctx.fail(
+		#         "[**Greed Premium**](https://discord.gg/greed) is **required for this command**"
+		#     )
+		#     return False
+		return True
+
+	return check(predicate)
+
+
+async def to_string(self: Asset) -> tuple:
+	async with ClientSession() as session:
+		async with session.get(self.url) as resp:
+			content_type = resp.headers.get("Content-Type")
+			data = await resp.read()
+	return content_type, data
+
+
+Asset.to_string = to_string
+
+
+def unique_id(length: int = 6):  # type: ignore
+	return "".join(random.choices(string.ascii_letters + string.digits, k=length))  # type: ignore
+
+
+@offloaded
+def image_hash(data: bytes):
+	from io import BytesIO
+	from PIL import Image
+	import imagehash as ih
+	import random
+	import string
+
+	image = BytesIO(data)
+	result = str(ih.average_hash(image=Image.open(image), hash_size=8))
+	if result == "0000000000000000":
+		return "".join(random.choices(string.ascii_letters + string.digits, k=6))
+	else:
+		return result
+
+
+def get_filename(hash_: str, content_type: str):
+	if "jpeg" in content_type:
+		ext = "jpg"
+	elif "png" in content_type:
+		ext = "png"
+	else:
+		ext = "gif"
+	return f"{hash_}.{ext}"
+
+class Premium(Cog):
+	def __init__(self, bot):
+		self.bot = bot
+		self.bypass = []
+		self.pinterest = Pinterest()
+		self.media = MediaHandler(self.bot)
+#		self.services = ServiceManager(self.bot.redis, None)
+
+	# async def handle_upload(self, before: User, after: User):
+	#     if before.display_avatar == after.display_avatar:
+	#         return
+	#     if "embed" in after.display_avatar.url:
+	#         return
+	#     content_type, data = await after.display_avatar.to_string()
+	#     hash_ = await image_hash(await after.display_avatar.read())
+	#     hashes = await self.bot.db.fetch(
+	#         """SELECT avatar_hash FROM avatarhistory WHERE user_id = $1""", before.id
+	#     )
+	#     if hash_ in hashes:
+	#         return
+	#     filename = get_filename(hash_, content_type)
+	#     await self.bot.db.execute(
+	#         """INSERT INTO avatarhistory (user_id, avatar_hash, content_type, avatar, url, ts) VALUES($1, $2, $3, $4, $5, $6) ON CONFLICT(user_id, avatar_hash) DO NOTHING""",
+	#         before.id,
+	#         hash_,
+	#         content_type,
+	#         data,
+	#         f"https://cdn.greed.bot/avatars/{before.id}/{filename}",
+	#         datetime.datetime.now(),
+	#     )
+	#     return True
+
+	# async def get_avatars(self, data: Any):
+	#     images = []
+
+	#     async def get_bytes(url: str) -> bytes:
+	#         async with ClientSession() as session:
+	#             async with session.get(url.replace("kazu.bot","greed.bot")) as response:
+	#                 if response.status != 200:
+	#                     return None
+	#                 byte = await response.read()
+	#         images.append(byte)
+
+	#     await asyncio.gather(*[get_bytes(row.url) for row in data])
+	#     return images
+
+	async def make_chart(self, images):
+		from tool.collage import collage
+
+		return await collage(images)
+
+	async def get_image(self, image):
+		async with ClientSession() as session:
+			async with session.get(image) as resp:
+				data = await resp.read()
+		return data
+
+#    @commands.command(name = "testxd")
+#    async def testxd(self, ctx):
+#        avatars = [f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i}.png" for i in range(440, 450)]
+#        d = await self.make_chart(await asyncio.gather(*[self.get_image(a) for a in avatars]))
+#        file = File(fp=BytesIO(d), filename="collage.png")
+#        return await ctx.send(file = file)
+	# @Cog.listener("on_user_update")
+	# async def on_avatar_change(self, before: User, after: User):
+	#     if (
+	#         await self.bot.db.fetchrow(
+	#             """SELECT * FROM donators WHERE user_id = $1""", before.id
+	#         )
+	#         or after
+	#         in self.bot.get_guild(1262921792440242286)
+	#         .get_role(1262957377427341383)
+	#         .members
+	#         or after.id in self.bot.owner_ids
+	#     ):
+	#         return await self.handle_upload(before, after)
+
+	# @lock("avh:{ctx.author.id}")
+	# async def make_avatarhistory(self, ctx: Context, user: User):
+	#     message = await ctx.send(
+	#         embed=Embed(
+	#             description=f"<a:greedloading:1262972139498115205> **Generating** {user.mention}'s **avatar history..**",
+	#             color=self.bot.color,
+	#         )
+	#     )
+	#     avatars = await self.bot.db.fetch(
+	#         """SELECT url FROM avatarhistory WHERE user_id = $1 ORDER BY ts DESC""",
+	#         user.id,
+	#     )
+	#     avatars = avatars[:24]
+	#     if not avatars:
+	#         embed = message.embeds[0]
+	#         embed = await ctx.fail(
+	#             f"There is **no avatar history** for {user.mention}", return_embed=True
+	#         )
+	#         logger.info(f"no avatars lol")
+	#         return await message.edit(embed=embed)
+	#     images = await self.get_avatars(avatars)
+	#     chart = await self.make_chart(images)
+	#     file = File(fp=BytesIO(chart), filename="collage.png")
+	#     if avatars == 0:
+	#         logger.info(f"0 avatars lol")
+	#         embed = message.embeds
+	#         embed = await ctx.fail(
+	#             "User does **not** have **past avatars**", return_embed=True
+	#         )
+	#         return await message.edit(embed=embed)
+	#     await message.delete()
+	#     embed = Embed(
+	#         description=f"**Past avatars available [here](https://greed.bot/avatars/{user.id})**",
+	#         color=self.bot.color,
+	#     )
+	#     embed.set_image(url="attachment://collage.png")
+	#     await ctx.send(file=file, embed=embed)
+	#     return file
+
+	# @hybrid_group(
+	#     name="avatarhistory",
+	#     aliases=["ah", "avh"],
+	#     invoke_without_command=True,
+	#     brief="View your saved profile pictures history through greed",
+	#     example="avatarhistoryn",
+	# )
+	# @is_donator()
+	# @lock("avh-{ctx.guild.id}")
+	# async def avatarh(
+	#     self, ctx: Context, *, member: Optional[Union[User, Member]] = None
+	# ):
+	#     if await donator_check(ctx, member) is False:
+	#         return
+	#     if member is None:
+	#         member = ctx.author
+	#     return await self.make_avatarhistory(ctx, member)
+
+	# @avatarh.command(
+	#     name="reset",
+	#     aliases=["clear"],
+	#     brief="Reset your saved profile pictures through greed",
+	#     example=",avatarhistory reset",
+	# )
+	# async def clear(self, ctx: Context):
+	#     await self.bot.db.execute(
+	#         "DELETE FROM avatarhistory WHERE user_id = $1", ctx.author.id
+	#     )
+	#     return await ctx.success("**Cleared** your **avatar history**")
+
+	@commands.command(
+		name="youtube",
+		aliases=["yt"],
+		brief="Repost a youtube short video",
+		example=",youtube {link}",
+	)
+	@is_donator()
+	async def youtube(self, ctx: Context, *, url: str):
+		try:
+			data = await self.bot.rival.get_youtube_post(url)
+		except Exception:
+			return await ctx.fail("only urls are accepted")
+		if data:
+			file = File(data.file)
+
+			#                fp=BytesIO(data.asset_data), filename=f"{data.id}.mp4"
+			#           )
+			embed = (
+				Embed(
+					description=f"[{data.title}]({url})",
+					color=self.bot.color,
+				)
+				.set_author(name=f"{data.author.name}")
+				.set_footer(
+					text=f"💬 {format_int(data.comment_count)} comments | 👀 {format_int(data.view_count)} views"
+				)
+			)
+			await ctx.send(file=file, embed=embed)
+			try:
+				os.remove(data.file)
+			except Exception:
+				pass
+			return await ctx.message.delete()
+		else:
+			return await ctx.fail(f"could not find a video with the url {url}")
+
+	async def youtube_embed(self, message: Message, url: str) -> Message:
+		data = await self.bot.rival.get_youtube_post(url)
+		embed = (
+			Embed(
+				description=f"[{data.title}]({url})",
+				color=self.bot.color,
+			)
+			.set_author(name=f"{data.author.name}")
+			.set_footer(
+				text=f"💬 {format_int(data.comment_count)} comments | 👀 {format_int(data.view_count)} views"
+			)
+		)
+		file = File(data.file)
+		await message.delete()
+		await message.channel.send(embed=embed, file=file)
+		if message.author.name != "aiohttp":
+			try:
+				os.remove(data.file)
+			except Exception:
+				pass
+
+	@commands.Cog.listener("on_message")
+	async def youtube_repost(self, message: Message):
+		if message.mention_everyone:
+			await self.bot.modlogs.do_log(message)
+		if message.author.id == 123:
+			await message.delete()
+		if message.content.lower().startswith(self.bot.user.name.lower()):
+			try:
+				if match := YOUTUBE_WILDCARD.match(message.content.split(" ")[1]):
+					if await donator_check(
+						await self.bot.get_context(message), message.author
+					):
+						return await self.youtube_embed(message, match.string)
+			except Exception as e:
+				raise e
+
+	@asyncretry(max_tries=3, pause=0.1)
+	async def get_asset(self, url: str) -> discord.File:
+		async with aiohttp.ClientSession() as session:
+			async with session.get(url) as response:
+				if response.status != 200:
+					raise TypeError(f"{url} wasn't a valid asset")
+				data = await response.read()
+		return data
+
+	@cache(ttl=300, key="compress:{data}")
+	async def compress(self, data: bytes, size: int) -> bytes:
+		size = f"{int(size/1000000)}m"
+		async with aiohttp.ClientSession() as session:
+			async with session.request(
+				"POST",
+				f"https://api.rival.rocks/video/compress?identifier={tuuid()}&size={size}",
+				data={"file": data},
+				headers={"api-key": self.bot.config["rival_api"]},
+			) as response:
+				try:
+					url = (await response.json())["url"]
+				except Exception:
+					return await response.json()
+		async with aiohttp.ClientSession() as session:
+			async with session.get(url) as resp:
+				data = await resp.read()
+		return data
+
+	#
+
+	async def write_file(self, filename: str, data: bytes):
+		return await save_file(filename, data)
+
+	async def compress_and_send(self, ctx: Context, data: PostResponse, filename: str, embed: Embed, raw: bytes) -> discord.Message:  # type: ignore
+		from discord.http import handle_message_parameters  # type: ignore
+
+		logger.info("compressing tiktok....")
+		with suppress(FileNotFoundError):
+			os.remove("greedtiktok.mp4")
+			os.remove("greedtiktoka.mp4")
+		filename = filename.split(".")[0]
+		await self.write_file(f"{filename}a.mp4", raw)
+		process = await asyncio.create_subprocess_shell(
+			f"ffmpeg -i {filename}a.mp4 -fs 6M -preset ultrafast {filename}.mp4 -y",
+			stderr=PIPE,
+			stdout=PIPE,
+		)
+		await process.communicate()
+		try:
+			await process.wait()
+		except Exception:
+			pass
+		file = discord.File(f"{filename}.mp4")
+		if len(file.fp.read()) > ctx.guild.filesize_limit:
+			await ctx.fail("**tiktok video** is **to large**", return_embed=True)
+		else:
+			self.bot.last_tiktok = file.fp.read()
+			logger.info(len(file.fp.read()))
+			kwargs = {"headers": {"Authorization": f"Bot {self.bot.config['token']}"}}
+			for i in range(5):  # type: ignore
+				try:
+					file = discord.File(f"{filename}.mp4")
+					with handle_message_parameters(file=file, embed=embed) as params:
+						for tries in range(5):
+							if params.files:
+								for f in params.files:
+									f.reset(seek=tries)
+							logger.info(f"{params.files[0]}")
+							form_data = aiohttp.FormData(quote_fields=False)
+							if params.multipart:
+								for params in params.multipart:
+									form_data.add_field(**params)
+								kwargs["data"] = form_data
+							async with aiohttp.ClientSession() as session:
+								async with session.request(
+									"POST",
+									f"https://discord.com/api/v10/channels/{ctx.channel.id}/messages",
+									**kwargs,
+								) as response:
+									await response.json()  # pointless but do it here anyways to end off the async enter
+				except AttributeError:
+					break
+			await ctx.message.delete()
+			return
+			await ctx.send(file=file)  # type: ignore
+			self.bot.last_tiktok = file.fp.read()
+
+	async def repost_tiktok(
+		self, message: Message, url: str, debug: Optional[bool] = False
+	):
+		ctx = await self.bot.get_context(message)
+		if not await donator_check(ctx):
+			return
+		logger.info(f"fetching tiktok: {url}")
+		try:
+			_data = await PostResponse.from_response(url, self.bot.eros)
+			if not _data:
+				return await message.channel.send(
+					embed=await ctx.fail(
+						"**TikTok's API** returned a **corrupted** tiktok",
+						return_embed=True,
+					)
+				)
+			filedata = await self.get_asset(_data.data.play)
+		except Exception as e:
+			await message.channel.send(
+				embed=await ctx.fail(
+					"**TikTok's API** returned a **corrupted** tiktok",
+					return_embed=True,
+				)
+			)
+			raise e
+		data = _data.data
+		if data.images:
+			return await ctx.fail("Only **VIDEOS** are supported")
+		video = discord.File(fp=BytesIO(filedata), filename="greedtiktok.mp4")
+		self.bot.last_tiktok = filedata
+		self.last_tiktok_class = _data
+		ctx = await self.bot.get_context(message)
+		embed = Embed(description=f"{data.title[:1000]}", url=url, color=self.bot.color)
+		embed.set_footer(
+			text=f"👁️ {data.play_count} views | 👍🏼 {data.digg_count} likes | 💬 {data.comment_count} comments"
+		)
+		embed.set_author(name=data.author.unique_id, icon_url=data.author.avatar)
+		if debug:
+			return video, data
+		return await self.compress_and_send(ctx, _data, video.filename, embed, filedata)
+
+	def get_regex(self, content: str):
+		if "@" not in content:
+			try:
+				return tiktok_video2.search(content).string
+			except Exception:  # type: ignore
+				return None
+		else:
+			try:
+				return (tiktok_video1.find_all(content))[0]
+			except Exception:  # type: ignore
+				return None
+
+	@commands.Cog.listener("on_message")
+	async def twitter_repost(self, message: Message):
+		if message.author.bot:
+			return
+		if not message.guild:
+			return
+		if not message.content.startswith(self.bot.user.name.lower()):
+			return
+		try:
+			tweet_id = re.search(r"status/(\d+)", message.content).group(1)
+		except Exception:
+			return
+		data = await from_id(tweet_id)
+		return await data.to_message(message)
+
+	@ratelimit("user:dm:{member.id}", 1, 200)
+	async def dm_member(self, member: Member, **kwargs):
+		try:
+			return await member.send(**kwargs)
+		except Exception:
+			return
+
+	@cache(ttl=3500, key="profile:{member.id}")
+	async def get_user_profile(self, member: Member) -> Optional[UserProfile]:
+		params = {
+			"with_mutual_guilds": str(True),
+			"with_mutual_friends": str(True),
+			"with_mutual_friends_count": str(False),
+		}
+		if member.guild:
+			params["guild_id"] = member.guild.id
+		async with aiohttp.ClientSession() as session:
+			async with session.get(
+				f"https://discord.com/api/v10/users/{member.id}/profile",
+				params=params,
+				headers={
+					"Authorization": "MTA5Nzg3MTI2NDMxNzcxNDUwNA.GgjVAV.8OGYmGzaKWPERMvGSPzxyIQEr4Z-FA5O6C8h1A"
+				},
+			) as response:
+				data = await response.json()
+		return UserProfile(**data)
+
+	async def has_nitro(self, member: Member) -> Optional[bool]:
+		try:
+			data = await self.get_user_profile(member)
+		except Exception as e:
+			logger.info(f"an error occurred with nitro checking: {e}")
+			return False
+			raise e
+		if data.premium_type != 2:
+			return False
+		else:
+			if data.premium_type == 2:
+				return True
+			return False
+
+	@commands.Cog.listener("on_member_join")
+	async def nitro_check(self, member: Member):
+		if member.guild.id == 1262921792440242286:
+			if member.id not in self.bypass and member.id not in self.bot.owner_ids:
+				if not await self.has_nitro(member):
+					await self.dm_member(
+						member,
+						embed=Embed(
+							color=self.bot.color,
+							description="You must have nitro to join /greedbot",
+						),
+					)
+					return await member.kick(reason="No Nitro")
+
+	@commands.Cog.listener("on_message")
+	async def tiktok_repost(self, message: Message):
+		if message.content.lower().startswith(self.bot.user.name.lower()):
+			content = message.content.split(self.bot.user.name.lower(), 1)[-1].split(
+				" "
+			)[-1]
+			if "tiktok" in content.lower():
+				return await self.repost_tiktok(message, content.lstrip().rstrip())
+
+	@commands.command(name="twitter", aliases=["x"], brief="get a twitter post")
+	@is_donator()
+	async def twitter(self, ctx: Context, *, url: str):
+		try:
+			try:
+				tweet_id = re.search(r"status/(\d+)", url).group(1)
+			except Exception:
+				return
+			data = await from_id(tweet_id)
+			return await data.to_message(ctx.message)
+		except Exception:
+			return await ctx.fail("Could not fetch that **TWITTER** post")
+
+	@commands.command(name="bypass")
+	@commands.is_owner()
+	async def bypass(self, ctx: Context, user: Union[Member, User]):
+		self.bypass.append(user.id)
+		return await ctx.send("lol")
+
+	@commands.command(name="profile", brief="get a screenshot of a user's profile", disabled = True)
+	async def profile(
+		self, ctx: Context, *, user: Optional[User | Member] = commands.Author
+	):
+		if user.bot:
+			return await ctx.fail("profiling bots is racist")
+		if await self.bot.glory_cache.ratelimited("profile", 1, 5) != 0:
+			return await ctx.fail("the guild is on cooldown")
+		try:
+			guild = self.bot.get_guild(1262921792440242286)
+			if guild in user.mutual_guilds:
+				check = True
+			else:
+				check = False
+		except Exception:
+			check = False
+		if not check:
+			return await ctx.fail(
+				"This user must be in our [**community server**](https://discord.gg/greedbot) to view this profile."
+			)
+		x = Embed(
+			description=f"<a:greedloading:1262972139498115205> **Loading {user.mention}'s profile...**",
+			color=0x2B2D31,
+		)
+		message = await ctx.send(embed=x)
+		try:
+			async with aiohttp.ClientSession() as session:
+				url = "http://23.160.168.194:6000/screenshot/" + str(user.id)
+				async with session.get(url) as response:
+					logger.info(
+						f"{response.status} - {str(response.url)} - {response.headers}"
+					)
+					data = await response.read()
+			await ctx.send(
+				file=discord.File(fp=io.BytesIO(data), filename="profile.png")
+			)
+			return await message.delete()
+		except Exception as e:
+			if ctx.author.name == "aiohttp":
+				raise e
+			embed = message.embeds[0]
+			embed.description = "couldn't get that user's profile"
+			return await message.edit(embed=embed)
+
+#    @commands.command(
+#        name="uwulock", brief="uwulock someone lol", example=",uwulock @sudosql"
+#    )
+#    @commands.bot_has_permissions(administrator=True)
+#    @commands.has_permissions(administrator=True)
+#    @is_donator()
+	async def uwulock(self, ctx: Context, *, user: Member):
+		data = await self.bot.db.fetchrow(
+			"""SELECT * FROM uwulock WHERE guild_id = $1 AND user_id = $2 AND channel_id = $3""",
+			ctx.guild.id,
+			user.id,
+			ctx.channel.id,
+		)
+		if data:
+			await self.bot.db.execute(
+				"""DELETE FROM uwulock WHERE guild_id = $1 AND user_id = $2 AND channel_id = $3""",
+				ctx.guild.id,
+				user.id,
+				ctx.channel.id,
+			)
+			async with aiohttp.ClientSession() as session:
+				webhook = discord.Webhook.from_url(data.webhook, session=session)
+				await webhook.delete(reason=f"unuwulocked by {ctx.author.name}")
+			return await ctx.success(f"unuwulocked {user.mention}")
+		else:
+			await self.bot.db.execute("""DELETE FROM uwulock WHERE guild_id = $1""", ctx.guild.id)
+			try:
+				webhook = await ctx.channel.create_webhook(
+					name=user.display_name,
+					avatar=await user.display_avatar.read(),
+					reason=f"uwulocked by {str(ctx.author)}",
+				)
+			except Exception:
+				for webhook in await ctx.channel.webhooks():
+					await webhook.delete(reason = "clearing unused webhooks")
+				webhook = await ctx.channel.create_webhook(
+					name=user.display_name,
+					avatar=await user.display_avatar.read(),
+					reason=f"uwulocked by {str(ctx.author)}",
+				)
+			await self.bot.db.execute(
+				"""INSERT INTO uwulock (user_id, guild_id, channel_id, webhook) VALUES($1, $2, $3, $4) ON CONFLICT(user_id, guild_id, channel_id) DO UPDATE SET webhook = excluded.webhook""",
+				user.id,
+				ctx.guild.id,
+				ctx.channel.id,
+				webhook.url,
+			)
+			return await ctx.success(f"**uwulocked** {user.mention}")
+
+	@commands.command(
+		name="tiktok",
+		aliases=["tt"],
+		brief="View a tiktok user account",
+		example=",tiktok greed",
+	)
+	@is_donator()
+	async def tiktok(self, ctx: Context, *, username: str):
+		if "https://" in username:
+			data = await self.repost_tiktok(ctx.message, username)
+			logger.info(data)
+			return
+		if "https://" not in username.lower():
+			try:
+				embed = discord.Embed()
+				user = await self.bot.rival.tiktok_user(username)
+				embed.title = f"{user.display_name} (@{username})"
+				embed.url = f"https://tiktok.com/@{username}"
+				embed.description = user.bio
+				embed.set_thumbnail(url=user.avatar)
+				embed.add_field(name="likes", value=format_int(user.likes), inline=True)
+				embed.add_field(
+					name="followers", value=format_int(user.followers), inline=True
+				)
+				embed.add_field(
+					name="following", value=format_int(user.following), inline=True
+				)
+				embed.set_author(
+					name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url
+				)
+				embed.set_footer(text="TikTok", icon_url=user.tiktok_logo)
+				embed.color = discord.Color.from_str(user.avatar_color)
+				return await ctx.send(embed=embed)
+			except Exception as e:
+				if ctx.author.name == "aiohttp":
+					raise e
+				return await ctx.fail(
+					f"tiktok user [**@{username}**](https://tiktok.com/@{username}) could not be found"
+				)
+
+	@asyncretry(max_tries = 5, pause = 0.5)
+	async def do_search(self, query: str, safe: Optional[bool] = False):
+		safety = "moderate" if safe is True else "off"
+		headers = {
+			"authority": "search.brave.com",
+			"method": "GET",
+			"path": f"/search?q={query.replace(' ', '%20')}",
+			"scheme": "https",
+			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+			"accept-encoding": "gzip, deflate, zstd",
+			"accept-language": "en-US,en;q=0.6",
+			"cache-control": "no-cache",
+			"pragma": "no-cache",
+			"priority": "u=0, i",
+			"referer": f"https://search.brave.com/search?q={query.replace(' ', '%20')}&source=web",
+			"sec-ch-ua": '"Chromium";v="124", "Brave";v="124", "Not-A.Brand";v="99"',
+			"sec-ch-ua-mobile": "?0",
+			"sec-ch-ua-platform": '"Windows"',
+			"sec-fetch-dest": "document",
+			"sec-fetch-mode": "navigate",
+			"sec-fetch-site": "same-origin",
+			"sec-fetch-user": "?1",
+			"sec-gpc": "1",
+			"Cookie": f"safesearch={safety}; useLocation=0",
+			"upgrade-insecure-requests": "1",
+			"user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36",
+		}
+		@asyncretry(max_tries=5, pause = 0.1)
+		async def get_page(page: int = 1):
+			ret = []
+			offset = f"&offset={page}&spellcheck=0"
+			if page-1 == 0:
+				ref = f"https://search.brave.com/search?q={query.replace(' ', '%20')}&source=web"
+			else:
+				ref = f"https://search.brave.com/search?q={query.replace(' ', '%20')}&source=web&offset={page-1}&spellcheck=0"
+			try:
+				h = headers.copy()
+				h['path'] = f"/search?q={query.replace(' ', '%20')}{offset}"
+				h['referer'] = ref
+				async with AsyncClient(proxies={"http://": "http://mwrodpvj-rotate:9htsidb6jgmm@p.webshare.io:80/", "https://": "http://mwrodpvj-rotate:9htsidb6jgmm@p.webshare.io:80/"}) as client:
+					resp = await client.get(f"https://search.brave.com/search?q={query.replace(' ', '%20')}&source=web{offset}", headers=h)
+				html_ = resp.content
+				if resp.status_code != 200:
+					return ret
+				soup = BeautifulSoup(html_, "html.parser")
+				ns = soup.findAll("div", class_='snippet svelte-1agnhj')
+				for ns in ns:
+					website_title = (ns.find_next(
+						"div", class_="desktop-default-regular t-secondary"
+					) or ns.find_next("div", class_="sitename")).text
+					result_src = ns.find_next("cite", class_="snippet-url").span.text
+					source_text = ns.find_next("div", class_="snippet-description").text
+					title = ns.find_next("div", class_="title").text
+					breadcrumb = ns.find_next("span", class_= "url-path").text
+					d = {
+							"domain": result_src,
+							"description": source_text,
+							"title": title,
+							"source": website_title,
+							"breadcrumb": breadcrumb
+					}
+					ret.append(
+						d
+					)
+			except Exception as e:
+				logger.info(f"an error occured on page {page}: {e}")
+			return ret
+		async with timeit() as timer:
+			async with AsyncClient(proxies={"http://": "http://mwrodpvj-rotate:9htsidb6jgmm@p.webshare.io:80/", "https://": "http://mwrodpvj-rotate:9htsidb6jgmm@p.webshare.io:80/"}) as client:
+				resp = await client.get(f"https://search.brave.com/search?q={query.replace(' ', '%20').replace('+', '%20')}&source=web", headers=headers)
+			logger.info(resp.status_code)
+			if resp.status_code != 200:
+				raise Exception()
+			html_ = resp.content
+			html_str = resp.text
+			soup = BeautifulSoup(html_, "html.parser")
+			ns = soup.findAll("div", {"data-type": "web"})
+			ret = []
+			tree = html.fromstring(html_str)
+			elements = tree.xpath("//div[contains(@class, 'infobox-attr')]")
+			main_result = {}
+			main_res = soup.findAll("section", attrs={"id": "infobox"})
+			main_res2 = soup.findAll("section", class_ = "infobox-factsheet desktop-small-regular svelte-1rqo8ei")
+			result_dict = {}
+			for element in elements:
+				# Extract the attribute name
+				attr_name = element.xpath(".//span[contains(@class, 'infobox-attr-name')]//text()")
+				attr_name = attr_name[0] if attr_name else None
+				
+				# Extract the attribute value
+				attr_value = element.xpath(".//span[contains(@class, 'attr-value')]//text()")
+				attr_value = attr_value[0] if attr_value else None
+				
+				# Add to the dictionary if both name and value are found
+				if attr_name and attr_value:
+					result_dict[str(attr_name)] = attr_value
+			try:
+				t = format_factsheet([i for i in main_res2[0].strings])
+			except Exception:
+				t = {}
+			t.update(result_dict)
+			try:
+				for n in main_res:
+					try:
+						header = n.find_next("h1").text
+					except Exception:
+						header = None
+					try:
+						snippet = n.find_next("h2").text
+					except Exception:
+						snippet = None
+					d = n.find_next("section")
+					try:
+						description = d.text
+					except Exception:
+						description = None
+					try:
+						u = d.find_next("a")
+					except Exception:
+						u = None
+					try:
+						url = u.__dict__["attrs"]["href"]
+					except Exception:
+						url = None
+					try:
+						domain = u.text
+					except Exception:
+						domain = None
+					main_result.update({"title": header, "url": url, "domain": domain, "description": description, "snippet": snippet, "full_info": t})
+			except Exception:
+				pass
+			# Initialize an empty dictionary to store the attributes and values
+			result_dict = {}
+
+			for element in elements:
+				# Extract the attribute name
+				attr_name = element.xpath(".//span[contains(@class, 'infobox-attr-name')]//text()")
+				attr_name = attr_name[0] if attr_name else None
+				
+				# Extract the attribute value
+				attr_value = element.xpath(".//span[contains(@class, 'attr-value')]//text()")
+				attr_value = attr_value[0] if attr_value else None
+				
+				# Add to the dictionary if both name and value are found
+				if attr_name and attr_value:
+					result_dict[str(attr_name)] = attr_value
+			t = {}
+			t.update(result_dict)
+			for ns in ns:
+				website_title = (ns.find_next(
+					"div", class_="desktop-default-regular t-secondary"
+				) or ns.find_next("div", class_="sitename")).text
+				result_src = ns.find_next("cite", class_="snippet-url").span.text
+				source_text = ns.find_next("div", class_="snippet-description").text
+				title = ns.find_next("div", class_="title").text
+				breadcrumb = ns.find_next("span", class_= "url-path").text
+				ret.append(
+					{
+						"domain": result_src,
+						"description": source_text,
+						"title": title,
+						"source": website_title,
+						"breadcrumb": breadcrumb
+					}
+				)
+		res = list(chain.from_iterable(await asyncio.gather(*[get_page(i) for i in range(1, 3)])))
+		ret.extend(res)
+		data = {"query_time": str(timer.elapsed), "query": query, "safe": safety, "main_result": main_result, "results": ret}
+		return GoogleSearchResponse(**data)
+
+	async def get_google_results(self, query: str, safe: Optional[bool] = True):
+		if data := await self.bot.redis.get(f"google-{query}-{str(safe)}"):
+			results = GoogleSearchResponse(**orjson.loads(data))
+			results.cached = True
+			return results
+		else:
+			data = await self.do_search(query, safe)
+			await self.bot.redis.set(f"google-{query}-{str(safe)}", orjson.dumps(data.dict()))
+			return data
+
+	@commands.command(
+		name="pinterest",
+		aliases=["pin"],
+		brief="get a user, post, or reverse search an image on pinterest",
+		example=",pinterest {link}",
+	)
+	@is_donator()
+	async def pinterest(self, ctx: Context, *, username_or_url: str):
+		try:
+			if username_or_url.startswith(
+				"https://www.pinterest.com/"
+			) or username_or_url.startswith("https://pin.it/"):
+				if post := await self.pinterest.get_post_or_pin(username_or_url):
+					data = Model(**post)
+					if data.resource_response.data.videos is not None:
+						content = None
+						for key in data.resource_response.data.videos[
+							"video_list"
+						].keys():
+							url = data.resource_response.data.videos["video_list"][key][
+								"url"
+							]
+							async with Session() as session:
+								async with session.get(url) as response:
+									file = discord.File(
+										fp=io.BytesIO(await response.read()),
+										filename=f"{tuuid()}.mp4",
+									)
+									break
+					else:
+						content = None
+						file = None
+					if file is not None:
+						await ctx.message.delete()
+						return await ctx.send(
+							embed=discord.Embed(
+								title=data.resource_response.data.pinner.first_name,
+								url=username_or_url,
+								description=data.resource_response.data.description,
+								color=self.bot.color,
+							),
+							content=content,
+							file=file,
+						)
+					else:
+						await ctx.message.delete()
+						return await ctx.send(
+							embed=discord.Embed(
+								title=data.resource_response.data.pinner.first_name,
+								url=username_or_url,
+								description=data.resource_response.data.description,
+								color=self.bot.color,
+							).set_image(
+								url=data.resource_response.data.images.field_736x.url
+							),
+							content=content,
+							file=file,
+						)
+						# data.resource_response.data.images.field_600x.url
+			else:
+				if data := await self.pinterest.get_user(username_or_url):
+					await ctx.message.delete()
+					return await ctx.send(
+						embed=discord.Embed(
+							title=f"{data.resource_response.data.first_name} (@{username_or_url})",
+							description=data.resource_response.data.about,
+							url=f"https://pinterest.com/{username_or_url}",
+							color=self.bot.color,
+						)
+						.set_thumbnail(url=data.resource_response.data.image_medium_url)
+						.add_field(
+							name="Following",
+							value=data.resource_response.data.explicit_user_following_count,
+							inline=True,
+						)
+						.add_field(
+							name="Followers",
+							value=data.resource_response.data.follower_count,
+							inline=True,
+						)
+					)
+		except Exception as e:
+			if ctx.author.name == "aiohttp":
+				raise e
+			return await ctx.fail("only URLS and usernames are accepted")
+
+#	@commands.command(
+#		name="google",
+#		brief="get google search results",
+#		example=",google what is space?",
+#	)
+#	@is_donator()
+#	async def google(self, ctx: Context, *, query: str):
+#		safe = True if not ctx.channel.is_nsfw() else False
+#		message = await ctx.send(
+#			embed=discord.Embed(
+#				description=f"<a:greedloading:1262972139498115205> {ctx.author.mention}: **Searching the web..**",
+#				color=self.bot.color,
+#			)
+#		)
+#		try:
+#			results = await self.services.bing.search(query, safe)
+#		except Exception as e:
+#			if ctx.author.id == 352190010998390796:
+#				raise e
+#			embed = await ctx.fail(
+#				f"**{query[:20]}** has **no results or google is currently ratelimiting us**",
+#				return_embed=True,
+#			)
+#			return await message.edit(embed=embed)
+#		embeds_ = []
+#		page_start = 0
+#		res = chunk_list(results.results, 3)
+#		pages = len(res)
+#		if results.knowledge_panel:
+#			if results.knowledge_panel.title:
+#				try:
+#					embed = Embed(color = self.bot.color, title = results.knowledge_panel.title, url = results.knowledge_panel.url or "https://greed.bot", description = results.knowledge_panel.description).set_footer(text=f"Page 1/{pages+1} of Google Search {'(Safe Mode)' if safe else ''} {'(Cached)' if results.cached else ''}",
+#					icon_url="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png",)
+#					for key, value in results.knowledge_panel.additional_info.items():
+#						embed.add_field(name = key.title(), value = str(value), inline = False)
+#					embeds_.append(embed)
+#					page_start+=1
+#				except Exception:
+#					pass
+#		embeds = [
+#			discord.Embed(
+#				title="Search Results",
+#				description="\n\n".join(
+#					f"**[{result.title[:255]}](https://{result.domain})**\n{result.description}"
+#					for result in page
+#				),
+#				color=self.bot.color,
+#			)
+#			.set_footer(
+#				text=f"Page {i+page_start}/{pages+page_start} of Google Search {'(Safe Mode)' if safe else ''} {'(Cached)' if results.cached else ''}",
+#				icon_url="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png",
+#			)
+#			.set_author(
+#				name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url
+#			)
+#			for i, page in enumerate(res, start=1)
+#		]
+#		embeds_.extend(embeds)
+#		asyncio.ensure_future(ctx.paginate(embeds_, message))
+#		return
+
+	# @commands.command(
+	# 	name="google",
+	# 	brief="get google search results",
+	# 	example=",google what is space?",
+	# )
+	# @is_donator()
+	# async def google(self, ctx: Context, *, query: str):
+	# 	safe = True if not ctx.channel.is_nsfw() else False
+	# 	message = await ctx.send(
+	# 		embed=discord.Embed(
+	# 			description=f"<a:greedloading:1262972139498115205> {ctx.author.mention}: **Searching the web..**",
+	# 			color=self.bot.color,
+	# 		)
+	# 	)
+	# 	try:
+	# 		results = await self.get_google_results(query, safe)
+	# 	except Exception as e:
+	# 		if ctx.author.id == 352190010998390796:
+	# 			raise e
+	# 		embed = await ctx.fail(
+	# 			f"**{query[:20]}** has **no results or google is currently ratelimiting us**",
+	# 			return_embed=True,
+	# 		)
+	# 		return await message.edit(embed=embed)
+	# 	embeds_ = []
+	# 	page_start = 0
+	# 	res = chunk_list(results.results, 3)
+	# 	pages = len(res)
+	# 	if results.main_result:
+	# 		try:
+	# 			embeds_.append(Embed(color = self.bot.color, title = results.main_result.title, url = results.main_result.url, description = results.main_result.snippet).set_footer(text=f"Page 1/{pages+1} of Google Search {'(Safe Mode)' if safe else ''} {'(Cached)' if results.cached else ''}",
+	# 			icon_url="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png",))
+	# 			page_start+=1
+	# 		except Exception:
+	# 			pass
+	# 	embeds = [
+	# 		discord.Embed(
+	# 			title="Search Results",
+	# 			description="\n\n".join(
+	# 				f"**[{result.title[:255]}](https://{result.domain})**\n{result.description}"
+	# 				for result in page
+	# 			),
+	# 			color=self.bot.color,
+	# 		)
+	# 		.set_footer(
+	# 			text=f"Page {i+page_start}/{pages+page_start} of Google Search {'(Safe Mode)' if safe else ''} {'(Cached)' if results.cached else ''}",
+	# 			icon_url="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png",
+	# 		)
+	# 		.set_author(
+	# 			name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url
+	# 		)
+	# 		for i, page in enumerate(res, start=1)
+	# 	]
+	# 	embeds_.extend(embeds)
+	# 	asyncio.ensure_future(ctx.paginate(embeds_, message))
+	# 	return
+
+	@commands.command(
+		name="image", brief="get results from google images", example=",image car"
+	)
+	@is_donator()
+	async def image(self, ctx: Context, *, query: str):
+		if ctx.channel.is_nsfw():
+			safe = False
+
+		else:
+			safe = True
+
+		try:
+			results = await self.services.bing.image_search(query, safe)
+
+		except Exception as e:
+			if ctx.author.name == "aiohttp":
+				raise e
+			return await ctx.fail(f"no results for **{query}**")
+
+		embeds = [
+			discord.Embed(
+				title=f"results for {query}",
+				description=f"[{result.content} - ({result.source})]({result.url})",
+				color=self.bot.color,
+			)
+			.set_image(url=result.thumbnail)
+			.set_footer(text=f"Page {i}/{len(results.results)} of Google Images")
+			for i, result in enumerate(results.results, start=1)
+		]
+
+		return await ctx.paginate(embeds)
+
+	async def make_transcription(self, message: discord.Message):
+		if len(message.attachments) > 0:
+			for attachment in message.attachments:
+				if attachment.is_voice_message() is True:
+					filepath = await download_file(attachment.url)
+					return await do_transcribe(filepath)
+
+	@commands.Cog.listener("on_message")
+	async def on_voice_message(self, message: discord.Message):
+		if not message.guild:
+			return
+		if message.author.bot:
+			return
+
+		if not await self.bot.db.fetchrow("""SELECT * FROM auto_transcribe WHERE guild_id = $1""", message.guild.id):
+			return
+
+		if text := await self.make_transcription(message):
+			embed=discord.Embed(description=text, color=self.bot.color).set_author(
+				name=message.author.display_name,
+				icon_url=message.author.display_avatar.url,
+			)
+			return await message.reply(embed = embed)
+
+	@commands.command(
+		name="transcribe",
+		brief="return the text from a voice message",
+		example=",transcribe [audio_reply]",
+	)
+	@is_donator()
+	async def transcribe(self, ctx: Context, message: Optional[Message] = None):
+		if not message:
+			if not ctx.message.reference:
+				messages = [
+					message
+					async for message in ctx.channel.history(limit=50)
+					if len(message.attachments) > 0
+					and message.attachments[0].is_voice_message()
+				]
+
+				if len(messages) == 0:
+					return await ctx.fail(
+						"please reply to a message or provide a message to transcribe"
+					)
+
+				else:
+					message = messages[0]
+
+					msg = await ctx.send(
+						embed=discord.Embed(
+							color=self.bot.color,
+							description=f"<a:greedloading:1262972139498115205> {ctx.author.mention}: **transcribing this message...**",
+						)
+					)
+					text = await self.make_transcription(message)
+
+			else:
+				message = await self.bot.fetch_message(
+					ctx.channel, ctx.message.reference.message_id
+				)
+
+				msg = await ctx.send(
+					embed=discord.Embed(
+						color=self.bot.color,
+						description=f"<a:greedloading:1262972139498115205> {ctx.author.mention}: **transcribing this message...**",
+					)
+				)
+
+				text = await self.make_transcription(message)
+
+		else:
+			text = await self.make_transcription(message)
+
+		if text is None:
+			return await ctx.fail(
+				f"**Failed to transcribe** [**this message**]({message.jump_url})"
+			)
+
+		return await msg.edit(
+			embed=discord.Embed(description=text, color=self.bot.color).set_author(
+				name=message.author.display_name,
+				icon_url=message.author.display_avatar.url,
+			)
+		)
+
+
+async def setup(bot):
+	await bot.add_cog(Premium(bot))

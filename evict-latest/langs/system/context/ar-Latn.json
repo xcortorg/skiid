@@ -1,0 +1,18 @@
+{
+    "language": "Franco Arabic",
+    "language_code": "ar-latn",
+    "language_local": "ar-Latn",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "Ma tmach el mawafaqa 3al talab!",
+            "FAILED_SEND_PROMPT": "Fashal fel irsal!",
+            "ONLY_USER_RESPOND": "Bas **{user}** y2dar yrud 3ala da!",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "Mowafeq",
+                    "decline": "Rafed"
+                }
+            }
+        }
+    }
+}

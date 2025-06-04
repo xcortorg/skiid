@@ -1,0 +1,3128 @@
+{
+    "Servers": [
+        {
+            "name": "embed",
+            "brief": "Create an embed using an embed code",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "selfprefix",
+            "brief": "Set a self prefix thats unique to you to use for the bot",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "selfprefix remove",
+            "brief": "Reset the self prefix you have previously set",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "settings",
+            "brief": "Settings for your server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "settings description",
+            "brief": "Apply a message as the guild description",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings banner",
+            "brief": "Apply an image as the guild banner",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings system",
+            "brief": "Settings for system related commands",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "settings system boost",
+            "brief": "Toggle the servers boost system message",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings system welcome",
+            "brief": "toggle the welcome system message",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings system sticker",
+            "brief": "auto reply to the welcome system message",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings splash",
+            "brief": "Apply an image as the guild splash",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings icon",
+            "brief": "Aplly an image as the guild icon",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings transcribe",
+            "brief": "enable or disable auto transcribing messages",
+            "example": ",settings transcribe <state>",
+            "perms": "manage guild"
+        },
+        {
+            "name": "settings context",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings context warning",
+            "brief": "change the warning color",
+            "example": ",settings contextwarning {color}",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings context warning emoji",
+            "brief": "change the warning emoji",
+            "example": ",settings contextwarning emoji {emoji}",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings context clear",
+            "brief": "reset all of your context settings",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings context fail",
+            "brief": "change the fail color",
+            "example": ",settings context fail {color}",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings context fail emoji",
+            "brief": "change the fail emoji",
+            "example": ",settings fail emoji {emoji}",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings context success",
+            "brief": "change the success color",
+            "example": ",settings context success {color}",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "settings context success emoji",
+            "brief": "change the success emoji",
+            "example": ",settings context success emoji {emoji}",
+            "perms": "manage guild, manage guild"
+        },
+        {
+            "name": "prefix",
+            "brief": "Set a prefix for the bot to respond to in the guild",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "prefix remove",
+            "brief": "Remove the custom guild prefix from the bot",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "pingonjoin",
+            "brief": "Toggle ping on join",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "pingonjoin enable",
+            "brief": "Enable ping on join",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "pingonjoin message",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "pingonjoin disable",
+            "brief": "Resets ping on join module",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "autoresponder",
+            "brief": "Configure auto responses for your server",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "autoresponder add",
+            "brief": "Add an automatic response to given phrase",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "autoresponder list",
+            "brief": "Show a list of all current auto responses",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "autoresponder remove",
+            "brief": "Remove an automatic response from a given phrase",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "autoresponder clear",
+            "brief": "Clear all the current auto responders",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "fakepermissions",
+            "brief": "Fake Permissions for roles to be used through the bot",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "fakepermissions clear",
+            "brief": "clear all fake permissions",
+            "example": "No usage example provided",
+            "perms": "guild owner"
+        },
+        {
+            "name": "fakepermissions list",
+            "brief": "show all fake permission entries",
+            "example": "No usage example provided",
+            "perms": "guild owner"
+        },
+        {
+            "name": "fakepermissions add",
+            "brief": "Add a fake permission to a role",
+            "example": "No usage example provided",
+            "perms": "guild owner"
+        },
+        {
+            "name": "fakepermissions remove",
+            "brief": "remove fake permissions from a role",
+            "example": "No usage example provided",
+            "perms": "guild owner"
+        },
+        {
+            "name": "premiumrole",
+            "brief": "Premium role settings for when users boost",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "premiumrole list",
+            "brief": "Check which role is set as a premium reward role",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "premiumrole add",
+            "brief": "set a role for all boosters to be given",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "premiumrole remove",
+            "brief": "remove the booster role",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "autorole",
+            "brief": "Configure autorole settings through the bot",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "autorole add",
+            "brief": "Add an autorole or autoroles",
+            "example": "No usage example provided",
+            "perms": "manage guild, administrator"
+        },
+        {
+            "name": "autorole remove",
+            "brief": "Remove an autorole or autoroles",
+            "example": "No usage example provided",
+            "perms": "manage guild, administrator"
+        },
+        {
+            "name": "autorole list",
+            "brief": "list all autoroles",
+            "example": "No usage example provided",
+            "perms": "manage guild, administrator"
+        },
+        {
+            "name": "reactionrole",
+            "brief": "Configure reaction role settings",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "reactionrole add",
+            "brief": "Add a reaction role to a message",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "reactionrole clear",
+            "brief": "Clear all reaction roles from a message",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "reactionrole remove",
+            "brief": "Remove a reaction role from a message",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "reactionrole list",
+            "brief": "View a list of all reaction roles set to messages",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "emoji",
+            "brief": "No description provided",
+            "example": "<sub command>",
+            "perms": "manage emojis, manage emojis"
+        },
+        {
+            "name": "emoji image",
+            "brief": "Add an emoji to the guild",
+            "example": "No usage example provided",
+            "perms": "manage emojis, manage emojis"
+        },
+        {
+            "name": "emoji add",
+            "brief": "Add multiple emojis to the server",
+            "example": "No usage example provided",
+            "perms": "manage emojis, manage emojis"
+        },
+        {
+            "name": "emoji remove",
+            "brief": "Remove an emoji from the server",
+            "example": "No usage example provided",
+            "perms": "manage emojis, manage emojis"
+        },
+        {
+            "name": "emoji steal",
+            "brief": "steal the most recently used emoji",
+            "example": "No usage example provided",
+            "perms": "manage emojis, manage emojis"
+        },
+        {
+            "name": "emoji rename",
+            "brief": "Rename an emoji",
+            "example": "No usage example provided",
+            "perms": "manage emojis, manage emojis"
+        },
+        {
+            "name": "emoji removeduplicates",
+            "brief": "Remove all emojis that has a duplicate",
+            "example": "No usage example provided",
+            "perms": "manage emojis, manage emojis"
+        },
+        {
+            "name": "autoreact",
+            "brief": "Configure the autoreactions for the guild",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact add",
+            "brief": "Automatically react to phrases said",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact add images",
+            "brief": "Automatically react to images sent",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact add spoilers",
+            "brief": "Automatically react to spoiler images",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact add emojis",
+            "brief": "Automatically react to emojis sent",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact add stickers",
+            "brief": "Automatically react to stickers sent",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact clear",
+            "brief": "remove all autoreactions from the guild",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "autoreact removeall",
+            "brief": "Remove and reset every auto reaction trigger",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact remove",
+            "brief": "Remove the autoreaction for phrases said",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact remove images",
+            "brief": "Remove autoreactions for images sent",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact remove spoilers",
+            "brief": "Remove autoreactions for spoilers sent",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact remove emojis",
+            "brief": "Remove autoreactions for emojis sent",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact remove stickers",
+            "brief": "No description provided",
+            "example": "Remove autoreactions for stickers sent",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "autoreact list",
+            "brief": "View all autoreactions currenctly set for phrases",
+            "example": "No usage example provided",
+            "perms": "manage emojis"
+        },
+        {
+            "name": "boost",
+            "brief": "Configure boost messages for the server",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "boost message",
+            "brief": "Set the message to be sent when someone boosts the guild",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "boost reset",
+            "brief": "Disable boost messages for the guild",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "boost view",
+            "brief": "View the current boost message embed code",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "boost channel",
+            "brief": "Assign a channel for boost messages to be sent",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "boost setup",
+            "brief": "Enable boost messages for the guild",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "boost test",
+            "brief": "Test the set boost message",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "disable",
+            "brief": "disable pings for a channel",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "welcome",
+            "brief": "Welcome configurations for the server",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "welcome view",
+            "brief": "View your current welcome embed code",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "welcome test",
+            "brief": "Test the welcome message",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "welcome reset",
+            "brief": "Clear welcome settings",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "welcome message",
+            "brief": "Set the welcome message",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "welcome setup",
+            "brief": "setup welcome settings",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "welcome channel",
+            "brief": "Set the welcome channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "paginator",
+            "brief": "Set up multi page embeds for your server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "paginator add",
+            "brief": "make a paginator from a list of embed code objects",
+            "example": ",paginator add <name> <embeds>",
+            "perms": "manage messages"
+        },
+        {
+            "name": "paginator remove",
+            "brief": "delete an existing paginator",
+            "example": ",paginator remove <name>",
+            "perms": "manage messages"
+        },
+        {
+            "name": "paginator list",
+            "brief": "list all paginators setup",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "paginator clear",
+            "brief": "Remove all existing paginators",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "notifications",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "notifications channel",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "notifications channel remove",
+            "brief": "Remove a channel for notifications",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "notifications channel list",
+            "brief": "List all channels notifications option has been enabled for",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "notifications channel add",
+            "brief": "Set a channel for notifications to be optionally disabled",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "notifications responder",
+            "brief": "set a responder message when an @everyone is sent into a notification channel",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "notifications command",
+            "brief": "enable or disable the ping disable command",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "notifications setup",
+            "brief": "Create a role to be used to disable @everyone mentions for a channel",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "notifications reset",
+            "brief": "clear your notification channel setup",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "alias",
+            "brief": "view alias sub commands",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "alias add",
+            "brief": "add an alias for a command",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "alias remove",
+            "brief": "remove an alias from a command",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "alias list",
+            "brief": "show all your current command aliases",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "sticker",
+            "brief": "Manage the servers stickers",
+            "example": "No usage example provided",
+            "perms": "manage emojis and stickers, manage emojis and stickers"
+        },
+        {
+            "name": "sticker tag",
+            "brief": "Add your vanity link to every sticker name",
+            "example": "No usage example provided",
+            "perms": "manage emojis and stickers, manage emojis and stickers"
+        },
+        {
+            "name": "sticker add",
+            "brief": "Add a sticker recently posted in chat to the server",
+            "example": "No usage example provided",
+            "perms": "manage emojis and stickers, manage emojis and stickers"
+        },
+        {
+            "name": "sticker remove",
+            "brief": "Delete a sticker from the server",
+            "example": "<sticker>",
+            "perms": "manage emojis and stickers, manage emojis and stickers"
+        },
+        {
+            "name": "sticker rename",
+            "brief": "Rename a sticker in the server",
+            "example": "<sticker>",
+            "perms": "manage emojis and stickers, manage emojis and stickers"
+        },
+        {
+            "name": "sticker clean",
+            "brief": "Remove any vanity links or .gg/ URLs from all sticker names",
+            "example": "No usage example provided",
+            "perms": "manage emojis and stickers, manage emojis and stickers"
+        },
+        {
+            "name": "levels",
+            "brief": "setup level roles and autoboard",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "levels role",
+            "brief": "add level roles to be awarded",
+            "example": ",levels role <level> <role>",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels role remove",
+            "brief": "remove a level role",
+            "example": ",levels role remove <level> <role>",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels enable",
+            "brief": "enable leveling",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels list",
+            "brief": "show all level rewards",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels disable",
+            "brief": "disable leveling",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels message",
+            "brief": "set a message for leveling up",
+            "example": ",levels message <message>",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels message test",
+            "brief": "test your level up message",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels message reset",
+            "brief": "reset your level message configuration",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels setup",
+            "brief": "setup leveling",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels autoboard",
+            "brief": "set a channel to have the leaderboard",
+            "example": ",levels channel <channel>",
+            "perms": "manage guild"
+        },
+        {
+            "name": "levels channel",
+            "brief": "set a channel for level award messages",
+            "example": ",levels channel <channel>",
+            "perms": "manage guild"
+        },
+        {
+            "name": "thread",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "thread lock",
+            "brief": "Locks a thread",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "thread unlock",
+            "brief": "Unlocks a thread",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "leave",
+            "brief": "Manage leave messages for when a user leaves the guild",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "leave reset",
+            "brief": "Clear leave settings",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "leave setup",
+            "brief": "Configure leave settings",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "leave test",
+            "brief": "Test the leave message",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "leave channel",
+            "brief": "Set the leave channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "leave message",
+            "brief": "Set the leave message",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "leave view",
+            "brief": "view your current leave embed code",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "boosterroles",
+            "brief": "Commands for setting up and using booster roles in your guild",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "boosterroles rename",
+            "brief": "Rename your custom booster role in this guild",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "boosterroles delete",
+            "brief": "Remove your custom booster role from the guild",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "boosterroles setup",
+            "brief": "Allow users to create their own role after boosting the guild",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "boosterroles share",
+            "brief": "Share your booster role with another user or remove it if they already have it",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "boosterroles color",
+            "brief": "Change the color or recolor your custom booster role in this guild",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "boosterroles disable",
+            "brief": "Disable booster roles in the guild",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "boosterroles create",
+            "brief": "Create a custom booster role for boosting the guild",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "boosterroles icon",
+            "brief": "Set or Change the current icon you have set for your custom booster role in this guild",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "boosterroles base",
+            "brief": "Set a base role for booster roles to be created under",
+            "example": "No usage example provided",
+            "perms": "administrator, manage roles"
+        }
+    ],
+    "Economy": [
+        {
+            "name": "setbank",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "open",
+            "brief": "Open an account to start gambling",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "deposit",
+            "brief": "Deposit bucks from your wallet to your bank",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "withdraw",
+            "brief": "Withdraw bucks from your bank to your wallet",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "roll",
+            "brief": "Gamble a roll against the house for bucks",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "coinflip",
+            "brief": "Flip a coin to earn bucks",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "daily",
+            "brief": "Collect your daily bucks",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "buy",
+            "brief": "buy item(s) to use with gamble commands",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "gamble",
+            "brief": "Gamble bucks against the house",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "transfer",
+            "brief": "Give another user some of your bucks",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "leaderboard",
+            "brief": "Show top users for either earnings or balance",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "inventory",
+            "brief": "Show items in your inventory",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "supergamble",
+            "brief": "Super gamble bucks against the house",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "use",
+            "brief": "Use an item bought from the shop",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "work",
+            "brief": "Earn some money by working random jobs.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "hack",
+            "brief": "Attempt to hack another user and steal their bank balance.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "setbalance",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "balance",
+            "brief": "Show your wallet, bank and graph of growth through gambling",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "steal",
+            "brief": "steal bucks from other users",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "steal toggle",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "graphcolor",
+            "brief": "change the balance graph color",
+            "example": ",graphcolor {color}",
+            "perms": "None"
+        },
+        {
+            "name": "blackjack",
+            "brief": "play blackjack against the house to gamble bucks",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "shop",
+            "brief": "shows all of the items",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Music": [
+        {
+            "name": "skip",
+            "brief": "Skip the current song",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "play",
+            "brief": "Play a song",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "remove",
+            "brief": "Remove a song from the queue",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "shuffle",
+            "brief": "Shuffle the queue",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "loop",
+            "brief": "Toggle looping",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "pause",
+            "brief": "Pause the current song",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "volume",
+            "brief": "Adjust the volume",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "resume",
+            "brief": "Resume a paused song",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "disconnect",
+            "brief": "Disconnect from voice channel",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets piano",
+            "brief": "Apply the piano preset",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets boost",
+            "brief": "Apply the boost preset",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets indian",
+            "brief": "Apply the indian preset",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets list",
+            "brief": "List available presets",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets metal",
+            "brief": "Apply the metal preset",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets remove",
+            "brief": "Remove a preset from the current player",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets vaporwave",
+            "brief": "Apply the vaporwave preset",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets flat",
+            "brief": "Apply the flat preset",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "presets nightcore",
+            "brief": "Apply the vaporwave preset",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "playing",
+            "brief": "Show current playing song",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Moderation": [
+        {
+            "name": "warnings",
+            "brief": "List all warnings for a member",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "picperms",
+            "brief": "manage messages",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage messages"
+        },
+        {
+            "name": "channel",
+            "brief": "List of Channel commands",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "channel rename",
+            "brief": "Rename an existing channel in the current guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "channel delete",
+            "brief": "Delete a channel in the current guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "channel create",
+            "brief": "Create a new channel in a guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "channel duplicate",
+            "brief": "Duplicate an existing channel in the current guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "slowmode",
+            "brief": "Turn slowmode for the wait time for an amount of time",
+            "example": "No usage example provided",
+            "perms": "moderate members, manage channels"
+        },
+        {
+            "name": "slowmode reset",
+            "brief": "reset the slowmode on the channel",
+            "example": "No usage example provided",
+            "perms": "manage channels, moderate members"
+        },
+        {
+            "name": "nsfw",
+            "brief": "Toggle nsfw for a channel",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "purge",
+            "brief": "Mass delete messages in a guild",
+            "example": "No usage example provided",
+            "perms": "manage messages, manage messages"
+        },
+        {
+            "name": "purge images",
+            "brief": "Mass delete Images sent in a channel",
+            "example": "No usage example provided",
+            "perms": "manage messages, manage messages"
+        },
+        {
+            "name": "purge webhooks",
+            "brief": "Mass delete webhook messages in a guild",
+            "example": "No usage example provided",
+            "perms": "manage messages, manage messages"
+        },
+        {
+            "name": "purge emojis",
+            "brief": "Mass delete Emojis sent in a guild",
+            "example": "No usage example provided",
+            "perms": "manage messages, manage messages"
+        },
+        {
+            "name": "purge reactions",
+            "brief": "Mass delete reactions in a guild",
+            "example": "No usage example provided",
+            "perms": "manage messages, manage messages"
+        },
+        {
+            "name": "purge bots",
+            "brief": "Mass delete messages sent by bots",
+            "example": "No usage example provided",
+            "perms": "manage messages, manage messages"
+        },
+        {
+            "name": "warn",
+            "brief": "Warn a member in a guild",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "warn clear",
+            "brief": "Clear all warnings for a member",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "warn remove",
+            "brief": "Remove a warning from a member",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "warn list",
+            "brief": "List all warnings for a member",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "muted",
+            "brief": "show muted members and the duration left for their mute",
+            "example": "No usage example provided",
+            "perms": "moderate members, moderate members"
+        },
+        {
+            "name": "category",
+            "brief": "List of category commands",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "category duplicate",
+            "brief": "Duplicate an existing category in the guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "category create",
+            "brief": "Create a category for a guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "category rename",
+            "brief": "Rename an existing category's name",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "category delete",
+            "brief": "Delete an existing category from the guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "botclear",
+            "brief": "clean messages from bots",
+            "example": "No usage example provided",
+            "perms": "manage messages, manage messages"
+        },
+        {
+            "name": "cleanup",
+            "brief": "Cleans up all bot messages from the channel",
+            "example": "No usage example provided",
+            "perms": "manage messages, manage messages"
+        },
+        {
+            "name": "report",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "report send",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "report add",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "report remove",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "restore",
+            "brief": "Restore all roles to a user who recently lost roles in a guild",
+            "example": "No usage example provided",
+            "perms": "manage roles, administrator"
+        },
+        {
+            "name": "unban",
+            "brief": "Unban a banned user from the guild",
+            "example": "No usage example provided",
+            "perms": "ban members, ban members"
+        },
+        {
+            "name": "strip",
+            "brief": "Remove all roles from a user in a guild",
+            "example": "No usage example provided",
+            "perms": "administrator, manage roles"
+        },
+        {
+            "name": "nuke",
+            "brief": "delete and recreate the same channel with the same permissions",
+            "example": "No usage example provided",
+            "perms": "administrator, manage channels"
+        },
+        {
+            "name": "ban",
+            "brief": "Ban a user from the guild",
+            "example": "No usage example provided",
+            "perms": "ban members, ban members"
+        },
+        {
+            "name": "command",
+            "brief": "Group for command management",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "command enable",
+            "brief": "Enable a command for a guild",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "command disable",
+            "brief": "Disable a command for the guild",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "kick",
+            "brief": "Kick a user from the guild",
+            "example": "No usage example provided",
+            "perms": "kick members, kick members"
+        },
+        {
+            "name": "mute",
+            "brief": "Mute a member in the guild for a duration",
+            "example": "No usage example provided",
+            "perms": "manage roles, moderate members"
+        },
+        {
+            "name": "setup",
+            "brief": "Setup all moderation roles",
+            "example": "No usage example provided",
+            "perms": "administrator, administrator"
+        },
+        {
+            "name": "setup reset",
+            "brief": "Reset the jail setup",
+            "example": "No usage example provided",
+            "perms": "manage guild, administrator"
+        },
+        {
+            "name": "jail",
+            "brief": "jail a member",
+            "example": "No usage example provided",
+            "perms": "moderate members, administrator"
+        },
+        {
+            "name": "banned",
+            "brief": "view the reason a user is banned",
+            "example": "No usage example provided",
+            "perms": "moderate members, ban members"
+        },
+        {
+            "name": "unjail",
+            "brief": "unjail a jailed member",
+            "example": "No usage example provided",
+            "perms": "moderate members, moderate members"
+        },
+        {
+            "name": "unjail all",
+            "brief": "unjail all jailed members",
+            "example": "No usage example provided",
+            "perms": "moderate members, moderate members"
+        },
+        {
+            "name": "jailed",
+            "brief": "show jailed members",
+            "example": "No usage example provided",
+            "perms": "moderate members, moderate members"
+        },
+        {
+            "name": "unmute",
+            "brief": "Unmute a user in the guild",
+            "example": "No usage example provided",
+            "perms": "manage roles, moderate members"
+        },
+        {
+            "name": "reactionmute",
+            "brief": "mute a member from reacting to messages",
+            "example": "No usage example provided",
+            "perms": "manage roles, administrator"
+        },
+        {
+            "name": "imagemute",
+            "brief": "mute a member from sending images",
+            "example": "No usage example provided",
+            "perms": "manage roles, administrator"
+        },
+        {
+            "name": "nickname",
+            "brief": "Change a users nickname in the guild",
+            "example": "No usage example provided",
+            "perms": "manage nicknames"
+        },
+        {
+            "name": "restrict",
+            "brief": "restrict a command for specific perms",
+            "example": "No usage example provided",
+            "perms": "administrator, administrator"
+        },
+        {
+            "name": "restrict list",
+            "brief": "show command restrictions",
+            "example": "No usage example provided",
+            "perms": "administrator, administrator"
+        },
+        {
+            "name": "restrict remove",
+            "brief": "Delete a command restriction",
+            "example": "No usage example provided",
+            "perms": "administrator, administrator"
+        },
+        {
+            "name": "restrict reset",
+            "brief": "reset all comfmand restrictions",
+            "example": "No usage example provided",
+            "perms": "administrator, administrator"
+        },
+        {
+            "name": "restrict add",
+            "brief": "add a command restriction",
+            "example": "No usage example provided",
+            "perms": "administrator, administrator"
+        },
+        {
+            "name": "forcenick",
+            "brief": "Force/Remove the force of a users nickname in a guild",
+            "example": "No usage example provided",
+            "perms": "manage guild, administrator"
+        },
+        {
+            "name": "lock",
+            "brief": "Lock the channel in a guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "lock role",
+            "brief": "set the role to be allowed / disallowed to speak",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "lock reset",
+            "brief": "Reset the lock role",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "lock permit",
+            "brief": "Permit a user to speak in a locked channel",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "lock unpermit",
+            "brief": "Remove a users permissions from speaking in locked channels",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "unlock",
+            "brief": "Unlock a locked channel in a guild",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "role",
+            "brief": "Give a role to a user",
+            "example": "No usage example provided",
+            "perms": "manage roles, administrator"
+        },
+        {
+            "name": "role icon",
+            "brief": "Change the icon of a roles emoji",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "role rename",
+            "brief": "Rename a created role",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "role create",
+            "brief": "Create a new role for the guild",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "role hoist",
+            "brief": "Display the role seperately from other roles",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "role mentionable",
+            "brief": "make a role mentionable lol",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "role delete",
+            "brief": "Delete an existing role in the guild",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "role color",
+            "brief": "Create a color for a role",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "role all",
+            "brief": "give a role to all members or bots",
+            "example": "No usage example provided",
+            "perms": "administrator, manage roles"
+        },
+        {
+            "name": "role all cancel",
+            "brief": "cancel the roleall task",
+            "example": "No usage example provided",
+            "perms": "manage roles, administrator"
+        },
+        {
+            "name": "role all humans",
+            "brief": "give a role to all humans",
+            "example": "No usage example provided",
+            "perms": "manage roles, administrator"
+        },
+        {
+            "name": "role all humans remove",
+            "brief": "remove a role from all humans",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "role all bots",
+            "brief": "give a role to all bots",
+            "example": "No usage example provided",
+            "perms": "manage roles, administrator"
+        },
+        {
+            "name": "role all bots remove",
+            "brief": "remove a role from all bots",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "role all mentionable",
+            "brief": "give a role to all users in a channel",
+            "example": "No usage example provided",
+            "perms": "manage roles, administrator"
+        },
+        {
+            "name": "role duplicate",
+            "brief": "Duplicate an existing role",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "modstats",
+            "brief": "see statistics of a moderator",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "topic",
+            "brief": "change the channel topic",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "permissions",
+            "brief": "show a member or role's permissions",
+            "example": "No usage example provided",
+            "perms": "manage roles, manage roles"
+        },
+        {
+            "name": "newusers",
+            "brief": "show new users that joined the guild",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Errors": [
+        {
+            "name": "debug",
+            "brief": "enable or disable debug mode",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Miscellaneous": [
+        {
+            "name": "track",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "randomuser",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "afk",
+            "brief": "Set an afk message before going offline",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "tts",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "variables",
+            "brief": "show all embed variables used for the bots embed creator",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "snipe",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "birthday",
+            "brief": "get a user's birthday or set your own",
+            "example": ",bday {member}",
+            "perms": "None"
+        },
+        {
+            "name": "birthday set",
+            "brief": "set your birthday",
+            "example": ",birthday set {month} {day}",
+            "perms": "None"
+        },
+        {
+            "name": "birthday reset",
+            "brief": "Clear your set birthday",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "editsnipe",
+            "brief": "Retrieve a messages original text before edited",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "reactionsnipe",
+            "brief": "Retrieve a deleted reaction from a message",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "clearsnipe",
+            "brief": "Clear all deleted messages from greed",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "selfpurge",
+            "brief": "Clear your messages from a chat",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "enlarge",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "imageonly",
+            "brief": "Toggle image only mode in a channel",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "reminder",
+            "brief": "Set a reminder for a specific time",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "reminder add",
+            "brief": "Add a reminder",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "reminder list",
+            "brief": "List all your reminders",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "reminder remove",
+            "brief": "Remove a reminder",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Giveaway": [
+        {
+            "name": "giveaway",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "giveaway end",
+            "brief": "End a specific giveaway from that giveaway message",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "giveaway blacklist",
+            "brief": "blacklist a role from entering in giveaways",
+            "example": "No usage example provided",
+            "perms": "manage guilds"
+        },
+        {
+            "name": "giveaway template",
+            "brief": "set your default embed template for giveaways",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "giveaway setmax",
+            "brief": "Set a max entrie count users with a specific role",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "giveaway dmcreator",
+            "brief": "Dm the creator when the giveaway has ended of the winner(s)",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "giveaway start",
+            "brief": "Create a giveaway for users to join and win from once the time ends",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "giveaway dmwinners",
+            "brief": "dm the winners when the giveaway has ended",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        }
+    ],
+    "Socials": [
+        {
+            "name": "roblox",
+            "brief": "Get information about a Roblox user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "google",
+            "brief": "Search the web using Google.",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Private": [
+        {
+            "name": "privateserver",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "privateserver add",
+            "brief": "whitelist a user to your private server",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "privateserver disable",
+            "brief": "disable the private server feature",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "privateserver enable",
+            "brief": "enable the private server feature",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "privateserver remove",
+            "brief": "remove a user from being whitelisted",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        }
+    ],
+    "AntiNuke": [
+        {
+            "name": "hardban",
+            "brief": "Hardban a user",
+            "example": "No usage example provided",
+            "perms": "ban members"
+        },
+        {
+            "name": "antinuke",
+            "brief": "protect your guild from nukers",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke trust",
+            "brief": "Permit a user to use antinuke commands as an antinuke admin",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke trusted",
+            "brief": "List all users who are antinuke admins",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke prune",
+            "brief": "toggle the anti member_prune of antinuke",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "antinuke webhooks",
+            "brief": "toggle the anti webhooks of antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke modules",
+            "brief": "show antinuke modules",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke punishment",
+            "brief": "Set a punishment a user will recieve for breaking an antinuke rule",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke whitelist",
+            "brief": "Whitelist or unwhitelist a user from being punished by antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke channel",
+            "brief": "toggle the anti channel update of antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke kick",
+            "brief": "toggle the anti kick of antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke settings",
+            "brief": "List your antinuke settings along with their thresholds",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke botadd",
+            "brief": "Toggle the anti bot add of antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke guild",
+            "brief": "toggle the anti guild_update of antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke enable",
+            "brief": "Enable all antinuke settings with a default threshold of 0",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke role",
+            "brief": "toggle the anti role update of antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke threshold",
+            "brief": "Set the threshold until antinuke bans the user",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke ban",
+            "brief": "toggle the anti ban of antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke whitelisted",
+            "brief": "List all users that cannot be effected by antinuke",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        },
+        {
+            "name": "antinuke disable",
+            "brief": "Disable all antinuke settings",
+            "example": "No usage example provided",
+            "perms": "administrator"
+        }
+    ],
+    "Confessions": [
+        {
+            "name": "confessions",
+            "brief": "View the commands for confessions",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "confessions setup",
+            "brief": "Set the channel confessions will be sent to",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "confessions mute",
+            "brief": "mute a member that sent a specified confession",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "confessions reset",
+            "brief": "Remove and disable the confessions module",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "confessions unmute",
+            "brief": "unmute a member that sent a specified confession",
+            "example": "No usage example provided",
+            "perms": "manage messages"
+        },
+        {
+            "name": "confessions channel",
+            "brief": "view statistics relating confessions",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Automod": [
+        {
+            "name": "filter",
+            "brief": "Filter commands to keep your chat secure",
+            "example": "No usage example provided",
+            "perms": "manage guild, administrator"
+        },
+        {
+            "name": "filter setup",
+            "brief": "Setup the automod filtering for the guild",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter massmention",
+            "brief": "Prevent users from mentioning more than a set amount of members at once",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter headers",
+            "brief": "enable or disable the header filter",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter remove",
+            "brief": "Remove a filtered word from the filter list",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter snipe",
+            "brief": "filter automod deleted messages from the snipe commands",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter settings",
+            "brief": "Show the current configuration of automod",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter migrate",
+            "brief": "migrate filtered words to automod",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter images",
+            "brief": "enable or disable the image filter",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter add",
+            "brief": "Add a filter word to the filter list",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter timeout",
+            "brief": "Set the amount of time someone will be muted when they break an automod rule",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter spoilers",
+            "brief": "Manage spoiler images being sent in the server",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter clear",
+            "brief": "Clear all words from the automod filter list",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter links",
+            "brief": "Prevent all links from being sent in the server",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter whitelist",
+            "brief": "Exempt roles, users, or channels from filtered automod settings or words",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter spam",
+            "brief": "Prevent users from laddering/spamming in the server",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter list",
+            "brief": "View a list of filtered words",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter emojis",
+            "brief": "Limit the amount of emojis that can be sent in one message",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter reset",
+            "brief": "Reset all automod settings",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter invites",
+            "brief": "Stop outside server invites from being sent in the guild",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter whitelisted",
+            "brief": "View a all users, roles and channels whitelisted through automod",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter caps",
+            "brief": "Limit how many capital letters can be sent in a single message",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        },
+        {
+            "name": "filter nicknames",
+            "brief": "Automatically reset nicknames if a filtered word is detected",
+            "example": "No usage example provided",
+            "perms": "administrator, manage guild"
+        }
+    ],
+    "Information": [
+        {
+            "name": "level",
+            "brief": "see your level in the server",
+            "example": ",level <member>",
+            "perms": "None"
+        },
+        {
+            "name": "status",
+            "brief": "check on discord's status",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "reverse",
+            "brief": "Reverse search an image",
+            "example": ",reverse {image}",
+            "perms": "None"
+        },
+        {
+            "name": "timezone",
+            "brief": "get the local time of a user if set",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "timezone set",
+            "brief": "set a timezone via location or timezone",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "bots",
+            "brief": "List all bots in the server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "channelinfo",
+            "brief": "View information on a channel",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "color",
+            "brief": "get information about a color",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "ping",
+            "brief": "Check the bot's latency",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "boomer",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "bans",
+            "brief": "Show banned users in the guild",
+            "example": "No usage example provided",
+            "perms": "moderate members"
+        },
+        {
+            "name": "avatar",
+            "brief": "avatar [user]",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "members",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "botinfo",
+            "brief": "View the bots information on its growth",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "wrath",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "created",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "bible",
+            "brief": "Get a random bible verse",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "serverinfo",
+            "brief": "view information on the server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "support",
+            "brief": "Get the support server invite",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "quran",
+            "brief": "Get a random quran verse",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "names",
+            "brief": "show a user's name history",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "whois",
+            "brief": "View information on a user's account",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "invite",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "serveravatar",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "profile",
+            "brief": "View the avatar of a user along with their banner",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "banner",
+            "brief": "View the banner of a user",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "guildicon",
+            "brief": "View the icon of a server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "guildbanner",
+            "brief": "View the banner of a server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "guildsplash",
+            "brief": "View the splash of a server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "roles",
+            "brief": "View the server roles",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "firstmessage",
+            "brief": "Get a link for the first message in a channel",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "inrole",
+            "brief": "list all users that has a role",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "roleinfo",
+            "brief": "Shows information on a role",
+            "example": "<role>",
+            "perms": "None"
+        },
+        {
+            "name": "boosters",
+            "brief": "List all the current users boosting the guild",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "boosters lost",
+            "brief": "List all users who has recently stopped boosting the server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "inviteinfo",
+            "brief": "View information on an invite",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "invites",
+            "brief": "View all invites in the server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "urbandictionary",
+            "brief": "Lookup a words meaning using the urban dictionary",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "emojis",
+            "brief": "List all emojis in the server",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "LastFM": [
+        {
+            "name": "lastfm",
+            "brief": "List of commands for lastfm",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm variables",
+            "brief": "View all of the LastFM custom embed variables",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm artist",
+            "brief": "View information on a music artist through lastfm",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm recents",
+            "brief": "View what songs were recently listened to in the server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm topalbums",
+            "brief": "View the top albums of a user",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm reaction",
+            "brief": "Set a Custom reaction like and dislike for your LastFM embed",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm steal",
+            "brief": "steal someone elses custom embed code",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm set",
+            "brief": "Link a LastFM account to your user",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm nowplaying",
+            "brief": "Show what song is currently playing through your linked LastFM account",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm mostcrowns",
+            "brief": "View users with the most crowns",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm customcommand",
+            "brief": "Set a custom command for your lastfm command",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm topartists",
+            "brief": "View the top artists of a user",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm embed",
+            "brief": "Create a custom embed for your lastfm now playing command",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm embed view",
+            "brief": "View your lastfm custom embed code",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm toptracks",
+            "brief": "View the top tracks of a user",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm refresh",
+            "brief": "Refresh your lastFM data",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm whoknows",
+            "brief": "Shows what other users listen to the current track in your server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "lastfm whoknows global",
+            "brief": "Shows what other users listen to the current track globally",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "whoknows",
+            "brief": "Shows what other users listen to the current track in your server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "globalwhoknows",
+            "brief": "Shows what other users listen to the current track globally",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "fm",
+            "brief": "View the last song you listened to on LastFM",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Uncategorized": [
+        {
+            "name": "help",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Fun": [
+        {
+            "name": "smoke",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "taps",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "howgay",
+            "brief": "No description provided",
+            "example": "<member>",
+            "perms": "None"
+        },
+        {
+            "name": "pp",
+            "brief": "No description provided",
+            "example": "pp [user]",
+            "perms": "None"
+        },
+        {
+            "name": "iq",
+            "brief": "No description provided",
+            "example": "<member>",
+            "perms": "None"
+        },
+        {
+            "name": "bitches",
+            "brief": "No description provided",
+            "example": "<member>",
+            "perms": "None"
+        },
+        {
+            "name": "vape",
+            "brief": "Hit the vape",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "vape hits",
+            "brief": "Show the total number of hits taken by the server",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "vape flavor",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "vape steal",
+            "brief": "Steal the vape from the current holder",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "caption",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "roast",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "image",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "quickpoll",
+            "brief": "Create a quick yes/no poll",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "eightball",
+            "brief": "No description provided",
+            "example": "<member>",
+            "perms": "None"
+        },
+        {
+            "name": "compress",
+            "brief": "Compress an image to reduce its size",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "rotate",
+            "brief": "Rotate an image by a specified angle",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "dominant",
+            "brief": "Get the most dominant color in a user's avatar",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "rps",
+            "brief": "Play rock, paper, scissors",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "randomhex",
+            "brief": "Generate a random hex color",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "tictactoe",
+            "brief": "Play a game of Tic Tac Toe",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "spark",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "choose",
+            "brief": "Choose between multiple options",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "wyr",
+            "brief": "Play a game of Would You Rather",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "uwuify",
+            "brief": "uwuify a message",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "blacktea",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "blacktea end",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Roleplay": [
+        {
+            "name": "hug",
+            "brief": "hug another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "divorce",
+            "brief": "divorce your spouse.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "smile",
+            "brief": "smile at another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "spouse",
+            "brief": "check who your spouse is.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "kiss",
+            "brief": "kiss another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "punch",
+            "brief": "punch another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "cuddle",
+            "brief": "cuddle with another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "wink",
+            "brief": "wink at another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "pat",
+            "brief": "pat another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "blush",
+            "brief": "blush at another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "laugh",
+            "brief": "laugh at another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "nod",
+            "brief": "nod at another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "propose",
+            "brief": "propose to another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "slap",
+            "brief": "slap another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "pout",
+            "brief": "pout at another user.",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "fuck",
+            "brief": "fuck another user (nsfw)",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "VoiceTrack": [
+        {
+            "name": "voicetrack",
+            "brief": "track time spent in voice channels",
+            "example": ",voicetrack",
+            "perms": "None"
+        },
+        {
+            "name": "voiceleaderboard",
+            "brief": "show the leaderboard for total vc time users have",
+            "example": ",vlb",
+            "perms": "None"
+        }
+    ],
+    "UsernameTracker": [
+        {
+            "name": "username",
+            "brief": "shows the help embed for username tracking",
+            "example": ",h username",
+            "perms": "None"
+        },
+        {
+            "name": "username channel",
+            "brief": "Set the channel where username changes will be sent.",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "username unset",
+            "brief": "Remove the channel where username changes are sent.",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        }
+    ],
+    "Voicemaster": [
+        {
+            "name": "voicemaster",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage guild"
+        },
+        {
+            "name": "voicemaster delete",
+            "brief": "delete your voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster setup",
+            "brief": "setup a voicemaster configuration",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage channels"
+        },
+        {
+            "name": "voicemaster reset",
+            "brief": "reset the voicemaster configuration",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage channels"
+        },
+        {
+            "name": "voicemaster reject",
+            "brief": "reject and kick a user out of your voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster rename",
+            "brief": "rename your voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster information",
+            "brief": "view information on the current voice channel",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "voicemaster lock",
+            "brief": "lock your voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster limit",
+            "brief": "limit the amount of users that can join your voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster unlock",
+            "brief": "unlock your voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster status",
+            "brief": "set the status of all of your voice master channels",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster permit",
+            "brief": "permit a user to join your voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster drag",
+            "brief": "drag a user from a voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster reveal",
+            "brief": "reveal your hidden voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster claim",
+            "brief": "claim an unclaimed voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "voicemaster hide",
+            "brief": "hide your voice channel",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        }
+    ],
+    "Starboard": [
+        {
+            "name": "starboard",
+            "brief": "Create a channel saved of messsages reacted to with said reaction",
+            "example": "(subcommand) <args>",
+            "perms": "manage guild"
+        },
+        {
+            "name": "starboard ignore",
+            "brief": "Ignore a channel from being added to the starboard",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "starboard list",
+            "brief": "List all the Starboards currently set to the starboard channel",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "starboard unignore",
+            "brief": "Unignore a channel from being added to the starboard",
+            "example": "No usage example provided",
+            "perms": "manage guild"
+        },
+        {
+            "name": "starboard add",
+            "brief": "Add a channel for the starboard to be set to, add an emoji for it to be saved when a message is reacted to with said emoji",
+            "example": "(channel) (emoji)",
+            "perms": "manage guild"
+        },
+        {
+            "name": "starboard remove",
+            "brief": "remove a starboard from the starboard channel",
+            "example": "(channel) (emoji)",
+            "perms": "manage guild"
+        }
+    ],
+    "Instances": [
+        {
+            "name": "instance",
+            "brief": "manage your instance of greed",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "instance create",
+            "brief": "create your instance of greed",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "instance whitelist",
+            "brief": "whitelist a user to use instances",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "instance status",
+            "brief": "edit the status of your instance",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "instance restart",
+            "brief": "restart your instance of greed",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "instance unwhitelist",
+            "brief": "unwhitelist a user from using instances",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Tickets": [
+        {
+            "name": "ticket",
+            "brief": "Configure the tickets setup for your server",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "ticket rename",
+            "brief": "Rename a ticket",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage channels"
+        },
+        {
+            "name": "ticket message",
+            "brief": "Set a message to be sent when a ticket is opened",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage guild"
+        },
+        {
+            "name": "ticket add",
+            "brief": "Add a user to the ticket",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "ticket settings",
+            "brief": "Check the server's configured ticket settings",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "ticket reset",
+            "brief": "Reset the ticket module. Will prevent existing ticket panels from working.",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage channels"
+        },
+        {
+            "name": "ticket topics",
+            "brief": "Assign topics to be chosen from before a user creates a ticket",
+            "example": "No usage example provided",
+            "perms": "manage guild, manage channels"
+        },
+        {
+            "name": "ticket remove",
+            "brief": "Remove a ticket that a user has created",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "ticket support",
+            "brief": "Set a role for users that has that role to answer tickets",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage guild"
+        },
+        {
+            "name": "ticket setup",
+            "brief": "Setup the ticket panel to send to a channel",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage guild"
+        },
+        {
+            "name": "ticket close",
+            "brief": "Check the server's ticket settings",
+            "example": "No usage example provided",
+            "perms": "manage channels"
+        },
+        {
+            "name": "ticket category",
+            "brief": "Set a category where created tickets will be sent to",
+            "example": "No usage example provided",
+            "perms": "manage channels, manage guild"
+        },
+        {
+            "name": "sendmessage",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "None"
+        }
+    ],
+    "Vanity": [
+        {
+            "name": "vanity",
+            "brief": "No description provided",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "vanity reset",
+            "brief": "reset the vanity reward role",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "vanity award",
+            "brief": "add a message into a channel upon someone repping",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "vanity award message",
+            "brief": "set the message",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "vanity award channel",
+            "brief": "set the award message channel",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "vanity role",
+            "brief": "set the reward role",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "vanity set",
+            "brief": "set the channel for checking vanities",
+            "example": "No usage example provided",
+            "perms": "None"
+        },
+        {
+            "name": "vanity view",
+            "brief": "view your vanity status settings",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        },
+        {
+            "name": "vanity unset",
+            "brief": "unset the channel for checking vanities",
+            "example": "No usage example provided",
+            "perms": "manage roles"
+        }
+    ]
+}

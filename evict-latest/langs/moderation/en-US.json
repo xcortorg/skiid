@@ -1,0 +1,516 @@
+{
+    "language": "English",
+    "language_code": "en",
+    "language_local": "en-US",
+    "cleanup": {
+      "DESCRIPTION": "Remove bot invocations and messages from bots."
+    },
+    "purge": {
+      "DESCRIPTION": "Remove messages which meet a criteria.",
+      "embeds": {
+        "DESCRIPTION": "Remove messages which have embeds."
+      },
+      "files": {
+        "DESCRIPTION": "Remove messages which have files."
+      },
+      "images": {
+        "DESCRIPTION": "Remove messages which have images."
+      },
+      "reactions": {
+        "DESCRIPTION": "Remove reactions from messages.",
+        "SUCCESS": "Successfully removed {count:reaction}"
+      }
+    },
+    "role": {
+      "mass": {
+        "ALREADY_HAS": "Everyone you can manage already has {role}!",
+        "NOBODY_HAS": "Nobody you can manage has {role}!",
+        "STARTING": "Starting to **{action}** {role} {word} {count:member}...",
+        "DURATION": "This will take around **{timespan}**",
+        "SUCCESS": "{action_past} {role} {word} {count:member}",
+        "FAILED": "Failed {action_short}ing {role} {word} {count:member}: {failed_members}"
+      },
+      "color": {
+        "SUCCESS": "Changed {role}'s color to `{color}`"
+      },
+      "rename": {
+        "DESCRIPTION": "Change a role's name."
+      },
+      "hoist": {
+        "SUCCESS": "{role} is {status} hoisted"
+      },
+      "mentionable": {
+        "SUCCESS": "{role} is {status} mentionable"
+      },
+      "add": {
+        "ALREADY_HAS": "{member} already has {role}!",
+        "SUCCESS": "Added {role} to {member}"
+      },
+      "remove": {
+        "DOESNT_HAVE": "{member} doesn't have {role}!",
+        "SUCCESS": "Removed {role} from {member}"
+      },
+      "restore": {
+        "NO_ROLES": "No roles to restore for {member}!",
+        "NO_PREVIOUS": "{member} doesn't have any previous roles!",
+        "SUCCESS": "Restored {roles} to {member}"
+      },
+      "create": {
+        "TOO_MANY": "This server has too many roles! (`250`)",
+        "ANTINUKE": {
+          "THRESHOLD": "You've exceeded the antinuke threshold for **role creation**!",
+          "REVOKED": "Your **administrative permissions** have been revoked"
+        },
+        "SUCCESS": "Successfully created {role}"
+      },
+      "delete": {
+        "CONFIRM": "{role} has {count:member}, are you sure you want to delete it?",
+        "ANTINUKE": {
+          "THRESHOLD": "You've exceeded the antinuke threshold for **role deletion**!",
+          "REVOKED": "Your **administrative permissions** have been revoked"
+        }
+      }
+    },
+    "errors": {
+      "MISSING_PERMISSIONS": "I don't have permission to delete messages!",
+      "NO_MESSAGES": "No messages were found, try a larger search?"
+    },
+    "lockdown": {
+      "ALREADY_LOCKED": "{channel} is already locked!",
+      "SUCCESS": "Successfully locked down {channel}",
+      "all": {
+        "DESCRIPTION": "Prevent members from sending messages in all channels.",
+        "CONFIRM": {
+          "TITLE": "Are you sure you want to lock **ALL** channels?",
+          "WARNING": "You haven't ignored any important channels yet"
+        },
+        "PROGRESS": "Locking all channels...",
+        "SUCCESS": "Successfully locked down {count:channel} in `{duration:.2f}s`"
+      },
+      "role": {
+        "DESCRIPTION": "Set the role which will be locked from sending messages.",
+        "SUCCESS": "Now locking {role} from sending messages"
+      },
+      "ignore": {
+        "DESCRIPTION": "Ignore a channel from being unintentionally locked.",
+        "ALREADY_IGNORED": "{channel} is already being ignored!",
+        "SUCCESS": "Now ignoring {channel} from lockdown",
+        "remove": {
+          "DESCRIPTION": "Remove a channel from being ignored.",
+          "NOT_IGNORED": "{channel} isn't being ignored!",
+          "SUCCESS": "No longer ignoring {channel} from lockdown"
+        },
+        "list": {
+          "DESCRIPTION": "View all channels being ignored.",
+          "NO_CHANNELS": "No channels are being ignored!",
+          "TITLE": "Ignored Channels"
+        }
+      }
+    },
+    "unlockdown": {
+      "CHANNEL_TYPE": "You can only unlock text channels!",
+      "ALREADY_UNLOCKED": "{channel} is already unlocked!",
+      "SUCCESS": "Successfully unlocked {channel}",
+      "all": {
+        "DESCRIPTION": "Allow members to send messages in all channels.",
+        "CONFIRM": {
+          "TITLE": "Are you sure you want to unlock **ALL** channels?",
+          "WARNING": "You haven't ignored any important channels yet"
+        },
+        "PROGRESS": "Unlocking all channels...",
+        "SUCCESS": "Successfully unlocked {count:channel} in `{duration:.2f}s`"
+      }
+    },
+    "slowmode": {
+      "disable": {
+        "DESCRIPTION": "Disable slowmode for a channel.",
+        "TEXT_ONLY": "You can only set the slowmode for text channels!",
+        "ALREADY_DISABLED": "{channel} already has slowmode disabled!",
+        "SUCCESS": "Disabled slowmode for {channel}"
+      }
+    },
+    "nsfw": {
+      "DESCRIPTION": "Mark a channel as NSFW or SFW.",
+      "TEXT_ONLY": "You can only mark text channels as NSFW!",
+      "SUCCESS": "Marked {channel} as **{status}**"
+    },
+    "topic": {
+      "DESCRIPTION": "Set a channel's topic.",
+      "TEXT_ONLY": "You can only set the topic for text channels!",
+      "RATELIMITED": "The channel is currently ratelimited, try again in **{retry_after}**!",
+      "FAILED": "Failed to set the topic for {channel}!",
+      "SUCCESS": "Set the topic for {channel} to `{text}`",
+      "remove": {
+        "DESCRIPTION": "Remove a channel's topic.",
+        "TEXT_ONLY": "You can only remove the topic for text channels!",
+        "NO_TOPIC": "{channel} doesn't have a topic!",
+        "RATELIMITED": "The channel is currently ratelimited, try again in **{retry_after}**!",
+        "FAILED": "Failed to remove the topic for {channel}!",
+        "SUCCESS": "Removed the topic for {channel}"
+      }
+    },
+    "drag": {
+      "DESCRIPTION": "Drag member(s) to the voice channel.",
+      "NO_VOICE": "You aren't in a voice channel!",
+      "SUCCESS": "Moved `{moved}`/`{total}` member{plural} to {channel}",
+      "all": {
+        "DESCRIPTION": "Move all members to another voice channel.",
+        "NO_VOICE": "You aren't in a voice channel!",
+        "ALREADY_HERE": "You're already connected to {channel}!",
+        "SUCCESS": "Moved `{moved}`/`{total}` member{plural} to {channel}"
+      }
+    },
+    "drag_all": {
+      "NO_VOICE": "You aren't in a voice channel!",
+      "ALREADY_HERE": "You're already connected to {channel}!",
+      "SUCCESS": "Moved `{moved}`/`{total}` member{plural} to {channel}"
+    },
+    "moveall": {
+      "DESCRIPTION": "Move all members to another voice channel.\nThis is an alias for the `drag all` command."
+    },
+    "newusers": {
+      "DESCRIPTION": "View a list of the newest members.",
+      "TITLE": "New Members",
+      "ENTRY": "{member} joined {joined_at}"
+    },
+    "audit": {
+      "DESCRIPTION": "View server audit log entries.",
+      "INVALID_ACTION": "`{action}` isn't a valid action!",
+      "NO_ENTRIES": "No **audit log** entries found{user}{action}!",
+      "NO_ENTRIES_USER": " for **{user}**",
+      "NO_ENTRIES_ACTION": " with action **{action}**",
+      "TITLE": "Audit Log"
+    },
+    "kick": {
+      "DESCRIPTION": "Kick a member from the server.",
+      "SUCCESS": "Successfully kicked {member}",
+      "CONFIRM_BOOSTER": "Are you sure you want to **kick** {member}?",
+      "BOOSTER_WARNING": "They are currently boosting the server!",
+      "ANTINUKE": {
+        "THRESHOLD": "You've exceeded the antinuke threshold for **kicks**!",
+        "REVOKED": "Your **administrative permissions** have been revoked"
+      }
+    },
+    "hardban": {
+      "DESCRIPTION": "Permanently ban a user from the server.\n\nOnly the server owner is able to unban them.\nRe-running this command will remove the hard ban.",
+      "HISTORY_LIMIT": "You can only delete messages up to **7 days**!",
+      "TRUSTED_ONLY": "You must be a **trusted administrator** to use this command!",
+      "REMOVED": "Hard ban removed for **{user}**",
+      "SUCCESS": "Successfully hard banned {user}"
+    },
+    "hardbanlist": {
+      "DESCRIPTION": "View all hard banned users.",
+      "TRUSTED_ONLY": "You must be a **trusted administrator** to use this command!",
+      "NO_USERS": "No users are hard banned!",
+      "TITLE": "Hard Banned Users"
+    },
+    "fn": {
+      "DESCRIPTION": "Force a member's nickname.",
+      "SUCCESS": "Successfully forced {member}'s nickname to `{nickname}`"
+    },
+    "softban": {
+      "DESCRIPTION": "Ban then unban a member from the server.\n\nThis is used to cleanup messages from the member.",
+      "BOOSTER_CONFIRM": "Are you sure you want to **ban** {member}?",
+      "BOOSTER_WARNING": "They are currently boosting the server!",
+      "ANTINUKE": {
+        "THRESHOLD": "You've exceeded the antinuke threshold for **bans**!",
+        "REVOKED": "Your **administrative permissions** have been revoked"
+      }
+    },
+    "unban": {
+      "DESCRIPTION": "Unban a user from the server.",
+      "TRUSTED_ONLY": "You must be a **trusted administrator** to unban hard banned users!",
+      "NOT_BANNED": "That user is not banned!",
+      "all": {
+        "DESCRIPTION": "Unban all banned users from the server.",
+        "NO_USERS": "There are no banned users!",
+        "CONFIRM": "Are you sure you want to unban {count:user}?",
+        "PROGRESS": "Unbanning users... ({current}/{total})",
+        "INITIAL": "Unbanning {count} users...",
+        "SUCCESS": "Successfully unbanned {count:user}"
+      }
+    },
+    "nickname": {
+      "remove": {
+        "DESCRIPTION": "Reset a member's nickname.",
+        "SUCCESS": "Successfully reset {member}'s nickname"
+      },
+      "force": {
+        "DESCRIPTION": "Force a member's nickname.",
+        "SUCCESS": "Successfully forced {member}'s nickname to `{nickname}`"
+      }
+    },
+    "timeout": {
+      "list": {
+        "DESCRIPTION": "View all timed out members.",
+        "NO_MEMBERS": "No members are currently timed out!",
+        "TITLE": "Timed Out Members",
+        "ENTRY": "{member} - expires {expires}"
+      }
+    },
+    "untimeout": {
+      "DESCRIPTION": "Lift a member's timeout.",
+      "NOT_TIMED_OUT": "That member isn't timed out!",
+      "all": {
+        "DESCRIPTION": "Lift all timeouts.",
+        "NO_MEMBERS": "No members are currently timed out!",
+        "INITIAL": "Removing timeout from {count} members...",
+        "PROGRESS": "Removing timeouts... ({current}/{total})",
+        "SUCCESS": "Successfully removed timeout from {count:member}"
+      }
+    },
+    "emoji": {
+      "DESCRIPTION": "Various emoji management commands.",
+      "DOWNLOAD_ERROR": "There was an issue downloading that emoji!",
+      "TOO_LARGE": "The enlarged emoji was too large to send!",
+      "information": {
+        "DESCRIPTION": "View detailed information about an emoji.",
+        "BUTTON_LABEL": "Emoji URL",
+        "TITLE": "{name}",
+        "FIELDS": {
+          "ID": "ID",
+          "ANIMATED": "Animated",
+          "CODE": "Code",
+          "CREATED_AT": "Created At"
+        }
+      },
+      "sticker": {
+        "DESCRIPTION": "Various sticker related commands.",
+        "DEFAULT_ERROR": "Stickers cannot be default stickers!",
+        "NOT_IN_SERVER": "That sticker is not in this server!",
+        "add": {
+          "DESCRIPTION": "Add a sticker to the server.",
+          "NO_STICKER": "You need to attach a sticker!",
+          "STICKER_LIMIT": "The server is at the **maximum** amount of stickers!",
+          "RATELIMITED": "The server is currently ratelimited, try again in **{retry_after}**!",
+          "FAILED": "Failed to create the sticker!"
+        },
+        "tag": {
+          "DESCRIPTION": "Update sticker tags.",
+          "RATELIMITED": "Rate limited after updating {count} stickers. Please wait {retry_after}...",
+          "PROGRESS": "Updated {current}/{total} stickers...",
+          "FAILED": "Failed to update {failed} stickers!\nSuccessfully updated: {success}/{total}",
+          "SUCCESS": "Successfully updated {count:sticker}"
+        },
+        "rename": {
+          "DESCRIPTION": "Rename an existing sticker.",
+          "NO_STICKER": "You need to attach or reply to a sticker!",
+          "NAME_TOO_SHORT": "The sticker name must be at least **2 characters** long!",
+          "SUCCESS": "Renamed the sticker to **{name}**"
+        },
+        "delete": {
+          "DESCRIPTION": "Delete an existing sticker.",
+          "NO_STICKER": "You need to attach a sticker!"
+        },
+        "archive": {
+          "DESCRIPTION": "Archive all stickers into a zip file.",
+          "PREMIUM_REQUIRED": "The server must have at least Level 2 to use this command!",
+          "STARTING": "Starting the archival process..."
+        },
+        "steal": {
+          "DESCRIPTION": "Steal a sticker from a message.",
+          "NO_MESSAGE": "I couldn't find a message with a sticker in the past 25 messages!",
+          "NO_STICKERS": "That message doesn't have any stickers!",
+          "STICKER_LIMIT": "The server is at the **maximum** amount of stickers!",
+          "DEFAULT_ERROR": "Stickers cannot be default stickers!",
+          "ALREADY_EXISTS": "That sticker is already in this server!",
+          "RATELIMITED": "The server is currently ratelimited, try again in **{retry_after}**!",
+          "FAILED": "Failed to create the sticker!"
+        }
+      },
+      "add": {
+        "DESCRIPTION": "Add an emoji to the server.",
+        "EMOJI_LIMIT": "The server is at the **maximum** amount of emojis!",
+        "RATELIMITED": "The server is currently ratelimited, try again in **{retry_after}**!",
+        "FAILED": "Failed to create the emoji!"
+      }
+    },
+    "guild_set": {
+      "DESCRIPTION": "Various server related commands.",
+      "name": {
+        "DESCRIPTION": "Change the server's name.",
+        "FAILED": "Failed to change the server's name!"
+      },
+      "system": {
+        "DESCRIPTION": "Change the server's system channel.",
+        "welcome": {
+          "DESCRIPTION": "Toggle integrated welcome messages.",
+          "SUCCESS": "{status} sending integrated **welcome messages**",
+          "sticker": {
+            "DESCRIPTION": "Toggle replying with a welcome sticker.",
+            "SUCCESS": "{status} adding a **welcome sticker**"
+          }
+        },
+        "boost": {
+          "DESCRIPTION": "Toggle integrated boost messages.",
+          "SUCCESS": "{status} sending integrated **boost messages**"
+        }
+      },
+      "notifications": {
+        "DESCRIPTION": "Change the server's default notification settings."
+      }
+    },
+    "nuke": {
+      "DESCRIPTION": "Clone the current channel.\nThis action is irreversable and will delete the channel.",
+      "TEXT_ONLY": "You can only nuke text channels!",
+      "CONFIRM": {
+        "TITLE": "Are you sure you want to **nuke** this channel?",
+        "DESCRIPTION": "This action is **irreversable** and will delete the channel!"
+      },
+      "SUCCESS": {
+        "TITLE": "Channel Nuked",
+        "DESCRIPTION": "This channel has been nuked by {author}",
+        "RECONFIGURED": "**Reconfigured Settings**"
+      }
+    },
+    "pin": {
+      "DESCRIPTION": "Pin a specific message.",
+      "WRONG_GUILD": "The message must be in this server!",
+      "ALREADY_PINNED": "That [`message`]({url}) is already pinned!"
+    },
+    "jail": {
+      "DESCRIPTION": "Jail a member.",
+      "ALREADY_JAILED": "**{user}** is already jailed!",
+      "PROCESSING": "Processing jail for {user} ({role_count} roles)...",
+      "REMOVING_ROLES": "Removing roles...",
+      "ROLE_NOT_FOUND": "Jail role not found!",
+      "NOTIFICATION": "{user}, you have been jailed! Wait for a staff member to unjail you and check direct messages if you have received one!",
+      "SUCCESS": "**{user}** got jailed - {reason}",
+      "FAILED": "There was a problem jailing **{user}**: {error}"
+    },
+    "unjail": {
+      "DESCRIPTION": "Unjail a member.",
+      "PROCESS_FAILED": "Failed to complete unjail process",
+      "LOGS_FAILED": "Failed to send logs: {error}",
+      "SUCCESS": "Unjailed **{member}** and restored {role_count} roles",
+      "FAILED": "Failed to unjail **{member}**: {error}"
+    },
+    "setme": {
+      "DESCRIPTION": "Enable the jail system in your server.",
+      "NO_PERMISSIONS": "I don't have permission to create channels!",
+      "FAILED_CREATE": "Failed to create channels: {error}",
+      "SUCCESS": "I have **enabled** the jail system!",
+      "ERROR": "An error occurred: {error}"
+    },
+    "unsetme": {
+      "DESCRIPTION": "Disable the jail system in your server.",
+      "NOT_ENABLED": "The jail system is **not** enabled in this server!",
+      "CONFIRM": "Are you sure you want to disable jail?"
+    },
+    "fakepermissions": {
+      "DESCRIPTION": "Restrict moderators to only use Evict for moderation.",
+      "grant": {
+        "DESCRIPTION": "Add one or more fake permissions to a role.\n> Can use multiple permissions at once if seperated by a comma (,).\n> https://docs.evict.bot/configuration/fakepermissions",
+        "INVALID_PERMISSIONS": "Invalid permissions. Run ``{prefix}fakepermissions permissions`` to view the list of valid permisions.",
+        "ALREADY_HAS": "{role} already has the fake permissions: {permissions}!",
+        "SUCCESS": "Added {permissions} to the {role}'s fake permissions!"
+      },
+      "revoke": {
+        "DESCRIPTION": "Remove one or more fake permissions from a role's fake permissions.\n> Can use multiple permissions at once if seperated by a comma (,).\n> https://docs.evict.bot/configuration/fakepermissions",
+        "INVALID_PERMISSIONS": "Invalid permissions. Valid permissions are:\n{permissions}",
+        "NO_PERMISSIONS": "There are no fake permissions associated with {role}!",
+        "NOT_FOUND": "{role} does not have any of the specified fake permissions!",
+        "SUCCESS": "Removed {permissions} from the {role}'s fake permissions!"
+      },
+      "list": {
+        "DESCRIPTION": "View all fake permissions for the server.",
+        "NONE_EXIST": "No fake permissions exist for this server!",
+        "TITLE": "Fake Permissions",
+        "ENTRY": "{role} (`{permission}`)"
+      },
+      "permissions": {
+        "DESCRIPTION": "Get every valid permission that can be used for fake permissions.",
+        "TITLE": "Valid Fake Permissions",
+        "ENTRY": "• `{permission}`"
+      }
+    },
+    "modhistory": {
+      "DESCRIPTION": "View moderation history for a moderator.",
+      "NO_HISTORY": "No moderation history found for {moderator}",
+      "CASE_ENTRY": "**Case #{case_id}**\nAction: {action}\nUser: `{user_id}`\nDate: {timestamp}\nReason: {reason}{duration}",
+      "DURATION": "\nDuration: {duration}",
+      "TITLE": "Mod history for {moderator}",
+      "FOOTER": "{count} total cases"
+    },
+    "history": {
+      "DESCRIPTION": "View moderation history for a user.",
+      "NO_HISTORY": "No moderation history found for {user}",
+      "CASE_ENTRY": "**Case #{case_id}**\nAction: {action}\nModerator: `{moderator_id}`\nDate: {timestamp}\nReason: {reason}{duration}",
+      "DURATION": "\nDuration: {duration}",
+      "TITLE": "History for {user}",
+      "FOOTER": "{count} total cases"
+    },
+    "warn_action": {
+      "DESCRIPTION": "Manage automated warn actions.",
+      "add": {
+        "DESCRIPTION": "Add an automated action for warn thresholds.",
+        "INVALID_ACTION": "Invalid action. Valid actions are: {actions}",
+        "SUCCESS": "Set warn threshold {threshold} to {action}{duration}"
+      },
+      "remove": {
+        "DESCRIPTION": "Remove an automated action for a warn threshold.",
+        "NOT_FOUND": "No action configured for threshold {threshold}",
+        "SUCCESS": "Removed action for threshold {threshold}"
+      },
+      "list": {
+        "DESCRIPTION": "List all configured warn actions.",
+        "NONE": "No warn actions configured",
+        "TITLE": "Warn Actions",
+        "THRESHOLD": "Threshold: {threshold}",
+        "ACTION": "Action: {action}\n{duration}"
+      }
+    },
+    "chunkban": {
+      "DESCRIPTION": "Ban a certain number of newest members from the server.",
+      "RATELIMIT": "This command can only be used **once per three minutes**!",
+      "TRUST_REQUIRED": "You must be a **trusted administrator** to use this command!",
+      "NO_MEMBERS": "No members found to ban!",
+      "CONFIRM": "Are you sure you want to ban the newest {amount} members?",
+      "SUCCESS": "Banned {banned} out of {total} members.",
+      "avatars": {
+        "DESCRIPTION": "Ban members with default avatars.",
+        "NO_MEMBERS": "No members found with default avatars!",
+        "CONFIRM": "Are you sure you want to ban members with default avatars?",
+        "SUCCESS": "Banned {count} members with default avatars."
+      }
+    },
+    "immune": {
+      "DESCRIPTION": "Make a user or role immune to moderation actions.",
+      "add": {
+        "DESCRIPTION": "Add user or role to immune list.",
+        "user": {
+          "DESCRIPTION": "Add user to immune list.",
+          "ALREADY_IMMUNE": "**{name}** is **already** immune!",
+          "SUCCESS": "Added **{name}** to immune list!"
+        },
+        "role": {
+          "DESCRIPTION": "Add role to immune list.",
+          "ALREADY_IMMUNE": "**{name}** is **already** immune!",
+          "SUCCESS": "Added {mention} to immune list!"
+        }
+      },
+      "remove": {
+        "DESCRIPTION": "Remove user or role from immune list.",
+        "user": {
+          "DESCRIPTION": "Remove user from immune list.",
+          "NOT_IMMUNE": "**{name}** is **not** immune!",
+          "SUCCESS": "Removed {mention} from immune list!"
+        },
+        "role": {
+          "DESCRIPTION": "Remove role from immune list.",
+          "NOT_IMMUNE": "**{name}** is **not** immune!",
+          "SUCCESS": "Removed {mention} from immune list!"
+        }
+      },
+      "list": {
+        "DESCRIPTION": "List all immune users and roles.",
+        "NONE": "No immune users or roles found!",
+        "TITLE": "Immune Users and Roles"
+      }
+    },
+    "picperms": {
+      "DESCRIPTION": "Toggle picture permissions for a user.",
+      "REVOKED": "Revoked picture permissions from {user} in {channel}!",
+      "GRANTED": "Granted picture permissions to {user} in {channel}!"
+    }
+  } 

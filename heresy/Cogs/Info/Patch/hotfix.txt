@@ -1,0 +1,20 @@
+## Known Issues:
+
+- All as previously mentioned
+
+## Fixed Issues:
+
+- No Issues fixed yet
+
+### Other Changes:
+
+- Further changes made to ,si
+- Changed the message upon Giving and Removing roles from (Role <role> has been given to <user.mention> | Role <role> has been removed from <user.mention>) <:right:1307448399624405134> (Gave/Removed <role> to/from <user.mention>)
+- ad: Changed the Ad the bot sends upon p4p-setup ,ad (This is still heresy Specific and will use the default Ad, do not run until this is changed)
+
+### New Commands:
+
+- AFKR (afkraw): This is an alternative to the standard AFK Command, this is mainly to test and experiment with JSON Logging, instead of DB logging, this may be deprecated at any time
+- Assault (Cog): This is currently a work in progress but will be updated throughout the day, when the next Patch comes, this should be done.
+
+-# More changes to come soon. To stop receiving pings for updates, remove heresy Updates from your roles in ⁠<id:customize>

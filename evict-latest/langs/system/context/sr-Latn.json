@@ -1,0 +1,18 @@
+{
+    "language": "Serbian",
+    "language_code": "sr-Latn",
+    "language_local": "sr-Latn",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "Zahtev za potvrdu nije prihvaćen",
+            "FAILED_SEND_PROMPT": "Neuspesno slanje poruke",
+            "ONLY_USER_RESPOND": "Samo **{user}** može da odgovori na ovo",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "Prihvati",
+                    "decline": "Odbij"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,393 @@
+{
+    "data": {
+        "profileByUsername": {
+            "displayName": "prodmako",
+            "username": "prodmakoxx",
+            "memberId": "MR4937789",
+            "location": "AL",
+            "v2Id": 4937789,
+            "avatar": {
+                "assetId": "ATT3JWs3B5G2NtHq9fI",
+                "sizes": {
+                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvNDkzNzc4OS9pbWFnZS8xNjcyMzYzNTI1LzVCMzVFQjA4LTI4NzgtNDZBRi05ODlELTk1QzQ4QzM1M0M0My5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjoxNjAsImhlaWdodCI6MTYwfSwidG9Gb3JtYXQiOiJ3ZWJwIn19?t=1672363525951",
+                    "__typename": "ImageSizeSet",
+                    "small": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvNDkzNzc4OS9pbWFnZS8xNjcyMzYzNTI1LzVCMzVFQjA4LTI4NzgtNDZBRi05ODlELTk1QzQ4QzM1M0M0My5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjoyNDAsImhlaWdodCI6MjQwfSwidG9Gb3JtYXQiOiJ3ZWJwIn19?t=1672363525951",
+                    "medium": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvNDkzNzc4OS9pbWFnZS8xNjcyMzYzNTI1LzVCMzVFQjA4LTI4NzgtNDZBRi05ODlELTk1QzQ4QzM1M0M0My5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjo0MDAsImhlaWdodCI6NDAwfSwidG9Gb3JtYXQiOiJ3ZWJwIn19?t=1672363525951",
+                    "large": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvNDkzNzc4OS9pbWFnZS8xNjcyMzYzNTI1LzVCMzVFQjA4LTI4NzgtNDZBRi05ODlELTk1QzQ4QzM1M0M0My5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjo4MDAsImhlaWdodCI6ODAwfSwidG9Gb3JtYXQiOiJ3ZWJwIn19?t=1672363525951"
+                },
+                "__typename": "Image",
+                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvNDkzNzc4OS9pbWFnZS8xNjcyMzYzNTI1LzVCMzVFQjA4LTI4NzgtNDZBRi05ODlELTk1QzQ4QzM1M0M0My5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjpudWxsLCJ3aWR0aCI6MjAwLCJoZWlnaHQiOjIwMH0sInRvRm9ybWF0Ijoid2VicCJ9fQ==?t=1672363525951"
+            },
+            "__typename": "Profile",
+            "bio": "i make beats…\n19 year old producer \nYOUTUBE: prod. mako\nTIKTOK: prod. mako\nIG: prod._mako\n",
+            "tags": null,
+            "badges": [],
+            "achievements": [
+                "PUBLISHING"
+            ],
+            "profileInventoryStatsWithUserContents": {
+                "playlists": 0,
+                "__typename": "ProfileInventoryStats"
+            },
+            "socialInteractions": {
+                "FOLLOW": false,
+                "LIKE": false,
+                "REPOST": false
+            },
+            "socialLinks": [
+                {
+                    "link": "https://www.soundcloud.com/https://soundcloud.com/1prodmako",
+                    "network": "SOUNDCLOUD",
+                    "profileName": "https://soundcloud.com/1prodmako",
+                    "__typename": "SocialLink"
+                },
+                {
+                    "link": "https://www.instagram.com/https://www.instagram.com/1prodmako/",
+                    "network": "INSTAGRAM",
+                    "profileName": "https://www.instagram.com/1prodmako/",
+                    "__typename": "SocialLink"
+                },
+                {
+                    "link": "https://www.youtube.com/https://www.youtube.com/channel/UCdm6IkplFsD9ht6v_GUejbg",
+                    "network": "YOUTUBE",
+                    "profileName": "https://www.youtube.com/channel/UCdm6IkplFsD9ht6v_GUejbg",
+                    "__typename": "SocialLink"
+                },
+                {
+                    "link": "https://www.tiktok.com/www.tiktok.com/@prodmako",
+                    "network": "TIKTOK",
+                    "profileName": "www.tiktok.com/@prodmako",
+                    "__typename": "SocialLink"
+                }
+            ],
+            "activities": {
+                "follow": 84,
+                "play": 16300,
+                "__typename": "Activities"
+            }
+        }
+    }
+}
+
+
+
+
+
+{
+    "status": true,
+    "response": {
+        "type": "success",
+        "data": {
+            "code": 200,
+            "message": "Success",
+            "profile": {
+                "user_id": 4937789,
+                "first_name": "",
+                "last_name": "",
+                "display_name": "prodmako",
+                "avatar": {
+                    "thumb": "https:\/\/main.v2.beatstars.com\/fit-in\/100x100\/filters:format(.jpeg):quality(80):fill(000000)\/\/users\/prod\/4937789\/image\/1672363525\/5B35EB08-2878-46AF-989D-95C48C353C43.png",
+                    "default": "https:\/\/main.v2.beatstars.com\/fit-in\/500x500\/filters:format(.jpeg):quality(80):fill(000000)\/\/users\/prod\/4937789\/image\/1672363525\/5B35EB08-2878-46AF-989D-95C48C353C43.png",
+                    "original": "https:\/\/main.v2.beatstars.com\/fit-in\/1000x1000\/filters:format(.jpeg):quality(80):fill(000000)\/\/users\/prod\/4937789\/image\/1672363525\/5B35EB08-2878-46AF-989D-95C48C353C43.png",
+                    "url": "https:\/\/main.v2.beatstars.com\/fit-in",
+                    "key": "\/users\/prod\/4937789\/image\/1672363525\/5B35EB08-2878-46AF-989D-95C48C353C43.png"
+                },
+                "location": "AL",
+                "permalink": "prodmakoxx",
+                "relative_uri": "\/prodmakoxx",
+                "beatstars_uri": "https:\/\/www.beatstars.com\/prodmakoxx",
+                "propage_uri": null,
+                "user_type": "Music Lover",
+                "subscription_id": 3,
+                "subscription_type": "PRO",
+                "verified": false,
+                "biography": "i make beats\u2026<br \/>\r\n19 year old producer <br \/>\r\nYOUTUBE: prod. mako<br \/>\r\nTIKTOK: prod. mako<br \/>\r\nIG: prod._mako",
+                "biography_summary": "i make beats\u2026\r\n19 year old producer \r\nYOUTUBE: prod. mako\r\nTIKTOK: prod. mako\r\nIG: prod._mako",
+                "social_interaction": {
+                    "following": false
+                }
+            },
+            "user_contents": {
+                "tracks": 237,
+                "albums": 0,
+                "soundkits": 0,
+                "services": 0,
+                "videos": 0,
+                "photos": 0,
+                "comments": 0,
+                "playlists": 0
+            },
+            "stats": {
+                "followers": 84,
+                "plays": 16300,
+                "tracks": 237,
+                "following": 36
+            },
+            "social_networks": [
+                {
+                    "uri": "https:\/\/www.youtube.com\/https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCdm6IkplFsD9ht6v_GUejbg",
+                    "text": "Youtube",
+                    "color": "text-danger",
+                    "icon": "youtube"
+                },
+                {
+                    "uri": "https:\/\/www.instagram.com\/https:&#x2F;&#x2F;www.instagram.com&#x2F;1prodmako&#x2F;",
+                    "text": "Instagram",
+                    "color": "text-instagram",
+                    "icon": "instagram"
+                },
+                {
+                    "uri": "https:\/\/www.soundcloud.com\/https:&#x2F;&#x2F;soundcloud.com&#x2F;1prodmako",
+                    "text": "SoundCloud",
+                    "color": "text-soundcloud",
+                    "icon": "soundcloud"
+                },
+                {
+                    "uri": "https:\/\/www.tiktok.com\/www.tiktok.com&#x2F;@prodmako",
+                    "text": "TikTok",
+                    "color": "text-tiktok",
+                    "icon": "tiktok"
+                }
+            ]
+        }
+    },
+    "locale": "en_US.utf8"
+}
+
+
+
+
+
+
+
+{
+    "data": {
+        "activeSections": {
+            "content": [
+                {
+                    "id": "SN:ttRqqfF2",
+                    "title": "Explore",
+                    "status": "ACTIVE",
+                    "items": [
+                        {
+                            "created": "2022-09-01T14:11:32.237Z",
+                            "headline": "BeatStars World",
+                            "icon": {
+                                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMTU0MjMyOS9pbWFnZS8xNjYyMDQxNDg1Ly1pY29uLWJ0c3dvcmxkLS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjpudWxsLCJ3aWR0aCI6NDAwLCJoZWlnaHQiOjQwMH0sInRvRm9ybWF0Ijoid2VicCJ9fQ==?t=1662041485820",
+                                "bucket": "bts-content",
+                                "name": "-icon-btsworld-",
+                                "assetId": "ATBdCvvEL0UarXOeTrI",
+                                "url": "https://content.beatstars.com/users/prod/1542329/image/1662041485/-icon-btsworld-.png",
+                                "sizes": {
+                                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMTU0MjMyOS9pbWFnZS8xNjYyMDQxNDg1Ly1pY29uLWJ0c3dvcmxkLS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjoxNjAsImhlaWdodCI6MTYwfSwidG9Gb3JtYXQiOiJ3ZWJwIn19?t=1662041485820",
+                                    "__typename": "ImageSizeSet"
+                                },
+                                "__typename": "Image"
+                            },
+                            "id": "SI:SN:ttRqqfF2:Xm5nBx0Q",
+                            "newTab": true,
+                            "position": 7506897713525,
+                            "sectionId": "SN:ttRqqfF2",
+                            "status": "ACTIVE",
+                            "subtext": "Discover what’s new in the BeatStars World. ",
+                            "targetUrl": "https://www.beatstars.world/",
+                            "updated": "2024-05-23T14:23:51.234Z",
+                            "visibility": "PUBLIC",
+                            "__typename": "SectionItem"
+                        },
+                        {
+                            "created": "2024-05-23T14:21:53.201Z",
+                            "headline": "Academy ",
+                            "icon": {
+                                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MTA0L2FjYWRlbXkuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6bnVsbCwid2lkdGgiOjQwMCwiaGVpZ2h0Ijo0MDB9LCJ0b0Zvcm1hdCI6IndlYnAifX0=?t=1716474104245",
+                                "bucket": "bts-content",
+                                "name": "academy",
+                                "assetId": "ATYGtu385NskOnDA3SI",
+                                "url": "https://content.beatstars.com/users/prod/3716790/image/1716474104/academy.jpg",
+                                "sizes": {
+                                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MTA0L2FjYWRlbXkuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImZpbGwiLCJ3aWR0aCI6MTYwLCJoZWlnaHQiOjE2MH0sInRvRm9ybWF0Ijoid2VicCJ9fQ==?t=1716474104245",
+                                    "__typename": "ImageSizeSet"
+                                },
+                                "__typename": "Image"
+                            },
+                            "id": "SI:SN:ttRqqfF2:XnE8QWJN",
+                            "newTab": true,
+                            "position": 7506897763525,
+                            "sectionId": "SN:ttRqqfF2",
+                            "status": "ACTIVE",
+                            "subtext": "Academy ",
+                            "targetUrl": "https://academy.beatstars.com/",
+                            "updated": "2024-05-23T14:24:42.868Z",
+                            "visibility": "PUBLIC",
+                            "__typename": "SectionItem"
+                        },
+                        {
+                            "created": "2022-09-01T14:09:12.508Z",
+                            "headline": "Beats4Love",
+                            "icon": {
+                                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MDQ0L2JlYXRzNGxvdmUuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6bnVsbCwid2lkdGgiOjQwMCwiaGVpZ2h0Ijo0MDB9LCJ0b0Zvcm1hdCI6IndlYnAifX0=?t=1716474044186",
+                                "bucket": "bts-content",
+                                "name": "beats4love",
+                                "assetId": "ATRN0zYQL9Q3qKfCPSI",
+                                "url": "https://content.beatstars.com/users/prod/3716790/image/1716474044/beats4love.jpg",
+                                "sizes": {
+                                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MDQ0L2JlYXRzNGxvdmUuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImZpbGwiLCJ3aWR0aCI6MTYwLCJoZWlnaHQiOjE2MH0sInRvRm9ybWF0Ijoid2VicCJ9fQ==?t=1716474044186",
+                                    "__typename": "ImageSizeSet"
+                                },
+                                "__typename": "Image"
+                            },
+                            "id": "SI:SN:ttRqqfF2:REDHPwV6",
+                            "newTab": false,
+                            "position": 7506897788525,
+                            "sectionId": "SN:ttRqqfF2",
+                            "status": "ACTIVE",
+                            "subtext": "Make a charitable difference with your music. ",
+                            "targetUrl": "https://www.beatstars.com/beatsforlove",
+                            "updated": "2024-05-23T14:24:22.035Z",
+                            "visibility": "PUBLIC",
+                            "__typename": "SectionItem"
+                        },
+                        {
+                            "created": "2024-05-23T14:21:17.294Z",
+                            "headline": "Pay The Creators",
+                            "icon": {
+                                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MDY3L3B0Yy5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjpudWxsLCJ3aWR0aCI6NDAwLCJoZWlnaHQiOjQwMH0sInRvRm9ybWF0Ijoid2VicCJ9fQ==?t=1716474067117",
+                                "bucket": "bts-content",
+                                "name": "ptc",
+                                "assetId": "ATWn0ucwHyyi8W7koXI",
+                                "url": "https://content.beatstars.com/users/prod/3716790/image/1716474067/ptc.jpg",
+                                "sizes": {
+                                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MDY3L3B0Yy5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjoxNjAsImhlaWdodCI6MTYwfSwidG9Gb3JtYXQiOiJ3ZWJwIn19?t=1716474067117",
+                                    "__typename": "ImageSizeSet"
+                                },
+                                "__typename": "Image"
+                            },
+                            "id": "SI:SN:ttRqqfF2:T6dt4TGS",
+                            "newTab": true,
+                            "position": 7506897801025,
+                            "sectionId": "SN:ttRqqfF2",
+                            "status": "ACTIVE",
+                            "subtext": "Pay The Creators",
+                            "targetUrl": "https://www.paythecreators.com/",
+                            "updated": "2024-05-23T14:24:31.008Z",
+                            "visibility": "PUBLIC",
+                            "__typename": "SectionItem"
+                        },
+                        {
+                            "created": "2022-09-01T14:10:35.650Z",
+                            "headline": "Gift Cards",
+                            "icon": {
+                                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMTU0MjMyOS9pbWFnZS8xNjYyMDQxNDI5Ly1pY29uLWdmdGNhcmQtLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOm51bGwsIndpZHRoIjo0MDAsImhlaWdodCI6NDAwfSwidG9Gb3JtYXQiOiJ3ZWJwIn19?t=1662041429213",
+                                "bucket": "bts-content",
+                                "name": "-icon-gftcard-",
+                                "assetId": "ATXAr1K5tA21RsRKroI",
+                                "url": "https://content.beatstars.com/users/prod/1542329/image/1662041429/-icon-gftcard-.png",
+                                "sizes": {
+                                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMTU0MjMyOS9pbWFnZS8xNjYyMDQxNDI5Ly1pY29uLWdmdGNhcmQtLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJmaWxsIiwid2lkdGgiOjE2MCwiaGVpZ2h0IjoxNjB9LCJ0b0Zvcm1hdCI6IndlYnAifX0=?t=1662041429213",
+                                    "__typename": "ImageSizeSet"
+                                },
+                                "__typename": "Image"
+                            },
+                            "id": "SI:SN:ttRqqfF2:zRY2EtKH",
+                            "newTab": false,
+                            "position": 7506897807275,
+                            "sectionId": "SN:ttRqqfF2",
+                            "status": "ACTIVE",
+                            "subtext": "Give the gift of a BeatStars subscription. ",
+                            "targetUrl": "https://www.beatstars.com/gift-cards",
+                            "updated": "2024-05-23T14:24:49.985Z",
+                            "visibility": "PUBLIC",
+                            "__typename": "SectionItem"
+                        },
+                        {
+                            "created": "2024-05-23T14:22:30.647Z",
+                            "headline": "Blog",
+                            "icon": {
+                                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MTM0L2Jsb2cuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6bnVsbCwid2lkdGgiOjQwMCwiaGVpZ2h0Ijo0MDB9LCJ0b0Zvcm1hdCI6IndlYnAifX0=?t=1716474134873",
+                                "bucket": "bts-content",
+                                "name": "blog",
+                                "assetId": "AT5LUYT06dlayFKZlsI",
+                                "url": "https://content.beatstars.com/users/prod/3716790/image/1716474134/blog.jpg",
+                                "sizes": {
+                                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MTM0L2Jsb2cuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImZpbGwiLCJ3aWR0aCI6MTYwLCJoZWlnaHQiOjE2MH0sInRvRm9ybWF0Ijoid2VicCJ9fQ==?t=1716474134873",
+                                    "__typename": "ImageSizeSet"
+                                },
+                                "__typename": "Image"
+                            },
+                            "id": "SI:SN:ttRqqfF2:zskDygmo",
+                            "newTab": true,
+                            "position": 7506897810400,
+                            "sectionId": "SN:ttRqqfF2",
+                            "status": "ACTIVE",
+                            "subtext": "Blog",
+                            "targetUrl": "https://blog.beatstars.com/",
+                            "updated": "2024-05-23T14:25:00.740Z",
+                            "visibility": "PUBLIC",
+                            "__typename": "SectionItem"
+                        },
+                        {
+                            "created": "2024-05-23T14:23:02.484Z",
+                            "headline": "Challenges",
+                            "icon": {
+                                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MTcyL2NoYWxsZW5nZXMuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6bnVsbCwid2lkdGgiOjQwMCwiaGVpZ2h0Ijo0MDB9LCJ0b0Zvcm1hdCI6IndlYnAifX0=?t=1716474172968",
+                                "bucket": "bts-content",
+                                "name": "challenges",
+                                "assetId": "ATXClYnX42uxCD3O1lI",
+                                "url": "https://content.beatstars.com/users/prod/3716790/image/1716474172/challenges.jpg",
+                                "sizes": {
+                                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MTcyL2NoYWxsZW5nZXMuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImZpbGwiLCJ3aWR0aCI6MTYwLCJoZWlnaHQiOjE2MH0sInRvRm9ybWF0Ijoid2VicCJ9fQ==?t=1716474172968",
+                                    "__typename": "ImageSizeSet"
+                                },
+                                "__typename": "Image"
+                            },
+                            "id": "SI:SN:ttRqqfF2:4EnbbGsL",
+                            "newTab": true,
+                            "position": 7506897811962,
+                            "sectionId": "SN:ttRqqfF2",
+                            "status": "ACTIVE",
+                            "subtext": "Challenges",
+                            "targetUrl": "https://www.beatstars.world/opportunity-categories/song-challenge",
+                            "updated": "2024-05-23T14:25:05.791Z",
+                            "visibility": "PUBLIC",
+                            "__typename": "SectionItem"
+                        },
+                        {
+                            "created": "2024-05-23T14:23:43.329Z",
+                            "headline": "Feature Requests",
+                            "icon": {
+                                "fitInUrl": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MjE4L2ZlYXR1cmUtcmVxdWVzdHMuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6bnVsbCwid2lkdGgiOjQwMCwiaGVpZ2h0Ijo0MDB9LCJ0b0Zvcm1hdCI6IndlYnAifX0=?t=1716474218550",
+                                "bucket": "bts-content",
+                                "name": "feature-requests",
+                                "assetId": "ATYBjl0wYV0fXNDStBI",
+                                "url": "https://content.beatstars.com/users/prod/3716790/image/1716474218/feature-requests.jpg",
+                                "sizes": {
+                                    "mini": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMzcxNjc5MC9pbWFnZS8xNzE2NDc0MjE4L2ZlYXR1cmUtcmVxdWVzdHMuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImZpbGwiLCJ3aWR0aCI6MTYwLCJoZWlnaHQiOjE2MH0sInRvRm9ybWF0Ijoid2VicCJ9fQ==?t=1716474218550",
+                                    "__typename": "ImageSizeSet"
+                                },
+                                "__typename": "Image"
+                            },
+                            "id": "SI:SN:ttRqqfF2:FEtIASOB",
+                            "newTab": true,
+                            "position": 7506897813525,
+                            "sectionId": "SN:ttRqqfF2",
+                            "status": "ACTIVE",
+                            "subtext": "Feature Requests",
+                            "targetUrl": "https://requests.beatstars.com/",
+                            "updated": "2024-05-23T14:23:43.330Z",
+                            "visibility": "PUBLIC",
+                            "__typename": "SectionItem"
+                        }
+                    ],
+                    "__typename": "Section"
+                }
+            ],
+            "__typename": "Page_Section"
+        }
+    }
+}
+
+
+
+
+
+{"operationName":"getMemberProfileByUsername","variables":{"username":"prodmakoxx"},"query":"query getMemberProfileByUsername($username: String!) {\n  profileByUsername(username: $username) {\n    ...memberProfileInfo\n    __typename\n  }\n}\n\nfragment memberProfileInfo on Profile {\n  ...partialProfileInfo\n  location\n  bio\n  tags\n  badges\n  achievements\n  profileInventoryStatsWithUserContents {\n    ...mpGlobalMemberProfileUserContentStatsDefinition\n    __typename\n  }\n  socialInteractions(actions: [LIKE, FOLLOW, REPOST])\n  avatar {\n    assetId\n    fitInUrl(width: 200, height: 200)\n    sizes {\n      small\n      medium\n      large\n      mini\n      __typename\n    }\n    __typename\n  }\n  socialLinks {\n    link\n    network\n    profileName\n    __typename\n  }\n  activities {\n    follow\n    play\n    __typename\n  }\n  __typename\n}\n\nfragment partialProfileInfo on Profile {\n  displayName\n  username\n  memberId\n  location\n  v2Id\n  avatar {\n    assetId\n    sizes {\n      mini\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n\nfragment mpGlobalMemberProfileUserContentStatsDefinition on ProfileInventoryStats {\n  playlists\n  __typename\n}\n"}

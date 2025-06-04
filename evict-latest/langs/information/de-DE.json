@@ -1,0 +1,30 @@
+{
+    "language_code": "de-DE",
+    "language": "de-DE",
+    "language_local": "de-DE",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "Holen sich den Link fur die Bot einnladung"
+        },
+        "discord": {
+            "DESCRIPTION": "Holen sich den Link fur die Bot Support Server einnladung"
+        },
+        "about": {
+            "DESCRIPTION": "Informationen zu Bot",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Programmiert und gewartet von/by [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+                "DESCRIPTION_LINE_TWO": "Verwendend `{cached_commands}` commands Ubergreifend `{total_cogs}` cogs (`{extended_cogs}` Gesamt modules",
+                "FOOTER": "evict/v{version} • Aktuellste Commit: {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "Schau dir Bot latency",
+            "INITAL_EMBED": {
+                "description": "anpingen..."
+            },
+            "UPDATED_EMBED": {
+                "description": "`{ping}ms` (edit: `{edit_ping}ms`)"
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "language_code": "sr-Latn",
+    "language": "sr-Latn",
+    "language_local": "sr-Latn",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "Uzmite invite link za bota."
+        },
+        "discord": {
+            "DESCRIPTION": "Uzmite invite link za bot support server."
+        },
+        "about": {
+            "DESCRIPTION": "Pogledajte informacije o botu.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Napravljen i odrzavan od strane [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+                "DESCRIPTION_LINE_TWO": "Utilizovanje `{cached_commands}` komandi u `{total_cogs}` cogova/cogs (`{extended_cogs}` ukupno modula)",
+                "FOOTER": "evict/v{version} • Poslednji commit: {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "Pogledaj bot latenciju/latency.",
+            "INITAL_EMBED": {
+                "description": "pingovanje..."
+            },
+            "UPDATED_EMBED": {
+                "description": "`{ping}ms` (edit: `{edit_ping}ms`)"
+            }
+        }
+    }
+}

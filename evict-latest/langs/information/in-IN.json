@@ -1,0 +1,79 @@
+{
+    "language_code": "in-IN",
+    "language": "in-IN",
+    "language_local": "in-IN",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "mujhe koi invite link do bot ke liye"
+        },
+        "discord": {
+            "DESCRIPTION": "बॉट के समर्थन सर्वर के लिए एक आमंत्रण लिंक प्राप्त करें।"
+        },
+        "about": {
+            "DESCRIPTION": "bot ka information deko",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Develope aur maintains [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105) ne kiya hai",
+                "DESCRIPTION_LINE_TWO": "Utilizing `{cached_commands}` mujhe ky pata commands across `{total_cogs}` mujhe nahi pata cogs (`{extended_cogs}` total modules) nahi pata bhai",
+                "FOOTER": "evict/v{version} evict ka new version • Latest Commit: {latest_commit} naya commit"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "View The bot's latency bot ka latency deko",
+            "INITAL_EMBED": {
+                "description": "pinging"
+            },
+            "UPDATED_EMBED": {
+                "description": "{ping}ms ping aur ms (edit: {edit_ping}ms edit ping ms ka"
+            }
+        },
+        "poll": {
+            "DESCRIPTION": "poll mangement ka command",
+            "create": {
+                "DESCRIPTION": "naya poll create karo",
+                "CANCELLED": "poll ko cancel karo",
+                "INVALID_DURATION": "samaya galta hai 1h 1d aur"
+            },
+            "quick": {
+                "DESCRIPTION": "naya poll create karo bass yes or no ka"
+            },
+            "list": {
+                "DESCRIPTION": "sare active polls ka list banao",
+                "NO_POLLS": {
+                    "DEFAULT": "active poll nahi mila",
+                    "FILTERED": "koi active poll nahi mila hai {creator} creator"
+                },
+                "ENTRY": {
+                    "TITLE": "{title} title",
+                    "CREATOR": "create kiya hai {creator}",
+                    "VOTES": "votes: {count}",
+                    "ID": "id: {id}",
+                    "CREATED": "banya: {time}",
+                    "ENDS": "katam: {time}"
+                },
+                "EMBED_TITLE": "active poll is {guild} par"
+            },
+            "end": {
+                "DESCRIPTION": "poll todi pele he end hua",
+                "INVALID_ID": "poll galta hai",
+                "NOT_FOUND": "poll nahi ya ho pele katma ho gaya hai",
+                "NO_PERMISSION": "tum hai poll katma nahi kar sakte ho",
+                "SUCCESS": "poll katma ho gaya"
+            },
+            "results": {
+                "DESCRIPTION": "poll ka result deklo",
+                "INVALID_ID": "poll ki I'd galta hai",
+                "NOT_FOUND": "poll nahi mila"
+            },
+            "UI": {
+                "VOTE": {
+                    "ENDED": "poll katam ho gaya",
+                    "ROLE_REQUIRED": "poll ko {role} role ko vote",
+                    "SUCCESS": "tum ra vote ko record kar liya hai",
+                    "ERROR": "apka vote record nahi kar paye baad mai fir se kare",
+                    "BUTTON": "vote",
+                    "SELECT_PROMPT": "apna choice deko"
+                }
+            }
+        }
+    }
+}

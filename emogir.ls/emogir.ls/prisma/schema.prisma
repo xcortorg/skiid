@@ -1,0 +1,516 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://emogirls:PXlKxVjj4Fvp-ArYXQa-sUIC3hIfr8rExGNJjKRRjeI7P7_kksRPasmy6ZV_6AYesvo2sbrv9bFpzN1jHH4GQw==@us-tx-db01.emogir.ls:5432/emogirls"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String?   @map("display_name")  // this will be our displayName
+  username      String    @unique @map("slug")  // this will be our slug
+  bio           String?
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  onboarding    Boolean   @default(false)
+  iconSettings  IconSettings?
+  links         Link[]
+  appearance    Appearance?
+  isPrivate     Boolean   @default(false)
+  pinEnabled    Boolean   @default(false)
+  pinHash       String? 
+  pageTitle     String?
+  seoDescription String?
+
+  isPremium     Boolean   @default(false)
+  premiumUntil  DateTime?
+  premiumType   String?   @default("none") 
+  features      PremiumFeatures?
+
+  customHostname   String?
+  customHostnameId String?
+
+  imageHostDomains ImageHostDomain[]
+
+  twoFactorEnabled      Boolean   @default(false)
+  twoFactorSecret      String?   
+  backupCodes         String?   
+  lastTwoFactorAt     DateTime? 
+  newLoginVerification Boolean   @default(false)
+
+  accounts      Account[]
+  sessions     Session[]
+
+  isDisabled    Boolean   @default(false)
+  accountStatus AccountStatus @default(ACTIVE)
+  disabledAt    DateTime?
+  disabledReason String?
+  disabledBy    String?    
+  
+  banExpires    DateTime?  
+  banReason     String?
+  warningCount  Int       @default(0)
+  lastWarningAt DateTime?
+  
+  moderationNotes String?  
+  appealStatus    AppealStatus? 
+  lastAppealAt    DateTime?
+
+  inviteUsed    InviteCode?  @relation(fields: [inviteCodeId], references: [id])
+  inviteCodeId  String?      @unique
+  createdInvites InviteCode[] @relation("CreatedInvites")
+
+  badges        Badge[]   @default([])
+
+  uploads       Upload[]
+
+  resetToken        String?
+  resetTokenExpires DateTime?
+
+  selectedDomains String[] @default([])
+
+  apiKeysEnabled    Boolean     @default(false)
+  maxApiKeys        Int         @default(0)
+  apiTokens         ApiToken[] 
+
+  adminActions    AdminLog[] @relation("AdminActions")
+  moderationLogs  AdminLog[] @relation("UserModerated")
+
+  dashboardLayout Json?
+
+  @@map("users")
+}
+
+model IconSettings {
+  id                 String  @id @default(cuid())
+  backgroundColor    String?
+  size              String?
+  borderRadius      String?
+  borderColor       String?
+  glowColor         String?
+  glowIntensity     String?
+  userId            String  @unique
+  user              User    @relation(fields: [userId], references: [id])
+
+  @@map("icon_settings")
+}
+
+model Link {
+  id        String   @id @default(cuid())
+  title     String
+  url       String
+  iconUrl   String?
+  clicks    Int      @default(0)
+  enabled   Boolean  @default(true)
+  position  Int      @default(0)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  backgroundColor    String?
+  hoverColor        String?
+  borderColor       String?
+  gap              String?
+  primaryTextColor  String?
+  secondaryTextColor String?
+  hoverTextColor    String?
+  textSize         String?
+  iconSize         String?
+  iconColor        String?
+  iconBgColor      String?
+  iconBorderRadius String?
+  iconBgEnabled    Boolean @default(true)
+
+  @@index([userId])
+}
+
+model Appearance {
+  id                String   @id @default(cuid())
+  userId            String   @unique
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  displayName       String?
+  bio              String?
+  avatar           String?
+  banner           String?
+  backgroundUrl    String?
+  avatarDecoration String?
+  audioTracks             AudioTrack[]
+  audioPlayerEnabled      Boolean  @default(true)
+
+  layoutStyle       String?  // "one" | "two" | "three"
+  
+  containerBackgroundColor    String?
+  containerBackdropBlur      String?
+  containerBorderColor       String?
+  containerBorderWidth       String?
+  containerBorderRadius      String?
+  containerGlowColor        String?
+  containerGlowIntensity    String?
+  glassEffect              Boolean? @default(false)
+
+  avatarSize               String?
+  avatarBorderWidth        String?    @default("0px")
+  avatarBorderColor        String?
+  avatarBorderRadius       String?
+  avatarGlowColor         String?
+  avatarGlowIntensity     String?
+  avatarShowBorder        Boolean? @default(true)
+  avatarAlignment         String?   @default("left")
+
+  titleColor              String?
+  titleSize               String?
+  titleWeight             String?
+  usernameColor           String?
+  usernameSize            String?
+  bioColor                String?
+  bioSize                 String?
+
+  linksBackgroundColor    String?
+  linksHoverColor         String?
+  linksBorderColor        String?
+  linksGap                String?
+  linksPrimaryTextColor   String?
+  linksSecondaryTextColor String?
+  linksHoverTextColor     String?
+  linksTextSize           String?
+  linksIconSize           String?
+  linksIconColor         String?
+  linksIconBgColor       String?
+  linksIconBorderRadius   String?
+  linksIconBgEnabled     Boolean @default(true)
+  linksCompactMode       Boolean @default(false)
+
+  discordPresenceBgColor      String?
+  discordPresenceBorderColor  String?
+  discordPresenceAvatarSize   String?
+  discordPresenceTextColor    String?
+  discordPresenceSecondaryColor String?
+
+  discordGuildBgColor        String?
+  discordGuildBorderColor    String?
+  discordGuildAvatarSize     String?
+  discordGuildTitleColor     String?
+  discordGuildButtonBgColor  String?
+  discordGuildButtonHoverColor String?
+
+  clickEffectEnabled        Boolean? @default(false)
+  clickEffectText          String?
+  clickEffectColor         String?
+
+  gradientEnabled          Boolean? @default(false)
+  gradientColor          String? 
+  gradientType            String? 
+  gradientDirection       String?  
+
+  statsEnabled            Boolean? @default(true)
+  statsColor             String?
+  statsBgColor          String?
+
+  font             String?
+  fontSize         String?
+  fontWeight       String?
+
+  // Terminal Layout 
+
+  terminalFontFamily        String?
+  terminalCursorStyle      String?  
+  terminalCursorColor      String?
+  terminalCursorBlinkSpeed String? 
+  terminalTypingSpeed      Int?    
+  terminalPromptSymbol     String?  
+  terminalHeaderControls   Boolean? @default(true)
+  terminalStatusBarEnabled Boolean? @default(true)
+  terminalLineNumbersEnabled Boolean? @default(true)
+
+  // Femboy Layout :3
+
+  themeAccentColor        String?
+  themePrimaryColor       String?
+  themeSecondaryColor     String?
+  themeBackgroundColor    String?
+
+  // Layout No. 3 - Discord 
+
+  discordActivityTextColor    String?
+  discordActivityBgColor      String?
+  discordActivityBorderStyle  String?
+  discordStatusIndicatorSize  String?
+  discordActivityLayout       String? 
+  discordAnimationsEnabled    Boolean? @default(true)
+  discordStatusIndicatorEnabled Boolean @default(true)
+  discordActivityDisplayType  DiscordActivityDisplay @default(BOTH)
+  discordActivityCompactMode  Boolean @default(false)
+
+  tiltDisabled        Boolean  @default(false)
+  discordServerInvite String?
+
+  bioTextEffectEnabled   Boolean  @default(false)
+  bioTextEffect         String?  
+  bioTextEffectSpeed    Int?     @default(50)
+
+  linksDisableBackground Boolean @default(false)
+  linksDisableHover     Boolean @default(false)
+  linksDisableBorder    Boolean @default(false)
+
+  lastfmEnabled        Boolean @default(false)
+  lastfmCompactMode    Boolean @default(false)
+  lastfmShowScrobbles  Boolean @default(true)
+  lastfmShowTabs       Boolean @default(true)
+  lastfmMaxTracks      Int     @default(4)
+  lastfmThemeColor     String? 
+  lastfmBgColor        String?
+  lastfmTextColor      String?
+  lastfmSecondaryColor String?
+
+  embedColor               String?
+
+  @@map("appearance")
+}
+
+model PremiumFeatures {
+  id                String   @id @default(cuid())
+  userId            String   @unique
+  user              User     @relation(fields: [userId], references: [id])
+  
+  customDomain      Boolean  @default(false)
+  imageHosting      Boolean  @default(false)
+  maxLinks          Int      @default(10)    
+  maxStorage        Int      @default(100)  
+  customThemes      Boolean  @default(false)
+  removeWatermark   Boolean  @default(false)
+  prioritySupport   Boolean  @default(false)
+
+  @@map("premium_features")
+}
+
+model ImageHostDomain {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  subdomain     String
+  domain        String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  oembed        Json?   
+  authorization String   @unique @default(cuid())
+
+  @@unique([subdomain, domain])
+  @@map("image_host_domains")
+}
+
+model AudioTrack {
+  id            String     @id @default(cuid())
+  url           String
+  title         String?
+  icon          String?
+  order         Int
+  appearanceId  String
+  appearance    Appearance @relation(fields: [appearanceId], references: [id], onDelete: Cascade)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@index([appearanceId])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  deviceInfo   String   
+  ipAddress    String?
+  location     String?  
+  lastActive   DateTime @default(now())
+  createdAt    DateTime @default(now())
+  isActive     Boolean  @default(true)
+  verified     Boolean  @default(false)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, deviceInfo, ipAddress])
+}
+
+model InviteCode {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime?
+  usedAt    DateTime?
+  usedBy    User?
+  userId    String?  @unique
+  createdBy User     @relation("CreatedInvites", fields: [creatorId], references: [id])
+  creatorId String
+
+  @@map("invite_codes")
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  slug      String
+  ip        String
+  createdAt DateTime @default(now())
+
+  @@unique([slug, ip])  
+  @@index([slug])
+  @@index([ip])
+  @@map("page_views")
+}
+
+model Upload {
+  id            String    @id
+  userId        String
+  filename      String
+  original_name String
+  size          Int
+  mime_type     String
+  width         Int
+  height        Int
+  description   String?
+  createdAt     DateTime  @default(now())
+  user          User      @relation(fields: [userId], references: [id])
+
+  @@map("uploads")
+  @@index([userId])
+}
+
+model ApiToken {
+  id          String      @id @default(cuid())
+  userId      String
+  name        String      
+  token       String      @unique
+  lastUsed    DateTime?
+  createdAt   DateTime    @default(now())
+  expiresAt   DateTime?
+  rateLimit   Int         @default(100)
+  isActive    Boolean     @default(true)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stats       ApiTokenStat[]
+
+  @@index([userId])
+  @@index([token])
+}
+
+model ApiTokenStat {
+  id          String    @id @default(cuid())
+  tokenId     String
+  endpoint    String
+  method      String
+  statusCode  Int
+  duration    Int       
+  timestamp   DateTime  @default(now())
+  
+  userAgent   String?  
+  ipAddress   String?  
+  country     String?   
+  region      String?
+  
+  responseSize Int?     
+  cacheHit    Boolean?  
+  
+  errorMessage String? 
+  errorCode    String?  
+  
+  cpuTime     Float?    
+  memoryUsage Int?     
+  
+  queryParams Json?  
+  
+  metadata    Json?    
+  
+  token       ApiToken  @relation(fields: [tokenId], references: [id], onDelete: Cascade)
+
+  @@index([tokenId])
+  @@index([timestamp])
+  @@index([endpoint])
+  @@index([statusCode])
+  @@index([country])
+}
+
+enum Badge {
+  OWNER
+  CO_OWNER
+  OG
+  PREMIUM
+  STAFF
+  VERIFIED
+}
+
+model Report {
+  id        String   @id @default(cuid())
+  type      String   
+  targetId  String   
+  reason    String
+  details   String
+  email     String?
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum AccountStatus {
+  ACTIVE
+  DISABLED     
+  BANNED      
+  RESTRICTED   
+  PENDING_REVIEW
+}
+
+enum AppealStatus {
+  NONE
+  PENDING
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+model AdminLog {
+  id          String   @id @default(cuid())
+  action      String
+  adminId     String
+  targetUserId String
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  admin       User     @relation("AdminActions", fields: [adminId], references: [id])
+  targetUser  User     @relation("UserModerated", fields: [targetUserId], references: [id])
+}
+
+model AppearancePreview {
+  id          String   @id @default(cuid())
+  userId      String
+  previewData Json
+  createdAt   DateTime @default(now())
+  expiresAt   DateTime
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+enum DiscordActivityDisplay {
+  DISCORD_INFO_ONLY
+  PRESENCE_INFO_ONLY
+  BOTH
+}

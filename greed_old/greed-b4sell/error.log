@@ -1,0 +1,118 @@
+2024-11-09 12:42:09,030 - ERROR - Unexpected error in command whitelist: server_id is a required argument that is missing.
+2024-11-09 12:43:01,632 - ERROR - Unexpected error in command sblacklist: server_id is a required argument that is missing.
+2024-11-09 12:44:53,569 - ERROR - Unexpected error in command sblacklist: server_id is a required argument that is missing.
+2024-11-09 12:53:37,417 - ERROR - unhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-1' coro=<Client.run.<locals>.runner() done, defined at /root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py:904> exception=AttributeError("'AutoShardedBot' object has no attribute '_closing_task'")>
+Traceback (most recent call last):
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/base_events.py", line 1871, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/root/.mamba/envs/10/lib/python3.10/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py", line 906, in runner
+    await self.start(token, reconnect=reconnect)
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py", line 835, in start
+    await self.connect(reconnect=reconnect)
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/shard.py", line 461, in connect
+    item = await self.__queue.get()
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py", line 905, in runner
+    async with self:
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py", line 329, in __aexit__
+    await self.close()
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/ext/commands/bot.py", line 249, in close
+    await super().close()  # type: ignore
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/shard.py", line 490, in close
+    if self._closing_task:
+AttributeError: 'AutoShardedBot' object has no attribute '_closing_task'
+2024-11-09 12:56:01,935 - ERROR - Error in donators command: no such column: username
+2024-11-09 13:01:01,733 - ERROR - Unexpected error in command dtest: Command raised an exception: AttributeError: 'Donators' object has no attribute 'is_donator'
+2024-11-09 13:01:24,378 - ERROR - Unexpected error in command jishaku override: Command raised an exception: AttributeError: 'Donators' object has no attribute 'is_donator'
+2024-11-09 13:01:43,222 - ERROR - Unexpected error in command None: Command "help" is not found
+2024-11-09 13:35:53,622 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'int' object has no attribute 'author'
+2024-11-09 13:37:32,463 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'int' object has no attribute 'author'
+2024-11-09 13:38:16,023 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'int' object has no attribute 'author'
+2024-11-09 13:41:28,649 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'int' object has no attribute 'author'
+2024-11-09 13:45:16,911 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'int' object has no attribute 'author'
+2024-11-09 13:53:22,042 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'int' object has no attribute 'author'
+2024-11-09 14:20:03,484 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'int' object has no attribute 'author'
+2024-11-09 14:24:03,630 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'AutoShardedBot' object has no attribute 'fetch_message'
+2024-11-09 14:24:17,696 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'AutoShardedBot' object has no attribute 'fetch_message'
+2024-11-09 14:26:13,818 - ERROR - Unexpected error in command transcribe: Command raised an exception: TypeError: Donators.download_file() takes 1 positional argument but 2 were given
+2024-11-09 14:33:21,571 - ERROR - Unexpected error in command transcribe: Command raised an exception: TypeError: Donators.get_filetype() takes 1 positional argument but 2 were given
+2024-11-09 14:35:24,200 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'Donators' object has no attribute 'save_file'
+2024-11-09 14:43:50,513 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'Donators' object has no attribute 'save_file'
+2024-11-09 14:46:27,427 - ERROR - Unexpected error in command donoradd: Converting to "int" failed for parameter "user_id".
+2024-11-09 14:47:07,393 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'Donators' object has no attribute 'save_file'
+2024-11-09 14:51:50,364 - ERROR - Error saving transcription file: write() argument must be str, not bytes
+2024-11-09 14:51:50,365 - ERROR - Unexpected error in command transcribe: Command raised an exception: AttributeError: 'NoneType' object has no attribute 'status'
+2024-11-09 16:32:10,750 - ERROR - Attempting a reconnect for shard ID 0 in 0.86s
+Traceback (most recent call last):
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/shard.py", line 165, in worker
+    await self.ws.poll_event()
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/gateway.py", line 662, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID 0 WebSocket closed with 1000
+2024-11-09 16:35:52,559 - ERROR - Unexpected error in command None: Command "help" is not found
+2024-11-09 17:33:39,325 - ERROR - Unexpected error in command None: Command "help" is not found
+2024-11-09 17:33:58,775 - ERROR - Unexpected error in command None: Command "selfprefix" is not found
+2024-11-09 17:34:07,438 - ERROR - Unexpected error in command None: Command "selfprefix" is not found
+2024-11-09 17:34:15,122 - ERROR - Unexpected error in command None: Command "selfprefix" is not found
+2024-11-09 19:18:31,844 - ERROR - Unexpected error in command None: Command "ui" is not found
+2024-11-09 19:18:47,547 - ERROR - Unexpected error in command None: Command "lf" is not found
+2024-11-09 19:33:29,623 - ERROR - unhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-1' coro=<Client.run.<locals>.runner() done, defined at /root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py:904> exception=AttributeError("'AutoShardedBot' object has no attribute '_closing_task'")>
+Traceback (most recent call last):
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/base_events.py", line 1871, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/root/.mamba/envs/10/lib/python3.10/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py", line 906, in runner
+    await self.start(token, reconnect=reconnect)
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py", line 835, in start
+    await self.connect(reconnect=reconnect)
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/shard.py", line 461, in connect
+    item = await self.__queue.get()
+  File "/root/.mamba/envs/10/lib/python3.10/asyncio/queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py", line 905, in runner
+    async with self:
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/client.py", line 329, in __aexit__
+    await self.close()
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/ext/commands/bot.py", line 249, in close
+    await super().close()  # type: ignore
+  File "/root/.mamba/envs/10/lib/python3.10/site-packages/discord/shard.py", line 490, in close
+    if self._closing_task:
+AttributeError: 'AutoShardedBot' object has no attribute '_closing_task'

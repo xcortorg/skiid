@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Browser</title>
+    <style>
+        /* CSS from previous response goes here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>File Browser</h1>
+            <div class="path-nav">
+                <a href="/">Home</a> / <span>{{ current_dir }}</span>
+            </div>
+            <a href="/random/files" class="random-btn">Random File</a>
+        </div>
+
+        <div class="file-grid">
+            {% for file in files %}
+            <div class="file-card">
+                <div class="thumbnail">
+                    {% if file.is_dir %}
+                    <img src="/static/folder.png" alt="Folder">
+                    {% else %}
+                    <img src="/static/file.png" alt="File">
+                    {% endif %}
+                </div>
+                <div class="file-info">
+                    <div class="file-name">{{ file.name }}</div>
+                    <div class="file-meta">
+                        {% if file.is_dir %}
+                        Directory
+                        {% else %}
+                        File • {{ file.size }} bytes
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

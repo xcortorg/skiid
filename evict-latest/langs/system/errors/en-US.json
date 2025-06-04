@@ -1,0 +1,51 @@
+{
+    "language": "English",
+    "language_code": "en",
+    "language_local": "en-US",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": "Command `{command}` raised an exception. Please try again later.",
+                "SCRIPT_ERROR": "Something is wrong with your **script**!",
+                "FLAG": {
+                    "DUPLICATE": "You specified the **{flag_name}** flag more than once!",
+                    "CAST_ERROR": "Failed to cast **{flag_name}** to `{annotation}`!",
+                    "STATUS_HINT": "Make sure you provide **on** or **off** for `Status` flags!",
+                    "MISSING_VALUE": "You must specify a value for the **{flag_name}** flag!",
+                    "MISSING_REQUIRED": "You must specify the **{flag_name}** flag!"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "This command can only be used **{number} {time}** per **{per}** concurrently!",
+                "COOLDOWN": {
+                    "MESSAGE": "This command is currently on cooldown!",
+                    "RETRY": "Try again in **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "No **{param}** was found matching **{argument}**!",
+                "USER_ID_HINT": "If the user is not in this server, try using their **ID** instead",
+                "SERVER": "No server was found matching **{argument}**!",
+                "CASTING": "Casting **{param}** to {converters} failed!",
+                "NOT_FOUND": {
+                    "MEMBER": "No **member** was found matching **{argument}**!",
+                    "USER": "No **user** was found matching `{argument}`!",
+                    "ROLE": "No **role** was found matching **{argument}**!",
+                    "CHANNEL": "No **channel** was found matching **{argument}**!",
+                    "INVITE": "Invalid **invite code** provided!",
+                    "MESSAGE": "The provided **message** was not found!\nTry using the **message URL** instead"
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "The input must be {label}!",
+                "RANGE_CHARS": "The input must be {label} characters!"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "You're missing the {permissions} permission{plural}!",
+                "BOT_MISSING": "I'm missing the following permissions: {permissions}",
+                "BOT_MISSING_GENERIC": "I'm missing required permissions. Please check my role's permissions and position.",
+                "NSFW_REQUIRED": "This command can only be used in NSFW channels!"
+            }
+        }
+    }
+} 

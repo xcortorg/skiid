@@ -1,0 +1,14 @@
+shazamio
+humanfriendly
+humanize
+arrow
+geopy
+colorgram.py
+arrow
+timezonefinder
+uwuipy
+psutil
+discord
+jishaku
+asyncpg
+orjson

@@ -1,0 +1,940 @@
+from tool.greed import Greed  # type: ignore
+from humanize import naturaldelta
+from datetime import timedelta
+from typing import Optional, Union, Literal, List, Dict, Any
+from tool import expressions as regex
+import discord
+import pomice
+import asyncio
+import async_timeout
+import random
+import orjson
+import traceback
+from discord.ext import tasks, commands
+from discord.ext.commands import Context
+from tuuid import tuuid
+from loguru import logger
+from contextlib import suppress
+import time
+
+
+play_emoji = "<:greed_play:1207661064096063599>"
+skip_emoji = "<:greed_skip:1207661069938589716>"
+pause_emoji = "<:greed_pause:1207661063093620787>"
+replay_emoji = "<:greed_replay:1207661068856598528>"
+queue_emoji = "<:greed_queue:1207661066620764192>"
+
+def fmtseconds(seconds: Union[int, float], unit: str = "microseconds") -> str:
+    return naturaldelta(timedelta(seconds=seconds), minimum_unit=unit)
+
+async def get_player(
+    interaction: discord.Interaction,
+    *,
+    connect: bool = True,
+    check_connected: bool = True,
+):
+    if not hasattr(interaction.client, "node"):
+        raise commands.CommandError("The **Lavalink** node hasn't been **initialized** yet")
+
+    user_voice = interaction.user.voice
+    bot_voice = interaction.guild.me.voice
+
+    if not user_voice:
+        if check_connected:
+            raise commands.CommandError("You're not **connected** to a voice channel")
+        return None
+
+    if bot_voice and bot_voice.channel != user_voice.channel:
+        raise commands.CommandError("I'm **already** connected to another voice channel")
+
+    player = interaction.client.node.get_player(interaction.guild.id)
+    if not player or not bot_voice:
+        if not connect:
+            if interaction.voice_client:
+                await interaction.voice_client.disconnect()
+                return None
+            raise commands.CommandError("I'm not **connected** to a voice channel")
+        await user_voice.channel.connect(cls=Player, self_deaf=True)
+        player = interaction.client.node.get_player(interaction.guild.id)
+        player.bound_channel = interaction.channel
+        await interaction.voice_client.set_volume(65)
+
+    return player
+
+async def enqueue(bot: Greed, interaction: discord.Interaction, query: str):
+    try:
+        player = await get_player(interaction)
+    except Exception:
+        traceback.print_exc()
+        raise
+
+    if not player or player.channel.id != interaction.voice_client.channel.id:
+        return await interaction.fail("you are not in the voice channel with the bot")
+
+    try:
+        result = await interaction.voice_client.node.get_tracks(query=query, search_type=pomice.SearchType.scsearch)
+    except pomice.TrackLoadError:
+        match = regex.SOUNDCLOUD_TRACK_URL.match(query) or regex.SOUNDCLOUD_PLAYLIST_URL.match(query)
+        if match:
+            try:
+                result = await player.node.get_tracks(query=f"ytsearch:{match.group('slug')}", search_type=pomice.SearchType.scsearch)
+            except Exception:
+                return await interaction.fail("could not find that track")
+        else:
+            result = None
+    except (TypeError, KeyError):
+        return await interaction.fail("Music Node Is currently ratelimited...")
+
+    if not result:
+        return await interaction.fail("No **results** were found")
+
+    if isinstance(result, pomice.Playlist):
+        for track in result.tracks:
+            await player.insert(track, filter=False)
+        return await interaction.success(
+            f"Added **{Plural(result.track_count):track}** from [**{result.name}**]({result.uri}) to the queue",
+            emoji=queue_emoji,
+        )
+
+    track = result[0]
+    await player.insert(track)
+    if player.is_playing:
+        return await interaction.success(
+            f"Added [**{track.title}**]({track.uri}) to the queue",
+            emoji=queue_emoji,
+        )
+    await player.next_track()
+    if player.is_playing:
+        return await interaction.success(
+            f"**Now playing** [**{track.title}**]({track.uri})",
+            emoji=queue_emoji,
+        )
+    
+    return await interaction.fail("no voice client found")
+
+async def play(bot: Greed, interaction: discord.Interaction):
+    player = bot.node.get_player(interaction.guild.id)
+    if player:
+        await player.set_pause(False)
+        requester = player.current.requester if player.current else None
+        if requester == interaction.user:
+            embed = discord.Embed(description="**Resumed** this track", color=0x2D2B31)
+            return await interaction.response.send_message(embed=embed, ephemeral=True)
+    embed = discord.Embed(description="**Resumed** this track", color=0x2D2B31)
+    await interaction.response.send_message(embed=embed, ephemeral=True)
+
+async def pause(bot: Greed, interaction: discord.Interaction):
+    player = bot.node.get_player(interaction.guild.id)
+    if player:
+        if player.current and player.current.requester != interaction.user:
+            return
+        await player.set_pause(True)
+        embed = discord.Embed(description="**Paused** this track", color=0x2D2B31)
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+
+async def skip(bot: Greed, interaction: discord.Interaction):
+    player = bot.node.get_player(interaction.guild.id)
+    if player:
+        if player.current and player.current.requester != interaction.user:
+            return
+        await player.skip()
+        embed = discord.Embed(description="**Skipped** this track", color=0x2D2B31)
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+
+async def replay(bot: Greed, interaction: discord.Interaction):
+    player = bot.node.get_player(interaction.guild.id)
+    if player:
+        if player.loop:
+            await player.set_loop(False)
+            description = "**No longer looping** the queue"
+        else:
+            await player.set_loop(True)
+            description = "Now **looping** the queue"
+        embed = discord.Embed(description=description, color=0x2D2B31)
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+
+def chunk_list(data: list, amount: int) -> list:
+    return [list(chunk) for chunk in zip(*[iter(data)] * amount)]
+
+class Plural:
+    def __init__(self, value: int, bold: bool = False, code: bool = False):
+        self.value = value
+        self.bold = bold
+        self.code = code
+
+    def __format__(self, format_spec: str) -> str:
+        return self.do_plural(format_spec)
+
+    def do_plural(self, format_spec: str) -> str:
+        v = len(self.value) if isinstance(self.value, list) else self.value
+        formatted = f"**{v:,}**" if self.bold else f"`{v:,}`" if self.code else f"{v:,}"
+        singular, _, plural = format_spec.partition("|")
+        plural = plural or f"{singular}s"
+        return f"{formatted} {plural if abs(v) != 1 else singular}"
+
+# Utility Functions
+def fmtseconds(seconds: Union[int, float], unit: str = "microseconds") -> str:
+    return naturaldelta(timedelta(seconds=seconds), minimum_unit=unit)
+
+def chunk_list(data: list, amount: int) -> list:
+    return [list(chunk) for chunk in zip(*[iter(data)] * amount)]
+
+def shorten(value: str, length: int = 20) -> str:
+    return value[:length-2] + ".." if len(value) > length else value
+
+def format_duration(duration: int, ms: bool = True) -> str:
+    total_seconds = duration // 1000 if ms else duration
+    seconds = total_seconds % 60
+    minutes = (total_seconds // 60) % 60
+    hours = (total_seconds // 3600) % 24
+    parts = []
+    if hours:
+        parts.append(f"{hours:02d}")
+    parts.append(f"{minutes:02d}")
+    parts.append(f"{seconds:02d}")
+    return ":".join(parts) if parts else "00:00"
+
+# Player Class
+class Player(pomice.Player):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.bound_channel: Optional[discord.abc.MessageableChannel] = None
+        self.message: Optional[discord.Message] = None
+        self.track: Optional[pomice.Track] = None
+        self.context: Optional[Context] = None
+        self.queue: asyncio.Queue = asyncio.Queue()
+        self.waiting: bool = False
+        self.loop: Union[str, bool] = False
+        self._volume: int = 65
+        self._channel_id: Optional[int] = None
+        self._cleanup_task: Optional[asyncio.Task] = None
+        self._last_activity = time.time()
+
+    async def update_activity(self):
+        """Update the last activity timestamp"""
+        self._last_activity = time.time()
+
+    @property
+    def is_idle(self) -> bool:
+        """Check if player has been idle for too long"""
+        return time.time() - self._last_activity > 300  # 5 minutes
+
+    async def cleanup(self):
+        """Cleanup player resources"""
+        if self.message:
+            with suppress(discord.HTTPException):
+                await self.message.delete()
+        self.message = None
+        self.bound_channel = None
+        self._channel_id = None
+        self.queue._queue.clear()
+        await self.reset_filters()
+        self._cleanup_task = None
+
+    async def play(self, track: pomice.Track, *, retries: int = 2) -> Optional[bool]:
+        """Play a track with retries"""
+        await self.update_activity()
+        
+        for attempt in range(retries):
+            try:
+                return await super().play(track)
+            except pomice.TrackLoadError as e:
+                if attempt == retries - 1:
+                    logger.error(f"Failed to play track {track.title} after {retries} attempts: {e}")
+                    if self.bound_channel:
+                        await self.bound_channel.send(f"Failed to play **{track.title}** after multiple attempts")
+                    return None
+                await asyncio.sleep(1)
+            except Exception as e:
+                logger.error(f"Unexpected error playing track: {e}")
+                return None
+
+    async def insert(self, track: pomice.Track, filter: bool = True, bump: bool = False) -> bool:
+        """Insert a track into the queue with better error handling"""
+        try:
+            if filter and track.info.get("sourceName") == "youtube":
+                try:
+                    async with async_timeout.timeout(5):
+                        async with self.bot.session.get(
+                            "https://metadata-filter.vercel.app/api/youtube",
+                            params={"track": track.title}
+                        ) as response:
+                            if response.status == 200:
+                                data = await response.json()
+                                if data.get("status") == "success":
+                                    track.title = data["data"].get("track", track.title)
+                except (asyncio.TimeoutError, Exception) as e:
+                    logger.warning(f"Failed to filter track metadata: {e}")
+
+            if bump:
+                self.queue._queue.insert(0, track)
+            else:
+                await self.queue.put(track)
+            return True
+        except Exception as e:
+            logger.error(f"Failed to insert track: {e}")
+            return False
+
+    async def next_track(self, ignore_playing: bool = False) -> Optional[pomice.Track]:
+        """Get and play next track with better error handling"""
+        if not ignore_playing and (self.is_playing or self.waiting):
+            return None
+
+        self.waiting = True
+        try:
+            track = self.track if self.loop == "track" else None
+            if not track:
+                try:
+                    async with async_timeout.timeout(300):  # 5 minute timeout
+                        track = await self.queue.get()
+                        if self.loop == "queue":
+                            await self.queue.put(track)
+                except asyncio.TimeoutError:
+                    logger.info("Player timed out waiting for next track")
+                    await self.teardown()
+                    return None
+
+            self.track = track
+            await self.play(track)
+            
+            if self.bound_channel:
+                await self._update_now_playing_message(track)
+
+            return track
+
+        except Exception as e:
+            logger.error(f"Error in next_track: {e}")
+            return None
+        finally:
+            self.waiting = False
+
+    async def _update_now_playing_message(self, track: pomice.Track):
+        """Update now playing message with error handling"""
+        try:
+            if self.message:
+                with suppress(discord.HTTPException):
+                    await self.message.delete()
+            
+            embed = discord.Embed(
+                description=f"> **Now playing** [**{track.title}**]({track.uri})"
+            )
+            if track.track_type == pomice.TrackType.YOUTUBE:
+                embed.set_image(url=track.thumbnail)
+            else:
+                embed.set_thumbnail(url=track.thumbnail)
+                
+            self.message = await self.bound_channel.send(embed=embed)
+        except Exception as e:
+            logger.error(f"Failed to update now playing message: {e}")
+            self.bound_channel = None
+
+    async def teardown(self):
+        """Safely teardown the player"""
+        if self._cleanup_task:
+            self._cleanup_task.cancel()
+        await self.cleanup()
+        with suppress(KeyError):
+            await self.destroy()
+
+    @property
+    def channel(self) -> Optional[discord.VoiceChannel]:
+        """Get the voice channel, attempting to fetch it if not found."""
+        if not self.guild:
+            return None
+            
+        if self.guild.voice_client and self.guild.voice_client.channel:
+            self._channel_id = self.guild.voice_client.channel.id
+            return self.guild.voice_client.channel
+            
+        if self._channel_id:
+            channel = self.guild.get_channel(self._channel_id)
+            if channel:
+                return channel
+                
+        for channel in self.guild.voice_channels:
+            if self.guild.me in channel.members:
+                self._channel_id = channel.id
+                return channel
+                
+        return None
+
+    async def connect(self, channel: discord.VoiceChannel, *, timeout: float = 2.0, **kwargs):
+        """Override connect to store channel ID."""
+        self._channel_id = channel.id
+        return await super().connect(channel, timeout=timeout, **kwargs)
+
+    async def move_to(self, channel: discord.VoiceChannel, *, timeout: float = 2.0, **kwargs):
+        """Override move_to to update channel ID."""
+        self._channel_id = channel.id 
+        return await super().move_to(channel, timeout=timeout, **kwargs)
+
+    @property
+    def get_percentage(self) -> int:
+        if not self.current:
+            return 0
+        pos_seconds = self.position // 1000 if self.position else 0
+        total_seconds = self.current.length // 1000
+        return min(int((pos_seconds / total_seconds) * 100), 100)
+
+    @property
+    def progress(self) -> str:
+        bar_length = 10
+        filled = self.get_percentage // 10
+        return "██" * filled + "  " * (bar_length - filled)
+
+    @property
+    def volume_bar(self) -> str:
+        filled_slots = self._volume // 10
+        empty_slots = 10 - filled_slots
+        return "<a:CatJam:1304239102257922148>" * filled_slots + "<a:CatJam:1304239102257922148>" * empty_slots
+
+    def __repr__(self) -> str:
+        return f"<Player guild={self.guild.id} connected={self.is_connected} playing={self.is_playing}>"
+
+# Music Interface
+class MusicInterface(discord.ui.View):
+    def __init__(self, bot):
+        super().__init__(timeout=None)
+        self.bot = bot
+
+    @discord.ui.button(style=discord.ButtonStyle.grey, emoji=replay_emoji, custom_id="music:replay")
+    async def replay_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        await replay(self.bot, interaction)
+
+    @discord.ui.button(style=discord.ButtonStyle.gray, emoji=pause_emoji, custom_id="music:pause")
+    async def pause_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        await pause(self.bot, interaction)
+
+    @discord.ui.button(style=discord.ButtonStyle.blurple, emoji=play_emoji, custom_id="music:play")
+    async def play_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        await play(self.bot, interaction)
+
+    @discord.ui.button(style=discord.ButtonStyle.grey, emoji=skip_emoji, custom_id="music:skip")
+    async def skip_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        await skip(self.bot, interaction)
+
+    @discord.ui.button(style=discord.ButtonStyle.grey, emoji=queue_emoji, custom_id="music:queue")
+    async def queue_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        player = self.bot.node.get_player(interaction.guild.id)
+        if player and player.queue._queue:
+            queue = [f"[{t.title}]({t.uri})" for t in player.queue._queue[:5]]
+            description = "\n".join(queue)
+        else:
+            description = "no tracks found in queue"
+        embed = discord.Embed(description=description, color=self.bot.color)
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+
+# Music Cog
+class Music(commands.Cog):
+    def __init__(self, bot: Greed):
+        self.bot = bot
+        self.node = None
+        self.music_autodisconnect.start()
+        self._reconnect_task: Optional[asyncio.Task] = None
+
+    def cog_unload(self):
+        """Cleanup when cog is unloaded"""
+        self.music_autodisconnect.cancel()
+        if self._reconnect_task:
+            self._reconnect_task.cancel()
+
+    async def check_node(self):
+        """Initialize node with reconnection handling"""
+        try:
+            if not self.node:
+                logger.info("Initializing LavaLink Node Pool....")
+                spotify = self.bot.config.get("spotify")
+                node = await pomice.NodePool().create_node(
+                    bot=self.bot,
+                    host="[2602:fa48:0:3:9edc:71ff:fec7:cbc0]",
+                    port=2333,
+                    password="youshallnotpass1",
+                    identifier=f"MAIN{tuuid()}",
+                    spotify_client_id=spotify.get("client_id") if spotify else "d15ca7286e354306b231ca1fa918fc04",
+                    spotify_client_secret=spotify.get("client_secret") if spotify else "d5ec1357581b443c879f1e4d3d0e5608",
+                    apple_music=True,
+                )
+                self.node = node
+                setattr(self.bot, "node", node)
+                logger.info("Created LavaLink Node Pool Connection")
+        except Exception as e:
+            logger.error(f"Failed to create node: {e}")
+            if not self._reconnect_task or self._reconnect_task.done():
+                self._reconnect_task = asyncio.create_task(self._attempt_reconnect())
+            raise
+
+    async def _attempt_reconnect(self, max_attempts: int = 5, delay: int = 30):
+        """Attempt to reconnect to node"""
+        attempts = 0
+        while attempts < max_attempts:
+            try:
+                await asyncio.sleep(delay)
+                await self.check_node()
+                logger.info("Successfully reconnected to node")
+                return
+            except Exception as e:
+                attempts += 1
+                logger.error(f"Reconnection attempt {attempts} failed: {e}")
+        logger.error("Max reconnection attempts reached")
+
+    @tasks.loop(minutes=5)
+    async def music_autodisconnect(self):
+        """Check for and disconnect idle players"""
+        try:
+            if not self.node:
+                return await self.check_node()
+            
+            for player in list(self.node.players.values()):
+                if player.is_idle or (not player.is_playing and player.is_paused):
+                    await player.teardown()
+        except Exception as e:
+            logger.error(f"Error in music_autodisconnect: {e}")
+
+    @commands.Cog.listener()
+    async def on_pomice_track_end(self, player: Player, track: pomice.Track, reason: str):
+        """Handle track end with reason checking"""
+        try:
+            if reason == "FINISHED":
+                next_track = await player.next_track()
+                if not next_track:
+                    await asyncio.sleep(60)
+                    if not player.is_playing and not player.is_paused:
+                        await player.teardown()
+            elif reason == "LOAD_FAILED":
+                await player.next_track()
+            elif reason == "STOPPED":
+                if not player.is_playing and not player.is_paused:
+                    await player.teardown()
+        except Exception as e:
+            logger.error(f"Error in track_end handler: {e}")
+
+    @commands.Cog.listener()
+    async def on_pomice_track_stuck(self, player: Player, track: pomice.Track, threshold: int):
+        await player.next_track()
+
+    @commands.Cog.listener()
+    async def on_pomice_track_exception(self, player: Player, track: pomice.Track, exception: Exception):
+        logger.error(f"Track exception: {exception}")
+        try:
+            await player.bound_channel.send(f"An error occurred while playing **{track.title}**")
+        except Exception:
+            pass
+        await player.next_track()
+    
+    @commands.Cog.listener()
+    async def on_raw_reaction_add(self, reaction: discord.RawReactionActionEvent):
+        data = await self.bot.redis.get(f"lfnp:{reaction.message_id}")
+        if data:
+            data = orjson.loads(data)
+            if str(reaction.emoji) == str(data.get("up")):
+                await self.bot.db.execute(
+                    """INSERT INTO lastfm_likes (user_id, track, artist) VALUES($1, $2, $3) ON CONFLICT DO NOTHING""",
+                    reaction.user_id,
+                    data["track"],
+                    data["artist"],
+                )
+
+    @commands.Cog.listener()
+    async def on_raw_reaction_remove(self, reaction: discord.RawReactionActionEvent):
+        data = await self.bot.redis.get(f"lfnp:{reaction.message_id}")
+        if data and str(reaction.emoji) == str(orjson.loads(data).get("up")):
+            data = orjson.loads(data)
+            await self.bot.db.execute(
+                """DELETE FROM lastfm_likes WHERE user_id = $1 AND track = $2 AND artist = $3""",
+                reaction.user_id,
+                data["track"],
+                data["artist"],
+            )
+
+    @commands.Cog.listener()
+    async def on_voice_state_update(self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
+        if before.channel and self.bot.user in before.channel.members:
+            player = self.node.get_player(member.guild.id)  # Update to use self.node
+            if player and len(player.channel.members) == 1:
+                await player.teardown()
+        if member.id != self.bot.user.id:
+            return
+        player = self.node.get_player(member.guild.id) if self.node else None  # Update to use self.node
+        if player and not after.channel:
+            await player.teardown()
+
+    async def get_player(self, ctx: Context, *, connect: bool = True, check_connected: bool = True) -> Optional[Player]:
+        if not self.node:  
+            raise commands.CommandError("The **Lavalink** node hasn't been **initialized** yet.")
+
+        user_voice = ctx.author.voice
+        bot_voice = ctx.guild.me.voice
+
+        if not user_voice:
+            if check_connected:
+                raise commands.CommandError("You're not **connected** to a voice channel.")
+            return None
+
+        if bot_voice and bot_voice.channel != user_voice.channel:
+            raise commands.CommandError("I'm **already** connected to another voice channel.")
+
+        player = self.node.get_player(ctx.guild.id)
+        
+        if not player or not bot_voice:
+            if not connect:
+                return None
+                
+            try:
+                await user_voice.channel.connect(cls=Player, self_deaf=True)
+                player = self.node.get_player(ctx.guild.id)
+                if not player:
+                    raise commands.CommandError("Failed to initialize player.")
+                player.bound_channel = ctx.channel
+                await ctx.guild.voice_client.set_volume(65)
+            except discord.ClientException:
+                await ctx.fail("Failed to connect to voice channel")
+                return None
+            except Exception as e:
+                await ctx.fail(f"An error occurred: {str(e)}")
+                return None
+
+        if player and not player.bound_channel:
+            player.bound_channel = ctx.channel
+
+        return player
+
+    async def get_tracks(self, ctx: Context, player: Player, query: str, search_type: Optional[pomice.SearchType] = None) -> list[pomice.Track]:
+        try:
+            return await player.get_tracks(query=query, ctx=ctx, search_type=search_type)
+        except Exception:
+            return await player.get_tracks(query=query, ctx=ctx, search_type=pomice.SearchType.scsearch)
+
+    @commands.command(name="playing", aliases=["current", "nowplaying", "np"], brief="Show current playing song", example=",playing")
+    async def playing(self, ctx: Context, member: Optional[discord.Member] = None):
+        player: Player = await self.get_player(ctx, connect=False, check_connected=False)
+        if player and player.current:
+            embed = discord.Embed(title="Song", color=0x2B2D31)
+            embed.description = (
+                f"**Playing:** [**{shorten(player.current.title, 23)}**]({player.current.uri})\n"
+                f"> **Time:** `{format_duration(player.position)}/{format_duration(player.current.length)}`\n"
+                f"> **Progress:** `{player.get_percentage}%`\n"
+                f"> ```{player.progress}```"
+            )
+            if player.current.thumbnail:
+                embed.set_thumbnail(url=player.current.thumbnail)
+            await ctx.send(embed=embed, view=MusicInterface(self.bot))
+        else:
+            await ctx.fail("no current track playing")
+
+    async def handle_attachment(self, ctx: Context) -> Optional[str]:
+        if ctx.message.attachments:
+            for attachment in ctx.message.attachments:
+                if attachment.filename.endswith(".mp3"):
+                    return attachment.proxy_url
+                else:
+                    return await ctx.fail("Only **MP3's** can be played")
+        return None
+
+    @commands.command(name="play", aliases=["queue", "q", "p"], example=",play juice wrld", brief="Play a song")
+    async def play_command(self, ctx: Context, *, query: Optional[str] = None):
+        if not ctx.author.voice:
+            return await ctx.fail("you aren't in a voice channel")
+        if query is None: 
+            if ctx.invoked_with in ("play", "p"):
+                query = await self.handle_attachment(ctx)
+                if not query:
+                    return await ctx.send_help(ctx.command.qualified_name)
+        player: Player = await self.get_player(ctx)
+        if not query:
+            player = self.node.get_player(ctx.guild.id)
+            if not player.current:
+                return await ctx.fail("There isn't an active **track**")
+            embeds = []
+            if player.current:
+                embed = discord.Embed(title=f"Queue for {player.channel.name}", color=0x2B2D31)
+                embed.description = (
+                    f"**Duration:** `{format_duration(player.position)}/{format_duration(player.current.length)}`\n"
+                    f"> **Playing:** [**{shorten(player.current.title, 23)}**]({player.current.uri})\n"
+                    f"> **Requested by:** {player.current.requester.mention if player.current.requester else ''}\n"
+                )
+                embeds.append(embed)
+            for track in player.queue._queue:
+                embed = embed.copy()
+                embed.description += f"**Duration:** `00:00/{format_duration(track.length)}`\n> [**{shorten(track.title, 23)}**]({track.uri}) - {track.requester.mention if track.requester else ''}\n"
+                embeds.append(embed)
+            return await ctx.paginate(embeds)
+        
+        if query.lower() in ["-liked", "--liked", "liked"]:
+            results, errors = [], []
+            likes = await self.bot.db.fetch(
+                "SELECT track, artist FROM lastfm_likes WHERE user_id = $1", ctx.author.id
+            )
+            for track, artist in likes:
+                search_query = f"{track} by {artist}"
+                try:
+                    tracks = await self.get_tracks(ctx, player, search_query)
+                    if tracks:
+                        await player.insert(tracks[0], filter=False, bump=ctx.parameters.get("bump"))
+                        results.append(f"[**{tracks[0].title}**]({tracks[0].uri})")
+                    else:
+                        errors.append(f"Failed to insert {search_query}")
+                except Exception:
+                    pass
+            if results:
+                await self.bot.paginate(ctx, discord.Embed(title="Tracks Queued", color=self.bot.color), results, 10)
+        else:
+            tracks = await self.get_tracks(ctx, player, query, pomice.SearchType.ytsearch)
+            if not tracks:
+                tracks = await self.get_tracks(ctx, player, query, pomice.SearchType.scsearch)
+                if not tracks:
+                    return await ctx.fail("No **results** were found")
+            if isinstance(tracks, pomice.Playlist):
+                for track in tracks.tracks:
+                    if query.capitalize() in ["-bump", "--bump", "bump"]:
+                        await player.insert(track, filter=False, bump=True)
+                    await player.insert(track, filter=False, bump=False)
+                await ctx.success(
+                    f"Added **{Plural(tracks.track_count):track}** from [**{tracks.name}**]({tracks.uri}) to the queue",
+                    emoji=queue_emoji,
+                )
+                if not player.is_playing and not player.is_paused:
+                    await player.next_track()
+            else:
+                track = tracks[0]
+                await player.insert(track, bump=ctx.parameters.get("bump"))
+                if player.is_playing:
+                    await ctx.success(
+                        f"Added [**{track.title}**]({track.uri}) to the queue",
+                        emoji=queue_emoji,
+                    )
+                else:
+                    await player.next_track()
+        
+        if ctx.parameters.get("shuffle") and player.queue._queue:
+            random.shuffle(player.queue._queue)
+            await ctx.message.add_reaction("🔀")
+        if not player.is_playing and player.queue._queue:
+            await player.next_track()
+        if player.bound_channel and player.bound_channel != ctx.channel:
+            await ctx.message.add_reaction("✅")
+
+    @commands.command(name="remove", aliases=["rmv"], brief="Remove a song from the queue", example=",remove 3")
+    async def remove(self, ctx: Context, track: int):
+        player: Player = await self.get_player(ctx, connect=False)
+        if 1 <= track <= len(player.queue._queue):
+            removed = player.queue._queue.pop(track - 1)
+            await ctx.success(f"Removed [**{removed.title}**]({removed.uri}) from the queue")
+        else:
+            await ctx.fail(f"Track position `{track}` is invalid (`1`/`{len(player.queue._queue)}`)")
+
+    @commands.command(name="shuffle", aliases=["mix"], brief="Shuffle the queue", example=",shuffle")
+    async def shuffle(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if player.queue._queue:
+            random.shuffle(player.queue._queue)
+            await ctx.message.add_reaction("🔀")
+        else:
+            await ctx.fail("There aren't any **tracks** in the queue")
+
+    @commands.command(name="skip", aliases=["next", "sk"], brief="Skip the current song", example=",skip")
+    async def skip(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if player.is_playing:
+            await ctx.success("**Skipped** this song")
+            await player.skip()
+        else:
+            await ctx.fail("There isn't an active **track**")
+
+    @commands.command(name="loop", aliases=["repeat", "lp"], brief="Toggle looping", example=",loop queue")
+    async def loop(self, ctx: Context, option: Literal["track", "queue", "off"]):
+        player: Player = await self.get_player(ctx, connect=False)
+        valid = {
+            "off": not player.loop,
+            "track": player.is_playing,
+            "queue": bool(player.queue._queue),
+        }
+        if not valid.get(option, False):
+            return await ctx.fail(f"Cannot set loop to `{option}`")
+        await player.set_loop(option if option != "off" else False)
+        emoji = "✅" if option == "off" else "🔂" if option == "track" else "🔁"
+        await ctx.message.add_reaction(emoji)
+
+    @commands.command(name="pause", brief="Pause the current song", example=",pause")
+    async def pause(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if player.is_playing and not player.is_paused:
+            await ctx.success("**Paused** this song")
+            await player.set_pause(True)
+        elif player.is_paused:
+            await ctx.fail("The player is already paused")
+        else:
+            await ctx.fail("There isn't an active **track**")
+
+    @commands.command(name="resume", aliases=["rsm"], brief="Resume a paused song", example=",resume")
+    async def resume(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if player.is_playing and player.is_paused:
+            await ctx.success("**Resumed** the song")
+            await player.set_pause(False)
+        else:
+            await ctx.fail("There isn't an active **track**")
+
+    @commands.command(name="volume", aliases=["vol", "v"], brief="Adjust the volume", example=",volume 50")
+    async def volume(self, ctx: Context, percentage: int = 65):
+        percentage = min(percentage, 100)
+        player: Player = await self.get_player(ctx, connect=False)
+        await player.set_volume(percentage)
+        embed = discord.Embed(
+            color=self.bot.color,
+            title="Volume Level",
+            description=f"{player.volume_bar}"
+        )
+        await ctx.send(embed=embed)
+
+    @commands.command(name="disconnect", aliases=["dc", "stop"], brief="Disconnect from voice channel", example=",disconnect")
+    async def disconnect(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if not player:
+            if ctx.voice_client:
+                await ctx.voice_client.disconnect()
+        await player.teardown()
+        await ctx.success("**Disconnected** from the voice channel")
+
+
+    @commands.group(
+        name="presets",
+        aliases=["eq", "equalizer", "preset"],
+        invoke_without_command=True,
+    )
+    async def presets(self, ctx):
+        await ctx.send_help(ctx.command.qualified_name)
+
+    @presets.command(name="list", aliases=["ls"], brief="List available presets", example=",presets list")
+    async def presets_list(self, ctx: Context):
+        player: Player = await self.get_player(ctx)
+        presets = [
+            "vaporwave",
+            "nightcore",
+            "boost",
+            "metal",
+            "flat",
+            "piano",
+        ]
+        embed = discord.Embed(title="Available Presets", color=0x2B2D31)
+        embed.description = "\n".join(presets)
+        await ctx.send(embed=embed)
+
+    @presets.command(name="vaporwave", brief="Apply the vaporwave preset", example=",presets vaporwave")
+    async def vaporwave(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if not player or not player.current:
+            return await ctx.fail("No active player found. Please play something first!")
+            
+        try:
+            vaporwave = pomice.Timescale.vaporwave()
+            await player.add_filter(vaporwave, fast_apply=True)
+            await ctx.success("Applied the **vaporwave** preset")
+        except pomice.FilterTagAlreadyInUse:
+            await ctx.warning("That filter is already in use")
+        except Exception as e:
+            await ctx.fail(f"Failed to apply filter: {str(e)}")
+
+    @presets.command(name="nightcore", brief="Apply the nightcore preset", example=",presets nightcore")
+    async def nightcore(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if not player or not player.current:
+            return await ctx.fail("No active player found. Please play something first!")
+            
+        try:
+            preset = pomice.Timescale.nightcore()
+            await player.add_filter(preset, fast_apply=True)
+            await ctx.success("Applied the **nightcore** preset")
+        except pomice.FilterTagAlreadyInUse:
+            await ctx.warning("That filter is already in use")
+        except Exception as e:
+            await ctx.fail(f"Failed to apply filter: {str(e)}")
+
+    @presets.command(name="boost", brief="Apply the boost preset", example=",presets boost") 
+    async def boost(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if not player or not player.current:
+            return await ctx.fail("No active player found. Please play something first!")
+            
+        try:
+            boost = pomice.Equalizer.boost()
+            await player.add_filter(boost, fast_apply=True)
+            await ctx.success("Applied the **boost** preset")
+        except pomice.FilterTagAlreadyInUse:
+            await ctx.warning("That filter is already in use")
+        except Exception as e:
+            await ctx.fail(f"Failed to apply filter: {str(e)}")
+
+    @presets.command(name="metal", brief="Apply the metal preset", example=",presets metal")
+    async def metal(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if not player or not player.current:
+            return await ctx.fail("No active player found. Please play something first!")
+            
+        try:
+            metal = pomice.Equalizer.metal()
+            await player.add_filter(metal, fast_apply=True)
+            await ctx.success("Applied the **metal** preset")
+        except pomice.FilterTagAlreadyInUse:
+            await ctx.warning("That filter is already in use")
+        except Exception as e:
+            await ctx.fail(f"Failed to apply filter: {str(e)}")
+
+    @presets.command(name="flat", brief="Apply the flat preset", example=",presets flat")
+    async def flat(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if not player or not player.current:
+            return await ctx.fail("No active player found. Please play something first!")
+            
+        try:
+            flat = pomice.Equalizer.flat()
+            await player.add_filter(flat, fast_apply=True)
+            await ctx.success("Applied the **flat** preset")
+        except pomice.FilterTagAlreadyInUse:
+            await ctx.warning("That filter is already in use")
+        except Exception as e:
+            await ctx.fail(f"Failed to apply filter: {str(e)}")
+
+    @presets.command(name="piano", brief="Apply the piano preset", example=",presets piano")
+    async def piano(self, ctx: Context):
+        player: Player = await self.get_player(ctx, connect=False)
+        if not player or not player.current:
+            return await ctx.fail("No active player found. Please play something first!")
+            
+        try:
+            piano = pomice.Equalizer.piano()
+            await player.add_filter(piano, fast_apply=True)
+            await ctx.success("Applied the **piano** preset")
+        except pomice.FilterTagAlreadyInUse:
+            await ctx.warning("That filter is already in use")
+        except Exception as e:
+            await ctx.fail(f"Failed to apply filter: {str(e)}")
+
+    @presets.command(name="remove", aliases=["off"], brief="Remove a preset from the current player", example=",presets remove vaporwave")
+    async def remove_preset(self, ctx: Context, preset: str):
+        player: Player = await self.get_player(ctx, connect=False)
+        if not player or not player.current:
+            return await ctx.fail("No active player found. Please play something first!")
+            
+        presets = [
+            "vaporwave",
+            "nightcore", 
+            "boost",
+            "metal",
+            "flat",
+            "piano",
+        ]
+        
+        if preset not in presets:
+            return await ctx.warning(f"`{preset}` is not a valid preset")
+            
+        try:
+            await player.remove_filter(preset, fast_apply=True)
+            await ctx.success(f"Removed the **{preset}** preset")
+        except pomice.FilterTagNotInUse:
+            await ctx.warning("That filter is not in use")
+        except Exception as e:
+            await ctx.fail(f"Failed to remove filter: {str(e)}")
+
+
+async def setup(bot):
+    await bot.add_cog(Music(bot))

@@ -1,0 +1,58 @@
+{
+    "language": "العربية",
+    "language_code": "ar",
+    "language_local": "ar-SA",
+    "commands": {
+      "invite": {
+        "DESCRIPTION": "خذ رابط دعوة البوت."
+      },
+      "discord": {
+        "DESCRIPTION": "خذ رابط دعوة سيرفر الدعم الخاص بالبوت."
+      },
+      "about": {
+        "DESCRIPTION": "شوف معلومات عن البوت.",
+        "EMBED": {
+          "DESCRIPTION_LINE_ONE": "تم التطوير والصيانة بواسطة [x](https://discord.com/users/598125772754124823)، [adam](https://discord.com/users/930383131863842816)، [harry](https://discordapp.com/users/187747524646404105)",
+          "DESCRIPTION_LINE_TWO": "يستخدم `{cached_commands}` أمر عبر `{total_cogs}` وحدات (`{extended_cogs}` مجموع الوحدات)",
+          "FIELDS": [
+            {
+              "name": "**البوت**",
+              "values": [
+                "**المستخدمين:** `{cached_users}`",
+                "**السيرفرات:** `{cached_guilds}`",
+                "**تاريخ الإنشاء:** `{created_at}`"
+              ]
+            },
+            {
+              "name": "**النظام**",
+              "values": [
+                "**المعالج:** `{cpu_usage}%`",
+                "**الذاكرة:** `{memory_usage}%`",
+                "**مدة التشغيل:** `{uptime}`"
+              ]
+            },
+            {
+              "name": "**الكود**",
+              "values": [
+                "**عدد الأسطر:** `{lines_of_code}`",
+                "**عدد الملفات:** `{total_files}`",
+                "**عدد التضمينات:** `{total_imports}`",
+                "**عدد الوظائف:** `{total_functions}`"
+              ]
+            }
+          ],
+          "FOOTER": "evict/v{version} • آخر تحديث: {latest_commit}"
+        }
+      },
+      "ping": {
+        "DESCRIPTION": "شوف تأخير استجابة البوت.",
+        "INITAL_EMBED": {
+          "description": "جاري القياس..."
+        },
+        "UPDATED_EMBED": {
+          "description": "`{ping}ms` (التحديث: `{edit_ping}ms`)"
+        }
+      }
+    }
+  }
+  

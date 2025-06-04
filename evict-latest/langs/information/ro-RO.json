@@ -1,0 +1,269 @@
+{
+    "language_code": "ro-RO",
+    "language": "ro-RO",
+    "language_local": "ro-RO",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "Obține un link de invitație pentru bot"
+        },
+        "discord": {
+            "DESCRIPTION": "Obține un link catre server-ul de support al bot-ului"
+        },
+        "about": {
+            "DESCRIPTION": "Vizualizează informații despre bot",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Dezvoltat și menținut de [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+                "DESCRIPTION_LINE_TWO": "`{cached_commands}` de comenzi în  `{total_cogs}`  cog-uri  (`{extended_cogs}` de module in total)",
+                "FOOTER": "evict/v{version} • Ultimul Commit: {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "Verifică latența bot-ului",
+            "INITAL_EMBED": {
+                "description": "pinging..."
+            },
+            "UPDATED_EMBED": {
+                "description": "`{ping}ms` (edit: `{edit_ping}ms`)"
+            }
+        },
+        "poll": {
+            "DESCRIPTION": "Comenzi pentru gestionare a sondajelor",
+            "create": {
+                "DESCRIPTION": "Creează un nou sondaj folosind argumentele",
+                "CANCELLED": "Crearea sondajului a fost anulată.",
+                "INVALID_DURATION": "Formata duratei este invalidă. Foloseste 1h, 1d, etc."
+            },
+            "quick": {
+                "DESCRIPTION": "Creează un sondaj rapid folosind da/nu sau optiuni customizate"
+            },
+            "list": {
+                "DESCRIPTION": "Listează toate sondajele active din acest server",
+                "NO_POLLS": {
+                    "DEFAULT": "Nu a fost găsit niciun sondaj activ!",
+                    "FILTERED": "Niciun sondaj activ găsit la {creator}!"
+                },
+                "ENTRY": {
+                    "TITLE": "**{title}**",
+                    "CREATOR": "Creat de: {creator}",
+                    "VOTES": "Voturi: {count}",
+                    "ID": "ID: `{id}`",
+                    "CREATED": "Creat: {time}",
+                    "ENDS": "Sfârșește: {time}"
+                },
+                "EMBED_TITLE": "Sondaje Active în {guild}"
+            },
+            "end": {
+                "DESCRIPTION": "Încheie un sondaj mai devreme",
+                "INVALID_ID": "ID de sondaj invalid!",
+                "NOT_FOUND": "Sondajul nu a fost găsit sau este deja încheiat!",
+                "NO_PERMISSION": "Nu poți încheia acest sondaj!",
+                "SUCCESS": "Sondajul a fost încheiat cu succes!"
+            },
+            "results": {
+                "DESCRIPTION": "Obține rezultate detaliate despre sondaj",
+                "INVALID_ID": "ID de sondaj invalid!",
+                "NOT_FOUND": "Sondajul nu a fost găsit!"
+            },
+            "UI": {
+                "VOTE": {
+                    "ENDED": "Acest sondaj a fost încheiat.",
+                    "ROLE_REQUIRED": "Ai nevoie de rolul {role} pentru a vota!",
+                    "SUCCESS": "Votul tau a fost înregistrat!",
+                    "ERROR": "Nu am reușit să îți înregistrăm votul. Te rog încearcă din nou.",
+                    "BUTTON": "Votează",
+                    "SELECT_PROMPT": "Selectează-ți opțiunea/opțiunile"
+                },
+                "RESULTS": {
+                    "BUTTON": "Rezultate",
+                    "BACK_BUTTON": "Înapoi la sondaj"
+                },
+                "MODAL": {
+                    "TITLE": "Opțiunile sondajului",
+                    "CHOICE_LABEL": "Opțiunea {number}",
+                    "CHOICE_PLACEHOLDER": "Selectează opțiunea {number}"
+                }
+            }
+        },
+        "status": {
+            "DESCRIPTION": "Verifică stadiul shard-urilor.",
+            "MESSAGE": "Întâmpini probleme? Verifică stadiul shard-ului tau [aici]({url}). Server-ul tău are shard-ul {shard_id}"
+        }
+    },
+    "inviteinfo": {
+        "DESCRIPTION": "Obține informatii despre o invitație.",
+        "EMBED": {
+            "AUTHOR": "{guild_name} ({guild_id})",
+            "FIELDS": {
+                "INFORMATION": {
+                    "NAME": "**Informații**",
+                    "VALUE": "**Autor:** {inviter}\n**Canal:** {channel}\n**Creat:** {created_at}"
+                },
+                "GUILD": {
+                    "NAME": "**Server**",
+                    "VALUE": "**Membrii:** {member_count:,}\n**Membrii Online:** {online_count:,}\n**Nivel de verificare:** {verification_level}"
+                }
+            }
+        }
+    },
+    "serverbanner": {
+        "DESCRIPTION": "Obține banner-ul unui server dacă acesta are unul.",
+        "BANNER_MISSING": "**{guild}** nu are banner!",
+        "BANNER_TITLE": "banner-ul din {guild}"
+    },
+    "servericon": {
+        "DESCRIPTION": "Obține icon-ul unui server dacă acesta are unul.",
+        "ICON_MISSING": "**{guild}** nu are icon!",
+        "BANNER_TITLE": "banner-ul din {guild}",
+        "ICON_TITLE": "icon-ul din {guild}"
+    },
+    "avatar": {
+        "DESCRIPTION": "Obține avatar-ul unui utilizator.",
+        "TITLE": {
+            "SELF": "Avatar-ul tău",
+            "OTHER": "avatar-ul lui {user_name}"
+        }
+    },
+    "serveravatar": {
+        "DESCRIPTION": "Obține server avatar-ul unui utilizator.",
+        "MISSING": {
+            "SELF": "Nu ai un server avatar!",
+            "OTHER": "**{member}** nu are un server avatar!"
+        },
+        "TITLE": {
+            "SELF": "Server avatar-ul tău",
+            "OTHER": "Server avatar-ul lui {member_name}"
+        }
+    },
+    "memberbanner": {
+        "DESCRIPTION": "Obține server banner-ul unui utilizator",
+        "MISSING": {
+            "SELF": "Nu ai un server banner",
+            "OTHER": "**{member}** nu are un server banner!"
+        },
+        "TITLE": {
+            "SELF": "Server banner-ul tău",
+            "OTHER": "Server banner-ul lui {member_name}"
+        }
+    },
+    "banner": {
+        "DESCRIPTION": "Obține server banner-ul unui utilizator.",
+        "MISSING": {
+            "SELF": "Nu ai un banner!",
+            "OTHER": "**{user}** nu are un banner!"
+        },
+        "TITLE": {
+            "SELF": "Banner-ul tău",
+            "OTHER": "Banner-ul lui {user_name}"
+        }
+    },
+    "membercount": {
+        "DESCRIPTION": "Obține numărul de membrii dintr-un server.",
+        "FIELDS": {
+            "MEMBERS": "**Membrii**",
+            "HUMANS": "**Utilizatori**",
+            "BOTS": "**Boți**"
+        }
+    },
+    "serverinfo": {
+        "DESCRIPTION": "Obține informații despre server.",
+        "ERRORS": {
+            "NOT_FOUND": "Server-ul nu a fost găsit!"
+        },
+        "EMBED": {
+            "AUTHOR": "{guild_name} ({guild_id})",
+            "FIELDS": {
+                "INFORMATION": {
+                    "NAME": "**Informații**",
+                    "VALUE": "**Deținător:** {owner}\n**Nivel de verificare:** {verification}\n**Boost-uri:** {boost_count:,} (`Nivel {boost_level}`)"
+                },
+                "STATISTICS": {
+                    "NAME": "**Statistici**",
+                    "VALUE": "**Membrii:** {member_count:,}\n**Canale Text:** {text_channels:,}\n**Canale Voice:** {voice_channels:,}"
+                },
+                "ROLES": {
+                    "NAME": "**Roluri ({role_count})**"
+                }
+            }
+        }
+    },
+    "bots": {
+        "DESCRIPTION": "Obține o listă cu toți boții din server.",
+        "NO_BOTS": "**{guild}** nu are niciun bot!",
+        "TITLE": "Boți în {guild}"
+    },
+    "banlist": {
+        "DESCRIPTION": "Obține toți membrii banați.",
+        "NO_BANS": "Niciun membru nu este banat!",
+        "TITLE": "Membrii banați [{count}]"
+    },
+    "guildinvites": {
+        "DESCRIPTION": "Obține toate invitațiile din acest server.",
+        "NO_INVITES": "Nu există nicio invitație!",
+        "TITLE": "Invitații in {guild}"
+    },
+    "emojis": {
+        "DESCRIPTION": "Obține toate emoji-urile din server.",
+        "NO_EMOJIS": "**{guild}** nu are niciun emoji!",
+        "TITLE": "Emoji-uri în {guild}"
+    },
+    "stickers": {
+        "DESCRIPTION": "Obține toate stickerele din server.",
+        "NO_STICKERS": "**{guild}** nu are niciun sticker!",
+        "TITLE": "Stickere în {guild}"
+    },
+    "weather": {
+        "DESCRIPTION": "Obține vremea curentă dintr-un oraș/țară",
+        "ERROR": {
+            "NOT_FOUND": "Nu am putut găsi date despre vreme pentru `{location}`",
+            "GENERIC": "A apărut o eroare în timpul obținerii datelor despre vreme: {error}"
+        },
+        "EMBED": {
+            "TITLE": "Vremea în {location}",
+            "FIELDS": {
+                "TEMPERATURE": {
+                    "NAME": "Temperatură",
+                    "VALUE": "🌡️ **{temp_c}°C** ({temp_f}°F)\nTemperatură resimțită: {feels_c}°C ({feels_f}°F)"
+                },
+                "HUMIDITY": {
+                    "NAME": "Umiditate",
+                    "VALUE": "💧 {humidity}%"
+                },
+                "WIND": {
+                    "NAME": "Vânt",
+                    "VALUE": "💨 {speed} km/h"
+                },
+                "CLOUD_COVER": {
+                    "NAME": "Nori",
+                    "VALUE": "☁️ {cover}%"
+                },
+                "VISIBILITY": {
+                    "NAME": "Vizibilitate",
+                    "VALUE": "👁️ {distance} km"
+                },
+                "PRECIPITATION": {
+                    "NAME": "Precipitații",
+                    "VALUE": "🌧️ {amount} mm"
+                }
+            }
+        }
+    },
+    "shards": {
+        "DESCRIPTION": "Obține latența shard-urilor"
+    },
+    "userinfo": {
+        "DESCRIPTION": "Obține informații despre un utilizator.",
+        "TITLE": "{user} {bot_tag}",
+        "FIELDS": {
+            "CREATED": "**Creat**",
+            "JOINED": "**Intrat ({position})**",
+            "BOOSTED": "**Stimulat**",
+            "ROLES": "**Roluri**"
+        },
+        "VOICE": {
+            "STREAMING": "🎙 Partajează în {channel} {with_others}",
+            "NORMAL": "🎙 În {channel} {with_others}",
+            "WITH_OTHERS": "cu {count:other}",
+            "ALONE": "de unul singur"
+        }
+    }
+}

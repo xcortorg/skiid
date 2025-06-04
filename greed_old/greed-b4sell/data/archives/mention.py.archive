@@ -1,0 +1,114 @@
+import asyncio
+import discord
+from discord import Message, Member, User
+from discord.ext import commands, tasks
+from datetime import datetime
+from typing import Optional, Union, List, Any
+from enum import Enum, auto
+from loguru import logger
+
+class MentionTypes(Enum):
+    reply = auto()
+    at = auto()
+    role = auto()
+    everyone = auto()
+
+class Mentioning:
+    def __init__(self, author: Union[User, Member], message: Message, timestamp: datetime, attachments: Optional[List[str]] = None, mention_type: Optional[MentionTypes] = None):
+        self.author = author
+        self.message = message
+        self.timestamp = timestamp
+        self.attachments = attachments or []
+        self.mention_type = mention_type
+
+    @classmethod
+    def from_message(cls, message: Message):
+        mentioned_users = set(message.mentions)
+
+        if "@everyone" in message.content or message.mention_everyone:
+            mentioned_users.update([m for m in message.guild.members if not m.bot])
+        if "@here" in message.content:
+            mentioned_users.update([m for m in message.guild.members if m.status != discord.Status.offline and not m.bot])
+        mentioned_users = list(mentioned_users)
+        if len(mentioned_users) == 0:
+            return None
+        user = mentioned_users[0]
+        if user.bot:
+            return  # Ignore bot mentions
+
+        mention_data = cls(
+            author=message.author,
+            message=message,
+            timestamp=datetime.utcnow(),
+            attachments=[att.url for att in message.attachments]
+        )
+
+        # Determine mention type
+        if user in message.mentions:
+            mention_data.mention_type = MentionTypes.reply if message.reference else MentionTypes.at
+        elif any(role in message.role_mentions for role in user.roles):
+            mention_data.mention_type = MentionTypes.role
+        elif message.mention_everyone or "@everyone" in message.content:
+            mention_data.mention_type = MentionTypes.everyone
+        return mention_data
+
+class Mentions(commands.Cog):
+    """Cog for tracking and displaying mention history"""
+
+    def __init__(self, bot):
+        self.bot = bot
+        self.mention_history = {}
+
+        self.refresh_mentions.start()  # Start the hourly task
+
+    @tasks.loop(hours=1)
+    async def refresh_mentions(self):
+        """Task to refresh mention history every hour."""
+        self.mention_history.clear()
+        logger.info("Mention history refreshed.")
+
+    @commands.Cog.listener()
+    async def on_message(self, message: discord.Message):
+        """Listener to track mentions"""
+        if not message.guild or message.author.bot:
+            return
+
+        if message.mentions or message.role_mentions or message.mention_everyone or "@everyone" in message.content or "@here" in message.content:
+            if mention := Mentioning.from_message(message):
+                user = mention.author
+                self.mention_history.setdefault(message.guild.id, {}).setdefault(user.id, []).append(mention)
+
+    @commands.command(name="mentions")
+    async def view_mentions(self, ctx: commands.Context, user: discord.Member = None):
+        """View user's mention history in a server"""
+        guild_id = ctx.guild.id
+        user_id = ctx.author.id
+        mentions = self.mention_history.get(guild_id, {}).get(user_id, [])
+
+        if not mentions:
+            return await ctx.fail("You have no recent mentions in this server.")
+
+        # Generate paginated embeds
+        embeds = []
+        for i in range(0, len(mentions), 5):  # 5 per page
+            embed = discord.Embed(
+                title=f"<:ico_onboarding_notifs_high:1337552567466725467> Mentions in {ctx.guild.name}",
+                color=self.bot.color
+            ).set_author(
+                name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url
+            )
+
+            for index, mention in enumerate(mentions[i:i+5], start=i+1):
+                time_ago = (datetime.utcnow() - mention.timestamp).seconds / 60
+                embed.add_field(
+                    name=f"#{index}",
+                    value=f"[Jump to Message]({mention.message.jump_url})\n<:line:1336409552786161724> - Pinged by {mention.author.mention} {discord.utils.format_dt(mention.timestamp, style = 'R')}",
+                    inline=False
+                )
+
+            embeds.append(embed)
+
+        await ctx.paginate(embeds)
+
+async def setup(bot):
+    await bot.add_cog(Mentions(bot))

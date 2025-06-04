@@ -1,0 +1,50 @@
+{
+    "language": "Franco Arabic",
+    "language_code": "ar-latn",
+    "language_local": "ar-Latn",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": "El command `{command}` 3mal error. 7awel tani ba3d shwaya.",
+                "SCRIPT_ERROR": "Fi moshkela fe **el script** beta3ak!",
+                "FLAG": {
+                    "DUPLICATE": "Enta 7adet el flag **{flag_name}** aktar mn mara!",
+                    "CAST_ERROR": "Mafesh anaa akhly **{flag_name}** yeb2a `{annotation}`!",
+                    "STATUS_HINT": "It2akked enak katabt **on** aw **off** l `Status` flags!",
+                    "MISSING_VALUE": "Lazem tedee value l flag **{flag_name}**!"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "El command da yemken yestakhdem **{number} {time}** fe **{per}** fe nafs el wa2t!",
+                "COOLDOWN": {
+                    "MESSAGE": "El command da fe cooldown!",
+                    "RETRY": "7awel tani ba3d **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "Mafesh **{param}** yel2i **{argument}**!",
+                "USER_ID_HINT": "Law el user mesh mawgood fe el server, 7awel estakhdem el **ID** beta3o",
+                "SERVER": "Mafesh server yel2i **{argument}**!",
+                "CASTING": "Mafesh tare2a a7awel **{param}** le {converters}!",
+                "NOT_FOUND": {
+                    "MEMBER": "Mafesh **member** yel2i **{argument}**!",
+                    "USER": "Mafesh **user** yel2i `{argument}`!",
+                    "ROLE": "Mafesh **role** yel2i **{argument}**!",
+                    "CHANNEL": "Mafesh **channel** yel2i **{argument}**!",
+                    "INVITE": "**Invite code** mesh sa7!",
+                    "MESSAGE": "El **message** mesh mawgood!\n7awel teestakhdem el **message URL**"
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "El input lazm yekon {label}!",
+                "RANGE_CHARS": "El input lazm yekon {label} 7aroof!"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "Enta mafesh 3andak permission {permissions} {plural}!",
+                "BOT_MISSING": "Ana mafesh 3andi el permissions dol: {permissions}",
+                "BOT_MISSING_GENERIC": "Ana me7tag permissions aktar. It2akked men roles beta3y we el makan beta3o fe el server.",
+                "NSFW_REQUIRED": "El command da yemken yestakhdem fe NSFW channels bas!"
+            }
+        }
+    }
+}

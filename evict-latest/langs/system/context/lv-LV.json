@@ -1,0 +1,18 @@
+{
+    "language_code": "lv-LV",
+    "language": "lv-LV",
+    "language_local": "lv-LV",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "Apstiprinājuma norāde netika apstiprināta!",
+            "FAILED_SEND_PROMPT": "Nesanāca nosūtit norādijuma īziņu!",
+            "ONLY_USER_RESPOND": "Tikai **{user}** var atbildēt uz šo!",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "Apstiprināt",
+                    "decline": "Neapstiprināt"
+                }
+            }
+        }
+    }
+}

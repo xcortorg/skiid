@@ -1,0 +1,33 @@
+# Rust build directory
+/target/
+
+# Rust generated files
+**/*.rs.bk
+Cargo.lock
+
+# CDN files directory
+/cdn_files/
+
+# IDE specific files
+.vscode/
+.idea/
+*.iml
+
+# Environment files
+.env
+.env.local
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Debug files
+*.pdb
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp

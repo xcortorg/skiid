@@ -1,0 +1,5 @@
+Issue #2
+Reported by: playfairs (ID: 785042666475225109)
+
+Description:
+r icon: Kybalion's is still unable to apply icons to Roles at the moment, this will be fixed soon

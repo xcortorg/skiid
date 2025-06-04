@@ -1,0 +1,5 @@
+Issue #1
+Reported by: playfairs (ID: 785042666475225109)
+
+Description:
+Last.FM: None of the commands work at the moment due to API issues.

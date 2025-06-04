@@ -1,0 +1,26 @@
+<1313762821661655111> [01:04 AM 12/04/24] Message Sent: ,armory
+<1313762862228836453> [01:04 AM 12/04/24] Message Sent: ,banlist
+<1313762893367349278> [01:04 AM 12/04/24] Message Sent: alr
+<1313762920865468466> [01:04 AM 12/04/24] Message Sent: ,ban <@1276814848554176583>
+<1313762943409721384> [01:04 AM 12/04/24] Message Sent: ,ban <@763334097904599062>
+<1313762987999363093> [01:05 AM 12/04/24] Message Sent: ,ban <@516502034187288597>
+<1313763007033245739> [01:05 AM 12/04/24] Message Sent: ,ban <@827304316062269450>
+<1313763049324412959> [01:05 AM 12/04/24] Message Sent: ,bc
+<1313763066227462226> [01:05 AM 12/04/24] Message Sent: ,purge <@926665802957066291>
+<1313763091313332275> [01:05 AM 12/04/24] Message Sent: ,purge from <@608450597347262472>
+<1313763096661196802> [01:05 AM 12/04/24] Message Sent: ,afk
+<1313763150218264646> [01:05 AM 12/04/24] Message Sent: ,lock
+<1313763213992656917> [01:05 AM 12/04/24] Message Sent: ,lock-all
+<1313763384482730065> [01:06 AM 12/04/24] Message Sent: alr good
+<1313763399141949490> [01:06 AM 12/04/24] Message Sent: so
+<1313763431366656011> [01:06 AM 12/04/24] Message Sent: im gonna make some pretty simple rules
+<1313763440296198144> [01:06 AM 12/04/24] Message Sent: first off
+<1313764322002075679> [01:10 AM 12/04/24] Message Sent: <@1313738630082068580> the way you acted earlier is unacceptable and immature, you said sorry, thats fine, but you chose to still be a prick to <@944298361073315870> which didnt do anything, you say sorry and forgive everyone, not ust one or 2 people, then said shes irrelevant bc oh your talking to my gf like, ok, that doesnt make someone else irrelevant, i think thats pretty fucking pathetic, and <@764119775436996674> im sorry abt this but i actually think its quite immature how your gf acted, she could have been friendly and not so rude, but she chose to be an asshole for no reason, i dont mean to shit on you or your rs but thats just not acceptable and its pisses me off how someone can be so damn ignorant for no fucking reason, i mean we didnt do shit and she just instantly fucking went prick mode, you gotta get her in check bc while some people may be fine with it, im not and its disrespectful as fuck
+<1313764414977081355> [01:10 AM 12/04/24] Message Sent: now me personally, im gonna keep this chat locked
+<1313764444849049650> [01:10 AM 12/04/24] Message Sent: im not unlocking ts
+<1313764510112415776> [01:11 AM 12/04/24] Message Sent: ,access-role <@&1294087156465139743>
+<1313764588201709608> [01:11 AM 12/04/24] Message Sent: ,r <@764119775436996674> Access
+<1313764667302215753> [01:11 AM 12/04/24] Message Sent: ,r <@944298361073315870> Access
+<1313764959154602046> [01:12 AM 12/04/24] Message Sent: oh and on top of that, what the fuck did the bot do
+<1313765090855485441> [01:13 AM 12/04/24] Message Sent: nvm
+<1313765138817617950> [01:13 AM 12/04/24] Message Sent: ,afk not unlocking ts fuck yall

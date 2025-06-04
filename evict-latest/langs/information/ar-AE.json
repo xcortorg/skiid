@@ -1,0 +1,63 @@
+{
+    "language_code": "ar-AE",
+    "language": "ar-AE",
+    "language_local": "ar-AE",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "تاخذ لنك حق البوت"
+        },
+        "discord": {
+            "DESCRIPTION": "لنك سيرفر السبورت حق البوت"
+        },
+        "about": {
+            "DESCRIPTION": "اظهار  معلومات عن البوت",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "مبرمج ومنظم من قبل [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+                "DESCRIPTION_LINE_TWO": "استخدام {cached_commands} أوامر عبر {total_cogs} كوغات ({extended_cogs} وحدات في المجموع)",
+                "FOOTER": "evict/v{version} • آخر تحديث: {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "إظهار بنق البوت",
+            "INITAL_EMBED": {
+                "description": "جاري القياس..."
+            },
+            "UPDATED_EMBED": {
+                "description": "**`{ping}ms` (تعديل: `{edit_ping}ms`)**"
+            }
+        },
+        "poll": {
+            "DESCRIPTION": "أوامر إدارة التصويت",
+            "create": {
+                "DESCRIPTION": "إنشاء استطلاع جديد باستخدام الأعلام",
+                "CANCELLED": "تم إلغاء إنشاء الاستطلاع.",
+                "INVALID_DURATION": "تنسيق المدة غلط. استخدم 1h، 1d، وغيره."
+            },
+            "quick": {
+                "DESCRIPTION": "أنشئ استطلاع سريع مع خيارات بسيطة نعم/لا أو خيارات مخصصة"
+            },
+            "list": {
+                "DESCRIPTION": "عرض جميع الاستطلاعات الحالية في السيرفر",
+                "NO_POLLS": {
+                    "DEFAULT": "لا توجد استطلاعات نشطة!",
+                    "FILTERED": "**لا توجد استطلاعات نشطة لـ {creator}!**"
+                },
+                "ENTRY": {
+                    "TITLE": "**{title}**",
+                    "CREATOR": "تم الإنشاء بواسطة: {creator}",
+                    "VOTES": "تصويتات: {count}",
+                    "ID": "ايدي: {id}",
+                    "CREATED": "تم الإنشاء: {time}",
+                    "ENDS": "ينتهي: {time}"
+                },
+                "EMBED_TITLE": "الاستطلاعات اللي شغالة في {guild}"
+            },
+            "end": {
+                "DESCRIPTION": "إغلاق الاستطلاع قبل الوقت",
+                "INVALID_ID": "رقم الاستطلاع غير صحيح!",
+                "NOT_FOUND": "لم يتم العثور على الاستطلاع أو انتهى!",
+                "NO_PERMISSION": "ما تقدر تنهي هذا الاستطلاع!"
+            }
+        }
+    }
+}

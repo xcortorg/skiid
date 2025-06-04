@@ -1,0 +1,50 @@
+{
+    "language": "العربية",
+    "language_code": "ar",
+    "language_local": "ar-SA",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": "الأمر `{command}` تسبب في خطأ. حاول مرة أخرى لاحقًا.",
+                "SCRIPT_ERROR": "هناك خطأ في **السكريبت** الخاص بك!",
+                "FLAG": {
+                    "DUPLICATE": "لقد حددت العلامة **{flag_name}** أكثر من مرة!",
+                    "CAST_ERROR": "فشل تحويل **{flag_name}** إلى `{annotation}`!",
+                    "STATUS_HINT": "تأكد من تقديم **on** أو **off** لعلامات `Status`!",
+                    "MISSING_VALUE": "يجب عليك تحديد قيمة لعلامة **{flag_name}**!"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "يمكن استخدام هذا الأمر فقط **{number} {time}** لكل **{per}** في نفس الوقت!",
+                "COOLDOWN": {
+                    "MESSAGE": "هذا الأمر قيد التهدئة حاليًا!",
+                    "RETRY": "حاول مرة أخرى خلال **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "لم يتم العثور على **{param}** يطابق **{argument}**!",
+                "USER_ID_HINT": "إذا لم يكن المستخدم في هذا السيرفر، جرب استخدام **معرفه** بدلاً من ذلك",
+                "SERVER": "لم يتم العثور على سيرفر يطابق **{argument}**!",
+                "CASTING": "فشل تحويل **{param}** إلى {converters}!",
+                "NOT_FOUND": {
+                    "MEMBER": "لم يتم العثور على **عضو** يطابق **{argument}**!",
+                    "USER": "لم يتم العثور على **مستخدم** يطابق `{argument}`!",
+                    "ROLE": "لم يتم العثور على **رتبة** تطابق **{argument}**!",
+                    "CHANNEL": "لم يتم العثور على **قناة** تطابق **{argument}**!",
+                    "INVITE": "تم تقديم **كود دعوة** غير صالح!",
+                    "MESSAGE": "لم يتم العثور على **الرسالة** المحددة!\nجرب استخدام **رابط الرسالة** بدلاً من ذلك"
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "يجب أن يكون الإدخال {label}!",
+                "RANGE_CHARS": "يجب أن يحتوي الإدخال على {label} أحرف!"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "تفتقد إلى إذن {permissions} {plural}!",
+                "BOT_MISSING": "أنا أفتقد الأذونات التالية: {permissions}",
+                "BOT_MISSING_GENERIC": "أفتقد الأذونات المطلوبة. يرجى التحقق من أذونات دوري وموقعي.",
+                "NSFW_REQUIRED": "هذا الأمر يمكن استخدامه فقط في قنوات NSFW!"
+            }
+        }
+    }
+}

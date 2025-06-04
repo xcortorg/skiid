@@ -1,0 +1,391 @@
+{
+  "language": "English",
+  "language_code": "en",
+  "language_local": "en-US",
+  "commands": {
+    "invite": {
+      "DESCRIPTION": "Get an invite link for the bot."
+    },
+    "discord": {
+      "DESCRIPTION": "Get an invite link for the bot's support server."
+    },
+    "about": {
+      "DESCRIPTION": "View information about the bot.",
+      "EMBED": {
+        "DESCRIPTION_LINE_ONE": "Developed and maintained by [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+        "DESCRIPTION_LINE_TWO": "Utilizing `{cached_commands}` commands across `{total_cogs}` cogs (`{extended_cogs}` total modules)",
+        "FIELDS": [
+          {
+            "name": "**Bot**",
+            "values": [
+              "**Users:** `{cached_users}`",
+              "**Servers:** `{cached_guilds}`",
+              "**Created:** `{created_at}`"
+            ]
+          },
+          {
+            "name": "**System**",
+            "values": [
+              "**CPU:** `{cpu_usage}%`",
+              "**Memory:** `{memory_usage}%`",
+              "**Launched:** `{uptime}`"
+            ]
+          },
+          {
+            "name": "**Code**",
+            "values": [
+              "**Lines:** `{lines_of_code}`",
+              "**Files:** `{total_files}`",
+              "**Imports:** `{total_imports}`",
+              "**Functions:** `{total_functions}`"
+            ]
+          }
+        ],
+        "FOOTER": "evict/v{version} • Latest Commit: {latest_commit}"
+      }
+    },
+    "ping": {
+      "DESCRIPTION": "View the bot's latency.",
+      "INITAL_EMBED": {
+        "description": "pinging..."
+      },
+      "UPDATED_EMBED": {
+        "description": "`{ping}ms` (edit: `{edit_ping}ms`)"
+      }
+    },
+    "poll": {
+      "DESCRIPTION": "Poll management commands",
+      "create": {
+        "DESCRIPTION": "Create a new poll using flags",
+        "CANCELLED": "Poll creation cancelled.",
+        "INVALID_DURATION": "Invalid duration format. Use 1h, 1d, etc."
+      },
+      "quick": {
+        "DESCRIPTION": "Create a quick poll with simple yes/no or custom options"
+      },
+      "list": {
+        "DESCRIPTION": "List all active polls in the server",
+        "NO_POLLS": {
+          "DEFAULT": "No active polls found!",
+          "FILTERED": "No active polls found for {creator}!"
+        },
+        "ENTRY": {
+          "TITLE": "**{title}**",
+          "CREATOR": "Created by: {creator}",
+          "VOTES": "Votes: {count}",
+          "ID": "ID: `{id}`",
+          "CREATED": "Created: {time}",
+          "ENDS": "Ends: {time}"
+        },
+        "EMBED_TITLE": "Active Polls in {guild}"
+      },
+      "end": {
+        "DESCRIPTION": "End a poll early",
+        "INVALID_ID": "Invalid poll ID!",
+        "NOT_FOUND": "Poll not found or already ended!",
+        "NO_PERMISSION": "You can't end this poll!",
+        "SUCCESS": "Poll ended successfully!"
+      },
+      "results": {
+        "DESCRIPTION": "View detailed results of a poll",
+        "INVALID_ID": "Invalid poll ID!",
+        "NOT_FOUND": "Poll not found!"
+      },
+      "UI": {
+        "VOTE": {
+          "ENDED": "This poll has ended.",
+          "ROLE_REQUIRED": "You need the {role} role to vote!",
+          "SUCCESS": "Your vote has been recorded!",
+          "ERROR": "Failed to record your vote. Please try again.",
+          "BUTTON": "Vote",
+          "SELECT_PROMPT": "Select your choice(s):"
+        },
+        "RESULTS": {
+          "BUTTON": "Results",
+          "BACK_BUTTON": "Back to Poll"
+        },
+        "MODAL": {
+          "TITLE": "Poll Choices",
+          "CHOICE_LABEL": "Choice {number}",
+          "CHOICE_PLACEHOLDER": "Enter choice {number}"
+        }
+      }
+    },
+    "status": {
+      "DESCRIPTION": "Check shard status.",
+      "MESSAGE": "Experiencing issues? Check your shard status [here]({url}).\nYour guild is on shard {shard_id}"
+    }
+  },
+  "inviteinfo": {
+    "DESCRIPTION": "View information about an invite.",
+    "EMBED": {
+      "AUTHOR": "{guild_name} ({guild_id})",
+      "FIELDS": {
+        "INFORMATION": {
+          "NAME": "**Information**",
+          "VALUE": "**Inviter:** {inviter}\n**Channel:** {channel}\n**Created:** {created_at}"
+        },
+        "GUILD": {
+          "NAME": "**Guild**",
+          "VALUE": "**Members:** {member_count:,}\n**Members Online:** {online_count:,}\n**Verification Level:** {verification_level}"
+        }
+      }
+    }
+  },
+  "serverbanner": {
+    "DESCRIPTION": "View a server's banner if one is present.",
+    "BANNER_MISSING": "**{guild}** doesn't have a banner present!",
+    "BANNER_TITLE": "{guild}'s banner"
+  },
+  "servericon": {
+    "DESCRIPTION": "View a server's icon if one is present.",
+    "ICON_MISSING": "**{guild}** doesn't have an icon present!",
+    "BANNER_TITLE": "{guild}'s banner",
+    "ICON_TITLE": "{guild}'s icon"
+  },
+  "avatar": {
+    "DESCRIPTION": "View a user's avatar.",
+    "TITLE": {
+      "SELF": "Your avatar",
+      "OTHER": "{user_name}'s avatar"
+    }
+  },
+  "serveravatar": {
+    "DESCRIPTION": "View a user's server avatar.",
+    "MISSING": {
+      "SELF": "You don't have a server avatar present!",
+      "OTHER": "**{member}** doesn't have a server avatar present!"
+    },
+    "TITLE": {
+      "SELF": "Your server avatar",
+      "OTHER": "{member_name}'s server avatar"
+    }
+  },
+  "memberbanner": {
+    "DESCRIPTION": "View a user's server banner.",
+    "MISSING": {
+      "SELF": "You don't have a server banner present!",
+      "OTHER": "**{member}** doesn't have a server banner present!"
+    },
+    "TITLE": {
+      "SELF": "Your server banner",
+      "OTHER": "{member_name}'s server banner"
+    }
+  },
+  "banner": {
+    "DESCRIPTION": "View a user's banner if one is present.",
+    "MISSING": {
+      "SELF": "You don't have a banner present!",
+      "OTHER": "**{user}** doesn't have a banner present!"
+    },
+    "TITLE": {
+      "SELF": "Your banner",
+      "OTHER": "{user_name}'s banner"
+    }
+  },
+  "membercount": {
+    "DESCRIPTION": "View the member count of a server.",
+    "FIELDS": {
+      "MEMBERS": "**Members**",
+      "HUMANS": "**Humans**",
+      "BOTS": "**Bots**"
+    }
+  },
+  "serverinfo": {
+    "DESCRIPTION": "View information about the server.",
+    "ERRORS": {
+      "NOT_FOUND": "Server not found!"
+    },
+    "EMBED": {
+      "AUTHOR": "{guild_name} ({guild_id})",
+      "FIELDS": {
+        "INFORMATION": {
+          "NAME": "**Information**",
+          "VALUE": "**Owner:** {owner}\n**Verification:** {verification}\n**Nitro Boosts:** {boost_count:,} (`Level {boost_level}`)"
+        },
+        "STATISTICS": {
+          "NAME": "**Statistics**",
+          "VALUE": "**Members:** {member_count:,}\n**Text Channels:** {text_channels:,}\n**Voice Channels:** {voice_channels:,}"
+        },
+        "ROLES": {
+          "NAME": "**Roles ({role_count})**"
+        }
+      }
+    }
+  },
+  "bots": {
+    "DESCRIPTION": "View all bots in the server.",
+    "NO_BOTS": "**{guild}** doesn't have any bots!",
+    "TITLE": "Bots in {guild}"
+  },
+  "banlist": {
+    "DESCRIPTION": "View all banned members.",
+    "NO_BANS": "No members are currently banned!",
+    "TITLE": "Banned Members [{count}]"
+  },
+  "guildinvites": {
+    "DESCRIPTION": "View all invites in the server.",
+    "NO_INVITES": "No invites are currently present!",
+    "TITLE": "Invites in {guild}"
+  },
+  "emojis": {
+    "DESCRIPTION": "View all server emojis.",
+    "NO_EMOJIS": "**{guild}** doesn't have any emojis!",
+    "TITLE": "Emojis in {guild}"
+  },
+  "stickers": {
+    "DESCRIPTION": "View all server stickers.",
+    "NO_STICKERS": "**{guild}** doesn't have any stickers!",
+    "TITLE": "Stickers in {guild}"
+  },
+  "weather": {
+    "DESCRIPTION": "Get the current weather for a city/country",
+    "ERROR": {
+      "NOT_FOUND": "Couldn't find weather data for `{location}`",
+      "GENERIC": "An error occurred while fetching weather data: {error}"
+    },
+    "EMBED": {
+      "TITLE": "Weather in {location}",
+      "FIELDS": {
+        "TEMPERATURE": {
+          "NAME": "Temperature",
+          "VALUE": "🌡️ **{temp_c}°C** ({temp_f}°F)\nFeels like: {feels_c}°C ({feels_f}°F)"
+        },
+        "HUMIDITY": {
+          "NAME": "Humidity",
+          "VALUE": "💧 {humidity}%"
+        },
+        "WIND": {
+          "NAME": "Wind",
+          "VALUE": "💨 {speed} km/h"
+        },
+        "CLOUD_COVER": {
+          "NAME": "Cloud Cover",
+          "VALUE": "☁️ {cover}%"
+        },
+        "VISIBILITY": {
+          "NAME": "Visibility",
+          "VALUE": "👁️ {distance} km"
+        },
+        "PRECIPITATION": {
+          "NAME": "Precipitation",
+          "VALUE": "🌧️ {amount} mm"
+        }
+      }
+    }
+  },
+  "shards": {
+    "DESCRIPTION": "View the bot shard latency."
+  },
+  "userinfo": {
+    "DESCRIPTION": "View information about a user.",
+    "TITLE": "{user} {bot_tag}",
+    "FIELDS": {
+      "CREATED": "**Created**",
+      "JOINED": "**Joined ({position})**",
+      "BOOSTED": "**Boosted**",
+      "ROLES": "**Roles**"
+    },
+    "VOICE": {
+      "STREAMING": "🎙 Streaming inside {channel} {with_others}",
+      "NORMAL": "🎙 Inside {channel} {with_others}",
+      "WITH_OTHERS": "with {count:other}",
+      "ALONE": "by themselves"
+    },
+    "ACTIVITIES": {
+      "SPOTIFY": "🎵 Listening to [**{title}**]({url}) by **{artist}**",
+      "STREAMING": "🎥 Streaming {activities}",
+      "PLAYING": "🎮 Playing {activities}",
+      "WATCHING": "📺 Watching {activities}",
+      "COMPETING": "🏆 Competing in {activities}"
+    },
+    "FOOTER": "{count} mutual servers"
+  },
+  "namehistory": {
+    "DESCRIPTION": "View a user's name history.",
+    "NO_HISTORY": "**{user}** doesn't have any name history!",
+    "TITLE": "Name History",
+    "clear": {
+      "DESCRIPTION": "Remove all your name history.",
+      "SUCCESS": "Successfully cleared your name history"
+    }
+  },
+  "devices": {
+    "DESCRIPTION": "View a member's platforms.",
+    "OFFLINE": {
+      "SELF": "You're appearing offline!",
+      "OTHER": "**{member}** doesn't appear to be online!"
+    },
+    "TITLE": {
+      "SELF": "Your devices",
+      "OTHER": "{member_name}'s devices"
+    },
+    "ACTIVITIES": {
+      "SPOTIFY": "🎵 Listening to [**{title}**]({url}) by **{artist}**",
+      "STREAMING": "🎥 Streaming {activities}",
+      "PLAYING": "🎮 Playing {activities}",
+      "WATCHING": "📺 Watching {activities}",
+      "COMPETING": "🏆 Competing in {activities}"
+    }
+  },
+  "roles": {
+    "DESCRIPTION": "View the server roles.",
+    "NO_ROLES": "**{guild}** doesn't have any roles!",
+    "TITLE": "Roles in {guild}"
+  },
+  "inrole": {
+    "DESCRIPTION": "View members which have a role.",
+    "NO_MEMBERS": "{role} doesn't have any members!",
+    "TITLE": "Members with {role}"
+  },
+  "boosters": {
+    "DESCRIPTION": "View server boosters.",
+    "NO_BOOSTERS": "No members are currently boosting!",
+    "TITLE": "Boosters",
+    "lost": {
+      "DESCRIPTION": "View all lost boosters.",
+      "NO_LOST": "No boosters have been lost!",
+      "TITLE": "Boosters Lost"
+    }
+  },
+  "firstmessage": {
+    "DESCRIPTION": "View the first message sent.",
+    "RESPONSE": "Jump to the [`first message`]({url}) sent by **{author}**"
+  },
+  "position": {
+    "DESCRIPTION": "Check member join position.",
+    "RESPONSE": "{member} is member number `{pos}`."
+  },
+  "roleinfo": {
+    "DESCRIPTION": "View information about a role.",
+    "FIELDS": {
+      "ID": "Role ID",
+      "COLOR": "Color",
+      "PERMISSIONS": {
+        "NAME": "Permissions",
+        "NONE": "No dangerous permissions granted."
+      },
+      "MEMBERS": {
+        "NAME": "{count} Member(s)",
+        "NONE": "No members in this role."
+      }
+    },
+    "FOOTER": {
+      "DANGEROUS": "Dangerous Permissions!"
+    }
+  },
+  "getbotinvite": {
+    "DESCRIPTION": "Get a bots invite by providing the bots ID.",
+    "NOT_BOT": "The ID provided is not a bot!",
+    "BUTTON": "Invite {name}"
+  },
+  "gnames": {
+    "DESCRIPTION": "View a guild's name history.",
+    "NO_HISTORY": "**{guild}** doesn't have any name history!",
+    "TITLE": "{guild_name} Name History"
+  },
+  "cleargnames": {
+    "DESCRIPTION": "Clear the guild name history.",
+    "SUCCESS": "Cleared the guild name history!"
+  }
+}

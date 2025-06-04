@@ -1,0 +1,55 @@
+{
+    "language_code": "tl-PH",
+    "language": "tl-PH",
+    "language_local": "tl-PH",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "Kumuha ng link ng imbitasyon para sa bot."
+        },
+        "discord": {
+            "DESCRIPTION": "Kumuha ng link ng imbitasyon para sa support server ng bot."
+        },
+        "about": {
+            "DESCRIPTION": "Tignan ang impormasyon tungkol sa bot.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Gawa at pinapanatili nila [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), at [harry](https://discordapp.com/users/187747524646404105).",
+                "DESCRIPTION_LINE_TWO": "Paggamit ng `{cached_commands}` commands sa `{total_cogs}` cogs (`{extended_cogs}` kabuoang modules)",
+                "FOOTER": "evict/v{version} • Pinakabagong Commit: {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "Tignan ang latency ng bot.",
+            "INITAL_EMBED": {
+                "description": "nag-pipiing..."
+            },
+            "UPDATED_EMBED": {
+                "description": "`{ping}ms` (edit: `{edit_ping}ms`)"
+            }
+        },
+        "poll": {
+            "DESCRIPTION": "Mga utos para sa pamamahala ng poll",
+            "create": {
+                "DESCRIPTION": "Gumawa ng bagong poll gamit ang flags.",
+                "CANCELLED": "Kinansela ang paggawa ng poll.",
+                "INVALID_DURATION": "Maling format ng durasyon. Gumamit ng 1h, 1d, etc."
+            },
+            "quick": {
+                "DESCRIPTION": "Gumawa ng mabilis na poll na may simpleng oo/hindi o custom na mga opsyon."
+            },
+            "list": {
+                "DESCRIPTION": "Ilista ang lahat ng aktibong poll sa server.",
+                "NO_POLLS": {
+                    "DEFAULT": "Walang nakitang aktibong poll!",
+                    "FILTERED": "Walang nakitang aktibong poll para kay {creator}!"
+                },
+                "ENTRY": {
+                    "TITLE": "**{title}**",
+                    "CREATOR": "Ginawa ni: {creator}",
+                    "VOTES": "Mga boto: {count}",
+                    "ID": "ID: {id}",
+                    "CREATED": "Ginawa: {time}"
+                }
+            }
+        }
+    }
+}

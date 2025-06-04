@@ -1,0 +1,44 @@
+version: '3'
+services:
+  bot1:
+    container_name: 'greed1'
+    build:
+      context: .
+    volumes:
+      - .:/app
+
+    network_mode: host
+    environment:
+      - CLUSTER=1
+      - shard_ids=0,1,2
+      - TOKEN=MTAwNjEzMzg4MTQwMzA4NDg2MA.GWNpeI.S1LzTzCFtltjz1wlEVbdtiJ8tKpIoBwD79RvVI
+      - VERSION=1.0
+    user: root
+
+  bot2:
+    container_name: 'greed2'
+    build:
+      context: .
+    volumes:
+      - .:/app
+    network_mode: host
+    environment:
+      - CLUSTER=2
+      - shard_ids=3,4,5
+      - TOKEN=MTAwNjEzMzg4MTQwMzA4NDg2MA.GWNpeI.S1LzTzCFtltjz1wlEVbdtiJ8tKpIoBwD79RvVI
+      - VERSION=1.0
+    user: root
+
+  # bot3:
+  #   container_name: 'greed3'
+  #   build:
+  #     context: .
+  #   volumes:
+  #     - .:/app
+  #   network_mode: host
+  #   environment:
+  #     - CLUSTER=3
+  #     - shard_ids=12,13,14,15,16,17
+  #     - TOKEN=xxx
+  #     - VERSION=1.0
+  #   user: root

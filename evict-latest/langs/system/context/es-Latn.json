@@ -1,0 +1,18 @@
+{
+    "language_code": "es-Latn",
+    "language": "es-Latn",
+    "language_local": "es-Latn",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "¡El mensaje de confirmación no fue aprobado!",
+            "FAILED_SEND_PROMPT": "¡Error al enviar el mensaje de confirmación!",
+            "ONLY_USER_RESPOND": "¡Solo {user} puede responder a esto!",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "Aprobar",
+                    "decline": "Rechazar"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,365 @@
+from discord.ext import commands
+from discord.ext.commands import Context, BadArgument
+from discord import Embed, TextChannel
+import random
+import discord
+import asyncio
+from datetime import datetime, timedelta
+
+class BlackTea:
+    def __init__(self, bot):
+        self.bot = bot
+        self.color = 0xA5D287
+        self.emoji = "<a:boba_tea_green_gif:1302250923858591767>"
+        self.MatchStart = []
+        self.lifes = {}
+        self.players = {}
+
+
+    def get_string(self):
+        words = self.get_words()
+        word = random.choice([l for l in words if len(l) > 3])
+        return word[:3]
+
+    async def send_embed(self, channel: TextChannel, content: str):
+        return await channel.send(embed=Embed(color=self.color, description=content))
+
+    def match_started(self, guild_id: int):
+        if guild_id in self.MatchStart:
+            raise BadArgument("A Black Tea match is **already** in progress")
+        else:
+            self.MatchStart.append(guild_id)
+
+    async def lost_a_life(self, member: int, reason: str, channel: TextChannel):
+        lifes = self.lifes[f"{channel.guild.id}"].get(f"{member}")
+        self.lifes[f"{channel.guild.id}"][f"{member}"] = lifes + 1
+
+        if reason == "timeout":
+            await self.send_embed(
+                channel,
+                f"⏰ <@{member}> time is up! **{3-int(self.lifes[f'{channel.guild.id}'][f'{member}'])}** lifes left..",
+            )
+
+        elif reason == "wrong":
+            await self.send_embed(
+                channel,
+                f"💥 <@{member}> wrong answer! **{3-int(self.lifes[f'{channel.guild.id}'][f'{member}'])}** lifes left..",
+            )
+
+        if self.lifes[f"{channel.guild.id}"][f"{member}"] == 3:
+            await self.send_embed(channel, f"☠️ <@{member}> you're eliminated")
+            del self.lifes[f"{channel.guild.id}"][f"{member}"]
+            self.players[f"{channel.guild.id}"].remove(member)
+
+    def get_words(self):
+        data = open("./data/words.txt", encoding="utf-8")
+        return [d for d in data.read().splitlines()]
+
+    def clear_all(self):
+        self.MatchStart = []
+        self.lifes = {}
+        self.players = {}
+
+    def remove_stuff(self, guild_id: int):
+        del self.players[f"{guild_id}"]
+        del self.lifes[f"{guild_id}"]
+        self.MatchStart.remove(guild_id)
+
+
+class Fun(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+        self.blacktea = BlackTea(self.bot)
+
+    @commands.command(name="uwuify", brief="uwuify a message", aliases=["uwu"])
+    async def uwuify(self, ctx: Context, *, message: str):
+        try:
+            text = await self.bot.rival.uwuify(message)
+            return await ctx.send(text)
+        except Exception:  # noqa: E722
+            return await ctx.fail("couldn't uwuify that message")
+
+
+    @commands.command(name="blacktea")
+    async def blacktea(self, ctx: Context):
+        """
+        play blacktea with the server members
+        """
+
+        self.blacktea.match_started(ctx.guild.id)
+        coffee_emoji = "☕️"
+        other_emoji = "<a:boba_tea_green_gif:1302250923858591767>"
+
+        # Create a list with 10 coffee emojis
+        emojis = [coffee_emoji] * 10
+
+        # Initialize index to track which emoji to change next
+        index_to_change = 9
+
+        # Wait for 1 second before logger.infoing and changing again
+        embed = Embed(
+            color=self.blacktea.color,
+            title="BlackTea Matchmaking",
+        )
+        mes = await ctx.send(embed=embed, content="".join(emojis))
+        await mes.add_reaction(self.blacktea.emoji)
+        for i in range(11):
+            # logger.info the current list of emojis
+            new_content = "".join(emojis)
+
+            # Change the emoji at the current index
+            emojis[index_to_change] = other_emoji
+
+            # Move to the next index (circular fashion)
+            index_to_change = (index_to_change - 1) % len(emojis)
+            await mes.edit(content=new_content)
+            await asyncio.sleep(1)
+
+        try:
+            newmes = await ctx.channel.fetch_message(mes.id)
+        except Exception:
+            try:
+                self.blacktea.MatchStart.remove(ctx.guild.id)
+            except Exception:
+                pass
+            return await ctx.send("The blacktea message was deleted")
+
+        users = [
+            u.id async for u in newmes.reactions[0].users() if u.id != self.bot.user.id
+        ]
+
+        if len(users) < 2:
+            try:
+                self.blacktea.MatchStart.remove(ctx.guild.id)
+            except Exception:
+                pass
+            return await ctx.send("not enough players to start the blacktea match...")
+
+        words = self.blacktea.get_words()
+        self.blacktea.players.update({f"{ctx.guild.id}": users})
+        self.blacktea.lifes.update(
+            {f"{ctx.guild.id}": {f"{user}": 0 for user in users}}
+        )
+
+        while len(self.blacktea.players[f"{ctx.guild.id}"]) > 1:
+            for user in users:
+                rand = self.blacktea.get_string()
+                await self.blacktea.send_embed(
+                    ctx.channel,
+                    f"{self.blacktea.emoji} <@{user}>: Say a word containing **{rand}** in **10 seconds**",
+                )
+                try:
+                    message = await self.bot.wait_for(
+                        "message",
+                        check=lambda m: m.channel.id == ctx.channel.id
+                        and m.author.id == user,
+                        timeout=10,
+                    )
+                    if (
+                        rand in message.content.lower()
+                        and message.content.lower() in words
+                    ):
+                        await self.blacktea.send_embed(
+                            ctx.channel,
+                            f"<@{user}> Correct answer!",
+                        )
+                    else:
+                        await self.blacktea.lost_a_life(user, "wrong", ctx.channel)
+                except asyncio.TimeoutError:
+                    await self.blacktea.lost_a_life(user, "timeout", ctx.channel)
+
+        await self.blacktea.send_embed(
+            ctx.channel,
+            f"👑 <@{self.blacktea.players[f'{ctx.guild.id}'][0]}> Won the game!!",
+        )
+        member = self.blacktea.players[str(ctx.guild.id)][0]
+
+        self.blacktea.remove_stuff(ctx.guild.id)
+        self.blacktea
+
+    @commands.group(name="vape", invoke_without_command=True)
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def vape(self, ctx):
+        user_id = ctx.author.id
+        guild_id = ctx.guild.id
+
+        row = await self.bot.db.fetchrow("""
+            SELECT user_id FROM vape_hits
+            WHERE guild_id = $1 AND has_vape = TRUE;
+        """, guild_id)
+
+        if row and row['user_id'] != user_id:
+            return await ctx.send(f"{ctx.guild.get_member(row['user_id']).mention} currently has the vape!")
+
+        await self.bot.db.execute("""
+            INSERT INTO vape_hits (user_id, guild_id, hits, guild_hits, has_vape)
+            VALUES ($1, $2, 1, 1, TRUE)
+            ON CONFLICT (user_id, guild_id) DO UPDATE
+            SET hits = vape_hits.hits + 1, 
+                guild_hits = vape_hits.guild_hits + 1,
+                has_vape = TRUE;
+        """, user_id, guild_id)
+
+        row = await self.bot.db.fetchrow("""
+            SELECT hits, guild_hits 
+            FROM vape_hits
+            WHERE user_id = $1 AND guild_id = $2;
+        """, user_id, guild_id)
+
+        hits, guild_hits = row['hits'], row['guild_hits']
+
+        message = await ctx.send("hitting vape...")
+        await asyncio.sleep(3)
+        await message.edit(content=None, embed=discord.Embed(
+            description=f"<:hits:1303239575250014241> {ctx.author.mention} took their {self.bot.ordinal(hits)} hit! "
+                        f"(Guild total: {guild_hits} hits)"
+        ))
+
+    @vape.command(name="hit")
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def vape_hit(self, ctx):
+        await .invoke(self.vape)
+
+    @vape.command(name="steal")
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def vape_steal(self, ctx, target: discord.Member):
+        user_id = ctx.author.id
+        target_id = target.id
+        guild_id = ctx.guild.id
+
+        row = await self.bot.db.fetchrow("""
+            SELECT user_id FROM vape_hits
+            WHERE guild_id = $1 AND has_vape = TRUE;
+        """, guild_id)
+
+        if not row or row['user_id'] != target_id:
+            return await ctx.send(f"{target.mention} doesn't have the vape to steal!")
+
+        await self.bot.db.execute("""
+            UPDATE vape_hits
+            SET has_vape = CASE WHEN user_id = $1 THEN FALSE ELSE TRUE END
+            WHERE guild_id = $2 AND user_id IN ($1, $3);
+        """, target_id, guild_id, user_id)
+
+        await self.bot.db.execute("""
+            INSERT INTO vape_hits (user_id, guild_id, hits, guild_hits, has_vape)
+            VALUES ($1, $2, 1, 1, TRUE)
+            ON CONFLICT (user_id, guild_id) DO UPDATE
+            SET hits = vape_hits.hits + 1,
+                guild_hits = vape_hits.guild_hits + 1,
+                has_vape = TRUE;
+        """, user_id, guild_id)
+
+        await ctx.send(f"{ctx.author.mention} stole the vape from {target.mention}!")
+
+    @vape.command(name="hits")
+    async def vape_hits(self, ctx):
+        user_id = ctx.author.id
+        guild_id = ctx.guild.id
+        row = await self.bot.db.fetchrow("""
+            SELECT hits, guild_hits
+            FROM vape_hits
+            WHERE user_id = $1 AND guild_id = $2;
+        """, user_id, guild_id)
+
+        hits = row['hits'] if row else 0
+        guild_hits = row['guild_hits'] if row else 0
+        await ctx.send(f"{ctx.author.mention} has taken {hits} hits (Guild total hits: {guild_hits}).")
+
+
+
+
+    @commands.command()
+    async def spark(self, ctx):
+        user_id = ctx.author.id
+        row = await self.bot.db.fetchrow("SELECT sparked, last_sparked FROM blunt_hits WHERE user_id = $1", user_id)
+
+        if row:
+            sparked, last_sparked = row
+            if not sparked or (datetime.now() - last_sparked).total_seconds() > 300:
+                await self.bot.db.execute("""
+                    INSERT INTO blunt_hits (user_id, sparked, last_sparked)
+                    VALUES ($1, TRUE, $2)
+                    ON CONFLICT (user_id) 
+                    DO UPDATE SET sparked = TRUE, last_sparked = $2
+                """, user_id, datetime.now())
+                embed = discord.Embed(description=f"<:arolighter:1303239578009866252> {ctx.author.mention} sparked the blunt!", color=self.bot.color)
+                await ctx.send(embed=embed)
+            else:
+                remaining_time = timedelta(seconds=300) - (datetime.now() - last_sparked)
+                remaining_minutes, remaining_seconds = divmod(int(remaining_time.total_seconds()), 60)
+                embed = discord.Embed(description=f"{ctx.author.mention}, you need to wait {remaining_minutes} minutes and {remaining_seconds} seconds before sparking another blunt!", color=self.bot.color)
+                await ctx.send(embed=embed)
+        else:
+            await self.bot.db.execute("""
+                INSERT INTO blunt_hits (user_id, sparked, last_sparked)
+                VALUES ($1, TRUE, $2)
+            """, user_id, datetime.now())
+            embed = discord.Embed(description=f"<:arolighter:1303239578009866252> {ctx.author.mention} sparked their first blunt!", color=self.bot.color)
+            await ctx.send(embed=embed)
+
+    @commands.command()
+    @commands.cooldown(1, 3, commands.BucketType.user)
+    async def smoke(self, ctx):
+        user_id = ctx.author.id
+        row = await self.bot.db.fetchrow("SELECT sparked, taps FROM blunt_hits WHERE user_id = $1", user_id)
+
+        if row and row[0]:  # If sparked is True
+            taps = row[1]
+            if taps < 100:
+                await self.bot.db.execute("UPDATE blunt_hits SET taps = taps + 1 WHERE user_id = $1", user_id)
+                embed = discord.Embed(description=f"<a:d_smoke:1303264450572324894>  {ctx.author.mention} took a hit from the blunt!", color=self.bot.color)
+                await ctx.send(embed=embed)
+            else:
+                embed = discord.Embed(description=f"{ctx.author.mention}, your blunt has gone out!", color=self.bot.color)
+                await ctx.send(embed=embed)
+        else:
+            embed = discord.Embed(description="You need to spark the blunt first!", color=self.bot.color)
+            await ctx.send(embed=embed)
+
+    @commands.command()
+    async def taps(self, ctx):
+        user_id = ctx.author.id
+        taps = await self.bot.db.fetchval("SELECT taps FROM blunt_hits WHERE user_id = $1", user_id) or 0
+
+        embed = discord.Embed(description=f"{ctx.author.mention} has taken {taps} hits from the blunt.", color=self.bot.color)
+        await ctx.send(embed=embed)
+
+    @commands.command(help="shows how gay you are", description="fun", usage="<member>")
+    async def howgay(self, ctx, user: discord.Member=None):
+
+        if user==None:
+            embed=discord.Embed(color=self.bot.color, title="gay r8", description= f"{ctx.author.mention} is `{random.randrange(201)}%` gay")
+            await ctx.reply(embed=embed, mention_author=False)
+        else:
+            embed=discord.Embed(color=self.bot.color, title="gay r8", description= f"{user.mention} is `{random.randrange(201)}%` gay")
+
+
+    @commands.command(help="shows your iq", description="fun", usage="<member>")
+    async def iq(self, ctx, user: discord.Member=None):
+
+        if user==None:
+            embed=discord.Embed(color=self.bot.color, title="iq test", description= f"{ctx.author.mention} has `{random.randrange(201)}` iq :brain:")
+            await ctx.reply(embed=embed, mention_author=False)
+        else:
+            embed=discord.Embed(color=self.bot.color, title="iq test", description= f"{user.mention} has `{random.randrange(201)}` iq :brain:")
+            await ctx.reply(embed=embed, mention_author=False)
+
+
+
+
+    @commands.command(help="shows how many bitches you have", description="fun", usage="<member>")
+    async def bitches(self, ctx, user: discord.Member=None):
+
+        if user==None:
+            embed=discord.Embed(color=self.bot.color, description= f"{ctx.author.mention} has `{random.randrange(51)}` bitches")
+            await ctx.reply(embed=embed, mention_author=False)
+        else:
+            embed=discord.Embed(color=self.bot.color, description= f"{user.mention} has `{random.randrange(51)}` bitches")
+            await ctx.reply(embed=embed, mention_author=False)
+
+
+async def setup(bot):
+    await bot.add_cog(Fun(bot))
+
+

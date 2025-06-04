@@ -1,0 +1,190 @@
+{
+    "language": "English",
+    "language_code": "en",
+    "language_local": "en-US",
+    "errors": {
+        "PLAYER": {
+            "NOT_IN_VOICE": "You're not in a voice channel!",
+            "NOT_SHARING_VOICE": "You're not in my voice channel!",
+            "CLIENT_NOT_IN_VOICE": "I'm not in a voice channel!",
+            "CLIENT_MISSING_PERMS": "I don't have permission to connect to your voice channel!",
+            "CLIENT_NOT_PLAYING": "Nothing is playing!",
+            "NO_QUEUE": "The queue is empty!",
+            "INVALID_QUEUE_POSITION": "Invalid position - must be between `1` and `{len(queue)}`!",
+            "FAILED_TO_CONNECT": "Failed to connect to voice channel",
+            "FAILED_TO_GET_TRACK_SP": "Failed to get track info from Spotify!",
+            "FAILED_TO_GET_TRACK_SC": "Couldn't find any matching tracks on SoundCloud!",
+            "NO_RESULTS": "No results found!",
+            "ACTIVITY_FAILED": "Failed to connect to Discord's music activity",
+            "EXCEPTION": "An error occurred: {e}",
+            "RECOMMENDATIONS_FAILED": "Failed to fetch recommendations",
+            "TRACK_ALREADY_PAUSED": "The track is already paused!",
+            "TRACK_NOT_PAUSED": "The track is not paused!"
+        }
+    },
+    "commands": {
+        "queue": {
+            "DESCRIPTION": "Queue management commands",
+            "view": {
+                "DESCRIPTION": "View the tracks in the queue.",
+                "EMBED": {
+                    "NAME": "Queue for {ctx.guild}",
+                    "DESCRIPTION_LINE_ONE": "Listening to [**{shorten(track.title)}**]({track.uri}) [`{duration(ctx.voice.position)}/{duration(track.length)}`]\n",
+                    "DESCRIPTION_LINE_TWO": "Requested by {track.requester.mention}"
+                },
+                "__COMMENT__": "Need to add field for next up"
+            },
+            "remove": {
+                "DESCRIPTION": "Remove a track from the queue.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Removed [**{shorten(track.title)}**]({track.uri}) from the queue"
+                }
+            },
+            "move": {
+                "DESCRIPTION": "Move a track in the queue.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Moved [**{shorten(track.title)}**]({track.uri}) to `{ordinal(new_position)}` in the queue"
+                }
+            }
+        },
+        "play": {
+            "DESCRIPTION": "Play a track or playlist in the voice channel.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Now playing [**{shorten(track.title)}**]({track.uri})",
+                "DESCRIPTION_LINE_TWO": "Added {plural(len(tracks)-1):track} from playlist **{playlist_name}** to the queue"
+            },
+            "EMBED_TWO": {
+                "DESCRIPTION_LINE_ONE":"Would you like to connect to Discord's music activity to display your status?"
+            },
+            "EMBED_THREE": {
+                "NAME": "Discord Activity",
+                "DESCRIPTION_LINE_ONE": "Click the button below to show your currently playing track on Discord",
+                "BUTTON": "Using Activities"
+            },
+            "bump": {
+                "DESCRIPTION": "Add a track to the front of the queue.",
+                "EMBED": {
+                    "NAME": "Discord Activity",
+                    "DESCRIPTION_LINE_ONE": "Click below to show your currently playing track on Discord",
+                    "BUTTON": "Using Activities"
+                }
+            },
+            "panel": {
+                "DESCRIPTION": "Toggle the now playing button panel.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Now displaying the button panel"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "No longer displaying the button panel"
+                }
+            },
+            "deletion": {
+                "DESCRIPTION": "Toggle added to queue message deletion.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Now deleting added to queue messages"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "No longer deleting added to queue messages"
+                }
+            }
+        },
+        "seek": {
+            "DESCRIPTION": "Seek to a specific position.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Seeked to `{duration(position)}` in [{ctx.voice.current}]({ctx.voice.current.uri})"
+            }
+        },
+        "autoplay": {
+            "DESCRIPTION": "Add autoplay recommendations to the queue",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Added {plural(added):recommendation} to the queue based on **{clean_title}**"
+            }
+        },
+        "volume": {
+            "DESCRIPTION": "Change the volume.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Set the volume to `{volume}%`"
+            }
+        },
+        "resume": {
+            "DESCRIPTION": "Resume the current track.",
+            "EMBED": {
+                "NAME": "Discord Activity",
+                "DESCRIPTION_LINE_ONE": "Click below to show your currently playing track on Discord",
+                "BUTTON":"Using Activities"
+            }
+        },
+        "filter": {
+            "DESCRIPTION": "Audio filter commands.",
+            "bassboost": {
+                "DESCRIPTION": "Adjust the bass boost level.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Reset audio filters"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "Set bass boost to `{percentage}%`"
+                }
+            },
+            "nightcore": {
+                "DESCRIPTION": "Adjust the nightcore effect level.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Reset nightcore filter"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "Set nightcore to `{percentage}%`"
+                }
+            },
+            "reverb": {
+                "DESCRIPTION": "Adjust the reverb effect level.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Reset reverb filter"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "Set reverb to `{percentage}%`"
+                }
+            },
+            "reset": {
+                "DESCRIPTION": "Reset all audio filters.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Reset all audio filters"
+                }
+            },
+            "vibrato": {
+                "DESCRIPTION": "Adjust the vibrato effect level.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Reset vibrato filter"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "Set vibrato to `{percentage}%`"
+                }
+            },
+            "tremolo": {
+                "DESCRIPTION": "Adjust the tremolo effect level.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Reset tremolo filter"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "Set tremolo to `{percentage}%`"
+                }
+            },
+            "distortion": {
+                "DESCRIPTION": "Adjust the distortion effect level.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Reset distortion filter"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "Set distortion to `{percentage}%`"
+                }
+            },
+            "rotation": {
+                "DESCRIPTION": "Adjust the rotation effect level.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Reset rotation filter"
+                },
+                "EMBED_TWO": {
+                    "DESCRIPTION_LINE_ONE": "Set rotation to `{percentage}%`"
+                }
+            }
+        }
+    }
+}

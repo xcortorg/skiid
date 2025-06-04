@@ -1,0 +1,40 @@
+{
+  "commands": {
+    "Antinuke": {
+      "Work In Progress": {}
+    },
+    "Antiraid": {
+      "Work In Progress": {}
+    },
+    "Armor": {
+      "Armor": {
+        "descriptions": "Shows the current Armor Config for a server.",
+        "syntax": ",armor",
+        "example": ",armor",
+        "permissions": "Manage Server"
+      }
+    },
+    "Ban Management": {
+      "ban": {
+        "description": "Bans a member from the server.",
+        "syntax": ",ban <user> [reason]",
+        "example": ",ban @heresy Ignoring server rules",
+        "permissions": "Ban Members"
+      },
+      "banlist": {
+        "description": "Shows all banned members in a server",
+        "syntax": ",banlist",
+        "example": ",banlist",
+        "permisions": "Administrator"
+      },
+      "unbanall": {
+        "description": "Unbans all banned users in a server",
+        "syntax": ",unbanall",
+        "example": ",unbanall",
+        "permissions": "Administrator",
+        "aliases": ["uba, massunban"],
+        "note": "This unbans ALL banned users, use with caution"
+      }
+    }
+  }
+}

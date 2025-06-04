@@ -1,0 +1,51 @@
+{
+    "language_code": "fr-FR",
+    "language": "fr-FR",
+    "language_local": "fr-FR",
+    "system": {
+        "errors": {
+            "COMMAND": {
+                "EXCEPTION": "La commande `{command}` a déclenché une exception. Veuillez réessayer plus tard.",
+                "SCRIPT_ERROR": "Quelque chose ne va pas avec votre **script** !",
+                "FLAG": {
+                    "DUPLICATE": "Vous avez spécifié l'indicateur **{flag_name}** plus d'une fois !",
+                    "CAST_ERROR": "Échec de la conversion de **{flag_name}** en `{annotation}` !",
+                    "STATUS_HINT": "Assurez-vous de fournir **on** ou **off** pour les indicateurs « Statut » !",
+                    "MISSING_VALUE": "Vous devez spécifier une valeur pour le drapeau **{flag_name}** !",
+                    "MISSING_REQUIRED": "Vous devez spécifier le drapeau **{flag_name}** !"
+                }
+            },
+            "CONCURRENCY": {
+                "MAX_CONCURRENT": "Cette commande ne peut être utilisée que **{number} {time}** par **{per}** simultanément !",
+                "COOLDOWN": {
+                    "MESSAGE": "Cette commande est actuellement en temps de recharge !",
+                    "RETRY": "Réessayez dans **{time}**"
+                }
+            },
+            "SEARCH": {
+                "MEMBER_USER": "Aucun **{param}** correspondant à **{argument}** !",
+                "USER_ID_HINT": "Si l'utilisateur n'est pas sur ce serveur, essayez plutôt d'utiliser son **ID**.",
+                "SERVER": "Aucun serveur correspondant à **{argument}** !",
+                "CASTING": "La diffusion de **{param}** vers {converters} a échoué !",
+                "NOT_FOUND": {
+                    "MEMBER": "Aucun **membre** correspondant à **{argument}** !",
+                    "USER": "Aucun **utilisateur** correspondant à `{argument}` !",
+                    "ROLE": "Aucun **rôle** correspondant à **{argument}** !",
+                    "CHANNEL": "Aucune **chaîne** correspondant à **{argument}** !",
+                    "INVITE": "Le **code d'invitation** fourni n'est pas valide !",
+                    "MESSAGE": "Le **message** fourni n'a pas été trouvé !\nEssayez plutôt d'utiliser l'**URL du message**."
+                }
+            },
+            "VALIDATION": {
+                "RANGE": "L'entrée doit être {label} !",
+                "RANGE_CHARS": "L'entrée doit être composée de caractères {label} !"
+            },
+            "PERMISSIONS": {
+                "USER_MISSING": "Il vous manque l'autorisation {permissions}{plural} !",
+                "BOT_MISSING": "Il me manque les autorisations suivantes : {permissions}",
+                "BOT_MISSING_GENERIC": "Il me manque les autorisations requises. Veuillez vérifier les autorisations et la position de mon rôle.",
+                "NSFW_REQUIRED": "Cette commande ne peut être utilisée que dans les chaînes NSFW !"
+            }
+        }
+    }
+}

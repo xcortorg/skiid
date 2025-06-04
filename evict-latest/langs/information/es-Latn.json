@@ -1,0 +1,364 @@
+{
+    "language_code": "es-Latn",
+    "language": "es-Latn",
+    "language_local": "es-Latn",
+    "commands": {
+        "invite": {
+            "DESCRIPTION": "Consigue un enlace de invitación para la bot."
+        },
+        "discord": {
+            "DESCRIPTION": "Consigue un enlace de invitación para el servidor de soporte del bot."
+        },
+        "about": {
+            "DESCRIPTION": "Ver información sobre el bot.",
+            "EMBED": {
+                "DESCRIPTION_LINE_ONE": "Desarrollado y mantenido por [x](https://discord.com/users/598125772754124823), [adam](https://discord.com/users/930383131863842816), [harry](https://discordapp.com/users/187747524646404105)",
+                "DESCRIPTION_LINE_TWO": "Utilizando `{cached_commands}` comandos a travez de `{total_cogs}` engranajes (un total de `{extended_cogs}` módulos)",
+                "FOOTER": "evict/v{version} • Ultimo commit: {latest_commit}"
+            }
+        },
+        "ping": {
+            "DESCRIPTION": "Ver la latencia del bot.",
+            "INITAL_EMBED": {
+                "description": "Enviando Ping..."
+            },
+            "UPDATED_EMBED": {
+                "description": "`{ping}ms` (edito: `{edit_ping}ms`)"
+            }
+        },
+        "poll": {
+            "DESCRIPTION": "Comandos de gestión de encuestas",
+            "create": {
+                "DESCRIPTION": "Crear una nueva encuesta usando banderas",
+                "CANCELLED": "Creación de encuesta cancelada.",
+                "INVALID_DURATION": "Formato de duración inválido. Usa 1h, 1d, etc."
+            },
+            "quick": {
+                "DESCRIPTION": "Crea una encuesta rápida con opciones simples de sí/no o personalizadas"
+            },
+            "list": {
+                "DESCRIPTION": "Lista todas las encuestas activas en el servidor",
+                "NO_POLLS": {
+                    "DEFAULT": "¡No se encontraron encuestas activas!",
+                    "FILTERED": "¡No se encontraron encuestas activas para {creator}!"
+                },
+                "ENTRY": {
+                    "TITLE": "**{title}**",
+                    "CREATOR": "Creado por: {creator}",
+                    "VOTES": "Votos: {count}",
+                    "ID": "ID: `{id}`",
+                    "CREATED": "Creado: {time}",
+                    "ENDS": "Termina: {time}"
+                },
+                "EMBED_TITLE": "Encuestas activas en {guild}"
+            },
+            "end": {
+                "DESCRIPTION": "Finalizar una encuesta antes de tiempo",
+                "INVALID_ID": "¡ID de encuesta inválido!",
+                "NOT_FOUND": "¡Encuesta no encontrada o ya finalizada!",
+                "NO_PERMISSION": "¡No puedes finalizar esta encuesta!",
+                "SUCCESS": "¡Encuesta finalizada con éxito!"
+            },
+            "results": {
+                "DESCRIPTION": "Ver los resultados detallados de una encuesta",
+                "INVALID_ID": "¡ID de encuesta inválido!",
+                "NOT_FOUND": "¡Encuesta no encontrada!"
+            },
+            "UI": {
+                "VOTE": {
+                    "ENDED": "Esta encuesta ha finalizado.",
+                    "ROLE_REQUIRED": "¡Necesitas el rol {role} para votar!",
+                    "SUCCESS": "¡Tu voto ha sido registrado!",
+                    "ERROR": "No se pudo registrar tu voto. Por favor, intenta otravez.",
+                    "BUTTON": "Vota",
+                    "SELECT_PROMPT": "Selecciona tu opción(es):"
+                },
+                "RESULTS": {
+                    "BUTTON": "Resultados",
+                    "BACK_BUTTON": "Volver a la encuesta"
+                },
+                "MODAL": {
+                    "TITLE": "Opciones de la encuesta",
+                    "CHOICE_LABEL": "Opción {number}",
+                    "CHOICE_PLACEHOLDER": "Ingresa la opción {number}"
+                }
+            }
+        },
+        "status": {
+            "DESCRIPTION": "Verificar el estado de los shards.",
+            "MESSAGE": "¿Estás experimentando problemas? Verifica el estado de tus shards [aqui]({url}).\nTu servidor está en el shard {shard_id}."
+        }
+    },
+    "inviteinfo": {
+        "DESCRIPTION": "Ver información sobre una invitación.",
+        "EMBED": {
+            "AUTHOR": "{guild_name} ({guild_id})",
+            "FIELDS": {
+                "INFORMATION": {
+                    "NAME": "Información",
+                    "VALUE": "**Invitador:** {inviter}  \n**Canal:** {channel}  \n**Creado:** {created_at}"
+                },
+                "GUILD": {
+                    "NAME": "**Servidor**",
+                    "VALUE": "**Miembros:** {member_count:,}  \n**Miembros en línea:** {online_count:,}  \n**Nivel de verificación:** {verification_level}"
+                }
+            }
+        }
+    },
+    "serverbanner": {
+        "DESCRIPTION": "Ver el banner de un servidor si está disponible.",
+        "BANNER_MISSING": "¡{guild} no tiene un banner disponible!",
+        "BANNER_TITLE": "Banner de {guild}"
+    },
+    "servericon": {
+        "DESCRIPTION": "Ver el ícono de un servidor si está disponible.",
+        "ICON_MISSING": "¡{guild} no tiene un ícono disponible!",
+        "BANNER_TITLE": "Banner de {guild}",
+        "ICON_TITLE": "Ícono de {guild}"
+    },
+    "avatar": {
+        "DESCRIPTION": "Ver el avatar de un usuario.",
+        "TITLE": {
+            "SELF": "Tu avatar",
+            "OTHER": "Avatar de {user_name}"
+        }
+    },
+    "serveravatar": {
+        "DESCRIPTION": "Ver el avatar de servidor de un usuario.",
+        "MISSING": {
+            "SELF": "¡No tienes un avatar de servidor disponible!",
+            "OTHER": "¡**{member}** no tiene un avatar de servidor disponible!"
+        },
+        "TITLE": {
+            "SELF": "Tu avatar de servidor",
+            "OTHER": "Avatar de servidor de {member_name}"
+        }
+    },
+    "memberbanner": {
+        "DESCRIPTION": "Ver el banner de servidor de un usuario.",
+        "MISSING": {
+            "SELF": "¡No tienes un banner de servidor disponible!",
+            "OTHER": "¡**{member}** no tiene un banner de servidor disponible!"
+        },
+        "TITLE": {
+            "SELF": "Tu banner de servidor",
+            "OTHER": "Banner de servidor de {member_name}"
+        }
+    },
+    "banner": {
+        "DESCRIPTION": "Ver el banner de un usuario si está disponible.",
+        "MISSING": {
+            "SELF": "¡No tienes un banner disponible!",
+            "OTHER": "¡**{user}** no tiene un banner disponible!"
+        },
+        "TITLE": {
+            "SELF": "Tu banner",
+            "OTHER": "Banner de {user_name}"
+        }
+    },
+    "membercount": {
+        "DESCRIPTION": "Ver el número de miembros de un servidor.",
+        "FIELDS": {
+            "MEMBERS": "**Miembros**",
+            "HUMANS": "**Humanos**",
+            "BOTS": "**Bots**"
+        }
+    },
+    "serverinfo": {
+        "DESCRIPTION": "View information about the server.",
+        "ERRORS": {
+            "NOT_FOUND": "Ver información sobre el servidor."
+        },
+        "EMBED": {
+            "AUTHOR": "{guild_name} ({guild_id})",
+            "FIELDS": {
+                "INFORMATION": {
+                    "NAME": "**Información**",
+                    "VALUE": "**Propietario:** {owner}  \n**Verificación:** {verification}  \n**Nitro Boosts:** {boost_count:,} (`Nivel {boost_level}`)"
+                },
+                "STATISTICS": {
+                    "NAME": "**Estadísticas**",
+                    "VALUE": "**Miembros:** {member_count:,}  \n**Canales de texto:** {text_channels:,}  \n**Canales de voz:** {voice_channels:,}"
+                },
+                "ROLES": {
+                    "NAME": "**Roles ({role_count})**"
+                }
+            }
+        }
+    },
+    "bots": {
+        "DESCRIPTION": "Ver todos los bots en el servidor.",
+        "NO_BOTS": "¡**{guild}** no tiene ningunos bots!",
+        "TITLE": "Bots en {guild}"
+    },
+    "banlist": {
+        "DESCRIPTION": "Ver todos los miembros baneados.",
+        "NO_BANS": "¡No hay miembros baneados actualmente!",
+        "TITLE": "Miembros baneados [{count}]"
+    },
+    "guildinvites": {
+        "DESCRIPTION": "Ver todas las invitaciones en el servidor.",
+        "NO_INVITES": "¡No hay invitaciones disponibles actualmente!",
+        "TITLE": "Invitaciones en {guild}"
+    },
+    "emojis": {
+        "DESCRIPTION": "Ver todos los emojis del servidor.",
+        "NO_EMOJIS": "¡**{guild}** no tiene emojis!",
+        "TITLE": "Emojis en {guild}"
+    },
+    "stickers": {
+        "DESCRIPTION": "Ver todos los stickers del servidor.",
+        "NO_STICKERS": "¡**{guild}** no tiene stickers!",
+        "TITLE": "Stickers en {guild}"
+    },
+    "weather": {
+        "DESCRIPTION": "Obtener el clima actual para una ciudad/país.",
+        "ERROR": {
+            "NOT_FOUND": "No se pudo encontrar datos del clima para `{location}`.",
+            "GENERIC": "Ocurrió un error al obtener los datos del clima: {error}"
+        },
+        "EMBED": {
+            "TITLE": "Clima en {location}",
+            "FIELDS": {
+                "TEMPERATURE": {
+                    "NAME": "Temperatura",
+                    "VALUE": "🌡️ **{temp_c}°C** ({temp_f}°F)  \nSe siente como: {feels_c}°C ({feels_f}°F)"
+                },
+                "HUMIDITY": {
+                    "NAME": "Humedad",
+                    "VALUE": "💧 {humidity}%"
+                },
+                "WIND": {
+                    "NAME": "Viento",
+                    "VALUE": "💨 {speed} km/h"
+                },
+                "CLOUD_COVER": {
+                    "NAME": "Cobertura de nubes",
+                    "VALUE": "☁️ {cover}%"
+                },
+                "VISIBILITY": {
+                    "NAME": "Visibilidad",
+                    "VALUE": "👁️ {distance} km"
+                },
+                "PRECIPITATION": {
+                    "NAME": "Precipitación",
+                    "VALUE": "🌧️ {amount} mm"
+                }
+            }
+        }
+    },
+    "shards": {
+        "DESCRIPTION": "Ver la latencia del shard del bot."
+    },
+    "userinfo": {
+        "DESCRIPTION": "Ver información sobre un usuario.",
+        "TITLE": "{user} {bot_tag}",
+        "FIELDS": {
+            "CREATED": "**Creado**",
+            "JOINED": "**Unido ({position})**",
+            "BOOSTED": "**Aumentado**",
+            "ROLES": "**Roles**"
+        },
+        "VOICE": {
+            "STREAMING": "🎙 Transmitiendo en {channel} {with_others}",
+            "NORMAL": "🎙 En {channel} {with_others}",
+            "WITH_OTHERS": "con {count:other}",
+            "ALONE": "por sí mismos"
+        },
+        "ACTIVITIES": {
+            "SPOTIFY": "🎵 Escuchando [**{title}**]({url}) de **{artist}**",
+            "STREAMING": "🎥 Transmitiendo {activities}",
+            "PLAYING": "🎮 Jugando {activities}",
+            "WATCHING": "📺 Viendo {activities}",
+            "COMPETING": "🏆 Compitiendo en {activities}"
+        },
+        "FOOTER": "{count} servidores mutuos"
+    },
+    "namehistory": {
+        "DESCRIPTION": "Ver el historial de nombres de un usuario.",
+        "NO_HISTORY": "¡**{user}** no tiene historial de nombres!",
+        "TITLE": "Historial de Nombres",
+        "clear": {
+            "DESCRIPTION": "Eliminar todo tu historial de nombres.",
+            "SUCCESS": "Se ha eliminado correctamente tu historial de nombres."
+        }
+    },
+    "devices": {
+        "DESCRIPTION": "Ver las plataformas de un miembro.",
+        "OFFLINE": {
+            "SELF": "¡Estás apareciendo como desconectado!",
+            "OTHER": "¡**{member}** no parece estar en línea!"
+        },
+        "TITLE": {
+            "SELF": "Tus dispositivos",
+            "OTHER": "Los dispositivos de {member_name}"
+        },
+        "ACTIVITIES": {
+            "SPOTIFY": "🎵 Escuchando [**{title}**]({url}) de **{artist}**",
+            "STREAMING": "🎥 Transmitiendo {activities}",
+            "PLAYING": "🎮 Jugando {activities}",
+            "WATCHING": "📺 Viendo {activities}",
+            "COMPETING": "🏆 Compitiendo en {activities}"
+        }
+    },
+    "roles": {
+        "DESCRIPTION": "Ver los roles del servidor.",
+        "NO_ROLES": "¡**{guild}** no tiene roles!",
+        "TITLE": "¡Roles en {guild}!"
+    },
+    "inrole": {
+        "DESCRIPTION": "¡Ver miembros que tienen un rol!",
+        "NO_MEMBERS": "¡{role} no tiene miembros!",
+        "TITLE": "Members with {role}"
+    },
+    "boosters": {
+        "DESCRIPTION": "Ver los potenciadores del servidor.",
+        "NO_BOOSTERS": "¡Ningún miembro está potenciando actualmente!",
+        "TITLE": "Boosters",
+        "lost": {
+            "DESCRIPTION": "Ver todos los boosters perdidos.",
+            "NO_LOST": "¡No se han perdido boosters!",
+            "TITLE": "Boosters Perdidos"
+        }
+    },
+    "firstmessage": {
+        "DESCRIPTION": "Ver el primer mensaje enviado.",
+        "RESPONSE": "Saltar al [`primer mensaje`]({url}) enviado por **{author}**."
+    },
+    "position": {
+        "DESCRIPTION": "Ver la posición de unión del miembro.",
+        "RESPONSE": "{member} es el miembro número `{pos}`."
+    },
+    "roleinfo": {
+        "DESCRIPTION": "Ver información sobre un rol.",
+        "FIELDS": {
+            "ID": "ID del rol",
+            "COLOR": "Color",
+            "PERMISSIONS": {
+                "NAME": "Permisos",
+                "NONE": "No se han otorgado permisos peligrosos."
+            },
+            "MEMBERS": {
+                "NAME": "{count} Miembro(s)",
+                "NONE": "No hay miembros en este rol."
+            }
+        },
+        "FOOTER": {
+            "DANGEROUS": "¡Permisos peligrosos!"
+        }
+    },
+    "getbotinvite": {
+        "DESCRIPTION": "Obten una invitación para el bot proporcionando su ID.",
+        "NOT_BOT": "¡El ID proporcionado no corresponde a un bot!",
+        "BUTTON": "Invitar a {name}"
+    },
+    "gnames": {
+        "DESCRIPTION": "Ver el historial de nombres de un servidor",
+        "NO_HISTORY": "¡**{guild}** no tiene historial de nombres!",
+        "TITLE": "Historial de nombres de **{guild_name}**"
+    },
+    "cleargnames": {
+        "DESCRIPTION": "Borrar el historial del servidor.",
+        "SUCCESS": "¡Se ha borrado el historial de nombres del servidor!"
+    }
+}

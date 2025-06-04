@@ -1,0 +1,2698 @@
+{
+    "Roleplay": [
+        {
+            "name": "joint hit",
+            "description": "hit the server joint",
+            "help": "None",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "joint stats",
+            "description": "check joint stats",
+            "help": "None",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "joint steal",
+            "description": "steal the server's joint",
+            "help": "None",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "joint pass",
+            "description": "pass the joint to someone else",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "joint toggle",
+            "description": "toggle the server joint",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Roleplay"
+        },
+        {
+            "name": "punch",
+            "description": "punch a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "highfive",
+            "description": "highfive a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "kill",
+            "description": "kill a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "bite",
+            "description": "bite a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "yeet",
+            "description": "yeet a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "nutkick",
+            "description": "kick a user in the balls",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "fuck",
+            "description": "fuck a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "marry",
+            "description": "marry an user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "poke",
+            "description": "poke a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "diary view",
+            "description": "view your diary book",
+            "help": "None",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "diary delete",
+            "description": "delete a diary page",
+            "help": "None",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "diary create",
+            "description": "create a diary for today",
+            "help": "None",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "marriage",
+            "description": "check an user's marriage",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "kiss",
+            "description": "kiss a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "hug",
+            "description": "hug a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "divorce",
+            "description": "divorce with an user",
+            "help": "None",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "pat",
+            "description": "pat a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "tickle",
+            "description": "tickle a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "lick",
+            "description": "lick a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "cuddle",
+            "description": "cuddle a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "slap",
+            "description": "slap a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "spank",
+            "description": "spank a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        },
+        {
+            "name": "feed",
+            "description": "feed a user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Roleplay"
+        }
+    ],
+    "Utility": [
+        {
+            "name": "avatar",
+            "description": "see user's avatar",
+            "help": "<user>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "gicon",
+            "description": "gets the icon from a server based by invite code",
+            "help": "<invite code>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "github",
+            "description": "gets information about a github user",
+            "help": "<user>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "roleinfo",
+            "description": "get role information",
+            "help": "<role>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "inviteinfo",
+            "description": "show information abt an invite",
+            "help": "<invite code>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "serverinfo",
+            "description": "show information about the server",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "bans",
+            "description": "see all banned members",
+            "help": "None",
+            "brief": "ban members",
+            "category": "Utility"
+        },
+        {
+            "name": "ssplash",
+            "description": "get the server's invite background image",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "bots",
+            "description": "see all server's bots",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "userinfo",
+            "description": "show user information",
+            "help": "<user>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "sbanner",
+            "description": "get the server's banner",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "membercount",
+            "description": "check how many members does your server have",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "joins",
+            "description": "see all members joined within 24 hours",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "weather",
+            "description": "check the weather from a location",
+            "help": "<country>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "clearnames",
+            "description": "clear your usernames",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "remind",
+            "description": "make the bot remind you about a task",
+            "help": "<time> <reminder>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "clearsnipes",
+            "description": "clear all snipe data",
+            "help": "None",
+            "brief": "manage messages",
+            "category": "Utility"
+        },
+        {
+            "name": "pastusernames",
+            "description": "check an user's past usernames",
+            "help": "<user>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "uwuify",
+            "description": "uwify a message",
+            "help": "<message>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "muted",
+            "description": "see all muted members",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "translate",
+            "description": "translate a message",
+            "help": "<language> <message>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "donators",
+            "description": "see the list of donators",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "picperms",
+            "description": "give someone permission to post pictures in a channel",
+            "help": "<member> <channel>",
+            "brief": "manage channels",
+            "category": "Utility"
+        },
+        {
+            "name": "seen",
+            "description": "see when a user was last seen",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "sicon",
+            "description": "get the server's icon",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "roles",
+            "description": "see all server roles",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "reminder add",
+            "description": "make the bot remind you about a task",
+            "help": "<time> <reminder>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "reminder stop",
+            "description": "cancel a reminder from this server",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "afk",
+            "description": "let everyone know you are away",
+            "help": "<reason>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "editsnipe",
+            "description": "get the most recent edited messages from the channel",
+            "help": "<number>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "gsplash",
+            "description": "gets the splash from a server based by invite code",
+            "help": "<invite code>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "gbanner",
+            "description": "gets the banner from a server based by invite code",
+            "help": "<invite code>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "reactionsnipe",
+            "description": "get the most recent messages that got one of their reactions removed",
+            "help": "<number>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "inrole",
+            "description": "see all members in a role",
+            "help": "<role>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "getbotinvite",
+            "description": "gets the invite link with administrator permission of a bot",
+            "help": "<bot id>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "invites",
+            "description": "shows the number of invites an user has",
+            "help": "<user>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "firstmessage",
+            "description": "get the first message",
+            "help": "<channel>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "timezone set",
+            "description": "set the timezone",
+            "help": "<location>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "timezone unset",
+            "description": "unset the timezone",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "timezone list",
+            "description": "return a list of server member's timezones",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "banner",
+            "description": "see someone's banner",
+            "help": "<user>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "birthday unset",
+            "description": "unset your birthday",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "birthday set",
+            "description": "set your birthday",
+            "help": "<month> <day>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "snipe",
+            "description": "check the latest deleted message from a channel",
+            "help": "<number>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "texttospeech",
+            "description": "convert your message to mp3",
+            "help": "<message>",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "boosters lost",
+            "description": "display lost boosters",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "boosters list",
+            "description": "see all server boosters",
+            "help": "None",
+            "brief": "None",
+            "category": "Utility"
+        },
+        {
+            "name": "gedit splash",
+            "description": "change the server splash",
+            "help": "<image / link>",
+            "brief": "manage guild",
+            "category": "Utility"
+        },
+        {
+            "name": "gedit icon",
+            "description": "change the server icon",
+            "help": "<image / link>",
+            "brief": "manage guild",
+            "category": "Utility"
+        },
+        {
+            "name": "gedit name",
+            "description": "change the server name",
+            "help": "<name>",
+            "brief": "manage guild",
+            "category": "Utility"
+        },
+        {
+            "name": "gedit banner",
+            "description": "change the server banner",
+            "help": "<image / link>",
+            "brief": "manage guild",
+            "category": "Utility"
+        },
+        {
+            "name": "gedit cover",
+            "description": "change the server discovery cover",
+            "help": "<image / link>",
+            "brief": "manage guild",
+            "category": "Utility"
+        },
+        {
+            "name": "spotify",
+            "description": "sends what you or another user is listening to on Spotify.",
+            "category": "Utility"
+        },
+        {
+            "name": "devices",
+            "description": "show what devices a member is using.",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Utility"
+        }
+    ],
+    "Server": [
+        {
+            "name": "welcome channel",
+            "description": "configure the welcome channel",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "welcome message",
+            "description": "configure the welcome message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "welcome test",
+            "description": "test welcome module",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "welcome config",
+            "description": "returns stats of the welcome message",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "welcome delete",
+            "description": "delete the welcome module",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "welcome variables",
+            "description": "return the variables for the welcome message",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "leave config",
+            "description": "returns stats of the leave message",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "leave channel",
+            "description": "configure the leave channel",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "leave delete",
+            "description": "delete the leave module",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "leave message",
+            "description": "configure the leave message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "leave variables",
+            "description": "return the variables for the leave message",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "leave test",
+            "description": "test leave module",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "boost variables",
+            "description": "return the variables for the boost message",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "boost delete",
+            "description": "delete the boost module",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "boost channel",
+            "description": "configure the boost channel",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "boost test",
+            "description": "test boost module",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "boost message",
+            "description": "configure the boost message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "boost config",
+            "description": "returns stats of the boost message",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "pingonjoin add",
+            "description": "ping new members when they join your server",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "pingonjoin list",
+            "description": "get a list of pingonjoin channels",
+            "help": "config",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "pingonjoin remove",
+            "description": "remove a pingonjoin channel",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "react",
+            "description": "react to a message using the bot",
+            "help": "<message id / message link> <emoji>",
+            "brief": "manage messages",
+            "category": "Server"
+        },
+        {
+            "name": "counter add",
+            "description": "add a counter to the server",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "counter list",
+            "description": "check a list of the active server counters",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "counter remove",
+            "description": "remove a counter from the server",
+            "help": "<counter type>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "counter types",
+            "description": "check the counter types and channel types",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "autorole remove",
+            "description": "remove a role from autoroles",
+            "help": "<role>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "autorole list",
+            "description": "list of autoroles",
+            "help": "config",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "autorole add",
+            "description": "give a role to the new members that join the server",
+            "help": "<role>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "fakepermissions edit",
+            "description": "edit fake permissions for a role",
+            "help": "<role>",
+            "brief": "server owner",
+            "category": "Server"
+        },
+        {
+            "name": "fakepermissions permissions",
+            "description": "list all the available permissions",
+            "help": "config",
+            "brief": "None",
+            "category": "Server"
+        },
+            {
+            "name": "fakepermissions list",
+            "description": "list the permissions of a specific role",
+            "help": "<role>",
+            "category": "Server"
+        },
+        {
+            "name": "invoke ban",
+            "description": "add a custom ban command",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "invoke warn",
+            "description": "add a custom warn command",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "invoke variables",
+            "description": "check invoke variables",
+            "help": "config",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "invoke unban",
+            "description": "add a custom unban message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "invoke unmute",
+            "description": "add a custom unmute command",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "invoke mute",
+            "description": "add a custom mute command",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "invoke unjail",
+            "description": "add a custom unjail command",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "invoke kick",
+            "description": "add a custom kick command",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "invoke jail",
+            "description": "add a custom jail command",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "bumpreminder remove",
+            "description": "remove bump reminder",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "bumpreminder add",
+            "description": "reminder to bump your server via disboard",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "mediaonly remove",
+            "description": "unset media only",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "mediaonly add",
+            "description": "delete messages that are not images",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "mediaonly list",
+            "description": "return a list of mediaonly channels",
+            "help": "config",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "confessions add",
+            "description": "set confession channel",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "confessions mute",
+            "description": "mute a member that send a specific confession",
+            "help": "<confession number>",
+            "brief": "manage messages",
+            "category": "Server"
+        },
+        {
+            "name": "confessions channel",
+            "description": "get the confessions channel",
+            "help": "config",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "confessions remove",
+            "description": "remove confession channel",
+            "help": "config",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "confessions unmute",
+            "description": "unmute a member that send a specific confession",
+            "help": "<confession number | all>",
+            "brief": "manage messages",
+            "category": "Server"
+        },
+        {
+            "name": "prefix",
+            "description": "changes the guild prefix",
+            "help": "<prefix>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "disablecommand",
+            "description": "disable a command",
+            "help": "<command name>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "enablecommand",
+            "description": "enable a command",
+            "help": "<command name>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "dm kick",
+            "description": "custom kick direct message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "dm jail",
+            "description": "custom jail direct message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "dm ban",
+            "description": "custom ban direct message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "dm mute",
+            "description": "custom mute direct message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "dm warn",
+            "description": "custom warn direct message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "starboard channel",
+            "description": "configure the starboard channel",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "starboard count",
+            "description": "modify the starboard count",
+            "help": "<count>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "starboard remove",
+            "description": "remove starboard",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "starboard stats",
+            "description": "check starboard stats",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "starboard emoji",
+            "description": "modify the starboard emoji",
+            "help": "<emoji>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "skull channel",
+            "description": "configure the skullboard channel",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "skull count",
+            "description": "modify the skullboard count",
+            "help": "<count>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "skull emoji",
+            "description": "modify the skullboard emoji",
+            "help": "<emoji>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "skull remove",
+            "description": "remove skullboard",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "skull stats",
+            "description": "check skullboard stats",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "createembed",
+            "description": "create embed",
+            "help": "<code>",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "embed variables",
+            "description": "shows variables for the embed",
+            "help": "None",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "joindm remove",
+            "description": "remove the joindm message",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "joindm add",
+            "description": "add a message that will be sent to any new member that will join the server",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "joindm test",
+            "description": "test the joindm message",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole color",
+            "description": "change the booster role color",
+            "help": "<color>",
+            "brief": "booster",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole icon",
+            "description": "edit the role icon",
+            "help": "<emoji>",
+            "brief": "booster",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole name",
+            "description": "edit the booster role name",
+            "help": "<name>",
+            "brief": "None",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole edit",
+            "description": "edit a booster role",
+            "help": "None",
+            "brief": "booster",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole create",
+            "description": "create a booster role",
+            "help": "<name>",
+            "brief": "booster",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole base",
+            "description": "set a base role for boosterrole module",
+            "help": "<role>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole setup",
+            "description": "set the boosterrole module",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole delete",
+            "description": "delete the booster role",
+            "help": "None",
+            "brief": "booster",
+            "category": "Server"
+        },
+        {
+            "name": "boosterrole unset",
+            "description": "unset the boosterrole module",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "webhook create",
+            "description": "create a webhook in a channel",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "webhook delete",
+            "description": "delete a webhook from a channel",
+            "help": "<code>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "webhook edit",
+            "description": "edit a webhook",
+            "help": "<code> <message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "webhook list",
+            "description": "shows a list of available webhooks in the server",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "webhook send",
+            "description": "send a message via a webhook using a code",
+            "help": "<code> <message>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "settings reposter",
+            "description": "Repost Social Media Links as embeds",
+            "help": "<enable>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "private enable",
+            "description": "Enable automatically kick members upon join.",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "private disable",
+            "description": "Disable automatically kick members upon join.",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "private whitelist",
+            "description": "Whitelist a user from automatically kicking them upon join.",
+            "help": "<user>",
+            "brief": "manage guild",
+            "category": "Server"
+        },
+        {
+            "name": "private unwhitelist",
+            "description": "Unwhitelist a user from automatically kicking them upon join.",
+            "help": "<user>",
+            "brief": "manage guild",
+            "category": "Server"
+        }
+    ],
+    "LastFM": [
+        {
+            "name": "whoknows",
+            "description": "see who knows a certain artist in the server",
+            "help": "<artist>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "topalbums",
+            "description": "check a member's top 10 albums",
+            "help": "<member>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "toptracks",
+            "description": "check a member's top 10 tracks",
+            "help": "<member>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "topartists",
+            "description": "check a member's top 10 artists",
+            "help": "<member>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "nowplaying",
+            "description": "check what song is playing right now",
+            "help": "<user>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "globalwhoknows",
+            "description": "see who knows a certain artist across all servers the bot is in",
+            "help": "<artist>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm remove",
+            "description": "unset your LastFM account",
+            "help": "None",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm variables",
+            "description": "view LastFM custom embed variables",
+            "help": "None",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm chart",
+            "description": "Generates an album image chart.",
+            "help": "<size> <period>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm embed",
+            "description": "create your own LastFM custom embed",
+            "help": "<message>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm howto",
+            "description": "tutorial for using LastFM",
+            "help": "None",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm set",
+            "description": "register your LastFM account",
+            "help": "<name>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm topalbums",
+            "description": "check a member's top 10 albums",
+            "help": "<member>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm user",
+            "description": "check info about a LastFM user",
+            "help": "<username>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm cover",
+            "description": "get the cover image of your LastFM song",
+            "help": "<member>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm reactions",
+            "description": "add custom reactions to your LastFM embed",
+            "help": "<emojis | none>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm globalwhoknows",
+            "description": "see who knows a certain artist across all servers the bot is in",
+            "help": "<artist>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm crowns",
+            "description": "get the crowns of a member",
+            "help": "<user>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm whoknows",
+            "description": "see who knows a certain artist in the server",
+            "help": "<artist>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm toptracks",
+            "description": "check a member's top 10 tracks",
+            "help": "<member>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm topartists",
+            "description": "check a member's top 10 artists",
+            "help": "<member>",
+            "brief": "None",
+            "category": "LastFM"
+        },
+        {
+            "name": "lastfm customcommand",
+            "description": "set a custom command for nowplaying",
+            "help": "<command>",
+            "brief": "None",
+            "category": "LastFM"
+        }
+    ],
+    "Fun": [
+        {
+            "name": "8ball",
+            "description": "answers to your question",
+            "help": "<question>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "screenshot",
+            "description": "get a preview of a website",
+            "help": "<url>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "capybara",
+            "description": "send a random capybara image",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "uselessfact",
+            "description": "return an useless fact",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "tweet",
+            "description": "send a tweet image",
+            "help": "<messsage>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "comment",
+            "description": "send an youtube comment image",
+            "help": "<messsage>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "howretarded",
+            "description": "retard rate an user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "howgay",
+            "description": "gay rate an user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "gm",
+            "description": "says good morning",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "choose",
+            "description": "choose between options",
+            "help": "<choices separated by a comma>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "howcool",
+            "description": "cool rate an user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "ship",
+            "description": "ship rate an user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "quickpoll",
+            "description": "start a quick poll",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "iq",
+            "description": "check an user's iq",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "no",
+            "description": "just says yes",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "pp",
+            "description": "returns users dick size",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "pack",
+            "description": "pack someone",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "hot",
+            "description": "hot rate an user",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "yes",
+            "description": "just says no",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "tictactoe",
+            "description": "play tictactoe with your friends",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "advice",
+            "description": "sends a random advice",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "coinflip",
+            "description": "flip a coin",
+            "help": "<heads / tails>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "gn",
+            "description": "says good night",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "urban",
+            "description": "sends a definition of a word",
+            "help": "<word>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "rockpaperscisssors",
+            "description": "play rock paper scissors with the bot",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "bitches",
+            "description": "check how many bitches an user has",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "typerace",
+            "description": "see how fast are you typing",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "dog",
+            "description": "send a random dog image",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "blacktea",
+            "description": "play blacktea with your friends",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "cat",
+            "description": "send a random cat image",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "bird",
+            "description": "send a random bird image",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "clock out",
+            "description": "clock out",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        },
+        {
+            "name": "clock in",
+            "description": "clock in",
+            "help": "None",
+            "brief": "None",
+            "category": "Fun"
+        }
+    ],
+    "VoiceMaster": [
+        {
+            "name": "voice hide",
+            "description": "hide the voice channel",
+            "help": "None",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice kick",
+            "description": "kick a member from your voice channel",
+            "help": "<member>",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice transfer",
+            "description": "transfer the voice channel ownership to another member",
+            "help": "<member>",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice reveal",
+            "description": "reveal the voice channel",
+            "help": "None",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice permit",
+            "description": "let someone join your locked voice channel",
+            "help": "<member>",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice lock",
+            "description": "lock the voice channel",
+            "help": "None",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice unlock",
+            "description": "unlock the voice channel",
+            "help": "None",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice rename",
+            "description": "rename the voice channel",
+            "help": "<name>",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice claim",
+            "description": "claim the voice channel ownership",
+            "help": "None",
+            "brief": "None",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voice reject",
+            "description": "restrict someone from joining your voice channel",
+            "help": "<member>",
+            "brief": "vc owner",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "interface",
+            "description": "sends an updated interface of VoiceMaster",
+            "help": "None",
+            "brief": "administrator",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voicemaster setup",
+            "description": "sets VoiceMaster module for your server",
+            "help": "None",
+            "brief": "administrator",
+            "category": "VoiceMaster"
+        },
+        {
+            "name": "voicemaster remove",
+            "description": "remove VoiceMaster module from your server",
+            "help": "None",
+            "brief": "administrator",
+            "category": "VoiceMaster"
+        }
+    ],
+    "Donator": [
+        {
+            "name": "hardunban",
+            "description": "revoke the hardban from an user",
+            "help": "<user>",
+            "brief": "manage guild",
+            "category": "Donator"
+        },
+        {
+            "name": "forcenick",
+            "description": "force nicknames an user",
+            "help": "<member> <nickname>",
+            "brief": "manage nicknames",
+            "category": "Donator"
+        },
+        {
+            "name": "hardban",
+            "description": "hardunban an user from the server",
+            "help": "<user>",
+            "brief": "manage guild",
+            "category": "Donator"
+        },
+        {
+            "name": "uwulock",
+            "description": "uwuify a person's messages",
+            "help": "<member>",
+            "brief": "manage guild",
+            "category": "Donator"
+        },
+        {
+            "name": "shutup",
+            "description": "delete a person's messages",
+            "help": "<member>",
+            "brief": "manage messages",
+            "category": "Donator"
+        },
+        {
+            "name": "selfpurge",
+            "description": "purges an amount of messages sent by you",
+            "help": "<amount>",
+            "brief": "None",
+            "category": "Donator"
+        },
+        {
+            "name": "reskin enable",
+            "description": "enable reskin",
+            "help": "None",
+            "brief": "None",
+            "category": "Donator"
+        },
+        {
+            "name": "reskin name",
+            "description": "change the reskin name",
+            "help": "<name>",
+            "brief": "None",
+            "category": "Donator"
+        },
+        {
+            "name": "reskin avatar",
+            "description": "change the reskin avatar",
+            "help": "<image/url>",
+            "brief": "None",
+            "category": "Donator"
+        },
+        {
+            "name": "reskin disable",
+            "description": "disable the reskin",
+            "help": "None",
+            "brief": "None",
+            "category": "Donator"
+        },
+        {
+            "name": "selfprefix",
+            "description": "set your own prefix",
+            "help": "<prefix>",
+            "brief": "None",
+            "category": "Donator"
+        }
+    ],
+    "Emoji": [
+        {
+            "name": "enlarge",
+            "description": "gets an image version of your emoji",
+            "help": "<emoji>",
+            "brief": "None",
+            "category": "Emoji"
+        },
+        {
+            "name": "emojiinfo",
+            "description": "show emoji info",
+            "help": "<emoji>",
+            "brief": "None",
+            "category": "Emoji"
+        },
+        {
+            "name": "emojilist",
+            "description": "returns a list of server's emojis",
+            "help": "emoji",
+            "brief": "None",
+            "category": "Emoji"
+        },
+        {
+            "name": "stealsticker",
+            "description": "add a sticker",
+            "help": "<attach sticker>",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        },
+        {
+            "name": "deleteemoji",
+            "description": "delete an emoji",
+            "help": "<emoji>",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        },
+        {
+            "name": "addemoji",
+            "description": "add an emoji",
+            "help": "<emoji> <name>",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        },
+        {
+            "name": "addmultiple",
+            "description": "add multiple emojis",
+            "help": "<emojis>",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        },
+        {
+            "name": "sticker steal",
+            "description": "add a sticker",
+            "help": "<emojis>",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        },
+        {
+            "name": "sticker enlarge",
+            "description": "returns a sticker as a file",
+            "help": "<sticker>",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        },
+        {
+            "name": "sticker delete",
+            "description": "delete a sticker",
+            "help": "<sticker>",
+            "brief": "manage expressions",
+            "category": "Emoji"
+        }
+    ],
+    "Giveaway": [
+        {
+            "name": "gend",
+            "description": "end a giveaway",
+            "help": "<message id> <channel>",
+            "brief": "manage guild",
+            "category": "Giveaway"
+        },
+        {
+            "name": "greroll",
+            "description": "reroll a giveaway",
+            "help": "<message id> <channel>",
+            "brief": "manage guild",
+            "category": "Giveaway"
+        },
+        {
+            "name": "giveaway list",
+            "description": "returns a list of active giveaways in the server",
+            "help": "None",
+            "brief": "None",
+            "category": "Giveaway"
+        },
+        {
+            "name": "giveaway end",
+            "description": "end a giveaway",
+            "help": "<message id> <channel>",
+            "brief": "manage guild",
+            "category": "Giveaway"
+        },
+        {
+            "name": "giveaway reroll",
+            "description": "reroll a giveaway",
+            "help": "<message id> <channel>",
+            "brief": "manage guild",
+            "category": "Giveaway"
+        },
+        {
+            "name": "giveaway create",
+            "description": "create a giveaway in this server",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Giveaway"
+        },
+        {
+            "name": "glist",
+            "description": "returns a list of active giveaways in the server",
+            "help": "None",
+            "brief": "None",
+            "category": "Giveaway"
+        },
+        {
+            "name": "gcreate",
+            "description": "create a giveaway in this server",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Giveaway"
+        }
+    ],
+    "Moderation": [
+        {
+            "name": "mute",
+            "description": "mute members in your server",
+            "help": "<member> <time> <reason>",
+            "brief": "moderate members",
+            "category": "Moderation"
+        },
+        {
+            "name": "unmute",
+            "description": "unmute a member in your server",
+            "help": "<member> <reason>",
+            "brief": "moderate members",
+            "category": "Moderation"
+        },
+        {
+            "name": "restore",
+            "description": "restore member's roles",
+            "help": "<member>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "autokick remove",
+            "description": "remove a user from autokick list",
+            "help": "<member>",
+            "brief": "manage guild",
+            "category": "Moderation"
+        },
+        {
+            "name": "autokick add",
+            "description": "add a user to be automatically kicked",
+            "help": "<member>",
+            "brief": "manage guild",
+            "category": "Moderation"
+        },
+        {
+            "name": "unban",
+            "description": "unban an user",
+            "help": "<member> <reason>",
+            "brief": "ban members",
+            "category": "Moderation"
+        },
+        {
+            "name": "slowmode",
+            "description": "add slowmode to a channel",
+            "help": "<seconds> <channel>",
+            "brief": "manage channels",
+            "category": "Moderation"
+        },
+        {
+            "name": "warns",
+            "description": "shows all warns of an user",
+            "help": "<member>",
+            "brief": "manage messages",
+            "category": "Moderation"
+        },
+        {
+            "name": "unsetmod",
+            "description": "disable the moderation features in your server",
+            "help": "None",
+            "brief": "administrator",
+            "category": "Moderation"
+        },
+        {
+            "name": "setmod",
+            "description": "enable the moderation features in your server",
+            "help": "None",
+            "brief": "administrator",
+            "category": "Moderation"
+        },
+        {
+            "name": "nuke",
+            "description": "delete and recreate a channel",
+            "help": "None",
+            "brief": "manage channels",
+            "category": "Moderation"
+        },
+        {
+            "name": "jail",
+            "description": "jail a member",
+            "help": "<member>",
+            "brief": "manage channels",
+            "category": "Moderation"
+        },
+        {
+            "name": "unjail",
+            "description": "unjail a member",
+            "help": "<member> <reason>",
+            "brief": "manage channels",
+            "category": "Moderation"
+        },
+        {
+            "name": "nickname",
+            "description": "change an user's nickname",
+            "help": "<member> <nickname>",
+            "brief": "manage nicknames",
+            "category": "Moderation"
+        },
+        {
+            "name": "voicemute",
+            "description": "mute a member in a voice channel",
+            "help": "<member>",
+            "brief": "moderate members",
+            "category": "Moderation"
+        },
+        {
+            "name": "softban",
+            "description": "ban an user then immediately unban them",
+            "help": "<member> <reason>",
+            "brief": "ban members",
+            "category": "Moderation"
+        },
+        {
+            "name": "lock",
+            "description": "lock a channel",
+            "help": "<channel>",
+            "brief": "manage channels",
+            "category": "Moderation"
+        },
+        {
+            "name": "role humans",
+            "description": "mass add or remove roles from members",
+            "help": "<role>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "role bots",
+            "description": "mass add or remove roles from members",
+            "help": "<role>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "role all",
+            "description": "mass add or remove roles from members",
+            "help": "<role>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "role create",
+            "description": "create a role",
+            "help": "<name>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "role delete",
+            "description": "delete a role",
+            "help": "<role>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "role edit",
+            "description": "edit a role",
+            "help": "<role>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "role add",
+            "description": "add a role to an user",
+            "help": "<member> <role>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "role remove",
+            "description": "remove a role from a member",
+            "help": "<member> <role>",
+            "brief": "manage roles",
+            "category": "Moderation"
+        },
+        {
+            "name": "unlock",
+            "description": "unlock a channel",
+            "help": "<channel>",
+            "brief": "manage channels",
+            "category": "Moderation"
+        },
+        {
+            "name": "clear contains",
+            "description": "clear messages that contain a certain word",
+            "help": "<word>",
+            "brief": "manage messages",
+            "category": "Moderation"
+        },
+        {
+            "name": "kick",
+            "description": "kick members from your server",
+            "help": "<member> <reason>",
+            "brief": "kick members",
+            "category": "Moderation"
+        },
+        {
+            "name": "ban",
+            "description": "ban members from your server",
+            "help": "<member> <reason>",
+            "brief": "ban members",
+            "category": "Moderation"
+        },
+        {
+            "name": "purge",
+            "description": "bulk delete messages",
+            "help": "<messages>",
+            "brief": "manage messages",
+            "category": "Moderation"
+        },
+        {
+            "name": "voiceunmute",
+            "description": "unmute a member in a voice channel",
+            "help": "<member>",
+            "brief": "moderate members",
+            "category": "Moderation"
+        },
+        {
+            "name": "botpurge",
+            "description": "bulk delete messages sent by bots",
+            "help": "<amount>",
+            "brief": "manage messages",
+            "category": "Moderation"
+        },
+        {
+            "name": "strip",
+            "description": "moderation",
+            "help": "<member> <reason>",
+            "brief": "administrator",
+            "category": "Moderation"
+        },
+        {
+            "name": "warn clear",
+            "description": "clear all warns from an user",
+            "help": "<member>",
+            "brief": "manage messages",
+            "category": "Moderation"
+        },
+        {
+            "name": "warn list",
+            "description": "shows all warns of an user",
+            "help": "<member>",
+            "brief": "manage messages",
+            "category": "Moderation"
+        },
+        {
+            "name": "untimeoutall",
+            "description": "untimeout all users",
+            "help": "None",
+            "brief": "moderate members",
+            "category": "Moderation"
+        },
+        {
+            "name": "naughty",
+            "description": "make a text channel nsfw for 30 seconds.",
+            "help": "None",
+            "brief": "manage channels",
+            "category": "Moderation"
+        },
+        {
+            "name": "naughtycorner unsetup",
+            "description": "disable naughty corner feature in the server",
+            "brief": "manage guild",
+            "category": "Moderation"
+        },
+        {
+            "name": "naughtycorner members",
+            "description": "returns members from the naughty corner",
+            "category": "Moderation"
+        },
+        {
+            "name": "naughtycorner remove",
+            "description": "remove a member from the naughty corner",
+            "help": "<member>",
+            "brief": "timeout members",
+            "category": "Moderation"
+        },
+        {
+            "name": "naughtycorner setup",
+            "description": "configure naughty corner voice channel",
+            "help": "<voice channel>",
+            "brief": "manage guild",
+            "category": "Moderation"
+        },
+        {
+            "name": "naughtycorner add",
+            "description": "add a member to the naughty corner",
+            "help": "<member>",
+            "brief": "timeout members",
+            "category": "Moderation"
+        }
+    ],
+    "AutoMod": [
+        {
+            "name": "antispam punishment",
+            "description": "set antispam punishment",
+            "help": "<punishment>",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "antispam seconds",
+            "description": "set antispam's delay time",
+            "help": "<seconds>",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "antispam whitelist",
+            "description": "manage whitelist for anti spam",
+            "help": "None",
+            "brief": "None",
+            "category": "AutoMod"
+        },
+        {
+            "name": "antispam disable",
+            "description": "disable anti spam",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "antispam limit",
+            "description": "set antispam's limit",
+            "help": "<limit>",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "antispam unwhitelist",
+            "description": "remove channels or users from antispam whitelist",
+            "help": "<channel / user>",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "antispam whitelisted",
+            "description": "returns a list of whitelisted channels or users",
+            "help": "None",
+            "brief": "None",
+            "category": "AutoMod"
+        },
+        {
+            "name": "antispam enable",
+            "description": "enable anti spam",
+            "help": "None",
+            "brief": "None",
+            "category": "AutoMod"
+        },
+        {
+            "name": "chatfilter unwhitelist",
+            "description": "remove channels or users from chatfilter whitelist",
+            "help": "<channel / user>",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "chatfilter whitelist",
+            "description": "manage whitelist for chatfilter",
+            "help": "None",
+            "brief": "None",
+            "category": "AutoMod"
+        },
+        {
+            "name": "chatfilter whitelisted",
+            "description": "returns a list of whitelisted channels or users",
+            "help": "None",
+            "brief": "None",
+            "category": "AutoMod"
+        },
+        {
+            "name": "chatfilter add",
+            "description": "add a word to the chatfilter",
+            "help": "<word>",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "chatfilter remove",
+            "description": "remove a word from the chatfilter",
+            "help": "<word>",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "chatfilter list",
+            "description": "returns a list of blacklisted words",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "anti-invite unwhitelist",
+            "description": "remove channels or users from antilink whitelist",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "anti-invite enable",
+            "description": "enable anti invite",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "anti-invite whitelisted",
+            "description": "returns a list of whitelisted channels or users",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "anti-invite disable",
+            "description": "disable anti invite",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        },
+        {
+            "name": "anti-invite whitelist",
+            "description": "manage whitelist for anti invite",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "AutoMod"
+        }
+    ],
+    "Vanity": [
+        {
+            "name": "vanity channel",
+            "description": "change vanity log channel",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Vanity"
+        },
+        {
+            "name": "vanity message",
+            "description": "change vanity message",
+            "help": "<message>",
+            "brief": "manage guild",
+            "category": "Vanity"
+        },
+        {
+            "name": "vanity unsetup",
+            "description": "unsetup vanity module",
+            "help": "None",
+            "brief": "manage channels",
+            "category": "Vanity"
+        },
+        {
+            "name": "vanity set",
+            "description": "setup vanity module",
+            "help": "<vanity> <role> <channel>",
+            "brief": "manage guild",
+            "category": "Vanity"
+        }
+    ],
+    "Logging": [
+        {
+            "name": "logs voice",
+            "description": "toggle voice logging",
+            "help": "<toggle> <channel>",
+            "brief": "manage guild",
+            "category": "Logging"
+        },
+        {
+            "name": "logs channel",
+            "description": "toggle channel logging",
+            "help": "<toggle> <channel>",
+            "brief": "manage guild",
+            "category": "Logging"
+        },
+        {
+            "name": "logs message",
+            "description": "toggle message logging",
+            "help": "<toggle> <channel>",
+            "brief": "manage guild",
+            "category": "Logging"
+        },
+        {
+            "name": "logs role",
+            "description": "toggle role logging",
+            "help": "<toggle> <channel>",
+            "brief": "manage guild",
+            "category": "Logging"
+        },
+        {
+            "name": "logs server",
+            "description": "toggle server logging",
+            "help": "<toggle> <channel>",
+            "brief": "manage guild",
+            "category": "Logging"
+        },
+        {
+            "name": "logs member",
+            "description": "toggle member logging",
+            "help": "<toggle> <channel>",
+            "brief": "manage guild",
+            "category": "Logging"
+        }
+    ],
+    "Leveling": [
+        {
+            "name": "rank",
+            "description": "check any member's rank",
+            "help": "<member>",
+            "brief": "None",
+            "category": "Leveling"
+        },
+        {
+            "name": "level leaderboard",
+            "description": "check level leaderboard",
+            "help": "None",
+            "brief": "None",
+            "category": "Leveling"
+        },
+        {
+            "name": "level levelup",
+            "description": "set where the level up message should be sent",
+            "help": "<destination>",
+            "brief": "None",
+            "category": "Leveling"
+        },
+        {
+            "name": "level toggle",
+            "description": "enable leveling system.. or disable it",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Leveling"
+        },
+        {
+            "name": "level rewards",
+            "description": "manage the rewards for each level",
+            "help": "None",
+            "brief": "None",
+            "category": "Leveling"
+        },
+        {
+            "name": "level reset",
+            "description": "reset levels for everyone",
+            "help": "None",
+            "brief": "server owner",
+            "category": "Leveling"
+        },
+        {
+            "name": "level channel",
+            "description": "set a channel to send level up messages",
+            "help": "<channel>",
+            "brief": "manage guild",
+            "category": "Leveling"
+        }
+    ],
+    "Tickets": [
+        {
+            "name": "ticket support",
+            "description": "configure the ticket support role (will be pinged)",
+            "help": "<member>",
+            "brief": "administrator",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket remove",
+            "description": "remove a member from the ticket",
+            "help": "<member>",
+            "brief": "manage channels",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket send",
+            "description": "sends the ticket panel",
+            "help": "None",
+            "brief": "administrator",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket category",
+            "description": "configure the ticket category",
+            "help": "<category>",
+            "brief": "administrator",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket logs",
+            "description": "configure the ticket logging channel",
+            "help": "<channel>",
+            "brief": "administrator",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket settings",
+            "description": "check the ticket panel's settings",
+            "help": "None",
+            "brief": "None",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket message",
+            "description": "configure the ticket message",
+            "help": "<embed code>",
+            "brief": "administrator",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket channel",
+            "description": "configure the ticket channel",
+            "help": "<channel>",
+            "brief": "administrator",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket topics",
+            "description": "manage the ticket topics",
+            "help": "None",
+            "brief": "administrator",
+            "category": "Tickets"
+        },
+        {
+            "name": "ticket add",
+            "description": "add a person to the ticket",
+            "help": "<member>",
+            "brief": "manage channels",
+            "category": "Tickets"
+        }
+    ],
+    "AntiNuke": [
+        {
+            "name": "antinuke admin",
+            "description": "Add an antinuke admin",
+            "help": "<member>",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke whitelist",
+            "description": "Add an Anti-Nuke Whitelisted Member",
+            "help": "<member>",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke threshold",
+            "description": "Anti-Nuke Module Threshold",
+            "help": "<module> <threshold>",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke admins",
+            "description": "List antinuke admin",
+            "help": "None",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke whitelisted",
+            "description": "List Anti-Nuke Whitelisted Members",
+            "help": "None",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke enable",
+            "description": "Enable Anti-Nuke",
+            "help": "None",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke toggle",
+            "description": "Toggle Anti-Nuke",
+            "help": "<module>",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke action",
+            "description": "Anti-Nuke Module Action",
+            "help": "<module> <action>",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke disable",
+            "description": "Disable Anti-Nuke",
+            "help": "None",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        },
+        {
+            "name": "antinuke settings",
+            "description": "Anti-Nuke Settings",
+            "brief": "antinuke admin",
+            "category": "AntiNuke"
+        }
+    ],
+    "ReactionRoles": [
+        {
+            "name": "reactionrole removeall",
+            "description": "remove all reaction roles from the server",
+            "help": "<channel>",
+            "brief": "manage roles",
+            "category": "ReactionRoles"
+        },
+        {
+            "name": "reactionrole remove",
+            "description": "remove a reactionrole from a message",
+            "help": "<message id> <channel> <emoji>",
+            "brief": "manage roles",
+            "category": "ReactionRoles"
+        },
+        {
+            "name": "reactionrole add",
+            "description": "add a reactionrole to a message",
+            "help": "<message id> <channel> <emoji> <role>",
+            "brief": "manage roles",
+            "category": "ReactionRoles"
+        },
+        {
+            "name": "reactionrole list",
+            "description": "list all the reaction roles from the server",
+            "help": "None",
+            "brief": "None",
+            "category": "ReactionRoles"
+        }
+    ],
+    "Chat": [
+        {
+            "name": "autoreact remove",
+            "description": "remove auto reactions from a content",
+            "help": "<content>",
+            "brief": "manage guild",
+            "category": "Chat"
+        },
+        {
+            "name": "autoreact list",
+            "description": "return a list of autoreactions in this server",
+            "help": "None",
+            "brief": "None",
+            "category": "Chat"
+        },
+        {
+            "name": "autoreact add",
+            "description": "make the bot react with emojis on your message",
+            "help": "<content>, <emojis>",
+            "brief": "manage guild",
+            "category": "Chat"
+        },
+        {
+            "name": "autoresponder delete",
+            "description": "delete an autoresponder",
+            "help": "<trigger>",
+            "brief": "manage guild",
+            "category": "Chat"
+        },
+        {
+            "name": "autoresponder variables",
+            "description": "returns variables for autoresponder",
+            "help": "None",
+            "brief": "None",
+            "category": "Chat"
+        },
+        {
+            "name": "autoresponder add",
+            "description": "create an autoresponder",
+            "help": "<trigger>, <response>",
+            "brief": "manage guild",
+            "category": "Chat"
+        },
+        {
+            "name": "autoresponder list",
+            "description": "list all autoresponses",
+            "help": "None",
+            "brief": "manage guild",
+            "category": "Chat"
+        }
+    ]
+}

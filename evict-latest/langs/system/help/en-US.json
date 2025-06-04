@@ -1,0 +1,35 @@
+{
+    "language": "English",
+    "language_code": "en",
+    "language_local": "en-US",
+    "system": {
+        "help": {
+            "INFORMATION_DESC": "**information**\n> [ ] = optional, < > = required\n",
+            "SELECT_CATEGORY": "Select a category from the dropdown menu below",
+            "DROPDOWN_PLACEHOLDER": "Choose a category...",
+            "NO_COMMANDS": "No commands available in this group.",
+            "CANNOT_INTERACT": "You cannot interact with this menu!",
+            "COMMAND": {
+                "title": {
+                    "NORMAL": "Command: {command_name} • {module_name} module",
+                    "GROUP": "Group: {command_name} • {module_name} module"
+                },
+                "SYNTAX": "```Ruby\nSyntax: {syntax}\nExample: {prefix}{command_name} {example}```",
+                "PERMISSIONS": "Permissions",
+                "ALIASES": "Aliases: {aliases}",
+                "FLAGS": {
+                    "REQUIRED": "Required Flags",
+                    "OPTIONAL": "Optional Flags"
+                }
+            },
+            "CATEGORY": {
+                "TITLE": "Category: {category_name}",
+                "FOOTER": "{count} command{plural}"
+            },
+            "ERRORS": {
+                "COMMAND_NOT_FOUND": "> {emoji} {user}: Command `{command}` does not exist",
+                "SUBCOMMAND_NOT_FOUND": "> {emoji} {user}: Command `{command} {subcommand}` does not exist"
+            }
+        }
+    }
+}

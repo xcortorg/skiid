@@ -1,0 +1,5 @@
+# Include the api.json file from models/Twitter
+include DataProcessing/models/Twitter/api.json
+
+# Include the config.yaml file from services/TT
+include DataProcessing/services/TT/config.yaml

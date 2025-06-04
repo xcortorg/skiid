@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>luma - cmds</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#010101">
+    <meta property="og:title" content="luma - cmds">
+    <meta property="og:url" content="https://fulcrum.lol/commands">
+    <meta property="og:description" content="Commands for luma">
+    <link rel="icon" href="https://cdn.discordapp.com/avatars/1263203971846242317/66732b7e45ff8af93145cca047c00ab5.png?size=1024">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cmds.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>luma</h1>
+    </header>
+    <div class="container">
+      <div class="command-list">
+        {% for category, command in commands.items() %}
+          {% for cmd in command['commands'] %}
+            <div class="command-border">
+                <div class="command-name">
+                  <h1>{{ cmd['name'] }}</h1>
+                </div>
+              <p>{{ cmd['description'] }}</p>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

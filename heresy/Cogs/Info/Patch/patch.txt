@@ -1,0 +1,30 @@
+## Known Issues:
+
+- **P4P**: Issues with the bot being able to display/send the Advertisement for the server
+- **Automod**: Automod still does not work, will work on a fix soon
+- **Voice**: VoiceMaster and Music related commands are commpletely unfunctional, will work on this later
+- **Lore**: Unable to display users lorebook if they have an entry over 2000 characters, likely not fixable due to discord Nitro limit.
+- **Inrole**: Inrole commands don't seem to be working, not sure what causes this, should be fixed soon
+
+## Fixed Issues:
+
+- **Autoresponses**: Fixed the issue with newly added responses not working
+- **Ping**: Fixed the issue with the bot being slow when it comes to responding, bot is hosted elsewhere
+- Fixed the issue with **Whois** not working on other users by adding an alternative command ",whoid"
+- Fixed the issue with the bot not setting **AFK** half the time
+
+### Other Changes:
+
+- **Help**: The help command functions differently now, to view all commands run `,commands`, or ,`cmd` for lazy people
+- **Website**: The website is being worked on at the moment, for Commands, and documentation.
+- **Kybalion**: Kybalion has been shut off, and Heresy is being re-upped, Kybalion will be used as Heresy WHEN and IF Heresy receives a JavaScript variant, Heresy will remain the same until then.
+- **Bans**: The bot is now unable to Ban developer's and itself (it was already unable to ban itself, also has a unique ban message for itself)
+
+### New COmmands:
+
+- **os?**: Checks to see which Operating System the bot is using.
+- **pip**: No details about this command at the moment...
+- **path**: No details about this command and the moment...
+- **owners**: Displays all the Owners, Developers or Contributors of the bot.
+
+-# More changes to come soon. To stop receiving pings for updates, remove heresy Updates from your roles in <id:customize>

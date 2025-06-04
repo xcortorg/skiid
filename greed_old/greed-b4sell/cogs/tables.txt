@@ -1,0 +1,363 @@
+INSERT INTO lastfm_likes (user_id,track,artist) VALUES($1,$2,$3) ON CONFLICT (user_id,track,artist) DO NOTHING
+DELETE FROM lastfm_likes WHERE user_id = $1 AND track = $2 AND artist = $3
+SELECT track, artist FROM lastfm_likes WHERE user_id = $1
+SELECT * FROM filter_event WHERE guild_id = $1 AND event = $2
+SELECT ts FROM birthday WHERE user_id = $1
+INSERT INTO birthday (user_id, ts) VALUES($1, $2) ON CONFLICT(user_id) DO UPDATE SET ts = excluded.ts
+UPDATE lastfm.conf SET up = $1, down = $2 WHERE user_id = $3
+SELECT * FROM lastfm.conf WHERE user_id = any($1::bigint[])
+SELECT guild_id, user_id, artist, count(*) as plays FROM lastfm_crowns  WHERE guild_id = $1 AND user_id = any($2::bigint[]) GROUP BY guild_id, user_id, artist ORDER BY plays DESC
+INSERT INTO lastfm_crowns (guild_id, artist, user_id, plays) VALUES($1,$2,$3,$4) ON CONFLICT(guild_id, artist) DO UPDATE SET user_id = $3, plays = $4
+DELETE FROM earnings
+SELECT * FROM economy WHERE user_id = $1
+SELECT balance FROM economy WHERE user_id = $1
+UPDATE economy SET balance = $1 WHERE user_id = $2
+SELECT * FROM inventory WHERE user_id = $1 AND item = $2
+SELECT * FROM used_items WHERE user_id = $1 AND item = $2
+INSERT INTO used_items (user_id, item, ts, expiration) VALUES($1, $2, $3, $4) ON CONFLICT(user_id, item) DO UPDATE SET ts = excluded.ts, expiration = excluded.expiration
+INSERT INTO inventory (user_id, item, amount) VALUES($1, $2, $3) ON CONFLICT (user_id, item) DO UPDATE SET amount = inventory.amount + excluded.amount
+SELECT * FROM used_items
+DELETE FROM used_items WHERE user_id = $1 AND item = $2
+SELECT expiration FROM used_items WHERE user_id = $1 AND item = $2
+UPDATE economy SET balance = economy.balance + $1, earnings = economy.earnings + $2, wins = economy.wins + $4, total = economy.total + $5 WHERE user_id = $3 RETURNING balance
+UPDATE economy SET balance = economy.balance - $1, earnings = economy.earnings - $2, total = economy.total + $4 WHERE user_id = $3 RETURNING balance
+UPDATE economy SET balance = $1  WHERE user_id = $2 RETURNING balance
+INSERT INTO graph_color (user_id, color) VALUES($1, $2) ON CONFLICT(user_id) DO UPDATE SET color = excluded.color
+SELECT * FROM steal_disabled WHERE guild_id = $1
+DELETE FROM steal_disabled WHERE guild_id = $1
+INSERT INTO steal_disabled (guild_id) VALUES($1)
+UPDATE economy SET balance = $1, earnings = $1 WHERE user_id = $2
+UPDATE economy SET bank = $1, earnings = $1 WHERE user_id = $2
+INSERT INTO economy (user_id, balance, bank) VALUES($1,$2,$3)
+UPDATE economy SET balance = economy.balance - $1, bank = economy.bank + $1 WHERE user_id = $2
+UPDATE economy SET balance = economy.balance + $1, bank = economy.bank - $1 WHERE user_id = $2
+SELECT * FROM inventory WHERE user_id = $1
+SELECT user_id,
+                SUM(balance + bank) AS bal
+                FROM economy
+                GROUP BY user_id
+                ORDER BY bal DESC;
+SELECT user_id, earnings FROM economy ORDER BY earnings DESC
+CREATE TABLE IF NOT EXISTS vanity_roles (guild_id BIGINT NOT NULL, user_id BIGINT NOT NULL, PRIMARY KEY(guild_id, user_id))
+SELECT role_id FROM vanity_status WHERE guild_id = $1
+SELECT channel_id, message FROM vanity_status WHERE guild_id = $1
+INSERT INTO vanity_roles (guild_id, user_id) VALUES($1, $2) ON CONFLICT(guild_id, user_id) DO NOTHING
+DELETE FROM vanity_roles WHERE guild_id = $1 AND user_id = $2
+SELECT * FROM vanity_roles WHERE guild_id = $1 AND user_id = $2
+SELECT guild_id, role_id FROM vanity_status
+INSERT INTO vanity_status (guild_id, role_id) VALUES($1, $2) ON CONFLICT (guild_id) DO UPDATE SET role_id = excluded.role_id
+UPDATE vanity_status SET message = $2 WHERE guild_id = $1
+UPDATE vanity_status SET channel_id = $2 WHERE guild_id = $1
+SELECT role_id, channel_id, message FROM vanity_status WHERE guild_id = $1
+DELETE FROM vanity_status WHERE guild_id = $1
+SELECT * FROM filter_setup WHERE guild_id = $1
+SELECT keyword FROM filter WHERE guild_id = $1
+INSERT INTO filter_whitelist (guild_id, user_id, events)
+                            VALUES ($1, $2, $3)
+                            ON CONFLICT (guild_id, user_id)
+                            DO UPDATE SET events = filter_whitelist.events || ',' || EXCLUDED.events;
+INSERT INTO filter_whitelist (guild_id, user_id, events)
+                        VALUES ($1, $2, $3)
+                        ON CONFLICT (guild_id, user_id)
+                        DO UPDATE SET events = filter_whitelist.events || ',' || EXCLUDED.events;
+SELECT * FROM filter_whitelist WHERE guild_id = $1
+INSERT INTO filter_setup (guild_id) VALUES ($1)
+INSERT INTO automod_timeout (guild_id, timeframe) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET timeframe = excluded.timeframe
+INSERT INTO filter_event (guild_id, event, is_enabled) VALUES ($1, $2, $3) ON CONFLICT (guild_id, event) DO UPDATE SET is_enabled = EXCLUDED.is_enabled;
+SELECT event, is_enabled, threshold FROM filter_event WHERE guild_id = $1
+INSERT INTO automod_timeout (guild_id,timeframe) VALUES($1,$2) ON CONFLICT(guild_id) DO UPDATE SET timeframe = excluded.timeframe
+SELECT message FROM vanity_status WHERE guild_id = $1 AND channel_id = $2
+DELETE FROM command_restriction WHERE guild_id = $1 AND command_name = $2 AND role_id = $3
+SELECT command_name, role_id FROM command_restriction WHERE guild_id = $1
+INSERT INTO jailed (guild_id, user_id, roles) VALUES ($1, $2, $3)
+SELECT data FROM moderation_statistics WHERE guild_id = $1 AND user_id = $2
+INSERT INTO moderation_statistics (guild_id, user_id, data) VALUES($1, $2, $3) ON CONFLICT(guild_id, user_id) DO UPDATE SET data = excluded.data
+SELECT roles FROM jailed WHERE guild_id = $1 AND user_id = $2
+DELETE FROM jailed WHERE guild_id = $1 AND user_id = $2
+INSERT INTO moderation_channel (guild_id, category_id, channel_id) VALUES($1, $2, $3) ON CONFLICT(guild_id) DO UPDATE SET channel_id = excluded.channel_id, category_id = excluded.category_id
+SELECT user_id FROM jailed WHERE guild_id = $1
+DELETE FROM jailed WHERE guild_id = $1
+SELECT channel_id, category_id FROM moderation_channel WHERE guild_id = $1
+DELETE FROM moderation_channel WHERE guild_id = $1
+DELETE FROM forcenick WHERE guild_id = $1 AND user_id = $2
+INSERT INTO forcenick (guild_id,user_id,nick) VALUES($1,$2,$3) ON CONFLICT (guild_id,user_id) DO UPDATE SET nick = excluded.nick
+INSERT INTO forcenick (guild_id,user_id,nick) VALUES($1,$2,$3) ON CONFLICT DO NOTHING
+SELECT role_id FROM lock_role WHERE guild_id = $1
+INSERT INTO lock_role (guild_id,role_id) VALUES($1,$2) ON CONFLICT(guild_id) DO UPDATE SET role_id = excluded.role_id
+DELETE FROM lock_role WHERE guild_id = $1
+SELECT channels FROM disabled_commands where guild_id = $1 AND command = $2
+INSERT INTO disabled_commands (guild_id, command, channels) VALUES($1,$2,$3) ON CONFLICT(guild_id, command) DO UPDATE SET channels = excluded.channels
+DELETE FROM disabled_commands WHERE guild_id = $1 AND command = $2
+SELECT tz FROM timezone WHERE user_id = $1
+INSERT INTO timezone (user_id, tz) VALUES($1, $2) ON CONFLICT(user_id) DO UPDATE SET tz = excluded.tz
+UPDATE tickets SET delete_emoji = $1, open_emoji = $2 WHERE guild_id = $3
+UPDATE tickets SET delete_emoji = $1 WHERE guild_id = $2
+UPDATE tickets SET open_emoji = $1 WHERE guild_id = $2
+UPDATE tickets SET message_id = $1 WHERE guild_id = $2
+SELECT owner_id
+            FROM voicemaster_data
+            WHERE channel_id = $1
+            AND guild_id = $2
+SELECT channel_id
+            FROM voicemaster_data
+            WHERE guild_id = $1
+            AND owner_id = $2
+            AND channel_id = $3
+SELECT owner_id
+                FROM voicemaster_data
+                WHERE channel_id = $1
+                AND guild_id = $2
+SELECT channel_id
+                FROM voicemaster_data
+                WHERE guild_id = $1
+                AND owner_id = $2
+                AND channel_id = $3
+SELECT channel_id, owner_id
+                FROM voicemaster_data
+                WHERE guild_id = $1
+                AND channel_id = $2
+UPDATE voicemaster_data
+                SET owner_id = $1
+                WHERE guild_id = $2
+                AND channel_id = $3
+DELETE FROM voicemaster_data
+                WHERE channel_id = $1
+SELECT *
+            FROM voicemaster
+            WHERE guild_id = $1
+INSERT INTO voicemaster
+                (guild_id, category_id, voicechannel_id, channel_id, message_id)
+                VALUES ($1, $2, $3, $4, $5)
+SELECT voicechannel_id,
+            channel_id, category_id
+            FROM voicemaster
+            WHERE guild_id = $1
+DELETE FROM voicemaster
+                        WHERE guild_id = $1
+                        AND voicechannel_id = $2
+                        AND channel_id = $3
+SELECT channel_id
+                FROM voicemaster_data
+                WHERE guild_id = $1
+DELETE FROM voicemaster_data
+                            WHERE guild_id = $1
+                            AND channel_id = $2
+INSERT INTO vm_status (user_id, status) VALUES($1, $2) ON CONFLICT(user_id) DO UPDATE SET status = excluded.status
+SELECT channel_id, owner_id
+            FROM voicemaster_data
+            WHERE guild_id = $1
+            AND channel_id = $2
+UPDATE voicemaster_data
+            SET owner_id = $1
+            WHERE guild_id = $2
+            AND channel_id = $3
+SELECT roles FROM text_level_settings WHERE guild_id = $1
+SELECT award_message FROM text_level_settings WHERE guild_id = $1
+SELECT guild_id,channel_id FROM pfps
+INSERT INTO boosters_lost (user_id,guild_id,ts) VALUES($1,$2,$3) ON CONFLICT(user_id,guild_id) DO UPDATE SET ts = excluded.ts
+INSERT INTO names (user_id, type, username, ts) VALUES($1,$2,$3,$4) ON CONFLICT(user_id,username,ts) DO NOTHING
+SELECT role_id FROM reactionrole WHERE guild_id = $1 AND message_id = $2 AND emoji = $3
+INSERT INTO names (user_id,type,username,ts) VALUES($1,$2,$3,$4) ON CONFLICT(user_id,username,ts) DO NOTHING
+SELECT timeframe FROM automod_timeout WHERE guild_id = $1
+SELECT * FROM system_messages WHERE guild_id = $1
+SELECT user_id, events FROM filter_whitelist WHERE guild_id = $1 and user_id =  any($2::bigint[])
+SELECT webhook FROM niggertalk WHERE guild_id = $1 AND channel_id = $2 AND user_id = $3
+DELETE FROM niggertalk WHERE guild_id = $1 AND channel_id = $2 AND user_id = $3
+SELECT webhook FROM uwulock WHERE guild_id = $1 AND channel_id = $2 AND user_id = $3
+DELETE FROM uwulock WHERE guild_id = $1 AND channel_id = $2 AND user_id = $3
+SELECT role_id FROM premiumrole WHERE guild_id = $1
+SELECT voicechannel_id, category_id
+                FROM voicemaster
+                WHERE guild_id = $1
+DELETE FROM voicemaster_data
+                                WHERE channel_id = $1
+SELECT status FROM vm_status WHERE user_id = $1
+INSERT INTO voicemaster_data
+                                (channel_id, guild_id, owner_id)
+                                VALUES ($1, $2, $3)
+SELECT channel_id
+                        FROM voicemaster_data
+                        WHERE channel_id = $1
+SELECT channel_id
+                                FROM voicemaster_data
+                                WHERE owner_id = $1
+DELETE FROM voicemaster_data
+                                    WHERE owner_id = $1
+CREATE TABLE IF NOT EXISTS screentime (user_id BIGINT PRIMARY KEY, online BIGINT DEFAULT 1, offline BIGINT DEFAULT 1, idle BIGINT DEFAULT 1, dnd BIGINT DEFAULT 1);
+INSERT INTO screentime (user_id, online, offline, idle, dnd)
+				VALUES ($1, $2, $3, $4, $5)
+				ON CONFLICT (user_id)
+				DO UPDATE SET
+					online = screentime.online + EXCLUDED.online,
+					offline = screentime.offline + EXCLUDED.offline,
+					idle = screentime.idle + EXCLUDED.idle,
+					dnd = screentime.dnd + EXCLUDED.dnd;
+SELECT online, idle, dnd, offline FROM screentime WHERE user_id = $1
+DELETE FROM screentime WHERE user_id = $1
+CREATE TABLE IF NOT EXISTS antinuke_threshold (guild_id BIGINT PRIMARY KEY, bot_add BIGINT DEFAULT 0, role_update BIGINT DEFAULT 0, channel_update BIGINT DEFAULT 0, guild_update BIGINT DEFAULT 0, kick BIGINT DEFAULT 0, ban BIGINT DEFAULT 0, member_prune BIGINT DEFAULT 0, webhooks BIGINT DEFAULT 0)
+SELECT guild_id, bot_add, role_update, channel_update, kick, ban, guild_update, member_prune, webhooks FROM antinuke
+SELECT * FROM antinuke_threshold
+SELECT punishment FROM antinuke WHERE guild_id = $1
+INSERT INTO antinuke (guild_id, bot_add, guild_update, channel_update, role_update, kick, ban, webhooks, member_prune, threshold) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) ON CONFLICT (guild_id) DO UPDATE SET bot_add = excluded.bot_add, guild_update = excluded.guild_update, role_update = excluded.role_update, channel_update = excluded.channel_update, webhooks = excluded.webhooks, kick = excluded.kick, ban = excluded.ban, member_prune = excluded.member_prune, threshold = excluded.threshold
+DELETE FROM antinuke WHERE guild_id = $1
+UPDATE antinuke SET punishment = $1 WHERE guild_id = $2
+SELECT user_id FROM antinuke_whitelist WHERE guild_id = $1 AND user_id = $2
+DELETE FROM antinuke_whitelist WHERE guild_id = $1 AND user_id = $2
+INSERT INTO antinuke_whitelist (guild_id, user_id) VALUES($1,$2) ON CONFLICT(guild_id,user_id) DO NOTHING
+SELECT user_id FROM antinuke_admin WHERE guild_id = $1 AND user_id = $2
+DELETE FROM antinuke_admin WHERE guild_id = $1 AND user_id = $2
+INSERT INTO antinuke_admin (guild_id, user_id) VALUES($1,$2) ON CONFLICT(guild_id,user_id) DO NOTHING
+SELECT user_id FROM antinuke_whitelist WHERE guild_id = $1
+SELECT user_id FROM antinuke_admin WHERE guild_id = $1
+SELECT * FROM antinuke_threshold WHERE guild_id = $1
+SELECT * FROM antinuke WHERE guild_id = $1
+UPDATE antinuke SET bot_add = $1 WHERE guild_id = $2
+UPDATE antinuke SET role_update = $1 WHERE guild_id = $2
+UPDATE antinuke SET channel_update = $1 WHERE guild_id = $2
+UPDATE antinuke SET guild_update = $1 WHERE guild_id = $2
+UPDATE antinuke SET kick = $1 WHERE guild_id = $2
+UPDATE antinuke SET ban = $1 WHERE guild_id = $2
+UPDATE antinuke SET member_prune = $1 WHERE guild_id = $2
+UPDATE antinuke SET webhooks = $1 WHERE guild_id = $2
+SELECT * FROM uwulock WHERE guild_id = $1 AND user_id = $2 AND channel_id = $3
+DELETE FROM uwulock WHERE guild_id = $1 AND user_id = $2 AND channel_id = $3
+DELETE FROM uwulock WHERE guild_id = $1
+INSERT INTO uwulock (user_id, guild_id, channel_id, webhook) VALUES($1, $2, $3, $4) ON CONFLICT(user_id, guild_id, channel_id) DO UPDATE SET webhook = excluded.webhook
+SELECT * FROM auto_transcribe WHERE guild_id = $1
+SELECT * FROM giveaway_blacklist WHERE guild_id = $1 AND role_id = $2
+DELETE FROM giveaway_blacklist WHERE guild_id = $1 AND role_id = $2
+INSERT INTO giveaway_blacklist (guild_id, role_id) VALUES($1, $2) ON CONFLICT(guild_id, role_id)
+SELECT * FROM giveaway_config WHERE guild_id = $1
+SELECT * FROM giveaway_templates WHERE guild_id = $1
+SELECT guild_id, channel_id, message_id, ex, creator, winner_count FROM gw
+SELECT user_id, entry_count FROM giveaway_entries WHERE guild_id = $1 AND message_id = $2
+DELETE FROM gw WHERE guild_id = $1
+DELETE FROM giveaway_entries WHERE guild_id = $1
+DELETE FROM giveaway_settings WHERE guild_id = $1
+DELETE FROM gw WHERE guild_id = $1 AND message_id = $2
+DELETE FROM giveaway_entries WHERE guild_id = $1 AND message_id = $2
+SELECT COUNT(*) FROM giveaway_entries WHERE guild_id = $1 AND message_id = $2
+INSERT INTO gw (guild_id, channel_id, message_id, ex, creator, winner_count) VALUES($1, $2, $3, $4, $5, $6) ON CONFLICT(guild_id, message_id) DO NOTHING
+SELECT * FROM gw WHERE guild_id = $1
+UPDATE gw SET ex = $1 WHERE guild_id = $2 AND message_id = $3
+INSERT INTO giveaway_config (guild_id, dm_creator, dm_winners) VALUES($1, $2, $3) ON CONFLICT(guild_id) DO UPDATE SET dm_creator = excluded.dm_creator
+INSERT INTO giveaway_config (guild_id, dm_creator, dm_winners) VALUES($1, $2, $3) ON CONFLICT(guild_id) DO UPDATE SET dm_winners = excluded.dm_winners
+DELETE FROM giveaway_templates WHERE guild_id = $1
+INSERT INTO giveaway_templates (guild_id, code) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET code = excluded.code
+INSERT INTO giveaway_settings (guild_id, role_id, entries) VALUES($1, $2, $3) ON CONFLICT(guild_id, role_id) DO UPDATE SET entries = excluded.entries
+DELETE FROM reactionrole WHERE guild_id = $1 AND channel_id = $2 AND message_id = $3
+SELECT * FROM notifications WHERE guild_id = $1
+SELECT channels, message FROM notifications WHERE guild_id = $1
+SELECT user_id FROM text_levels WHERE guild_id = $1 AND xp >= $2
+INSERT INTO text_level_settings (guild_id, award_message) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET award_message = excluded.award_message
+INSERT INTO text_level_settings (guild_id) VALUES($1) ON CONFLICT(guild_id) DO NOTHING
+DELETE FROM text_level_settings WHERE guild_id = $1
+UPDATE text_level_settings SET award_message = NULL WHERE guild_id = $1
+INSERT INTO text_level_settings (guild_id, roles) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET roles = excluded.roles
+SELECT user_id, xp, msgs FROM text_levels WHERE guild_id = $1 ORDER BY xp DESC LIMIT 5;
+INSERT INTO text_level_settings (guild_id, autoboard_channel) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET autoboard_channel = excluded.autoboard_channel
+DELETE FROM text_levels WHERE guild_id = $1
+SELECT channels, role_id FROM notifications WHERE guild_id = $1
+DELETE FROM notifications WHERE guild_id = $1
+INSERT INTO notifications (guild_id, channels) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET channels = excluded.channels
+SELECT channels FROM notifications WHERE guild_id = $1
+INSERT INTO notifications (guild_id, role_id) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET role_id = excluded.role_id
+INSERT INTO notifications (guild_id, message) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET message = excluded.message
+INSERT INTO notifications (guild_id, command) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET command = excluded.command
+DELETE FROM paginator WHERE guild_id = $1
+SELECT command_name, alias FROM aliases WHERE guild_id = $1
+SELECT webhooks FROM reskin.server WHERE guild_id = $1
+INSERT INTO reskin.server (guild_id, username, avatar, webhooks) VALUES($1, $2, $3, $4) ON CONFLICT(guild_id) DO UPDATE SET username = excluded.username
+INSERT INTO reskin.server (guild_id, username, avatar, webhooks) VALUES($1, $2, $3, $4) ON CONFLICT(guild_id) DO UPDATE SET avatar = excluded.avatar, webhooks = excluded.webhooks
+DELETE FROM reskin.server WHERE guild_id = $1
+SELECT webhooks FROM reskin.main WHERE user_id = $1
+INSERT INTO reskin.main (user_id, username, avatar, webhooks) VALUES($1, $2, $3, $4) ON CONFLICT(user_id) DO UPDATE SET username = excluded.username
+INSERT INTO reskin.main (user_id, username, avatar, webhooks) VALUES($1, $2, $3, $4) ON CONFLICT(user_id) DO UPDATE SET avatar = excluded.avatar, webhooks = excluded.webhooks
+DELETE FROM reskin.main WHERE user_id = $1
+DELETE FROM context WHERE guild_id = $1
+INSERT INTO context (guild_id, success_color) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET success_color = excluded.success_color
+INSERT INTO context (guild_id, success_emoji) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET success_emoji = excluded.success_emoji
+INSERT INTO context (guild_id, fail_color) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET fail_color = excluded.fail_color
+INSERT INTO context (guild_id, fail_emoji) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET fail_emoji = excluded.fail_emoji
+INSERT INTO context (guild_id, warning_color) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET warning_color = excluded.warning_color
+INSERT INTO context (guild_id, warning_emoji) VALUES($1, $2) ON CONFLICT(guild_id) DO UPDATE SET warning_emoji = excluded.warning_emoji
+INSERT INTO system_messages (guild_id) VALUES($1)
+DELETE FROM system_messages WHERE guild_id = $1
+INSERT INTO premiumrole (guild_id, role_id) VALUES ($1, $2) ON CONFLICT(guild_id) DO UPDATE SET role_id = excluded.role_id
+DELETE FROM premiumrole WHERE guild_id = $1
+SELECT perms FROM fakeperms WHERE guild_id = $1 AND role_id = $2
+INSERT INTO fakeperms (guild_id, role_id, perms) VALUES($1, $2, $3) ON CONFLICT(guild_id, role_id) DO UPDATE SET perms = excluded.perms
+SELECT * FROM fakeperms WHERE guild_id = $1 AND role_id = $2
+DELETE FROM fakeperms WHERE guild_id = $1 AND role_id = $2
+SELECT * FROM fakeperms WHERE guild_id = $1
+DELETE FROM fakeperms WHERE guild_id = $1
+SELECT role_id, perms FROM fakeperms WHERE guild_id = $1
+SELECT role_id FROM br WHERE guild_id = $1 AND user_id = $2
+SELECT role_id FROM br WHERE guild_id = $1
+DELETE FROM br WHERE guild_id = $1 AND role_id = $2
+DELETE FROM br WHERE guild_id = $1
+SELECT role_id FROM br_base WHERE guild_id = $1
+DELETE FROM br_status WHERE guild_id = $1
+DELETE FROM br_base WHERE guild_id = $1
+SELECT * FROM br_status WHERE guild_id = $1
+INSERT INTO br_status (guild_id, status) VALUES($1,$2)
+INSERT INTO br_base (guild_id, role_id) VALUES($1,$2) ON CONFLICT(guild_id) DO UPDATE SET role_id = excluded.role_id
+SELECT role_id FROM br WHERE user_id = $1 AND guild_id = $2
+SELECT role_id FROM autorole WHERE guild_id = $1
+DELETE FROM autoreact WHERE keyword = $1 AND guild_id = $2
+SELECT * FROM reactionrole WHERE guild_id = $1 AND channel_id = $2 AND message_id = $3 AND emoji = $4 AND role_id = $5
+DELETE FROM reactionrole WHERE guild_id = $1 AND channel_id = $2 AND message_id = $3 AND emoji = $4 AND role_id = $5
+INSERT INTO reactionrole (guild_id,channel_id,message_id,emoji,role_id,message_url) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(guild_id,channel_id,message_id,emoji,role_id) DO UPDATE SET role_id = excluded.role_id
+DELETE FROM reactionrole WHERE guild_id = $1 AND channel_id = $2 AND message_id = $3 AND emoji = $4
+DELETE FROM reactionrole WHERE guild_id = $1
+SELECT channel_id,message_id,emoji,role_id,message_url FROM reactionrole WHERE guild_id = $1
+INSERT INTO autoresponder (guild_id,trig,response) VALUES($1,$2,$3) ON CONFLICT (guild_id,trig) DO UPDATE SET response = excluded.response
+DELETE FROM autoresponder WHERE guild_id = $1 AND trig = $2
+DELETE FROM autoresponder WHERE guild_id = $1
+SELECT trig,response FROM autoresponder WHERE guild_id = $1
+SELECT reason FROM globalbans WHERE user_id = $1
+SELECT * FROM donators WHERE user_id = $1
+DELETE FROM donators WHERE user_id = $1
+INSERT INTO donators (user_id, ts) VALUES($1, $2)
+SELECT command_name, SUM(uses) as total FROM command_usage
+                WHERE command_type = 'internal'
+                  AND guild_id = $1
+                  AND user_id = $2
+                GROUP BY command_name
+                ORDER BY total DESC
+SELECT command_name, SUM(uses) as total FROM command_usage
+                WHERE command_type = 'internal'
+                  AND user_id = any($1::bigint[])
+                GROUP BY command_name
+                ORDER BY total DESC
+SELECT SUM(uses) as total, user_id, MAX(uses) FROM command_usage
+                WHERE command_type = 'internal'
+                  AND command_name = ANY($1)
+                GROUP BY user_id
+SELECT guild_id, MAX(uses) FROM command_usage
+                WHERE command_type = 'internal'
+                  AND command_name = ANY($1)
+                GROUP BY guild_id
+SELECT SUM(uses) FROM command_usage
+                        WHERE command_type = 'internal'
+                          AND command_name = ANY($1)
+                          AND guild_id = $2
+                    GROUP BY guild_id
+SELECT command_name, SUM(uses) FROM command_usage
+                    WHERE command_type = 'internal'
+                      AND command_name = ANY($1)
+                GROUP BY command_name ORDER BY SUM(uses) DESC
+SELECT * FROM auth WHERE guild_id = $1
+DELETE FROM auth WHERE guild_id = $1
+INSERT INTO auth (guild_id, ts) VALUES($1,$2) ON CONFLICT(guild_id) DO NOTHING
+SELECT * FROM traceback WHERE error_code = $1
+DELETE FROM terms_agreement WHERE user_id = $1
+DELETE FROM globalbans WHERE user_id = $1
+INSERT INTO globalbans (user_id, reason) VALUES ($1, $2)
+INSERT INTO blacklisted
+                (object_id, object_type, blacklist_author, reason)
+                VALUES ($1, $2, $3, $4)
+DELETE FROM blacklisted
+                WHERE object_id = $1
+SELECT *
+            FROM blacklisted

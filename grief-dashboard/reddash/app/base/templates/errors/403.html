@@ -1,0 +1,29 @@
+{% extends "base-site.html" %}
+
+{% block title %} {{ _('Page 403') }} {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-profile">
+            <div class="card-body">
+                <h6 class="card-category text-gray">{{ _('Uh oh!') }}</h6>
+                <h4 class="card-title">
+                    {{ _('Error 403') }}
+                </h4>
+                <p>{{ _("Looks like you're not allowed to access that page... Strange...") }}</p>
+                <a href="{{ url_for('base_blueprint.index') }}"><button class="btn">{{ _('Home') }}</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,18 @@
+{
+    "language_code": "Romania",
+    "language": "Romania",
+    "language_local": "ro-RO",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "Confirmarea nu a fost aprobată!",
+            "FAILED_SEND_PROMPT": "Nu am reuşit sǎ trimit mesajul de confirmare!",
+            "ONLY_USER_RESPOND": "Doar **{user}** poate răspunde la acest mesaj!",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "Aprobă",
+                    "decline": "Refuză"
+                }
+            }
+        }
+    }
+}

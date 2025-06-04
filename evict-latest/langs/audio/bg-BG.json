@@ -1,0 +1,54 @@
+{
+    "language_code": "bg-BG",
+    "language": "bg-BG",
+    "language_local": "bg-BG",
+    "errors": {
+        "PLAYER": {
+            "NOT_IN_VOICE": "Не си в гласов канал!",
+            "NOT_SHARING_VOICE": "Не си в гласов канал!",
+            "CLIENT_NOT_IN_VOICE": "Аз не съм в гласов канал!",
+            "CLIENT_MISSING_PERMS": "Нямам разрешение да се свържа към твоя гласов канал!",
+            "CLIENT_NOT_PLAYING": "Нищо не се възпроизвежда!",
+            "NO_QUEUE": "Опашката е празна!",
+            "INVALID_QUEUE_POSITION": "Невалидна позиция - трябва да бъде между `1` и `{len(queue)}`!",
+            "FAILED_TO_CONNECT": "Неуспешно свързване към гласов канал",
+            "FAILED_TO_GET_TRACK_SP": "Неуспешно получаване на информацията на песента от Spotify!",
+            "FAILED_TO_GET_TRACK_SC": "Не успях да намеря никакви съвпадащи песни в SoundCloud!",
+            "NO_RESULTS": "Няма намерени резултати!",
+            "ACTIVITY_FAILED": "Неуспешно свързване към музикалната дейност на Discord",
+            "EXCEPTION": "Възникна грешка: {e}",
+            "RECOMMENDATIONS_FAILED": "Неуспешно извличане на предложения",
+            "TRACK_ALREADY_PAUSED": "Песента е вече на пауза!",
+            "TRACK_NOT_PAUSED": "Песента не е на пауза!"
+        }
+    },
+    "commands": {
+        "queue": {
+            "DESCRIPTION": "Команди за управляване на опашката",
+            "view": {
+                "DESCRIPTION": "Виж песните в опашката.",
+                "EMBED": {
+                    "NAME": "Опашка за {ctx.guild}",
+                    "DESCRIPTION_LINE_ONE": "Слушане на [**{shorten(track.title)}**]({track.uri}) [`{duration(ctx.voice.position)}/{duration(track.length)}`]",
+                    "DESCRIPTION_LINE_TWO": "Поскано от {track.requester.mention}"
+                },
+                "__COMMENT__": "Трябва да добави поле за следващо"
+            },
+            "remove": {
+                "DESCRIPTION": "Премахни песен от опашката.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Премахнах [**{shorten(track.title)}**]({track.uri}) от опашката"
+                }
+            },
+            "move": {
+                "DESCRIPTION": "Премести песен в опашката.",
+                "EMBED": {
+                    "DESCRIPTION_LINE_ONE": "Преместих [**{shorten(track.title)}**]({track.uri}) до `{ordinal(new_position)}` в опашката"
+                }
+            }
+        },
+        "play": {
+            "DESCRIPTION": "Възпроизвеждане на песен или плейлист в гласовия канал."
+        }
+    }
+}

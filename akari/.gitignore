@@ -1,0 +1,6 @@
+.env
+tts.mp3
+__pycache__
+*.pyc
+*.log
+*.js

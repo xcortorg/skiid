@@ -1,0 +1,33 @@
+{
+    "commands": {
+        "General": {
+            "help": {
+                "description": "Shows the help menu.",
+                "syntax": "help [command_name]",
+                "example": "help ping",
+                "permissions": "None",
+                "aliases": ["cmd", "commands"]
+            }
+        },
+        "Vanity": {
+            "vanity set": {
+                "description": "Sets the vanity for the server",
+                "syntax": "v!vanity set </vanity>",
+                "example": "v!vanity set /Kybalion",
+                "permissions": "Administrator"
+            },
+            "vanity role": {
+                "description": "Sets the role for vanity",
+                "syntax": "v!vanity role <role>",
+                "example": "v!vanity role @pic",
+                "permissions": "Administrator"
+            },
+            "vanity logs": {
+                "description": "Sets the channel for rep logs",
+                "syntax": "v!vanity logs <channel>",
+                "example": "v!vanity logs #replogs",
+                "permissions": "Administrator"
+            }
+        }
+    }
+}

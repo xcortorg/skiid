@@ -1,0 +1,5 @@
+Issue #4
+Reported by: playfairs (ID: 785042666475225109)
+
+Description:
+VoiceMaster: None of the VoiceMaster commands work at the moment, this will (probably) be fixed eventually.

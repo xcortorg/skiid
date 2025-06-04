@@ -1,0 +1,18 @@
+{
+    "language_code": "de-DE",
+    "language": "de-DE",
+    "language_local": "de-DE",
+    "system": {
+        "confirm": {
+            "PROMPT_NOT_APPROVED": "Anfrage nicht bestätigt!",
+            "FAILED_SEND_PROMPT": "Promt Das Senden ist fehlgeschlagen!",
+            "ONLY_USER_RESPOND": "Einziger **{user}**!",
+            "CONFIRMATION": {
+                "buttons": {
+                    "approve": "Erlauben",
+                    "decline": "Ablehnen"
+                }
+            }
+        }
+    }
+}

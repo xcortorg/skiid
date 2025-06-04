@@ -1,0 +1,35 @@
+{
+    "language": "Franco Arabic",
+    "language_code": "ar-latn",
+    "language_local": "ar-Latn",
+    "system": {
+        "help": {
+            "INFORMATION_DESC": "**El Ma3lomat**\n> [ ] = ikhtiyari, < > = ma7toum\n",
+            "SELECT_CATEGORY": "Ikhtar kategori mn el menu ta7t",
+            "DROPDOWN_PLACEHOLDER": "Ikhtar kategori...",
+            "NO_COMMANDS": "Mafish commands fel groupe da.",
+            "CANNOT_INTERACT": "Matenfa3sh teta3aml m3 el menu da!",
+            "COMMAND": {
+                "title": {
+                    "NORMAL": "El Command: {command_name} • {module_name} module",
+                    "GROUP": "El Group: {command_name} • {module_name} module"
+                },
+                "SYNTAX": "```Ruby\nEl Syiagha: {syntax}\nMethal: {prefix}{command_name} {example}```",
+                "PERMISSIONS": "El Salahiyat",
+                "ALIASES": "El Asami El Mobadala: {aliases}",
+                "FLAGS": {
+                    "REQUIRED": "Flags ma7touma",
+                    "OPTIONAL": "Flags ikhtiyaria"
+                }
+            },
+            "CATEGORY": {
+                "TITLE": "El Kategori: {category_name}",
+                "FOOTER": "{count} command{plural}"
+            },
+            "ERRORS": {
+                "COMMAND_NOT_FOUND": "> {emoji} {user}: El command `{command}` mesh mawgoud",
+                "SUBCOMMAND_NOT_FOUND": "> {emoji} {user}: El command `{command} {subcommand}` mesh mawgoud"
+            }
+        }
+    }
+}

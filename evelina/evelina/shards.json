@@ -1,0 +1,110 @@
+[
+    {
+        "shard_id": 0,
+        "is_ready": true,
+        "server_count": 1032,
+        "member_count": 157246,
+        "uptime": 180.029849,
+        "latency": 196,
+        "last_updated": "2025-04-22T08:30:42.203905"
+    },
+    {
+        "shard_id": 1,
+        "is_ready": true,
+        "server_count": 1039,
+        "member_count": 236472,
+        "uptime": 180.010124,
+        "latency": 313,
+        "last_updated": "2025-04-22T08:30:42.214152"
+    },
+    {
+        "shard_id": 2,
+        "is_ready": true,
+        "server_count": 1007,
+        "member_count": 342657,
+        "uptime": 180.009435,
+        "latency": 179,
+        "last_updated": "2025-04-22T08:30:42.223702"
+    },
+    {
+        "shard_id": 3,
+        "is_ready": true,
+        "server_count": 980,
+        "member_count": 395396,
+        "uptime": 180.009127,
+        "latency": 13,
+        "last_updated": "2025-04-22T08:30:42.232910"
+    },
+    {
+        "shard_id": 4,
+        "is_ready": true,
+        "server_count": 974,
+        "member_count": 250632,
+        "uptime": 180.009992,
+        "latency": 22,
+        "last_updated": "2025-04-22T08:30:42.243000"
+    },
+    {
+        "shard_id": 5,
+        "is_ready": true,
+        "server_count": 949,
+        "member_count": 264368,
+        "uptime": 180.009752,
+        "latency": 161,
+        "last_updated": "2025-04-22T08:30:42.252855"
+    },
+    {
+        "shard_id": 6,
+        "is_ready": true,
+        "server_count": 1032,
+        "member_count": 228509,
+        "uptime": 180.009518,
+        "latency": 189,
+        "last_updated": "2025-04-22T08:30:42.262459"
+    },
+    {
+        "shard_id": 7,
+        "is_ready": true,
+        "server_count": 1035,
+        "member_count": 199655,
+        "uptime": 180.008705,
+        "latency": 306,
+        "last_updated": "2025-04-22T08:30:42.271246"
+    },
+    {
+        "shard_id": 8,
+        "is_ready": true,
+        "server_count": 1004,
+        "member_count": 251496,
+        "uptime": 180.009346,
+        "latency": 14,
+        "last_updated": "2025-04-22T08:30:42.280675"
+    },
+    {
+        "shard_id": 9,
+        "is_ready": true,
+        "server_count": 1025,
+        "member_count": 172683,
+        "uptime": 180.008609,
+        "latency": 22,
+        "last_updated": "2025-04-22T08:30:42.289391"
+    },
+    {
+        "shard_id": 10,
+        "is_ready": true,
+        "server_count": 1052,
+        "member_count": 209676,
+        "uptime": 180.008963,
+        "latency": 197,
+        "last_updated": "2025-04-22T08:30:42.298430"
+    },
+    {
+        "shard_id": 11,
+        "is_ready": true,
+        "server_count": 1018,
+        "member_count": 214787,
+        "uptime": 180.008618,
+        "latency": 79,
+        "last_updated": "2025-04-22T08:30:42.307126"
+    }
+]
